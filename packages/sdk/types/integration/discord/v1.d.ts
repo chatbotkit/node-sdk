@@ -89,6 +89,21 @@ export function deleteDiscordIntegration(client: ChatBotKitClient, discordId: st
  * @returns {Promise<DiscordIntegrationSetupResponse>}
  */
 export function setupDiscordIntegration(client: ChatBotKitClient, discordId: string): Promise<DiscordIntegrationSetupResponse>;
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateDiscord']['requestBody']['content']['application/json']} DiscordInitiateRequestBody
+ *
+ * @typedef {DiscordInitiateRequestBody} DiscordInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateDiscord']['responses']['200']['content']['application/json']} DiscordInitiateResponseBody
+ *
+ * @typedef {DiscordInitiateResponseBody} DiscordInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} discordId
+ * @param {DiscordInitiateRequest} request
+ * @returns {Promise<DiscordInitiateResponse>}
+ */
+export function initiateDiscord(client: ChatBotKitClient, discordId: string, request: DiscordInitiateRequest): Promise<DiscordInitiateResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type DiscordIntegrationListRequest = {
@@ -116,3 +131,7 @@ export type DiscordIntegrationSetupRequestBody = import("../../types/api/v1.js")
 export type DiscordIntegrationSetupRequest = DiscordIntegrationSetupRequestBody;
 export type DiscordIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupDiscordIntegration"]["responses"]["200"]["content"]["application/json"];
 export type DiscordIntegrationSetupResponse = DiscordIntegrationSetupResponseBody;
+export type DiscordInitiateRequestBody = import("../../types/api/v1.js").operations["initiateDiscord"]["requestBody"]["content"]["application/json"];
+export type DiscordInitiateRequest = DiscordInitiateRequestBody;
+export type DiscordInitiateResponseBody = import("../../types/api/v1.js").operations["initiateDiscord"]["responses"]["200"]["content"]["application/json"];
+export type DiscordInitiateResponse = DiscordInitiateResponseBody;

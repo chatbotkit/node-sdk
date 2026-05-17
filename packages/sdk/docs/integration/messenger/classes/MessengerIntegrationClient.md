@@ -6,7 +6,7 @@
 
 # Class: MessengerIntegrationClient
 
-Defined in: [integration/messenger/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L17)
+Defined in: [integration/messenger/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L18)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [integration/messenger/index.js:17](https://github.com/chatbotkit/no
 
 > **new MessengerIntegrationClient**(`options`): `MessengerIntegrationClient`
 
-Defined in: [integration/messenger/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L21)
+Defined in: [integration/messenger/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L22)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [integration/messenger/index.js:21](https://github.com/chatbotkit/no
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/messenger/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L51)
+Defined in: [integration/messenger/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L52)
 
 Creates a new messenger integration.
 
@@ -62,7 +62,7 @@ Creates a new messenger integration.
 
 > **delete**(`messengerId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/messenger/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L72)
+Defined in: [integration/messenger/index.js:73](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L73)
 
 Deletes a messenger integration.
 
@@ -116,7 +116,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`messengerId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [integration/messenger/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L41)
+Defined in: [integration/messenger/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L42)
 
 Fetches a messenger integration.
 
@@ -132,11 +132,33 @@ Fetches a messenger integration.
 
 ***
 
+### initiate()
+
+> **initiate**(`messengerId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+Defined in: [integration/messenger/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L94)
+
+Initiates a messenger integration conversation.
+
+#### Parameters
+
+##### messengerId
+
+`string`
+
+##### request
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+***
+
 ### list()
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/messenger/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L31)
+Defined in: [integration/messenger/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L32)
 
 Retrieves a list of all messenger integrations.
 
@@ -156,7 +178,7 @@ Retrieves a list of all messenger integrations.
 
 > **setup**(`messengerId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/messenger/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L82)
+Defined in: [integration/messenger/index.js:83](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L83)
 
 Setups a messenger integration.
 
@@ -176,7 +198,7 @@ Setups a messenger integration.
 
 > **update**(`messengerId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/messenger/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L62)
+Defined in: [integration/messenger/index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/messenger/index.js#L63)
 
 Updates a messenger integration.
 

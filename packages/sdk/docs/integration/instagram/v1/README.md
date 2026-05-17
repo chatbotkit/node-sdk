@@ -9,6 +9,10 @@
 ## Type Aliases
 
 - [ChatBotKitClient](type-aliases/ChatBotKitClient.md)
+- [InstagramInitiateRequest](type-aliases/InstagramInitiateRequest.md)
+- [InstagramInitiateRequestBody](type-aliases/InstagramInitiateRequestBody.md)
+- [InstagramInitiateResponse](type-aliases/InstagramInitiateResponse.md)
+- [InstagramInitiateResponseBody](type-aliases/InstagramInitiateResponseBody.md)
 - [InstagramIntegrationCreateRequest](type-aliases/InstagramIntegrationCreateRequest.md)
 - [InstagramIntegrationCreateRequestBody](type-aliases/InstagramIntegrationCreateRequestBody.md)
 - [InstagramIntegrationCreateResponse](type-aliases/InstagramIntegrationCreateResponse.md)
@@ -36,6 +40,7 @@
 - [createInstagramIntegration](functions/createInstagramIntegration.md)
 - [deleteInstagramIntegration](functions/deleteInstagramIntegration.md)
 - [fetchInstagramIntegration](functions/fetchInstagramIntegration.md)
+- [initiateInstagram](functions/initiateInstagram.md)
 - [listInstagramIntegrations](functions/listInstagramIntegrations.md)
 - [setupInstagramIntegration](functions/setupInstagramIntegration.md)
 - [updateInstagramIntegration](functions/updateInstagramIntegration.md)

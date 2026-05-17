@@ -156,3 +156,29 @@ export async function setupGooglechatIntegration(client, googlechatId) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateGooglechat']['requestBody']['content']['application/json']} GooglechatInitiateRequestBody
+ * @typedef {GooglechatInitiateRequestBody} GooglechatInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateGooglechat']['responses']['200']['content']['application/json']} GooglechatInitiateResponseBody
+ * @typedef {GooglechatInitiateResponseBody} GooglechatInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} googlechatId
+ * @param {GooglechatInitiateRequest} request
+ * @returns {Promise<GooglechatInitiateResponse>}
+ */
+export async function initiateGooglechat(client, googlechatId, request) {
+  const url = `/api/v1/integration/googlechat/${googlechatId}/initiate`
+
+  /** @type {GooglechatInitiateResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {GooglechatInitiateRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}

@@ -89,6 +89,21 @@ export function deleteInstagramIntegration(client: ChatBotKitClient, instagramId
  * @returns {Promise<InstagramIntegrationSetupResponse>}
  */
 export function setupInstagramIntegration(client: ChatBotKitClient, instagramId: string): Promise<InstagramIntegrationSetupResponse>;
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateInstagram']['requestBody']['content']['application/json']} InstagramInitiateRequestBody
+ *
+ * @typedef {InstagramInitiateRequestBody} InstagramInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateInstagram']['responses']['200']['content']['application/json']} InstagramInitiateResponseBody
+ *
+ * @typedef {InstagramInitiateResponseBody} InstagramInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} instagramId
+ * @param {InstagramInitiateRequest} request
+ * @returns {Promise<InstagramInitiateResponse>}
+ */
+export function initiateInstagram(client: ChatBotKitClient, instagramId: string, request: InstagramInitiateRequest): Promise<InstagramInitiateResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type InstagramIntegrationListRequest = {
@@ -116,3 +131,7 @@ export type InstagramIntegrationSetupRequestBody = import("../../types/api/v1.js
 export type InstagramIntegrationSetupRequest = InstagramIntegrationSetupRequestBody;
 export type InstagramIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupInstagramIntegration"]["responses"]["200"]["content"]["application/json"];
 export type InstagramIntegrationSetupResponse = InstagramIntegrationSetupResponseBody;
+export type InstagramInitiateRequestBody = import("../../types/api/v1.js").operations["initiateInstagram"]["requestBody"]["content"]["application/json"];
+export type InstagramInitiateRequest = InstagramInitiateRequestBody;
+export type InstagramInitiateResponseBody = import("../../types/api/v1.js").operations["initiateInstagram"]["responses"]["200"]["content"]["application/json"];
+export type InstagramInitiateResponse = InstagramInitiateResponseBody;

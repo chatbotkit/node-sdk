@@ -3,6 +3,7 @@ import {
   createTelegramIntegration,
   deleteTelegramIntegration,
   fetchTelegramIntegration,
+  initiateTelegram,
   listTelegramIntegrations,
   setupTelegramIntegration,
   updateTelegramIntegration,
@@ -81,6 +82,17 @@ export class TelegramIntegrationClient extends ChatBotKitClient {
    */
   setup(telegramId) {
     return setupTelegramIntegration(this, telegramId)
+  }
+
+  /**
+   * Initiates a telegram integration conversation.
+   *
+   * @param {string} telegramId
+   * @param {import('./v1.js').TelegramInitiateRequest} request
+   * @returns {Promise<import('./v1.js').TelegramInitiateResponse>}
+   */
+  initiate(telegramId, request) {
+    return initiateTelegram(this, telegramId, request)
   }
 }
 

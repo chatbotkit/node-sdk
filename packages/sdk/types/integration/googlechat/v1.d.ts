@@ -81,6 +81,19 @@ export function deleteGooglechatIntegration(client: ChatBotKitClient, googlechat
  * @returns {Promise<GooglechatIntegrationSetupResponse>}
  */
 export function setupGooglechatIntegration(client: ChatBotKitClient, googlechatId: string): Promise<GooglechatIntegrationSetupResponse>;
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateGooglechat']['requestBody']['content']['application/json']} GooglechatInitiateRequestBody
+ * @typedef {GooglechatInitiateRequestBody} GooglechatInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateGooglechat']['responses']['200']['content']['application/json']} GooglechatInitiateResponseBody
+ * @typedef {GooglechatInitiateResponseBody} GooglechatInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} googlechatId
+ * @param {GooglechatInitiateRequest} request
+ * @returns {Promise<GooglechatInitiateResponse>}
+ */
+export function initiateGooglechat(client: ChatBotKitClient, googlechatId: string, request: GooglechatInitiateRequest): Promise<GooglechatInitiateResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type GooglechatIntegrationListRequest = {
@@ -108,3 +121,7 @@ export type GooglechatIntegrationSetupRequestBody = import("../../types/api/v1.j
 export type GooglechatIntegrationSetupRequest = GooglechatIntegrationSetupRequestBody;
 export type GooglechatIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupGooglechatIntegration"]["responses"]["200"]["content"]["application/json"];
 export type GooglechatIntegrationSetupResponse = GooglechatIntegrationSetupResponseBody;
+export type GooglechatInitiateRequestBody = import("../../types/api/v1.js").operations["initiateGooglechat"]["requestBody"]["content"]["application/json"];
+export type GooglechatInitiateRequest = GooglechatInitiateRequestBody;
+export type GooglechatInitiateResponseBody = import("../../types/api/v1.js").operations["initiateGooglechat"]["responses"]["200"]["content"]["application/json"];
+export type GooglechatInitiateResponse = GooglechatInitiateResponseBody;

@@ -47,6 +47,14 @@ export class GooglechatIntegrationClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').GooglechatIntegrationSetupResponse>}
      */
     setup(googlechatId: string): Promise<import("./v1.js").GooglechatIntegrationSetupResponse>;
+    /**
+     * Initiates a Google Chat integration conversation.
+     *
+     * @param {string} googlechatId
+     * @param {import('./v1.js').GooglechatInitiateRequest} request
+     * @returns {Promise<import('./v1.js').GooglechatInitiateResponse>}
+     */
+    initiate(googlechatId: string, request: import("./v1.js").GooglechatInitiateRequest): Promise<import("./v1.js").GooglechatInitiateResponse>;
 }
 export default GooglechatIntegrationClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

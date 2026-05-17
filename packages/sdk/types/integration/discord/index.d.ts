@@ -47,6 +47,14 @@ export class DiscordIntegrationClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').DiscordIntegrationSetupResponse>}
      */
     setup(discordId: string): Promise<import("./v1.js").DiscordIntegrationSetupResponse>;
+    /**
+     * Initiates a discord integration conversation.
+     *
+     * @param {string} discordId
+     * @param {import('./v1.js').DiscordInitiateRequest} request
+     * @returns {Promise<import('./v1.js').DiscordInitiateResponse>}
+     */
+    initiate(discordId: string, request: import("./v1.js").DiscordInitiateRequest): Promise<import("./v1.js").DiscordInitiateResponse>;
 }
 export default DiscordIntegrationClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

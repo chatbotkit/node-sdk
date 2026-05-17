@@ -6,7 +6,7 @@
 
 # Class: WhatsAppIntegrationClient
 
-Defined in: [integration/whatsapp/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L17)
+Defined in: [integration/whatsapp/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L18)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [integration/whatsapp/index.js:17](https://github.com/chatbotkit/nod
 
 > **new WhatsAppIntegrationClient**(`options`): `WhatsAppIntegrationClient`
 
-Defined in: [integration/whatsapp/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L21)
+Defined in: [integration/whatsapp/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L22)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [integration/whatsapp/index.js:21](https://github.com/chatbotkit/nod
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/whatsapp/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L51)
+Defined in: [integration/whatsapp/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L52)
 
 Creates a new whatsapp integration.
 
@@ -62,7 +62,7 @@ Creates a new whatsapp integration.
 
 > **delete**(`whatsappId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/whatsapp/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L72)
+Defined in: [integration/whatsapp/index.js:73](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L73)
 
 Deletes a whatsapp integration.
 
@@ -116,7 +116,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`whatsappId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [integration/whatsapp/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L41)
+Defined in: [integration/whatsapp/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L42)
 
 Fetches a whatsapp integration.
 
@@ -132,11 +132,33 @@ Fetches a whatsapp integration.
 
 ***
 
+### initiate()
+
+> **initiate**(`whatsappId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+Defined in: [integration/whatsapp/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L94)
+
+Initiates a whatsapp integration conversation.
+
+#### Parameters
+
+##### whatsappId
+
+`string`
+
+##### request
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+***
+
 ### list()
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/whatsapp/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L31)
+Defined in: [integration/whatsapp/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L32)
 
 Retrieves a list of all whatsapp integrations.
 
@@ -156,7 +178,7 @@ Retrieves a list of all whatsapp integrations.
 
 > **setup**(`whatsappId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/whatsapp/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L82)
+Defined in: [integration/whatsapp/index.js:83](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L83)
 
 Setups a whatsapp integration.
 
@@ -176,7 +198,7 @@ Setups a whatsapp integration.
 
 > **update**(`whatsappId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/whatsapp/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L62)
+Defined in: [integration/whatsapp/index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L63)
 
 Updates a whatsapp integration.
 

@@ -89,6 +89,21 @@ export function deleteWhatsAppIntegration(client: ChatBotKitClient, whatsappId: 
  * @returns {Promise<WhatsAppIntegrationSetupResponse>}
  */
 export function setupWhatsAppIntegration(client: ChatBotKitClient, whatsappId: string): Promise<WhatsAppIntegrationSetupResponse>;
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateWhatsapp']['requestBody']['content']['application/json']} WhatsAppInitiateRequestBody
+ *
+ * @typedef {WhatsAppInitiateRequestBody} WhatsAppInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateWhatsapp']['responses']['200']['content']['application/json']} WhatsAppInitiateResponseBody
+ *
+ * @typedef {WhatsAppInitiateResponseBody} WhatsAppInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} whatsappId
+ * @param {WhatsAppInitiateRequest} request
+ * @returns {Promise<WhatsAppInitiateResponse>}
+ */
+export function initiateWhatsApp(client: ChatBotKitClient, whatsappId: string, request: WhatsAppInitiateRequest): Promise<WhatsAppInitiateResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type WhatsAppIntegrationListRequest = {
@@ -116,3 +131,7 @@ export type WhatsAppIntegrationSetupRequestBody = import("../../types/api/v1.js"
 export type WhatsAppIntegrationSetupRequest = WhatsAppIntegrationSetupRequestBody;
 export type WhatsAppIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupWhatsAppIntegration"]["responses"]["200"]["content"]["application/json"];
 export type WhatsAppIntegrationSetupResponse = WhatsAppIntegrationSetupResponseBody;
+export type WhatsAppInitiateRequestBody = import("../../types/api/v1.js").operations["initiateWhatsapp"]["requestBody"]["content"]["application/json"];
+export type WhatsAppInitiateRequest = WhatsAppInitiateRequestBody;
+export type WhatsAppInitiateResponseBody = import("../../types/api/v1.js").operations["initiateWhatsapp"]["responses"]["200"]["content"]["application/json"];
+export type WhatsAppInitiateResponse = WhatsAppInitiateResponseBody;

@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1778662933147)"
+    "version": "v1 (build 1779009007116)"
   },
   "servers": [
     {
@@ -1569,6 +1569,85 @@
         ]
       }
     },
+    "/integration/discord/{discordIntegrationId}/initiate": {
+      "post": {
+        "operationId": "initiateDiscord",
+        "summary": "Initiates conversation with the discord integration",
+        "tags": [
+          "Conversation"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channelId": {
+                    "description": "The Discord channel ID to send to",
+                    "type": "string"
+                  },
+                  "text": {
+                    "description": "The text message to send to the Discord channel",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "channelId",
+                  "text"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The discord integration was successfully initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the initiated integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "initiateDiscord",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/integration/email/{emailIntegrationId}/initiate": {
       "post": {
         "operationId": "initiateEmail",
@@ -1654,6 +1733,331 @@
         ]
       }
     },
+    "/integration/googlechat/{googlechatIntegrationId}/initiate": {
+      "post": {
+        "operationId": "initiateGooglechat",
+        "summary": "Initiates conversation with the googlechat integration",
+        "tags": [
+          "Conversation"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "space": {
+                    "description": "The Google Chat space resource name to send to, such as spaces/AAAA..., or a Google Chat user identifier for a direct message",
+                    "type": "string"
+                  },
+                  "text": {
+                    "description": "The text message to send to the Google Chat space",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The googlechat integration was successfully initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the initiated integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "initiateGooglechat",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/{instagramIntegrationId}/initiate": {
+      "post": {
+        "operationId": "initiateInstagram",
+        "summary": "Initiates conversation with the instagram integration",
+        "tags": [
+          "Conversation"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "instagramUserId": {
+                    "description": "The Instagram professional account ID sending the message",
+                    "type": "string"
+                  },
+                  "recipientId": {
+                    "description": "The Instagram recipient ID from a prior interaction",
+                    "type": "string"
+                  },
+                  "text": {
+                    "description": "The free-form text message to send while Meta allows messaging this recipient",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "instagramUserId",
+                  "recipientId",
+                  "text"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The instagram integration was successfully initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the initiated integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "initiateInstagram",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/messenger/{messengerIntegrationId}/initiate": {
+      "post": {
+        "operationId": "initiateMessenger",
+        "summary": "Initiates conversation with the messenger integration",
+        "tags": [
+          "Conversation"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pageId": {
+                    "description": "The Facebook Page ID sending the message",
+                    "type": "string"
+                  },
+                  "recipientId": {
+                    "description": "The Messenger recipient PSID from a prior interaction",
+                    "type": "string"
+                  },
+                  "text": {
+                    "description": "The free-form text message to send while Meta allows messaging this recipient",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "pageId",
+                  "recipientId",
+                  "text"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The messenger integration was successfully initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the initiated integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "initiateMessenger",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/microsoftteams/{microsoftteamsIntegrationId}/initiate": {
+      "post": {
+        "operationId": "initiateTeams",
+        "summary": "Initiates conversation with the teams integration",
+        "tags": [
+          "Conversation"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conversationId": {
+                    "description": "The Microsoft Teams Bot Framework conversation ID to send to",
+                    "type": "string"
+                  },
+                  "text": {
+                    "description": "The text message to send to the Teams conversation",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "conversationId",
+                  "text"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The teams integration was successfully initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the initiated integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "initiateTeams",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/integration/slack/{slackIntegrationId}/initiate": {
       "post": {
         "operationId": "initiateSlack",
@@ -1726,6 +2130,92 @@
           }
         },
         "__originalOperationId": "initiateSlack",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/telegram/{telegramIntegrationId}/initiate": {
+      "post": {
+        "operationId": "initiateTelegram",
+        "summary": "Initiates conversation with the telegram integration",
+        "tags": [
+          "Conversation"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "description": "The Telegram chat ID, user ID, group chat ID, or channel username to send to",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "text": {
+                    "description": "The text instruction to use to initiate the conversation",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "chatId",
+                  "text"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The telegram integration was successfully initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the initiated integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "initiateTelegram",
         "security": [
           {
             "BearerAuth": []
@@ -1819,6 +2309,85 @@
           }
         },
         "__originalOperationId": "initiateTwilio",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/whatsapp/{whatsappIntegrationId}/initiate": {
+      "post": {
+        "operationId": "initiateWhatsapp",
+        "summary": "Initiates conversation with the whatsapp integration",
+        "tags": [
+          "Conversation"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "to": {
+                    "description": "The recipient phone number in E.164 format, without the leading plus sign",
+                    "type": "string"
+                  },
+                  "text": {
+                    "description": "The free-form text message to send within an active WhatsApp customer service window",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "to",
+                  "text"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The whatsapp integration was successfully initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the initiated integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "initiateWhatsapp",
         "security": [
           {
             "BearerAuth": []
@@ -7824,6 +8393,137 @@
           }
         },
         "__originalOperationId": "listContacts",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/conversation/{conversationId}/attachment/list": {
+      "get": {
+        "operationId": "listConversationAttachments",
+        "summary": "List conversation attachments",
+        "tags": [
+          "Conversation Attachment"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation to list attachments for",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The attachments were listed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The stored attachment file name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "type": {
+                            "description": "The inferred attachment MIME type",
+                            "type": "string"
+                          },
+                          "size": {
+                            "description": "The attachment size in bytes",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listConversationAttachments",
         "security": [
           {
             "BearerAuth": []
@@ -21850,6 +22550,10 @@
                       "description": "The session duration for the integration",
                       "type": "number"
                     },
+                    "attachments": {
+                      "description": "Whether file attachment processing is enabled",
+                      "type": "boolean"
+                    },
                     "autoRespond": {
                       "description": "The auto-respond configuration",
                       "type": "string"
@@ -22037,6 +22741,10 @@
                     "description": "The session duration for the integration",
                     "type": "number"
                   },
+                  "attachments": {
+                    "description": "Whether file attachment processing is enabled",
+                    "type": "boolean"
+                  },
                   "autoRespond": {
                     "description": "The auto-respond configuration",
                     "type": "string"
@@ -22150,6 +22858,10 @@
                   "sessionDuration": {
                     "description": "The session duration for the Google Chat integration",
                     "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Whether file attachment processing is enabled",
+                    "type": "boolean"
                   },
                   "autoRespond": {
                     "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to DMs and direct messages only.",
@@ -22327,6 +23039,10 @@
                             "description": "The session duration for the integration",
                             "type": "number"
                           },
+                          "attachments": {
+                            "description": "Whether file attachment processing is enabled",
+                            "type": "boolean"
+                          },
                           "autoRespond": {
                             "description": "The auto-respond configuration",
                             "type": "string"
@@ -22420,6 +23136,10 @@
                             "sessionDuration": {
                               "description": "The session duration for the integration",
                               "type": "number"
+                            },
+                            "attachments": {
+                              "description": "Whether file attachment processing is enabled",
+                              "type": "boolean"
                             },
                             "autoRespond": {
                               "description": "The auto-respond configuration",
@@ -24582,6 +25302,701 @@
           }
         },
         "__originalOperationId": "listMessengerIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/microsoftteams/{microsoftteamsIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteMicrosoftteamsIntegration",
+        "summary": "Delete Teams integration",
+        "tags": [
+          "Teams Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "microsoftteamsIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Teams integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Teams integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Teams integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteMicrosoftteamsIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/microsoftteams/{microsoftteamsIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchMicrosoftteamsIntegration",
+        "summary": "Fetch a microsoftteamsIntegration",
+        "tags": [
+          "Teams Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "microsoftteamsIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Teams integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Teams integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Blueprint properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "botId": {
+                      "type": "string",
+                      "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
+                    },
+                    "botFrameworkAppId": {
+                      "description": "The Microsoft Bot Framework Application ID",
+                      "type": "string"
+                    },
+                    "contactCollection": {
+                      "description": "Weather to collect contacts",
+                      "type": "boolean"
+                    },
+                    "sessionDuration": {
+                      "description": "The chat session duration",
+                      "type": "number"
+                    },
+                    "allowFrom": {
+                      "description": "The allowed senders for this integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchMicrosoftteamsIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/microsoftteams/{microsoftteamsIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupMicrosoftteamsIntegration",
+        "summary": "Setup Teams integration",
+        "tags": [
+          "Teams Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "microsoftteamsIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Teams integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Teams integration was setup successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the setup Teams integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "setupMicrosoftteamsIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/microsoftteams/{microsoftteamsIntegrationId}/update": {
+      "post": {
+        "operationId": "updateMicrosoftteamsIntegration",
+        "summary": "Update a Teams integration",
+        "tags": [
+          "Teams Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "microsoftteamsIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Teams integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
+                  },
+                  "botFrameworkAppId": {
+                    "description": "The Microsoft Bot Framework Application ID",
+                    "type": "string"
+                  },
+                  "botFrameworkAppSecret": {
+                    "description": "The Microsoft Bot Framework Application Secret",
+                    "type": "string"
+                  },
+                  "tenantId": {
+                    "description": "The Microsoft Entra tenant ID",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The chat session duration",
+                    "type": "number"
+                  },
+                  "allowFrom": {
+                    "description": "The allowed senders for this integration",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Teams integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Teams Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateMicrosoftteamsIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/microsoftteams/create": {
+      "post": {
+        "operationId": "createMicrosoftteamsIntegration",
+        "summary": "Create Teams integration",
+        "tags": [
+          "Teams Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
+                  },
+                  "botFrameworkAppId": {
+                    "description": "The Microsoft Bot Framework Application ID",
+                    "type": "string"
+                  },
+                  "botFrameworkAppSecret": {
+                    "description": "The Microsoft Bot Framework Application Secret",
+                    "type": "string"
+                  },
+                  "tenantId": {
+                    "description": "The Microsoft Entra tenant ID",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The chat session duration",
+                    "type": "number"
+                  },
+                  "allowFrom": {
+                    "description": "The allowed senders for this integration",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Teams integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Teams Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createMicrosoftteamsIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/microsoftteams/list": {
+      "get": {
+        "operationId": "listMicrosoftteamsIntegrations",
+        "summary": "List Teams integrations",
+        "tags": [
+          "Teams Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Teams integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Blueprint properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "botId": {
+                            "type": "string",
+                            "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
+                          "botFrameworkAppId": {
+                            "description": "The Microsoft Bot Framework Application ID",
+                            "type": "string"
+                          },
+                          "contactCollection": {
+                            "description": "Weather to collect contacts",
+                            "type": "boolean"
+                          },
+                          "sessionDuration": {
+                            "description": "The chat session duration",
+                            "type": "number"
+                          },
+                          "allowFrom": {
+                            "description": "The allowed senders for this integration",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {}
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listMicrosoftteamsIntegrations",
         "security": [
           {
             "BearerAuth": []
@@ -27740,762 +29155,6 @@
           }
         },
         "__originalOperationId": "listSupportIntegrations",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/integration/teams/{teamsIntegrationId}/delete": {
-      "post": {
-        "operationId": "deleteTeamsIntegration",
-        "summary": "Delete Teams integration",
-        "tags": [
-          "Teams Integration"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "teamsIntegrationId",
-            "required": true,
-            "schema": {
-              "description": "The ID of the Teams integration",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The Teams integration was deleted successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "The ID of the deleted Teams integration",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id"
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "type": "object",
-            "description": "An error response",
-            "properties": {
-              "message": {
-                "type": "string",
-                "description": "The error message"
-              },
-              "code": {
-                "type": "string",
-                "description": "The error code"
-              }
-            },
-            "required": [
-              "message",
-              "code"
-            ],
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "deleteTeamsIntegration",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/integration/teams/{teamsIntegrationId}/fetch": {
-      "get": {
-        "operationId": "fetchTeamsIntegration",
-        "summary": "Fetch a teamsIntegration",
-        "tags": [
-          "Teams Integration"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "teamsIntegrationId",
-            "required": true,
-            "schema": {
-              "description": "The ID of the Teams integration to retrieve",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The Teams integration was retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Blueprint properties",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "The associated name"
-                    },
-                    "description": {
-                      "type": "string",
-                      "description": "The associated description"
-                    },
-                    "meta": {
-                      "type": "object",
-                      "description": "Meta data information",
-                      "additionalProperties": true,
-                      "$$ref": "#/components/schemas/Meta"
-                    },
-                    "id": {
-                      "type": "string",
-                      "description": "The instance ID"
-                    },
-                    "createdAt": {
-                      "type": "number",
-                      "description": "The timestamp (ms) when the instance was created"
-                    },
-                    "updatedAt": {
-                      "type": "number",
-                      "description": "The timestamp (ms) when the instance was updated"
-                    },
-                    "botId": {
-                      "type": "string",
-                      "description": "The ID of the bot this configuration is using"
-                    },
-                    "blueprintId": {
-                      "type": "string",
-                      "description": "The ID of the blueprint"
-                    },
-                    "botFrameworkAppId": {
-                      "description": "The Microsoft Bot Framework Application ID",
-                      "type": "string"
-                    },
-                    "contactCollection": {
-                      "description": "Weather to collect contacts",
-                      "type": "boolean"
-                    },
-                    "sessionDuration": {
-                      "description": "The chat session duration",
-                      "type": "number"
-                    },
-                    "allowFrom": {
-                      "description": "The allowed senders for this integration",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "createdAt",
-                    "updatedAt"
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "type": "object",
-            "description": "An error response",
-            "properties": {
-              "message": {
-                "type": "string",
-                "description": "The error message"
-              },
-              "code": {
-                "type": "string",
-                "description": "The error code"
-              }
-            },
-            "required": [
-              "message",
-              "code"
-            ],
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "fetchTeamsIntegration",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/integration/teams/{teamsIntegrationId}/setup": {
-      "post": {
-        "operationId": "setupTeamsIntegration",
-        "summary": "Setup Teams integration",
-        "tags": [
-          "Teams Integration"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "teamsIntegrationId",
-            "required": true,
-            "schema": {
-              "description": "The ID of the Teams integration",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The Teams integration was setup successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "The ID of the setup Teams integration",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id"
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "type": "object",
-            "description": "An error response",
-            "properties": {
-              "message": {
-                "type": "string",
-                "description": "The error message"
-              },
-              "code": {
-                "type": "string",
-                "description": "The error code"
-              }
-            },
-            "required": [
-              "message",
-              "code"
-            ],
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "setupTeamsIntegration",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/integration/teams/{teamsIntegrationId}/update": {
-      "post": {
-        "operationId": "updateTeamsIntegration",
-        "summary": "Update a Teams integration",
-        "tags": [
-          "Teams Integration"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "teamsIntegrationId",
-            "required": true,
-            "schema": {
-              "description": "The ID of the Teams integration",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "description": "A bot configuration that can be applied without a dedicated bot instance.",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "The associated name"
-                  },
-                  "description": {
-                    "type": "string",
-                    "description": "The associated description"
-                  },
-                  "meta": {
-                    "type": "object",
-                    "description": "Meta data information",
-                    "additionalProperties": true,
-                    "$$ref": "#/components/schemas/Meta"
-                  },
-                  "blueprintId": {
-                    "type": "string",
-                    "description": "The ID of the blueprint"
-                  },
-                  "botId": {
-                    "type": "string",
-                    "description": "The ID of the bot this configuration is using"
-                  },
-                  "botFrameworkAppId": {
-                    "description": "The Microsoft Bot Framework Application ID",
-                    "type": "string"
-                  },
-                  "botFrameworkAppSecret": {
-                    "description": "The Microsoft Bot Framework Application Secret",
-                    "type": "string"
-                  },
-                  "tenantId": {
-                    "description": "The Microsoft Entra tenant ID",
-                    "type": "string"
-                  },
-                  "contactCollection": {
-                    "description": "Weather to collect contacts",
-                    "type": "boolean"
-                  },
-                  "sessionDuration": {
-                    "description": "The chat session duration",
-                    "type": "number"
-                  },
-                  "allowFrom": {
-                    "description": "The allowed senders for this integration",
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The Teams integration was updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "The ID of the Teams Integration",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id"
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "type": "object",
-            "description": "An error response",
-            "properties": {
-              "message": {
-                "type": "string",
-                "description": "The error message"
-              },
-              "code": {
-                "type": "string",
-                "description": "The error code"
-              }
-            },
-            "required": [
-              "message",
-              "code"
-            ],
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "updateTeamsIntegration",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/integration/teams/create": {
-      "post": {
-        "operationId": "createTeamsIntegration",
-        "summary": "Create Teams integration",
-        "tags": [
-          "Teams Integration"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "description": "A bot configuration that can be applied without a dedicated bot instance.",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "The associated name"
-                  },
-                  "description": {
-                    "type": "string",
-                    "description": "The associated description"
-                  },
-                  "meta": {
-                    "type": "object",
-                    "description": "Meta data information",
-                    "additionalProperties": true,
-                    "$$ref": "#/components/schemas/Meta"
-                  },
-                  "blueprintId": {
-                    "type": "string",
-                    "description": "The ID of the blueprint"
-                  },
-                  "botId": {
-                    "type": "string",
-                    "description": "The ID of the bot this configuration is using"
-                  },
-                  "botFrameworkAppId": {
-                    "description": "The Microsoft Bot Framework Application ID",
-                    "type": "string"
-                  },
-                  "botFrameworkAppSecret": {
-                    "description": "The Microsoft Bot Framework Application Secret",
-                    "type": "string"
-                  },
-                  "tenantId": {
-                    "description": "The Microsoft Entra tenant ID",
-                    "type": "string"
-                  },
-                  "contactCollection": {
-                    "description": "Weather to collect contacts",
-                    "type": "boolean"
-                  },
-                  "sessionDuration": {
-                    "description": "The chat session duration",
-                    "type": "number"
-                  },
-                  "allowFrom": {
-                    "description": "The allowed senders for this integration",
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The Teams integration was created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "The ID of the Teams Integration",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id"
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "type": "object",
-            "description": "An error response",
-            "properties": {
-              "message": {
-                "type": "string",
-                "description": "The error message"
-              },
-              "code": {
-                "type": "string",
-                "description": "The error code"
-              }
-            },
-            "required": [
-              "message",
-              "code"
-            ],
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "createTeamsIntegration",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/integration/teams/list": {
-      "get": {
-        "operationId": "listTeamsIntegrations",
-        "summary": "List Teams integrations",
-        "tags": [
-          "Teams Integration"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "cursor",
-            "schema": {
-              "description": "The cursor to use for pagination",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "order",
-            "schema": {
-              "description": "The order of the paginated items",
-              "type": "string",
-              "enum": [
-                "asc",
-                "desc"
-              ],
-              "default": "desc"
-            }
-          },
-          {
-            "in": "query",
-            "name": "take",
-            "schema": {
-              "description": "The number of items to retrieve",
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "meta",
-            "schema": {
-              "description": "Key-value pairs to filter the partner users by metadata",
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "style": "deepObject",
-            "explode": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The list of Teams integrations was retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "items": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "Blueprint properties",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "The associated name"
-                          },
-                          "description": {
-                            "type": "string",
-                            "description": "The associated description"
-                          },
-                          "meta": {
-                            "type": "object",
-                            "description": "Meta data information",
-                            "additionalProperties": true,
-                            "$$ref": "#/components/schemas/Meta"
-                          },
-                          "id": {
-                            "type": "string",
-                            "description": "The instance ID"
-                          },
-                          "createdAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was created"
-                          },
-                          "updatedAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was updated"
-                          },
-                          "botId": {
-                            "type": "string",
-                            "description": "The ID of the bot this configuration is using"
-                          },
-                          "blueprintId": {
-                            "type": "string",
-                            "description": "The ID of the blueprint"
-                          },
-                          "botFrameworkAppId": {
-                            "description": "The Microsoft Bot Framework Application ID",
-                            "type": "string"
-                          },
-                          "contactCollection": {
-                            "description": "Weather to collect contacts",
-                            "type": "boolean"
-                          },
-                          "sessionDuration": {
-                            "description": "The chat session duration",
-                            "type": "number"
-                          },
-                          "allowFrom": {
-                            "description": "The allowed senders for this integration",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "createdAt",
-                          "updatedAt"
-                        ]
-                      }
-                    },
-                    "cursor": {
-                      "description": "Cursor for fetching the next page",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "items",
-                    "cursor"
-                  ]
-                }
-              },
-              "application/jsonl": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "item"
-                          ]
-                        },
-                        "data": {
-                          "type": "object",
-                          "description": "Blueprint properties",
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "description": "The associated name"
-                            },
-                            "description": {
-                              "type": "string",
-                              "description": "The associated description"
-                            },
-                            "meta": {
-                              "type": "object",
-                              "description": "Meta data information",
-                              "additionalProperties": true,
-                              "$$ref": "#/components/schemas/Meta"
-                            },
-                            "id": {
-                              "type": "string",
-                              "description": "The instance ID"
-                            },
-                            "createdAt": {
-                              "type": "number",
-                              "description": "The timestamp (ms) when the instance was created"
-                            },
-                            "updatedAt": {
-                              "type": "number",
-                              "description": "The timestamp (ms) when the instance was updated"
-                            },
-                            "botId": {
-                              "type": "string",
-                              "description": "The ID of the bot this configuration is using"
-                            },
-                            "blueprintId": {
-                              "type": "string",
-                              "description": "The ID of the blueprint"
-                            },
-                            "botFrameworkAppId": {
-                              "description": "The Microsoft Bot Framework Application ID",
-                              "type": "string"
-                            },
-                            "contactCollection": {
-                              "description": "Weather to collect contacts",
-                              "type": "boolean"
-                            },
-                            "sessionDuration": {
-                              "description": "The chat session duration",
-                              "type": "number"
-                            },
-                            "allowFrom": {
-                              "description": "The allowed senders for this integration",
-                              "type": "string"
-                            }
-                          },
-                          "$$ref": "#/paths/~1integration~1teams~1list/get/responses/200/content/application~1json/schema/properties/items/items",
-                          "required": [
-                            "id",
-                            "createdAt",
-                            "updatedAt"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "type": "object",
-            "description": "An error response",
-            "properties": {
-              "message": {
-                "type": "string",
-                "description": "The error message"
-              },
-              "code": {
-                "type": "string",
-                "description": "The error code"
-              }
-            },
-            "required": [
-              "message",
-              "code"
-            ],
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "listTeamsIntegrations",
         "security": [
           {
             "BearerAuth": []

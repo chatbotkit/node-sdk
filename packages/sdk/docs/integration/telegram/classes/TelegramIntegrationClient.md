@@ -6,7 +6,7 @@
 
 # Class: TelegramIntegrationClient
 
-Defined in: [integration/telegram/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L17)
+Defined in: [integration/telegram/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L18)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [integration/telegram/index.js:17](https://github.com/chatbotkit/nod
 
 > **new TelegramIntegrationClient**(`options`): `TelegramIntegrationClient`
 
-Defined in: [integration/telegram/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L21)
+Defined in: [integration/telegram/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L22)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [integration/telegram/index.js:21](https://github.com/chatbotkit/nod
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/telegram/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L51)
+Defined in: [integration/telegram/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L52)
 
 Creates a new telegram integration.
 
@@ -62,7 +62,7 @@ Creates a new telegram integration.
 
 > **delete**(`telegramId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/telegram/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L72)
+Defined in: [integration/telegram/index.js:73](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L73)
 
 Deletes a telegram integration.
 
@@ -116,7 +116,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`telegramId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [integration/telegram/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L41)
+Defined in: [integration/telegram/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L42)
 
 Fetches a telegram integration.
 
@@ -132,11 +132,33 @@ Fetches a telegram integration.
 
 ***
 
+### initiate()
+
+> **initiate**(`telegramId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+Defined in: [integration/telegram/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L94)
+
+Initiates a telegram integration conversation.
+
+#### Parameters
+
+##### telegramId
+
+`string`
+
+##### request
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+***
+
 ### list()
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/telegram/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L31)
+Defined in: [integration/telegram/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L32)
 
 Retrieves a list of all telegram integrations.
 
@@ -156,7 +178,7 @@ Retrieves a list of all telegram integrations.
 
 > **setup**(`telegramId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/telegram/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L82)
+Defined in: [integration/telegram/index.js:83](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L83)
 
 Setups a telegram integration.
 
@@ -176,7 +198,7 @@ Setups a telegram integration.
 
 > **update**(`telegramId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/telegram/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L62)
+Defined in: [integration/telegram/index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/index.js#L63)
 
 Updates a telegram integration.
 

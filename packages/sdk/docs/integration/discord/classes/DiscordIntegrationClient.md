@@ -6,7 +6,7 @@
 
 # Class: DiscordIntegrationClient
 
-Defined in: [integration/discord/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L17)
+Defined in: [integration/discord/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L18)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [integration/discord/index.js:17](https://github.com/chatbotkit/node
 
 > **new DiscordIntegrationClient**(`options`): `DiscordIntegrationClient`
 
-Defined in: [integration/discord/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L21)
+Defined in: [integration/discord/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L22)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [integration/discord/index.js:21](https://github.com/chatbotkit/node
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/discord/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L51)
+Defined in: [integration/discord/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L52)
 
 Creates a new discord integration.
 
@@ -62,7 +62,7 @@ Creates a new discord integration.
 
 > **delete**(`discordId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/discord/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L72)
+Defined in: [integration/discord/index.js:73](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L73)
 
 Deletes a discord integration.
 
@@ -116,7 +116,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`discordId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [integration/discord/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L41)
+Defined in: [integration/discord/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L42)
 
 Fetches a discord integration.
 
@@ -132,11 +132,33 @@ Fetches a discord integration.
 
 ***
 
+### initiate()
+
+> **initiate**(`discordId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+Defined in: [integration/discord/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L94)
+
+Initiates a discord integration conversation.
+
+#### Parameters
+
+##### discordId
+
+`string`
+
+##### request
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+***
+
 ### list()
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/discord/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L31)
+Defined in: [integration/discord/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L32)
 
 Retrieves a list of all discord integrations.
 
@@ -156,7 +178,7 @@ Retrieves a list of all discord integrations.
 
 > **setup**(`discordId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/discord/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L82)
+Defined in: [integration/discord/index.js:83](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L83)
 
 Setups a discord integration.
 
@@ -176,7 +198,7 @@ Setups a discord integration.
 
 > **update**(`discordId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/discord/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L62)
+Defined in: [integration/discord/index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/index.js#L63)
 
 Updates a discord integration.
 

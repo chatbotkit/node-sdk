@@ -3,6 +3,7 @@ import {
   createMessengerIntegration,
   deleteMessengerIntegration,
   fetchMessengerIntegration,
+  initiateMessenger,
   listMessengerIntegrations,
   setupMessengerIntegration,
   updateMessengerIntegration,
@@ -81,6 +82,17 @@ export class MessengerIntegrationClient extends ChatBotKitClient {
    */
   setup(messengerId) {
     return setupMessengerIntegration(this, messengerId)
+  }
+
+  /**
+   * Initiates a messenger integration conversation.
+   *
+   * @param {string} messengerId
+   * @param {import('./v1.js').MessengerInitiateRequest} request
+   * @returns {Promise<import('./v1.js').MessengerInitiateResponse>}
+   */
+  initiate(messengerId, request) {
+    return initiateMessenger(this, messengerId, request)
   }
 }
 

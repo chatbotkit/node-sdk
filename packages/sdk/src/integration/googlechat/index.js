@@ -3,6 +3,7 @@ import {
   createGooglechatIntegration,
   deleteGooglechatIntegration,
   fetchGooglechatIntegration,
+  initiateGooglechat,
   listGooglechatIntegrations,
   setupGooglechatIntegration,
   updateGooglechatIntegration,
@@ -81,6 +82,17 @@ export class GooglechatIntegrationClient extends ChatBotKitClient {
    */
   setup(googlechatId) {
     return setupGooglechatIntegration(this, googlechatId)
+  }
+
+  /**
+   * Initiates a Google Chat integration conversation.
+   *
+   * @param {string} googlechatId
+   * @param {import('./v1.js').GooglechatInitiateRequest} request
+   * @returns {Promise<import('./v1.js').GooglechatInitiateResponse>}
+   */
+  initiate(googlechatId, request) {
+    return initiateGooglechat(this, googlechatId, request)
   }
 }
 

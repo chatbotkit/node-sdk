@@ -47,6 +47,14 @@ export class InstagramIntegrationClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').InstagramIntegrationSetupResponse>}
      */
     setup(instagramId: string): Promise<import("./v1.js").InstagramIntegrationSetupResponse>;
+    /**
+     * Initiates an instagram integration conversation.
+     *
+     * @param {string} instagramId
+     * @param {import('./v1.js').InstagramInitiateRequest} request
+     * @returns {Promise<import('./v1.js').InstagramInitiateResponse>}
+     */
+    initiate(instagramId: string, request: import("./v1.js").InstagramInitiateRequest): Promise<import("./v1.js").InstagramInitiateResponse>;
 }
 export default InstagramIntegrationClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

@@ -6,7 +6,7 @@
 
 # Class: GooglechatIntegrationClient
 
-Defined in: [integration/googlechat/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L17)
+Defined in: [integration/googlechat/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L18)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [integration/googlechat/index.js:17](https://github.com/chatbotkit/n
 
 > **new GooglechatIntegrationClient**(`options`): `GooglechatIntegrationClient`
 
-Defined in: [integration/googlechat/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L21)
+Defined in: [integration/googlechat/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L22)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [integration/googlechat/index.js:21](https://github.com/chatbotkit/n
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/googlechat/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L51)
+Defined in: [integration/googlechat/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L52)
 
 Creates a new Google Chat integration.
 
@@ -62,7 +62,7 @@ Creates a new Google Chat integration.
 
 > **delete**(`googlechatId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/googlechat/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L72)
+Defined in: [integration/googlechat/index.js:73](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L73)
 
 Deletes a Google Chat integration.
 
@@ -116,7 +116,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`googlechatId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [integration/googlechat/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L41)
+Defined in: [integration/googlechat/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L42)
 
 Fetches a Google Chat integration.
 
@@ -132,11 +132,33 @@ Fetches a Google Chat integration.
 
 ***
 
+### initiate()
+
+> **initiate**(`googlechatId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+Defined in: [integration/googlechat/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L94)
+
+Initiates a Google Chat integration conversation.
+
+#### Parameters
+
+##### googlechatId
+
+`string`
+
+##### request
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+***
+
 ### list()
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/googlechat/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L31)
+Defined in: [integration/googlechat/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L32)
 
 Retrieves a list of all Google Chat integrations.
 
@@ -156,7 +178,7 @@ Retrieves a list of all Google Chat integrations.
 
 > **setup**(`googlechatId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/googlechat/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L82)
+Defined in: [integration/googlechat/index.js:83](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L83)
 
 Setups a Google Chat integration.
 
@@ -176,7 +198,7 @@ Setups a Google Chat integration.
 
 > **update**(`googlechatId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/googlechat/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L62)
+Defined in: [integration/googlechat/index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/index.js#L63)
 
 Updates a Google Chat integration.
 

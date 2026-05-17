@@ -156,3 +156,31 @@ export async function setupMessengerIntegration(client, messengerId) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateMessenger']['requestBody']['content']['application/json']} MessengerInitiateRequestBody
+ *
+ * @typedef {MessengerInitiateRequestBody} MessengerInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateMessenger']['responses']['200']['content']['application/json']} MessengerInitiateResponseBody
+ *
+ * @typedef {MessengerInitiateResponseBody} MessengerInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} messengerId
+ * @param {MessengerInitiateRequest} request
+ * @returns {Promise<MessengerInitiateResponse>}
+ */
+export async function initiateMessenger(client, messengerId, request) {
+  const url = `/api/v1/integration/messenger/${messengerId}/initiate`
+
+  /** @type {MessengerInitiateResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {MessengerInitiateRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}

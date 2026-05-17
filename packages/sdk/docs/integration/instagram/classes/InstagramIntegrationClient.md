@@ -6,7 +6,7 @@
 
 # Class: InstagramIntegrationClient
 
-Defined in: [integration/instagram/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L17)
+Defined in: [integration/instagram/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L18)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [integration/instagram/index.js:17](https://github.com/chatbotkit/no
 
 > **new InstagramIntegrationClient**(`options`): `InstagramIntegrationClient`
 
-Defined in: [integration/instagram/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L21)
+Defined in: [integration/instagram/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L22)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [integration/instagram/index.js:21](https://github.com/chatbotkit/no
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/instagram/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L51)
+Defined in: [integration/instagram/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L52)
 
 Creates a new instagram integration.
 
@@ -62,7 +62,7 @@ Creates a new instagram integration.
 
 > **delete**(`instagramId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/instagram/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L72)
+Defined in: [integration/instagram/index.js:73](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L73)
 
 Deletes an instagram integration.
 
@@ -116,7 +116,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`instagramId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [integration/instagram/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L41)
+Defined in: [integration/instagram/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L42)
 
 Fetches an instagram integration.
 
@@ -132,11 +132,33 @@ Fetches an instagram integration.
 
 ***
 
+### initiate()
+
+> **initiate**(`instagramId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+Defined in: [integration/instagram/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L94)
+
+Initiates an instagram integration conversation.
+
+#### Parameters
+
+##### instagramId
+
+`string`
+
+##### request
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+***
+
 ### list()
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/instagram/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L31)
+Defined in: [integration/instagram/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L32)
 
 Retrieves a list of all instagram integrations.
 
@@ -156,7 +178,7 @@ Retrieves a list of all instagram integrations.
 
 > **setup**(`instagramId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/instagram/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L82)
+Defined in: [integration/instagram/index.js:83](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L83)
 
 Setups an instagram integration.
 
@@ -176,7 +198,7 @@ Setups an instagram integration.
 
 > **update**(`instagramId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/instagram/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L62)
+Defined in: [integration/instagram/index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/index.js#L63)
 
 Updates an instagram integration.
 

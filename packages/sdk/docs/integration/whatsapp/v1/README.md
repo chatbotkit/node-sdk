@@ -10,6 +10,10 @@
 
 - [ChatBotKitClient](type-aliases/ChatBotKitClient.md)
 - [ResponsePromise](type-aliases/ResponsePromise.md)
+- [WhatsAppInitiateRequest](type-aliases/WhatsAppInitiateRequest.md)
+- [WhatsAppInitiateRequestBody](type-aliases/WhatsAppInitiateRequestBody.md)
+- [WhatsAppInitiateResponse](type-aliases/WhatsAppInitiateResponse.md)
+- [WhatsAppInitiateResponseBody](type-aliases/WhatsAppInitiateResponseBody.md)
 - [WhatsAppIntegrationCreateRequest](type-aliases/WhatsAppIntegrationCreateRequest.md)
 - [WhatsAppIntegrationCreateRequestBody](type-aliases/WhatsAppIntegrationCreateRequestBody.md)
 - [WhatsAppIntegrationCreateResponse](type-aliases/WhatsAppIntegrationCreateResponse.md)
@@ -36,6 +40,7 @@
 - [createWhatsAppIntegration](functions/createWhatsAppIntegration.md)
 - [deleteWhatsAppIntegration](functions/deleteWhatsAppIntegration.md)
 - [fetchWhatsAppIntegration](functions/fetchWhatsAppIntegration.md)
+- [initiateWhatsApp](functions/initiateWhatsApp.md)
 - [listWhatsAppIntegrations](functions/listWhatsAppIntegrations.md)
 - [setupWhatsAppIntegration](functions/setupWhatsAppIntegration.md)
 - [updateWhatsAppIntegration](functions/updateWhatsAppIntegration.md)

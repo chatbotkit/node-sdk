@@ -89,6 +89,21 @@ export function deleteTelegramIntegration(client: ChatBotKitClient, telegramId: 
  * @returns {Promise<TelegramIntegrationSetupResponse>}
  */
 export function setupTelegramIntegration(client: ChatBotKitClient, telegramId: string): Promise<TelegramIntegrationSetupResponse>;
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateTelegram']['requestBody']['content']['application/json']} TelegramInitiateRequestBody
+ *
+ * @typedef {TelegramInitiateRequestBody} TelegramInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateTelegram']['responses']['200']['content']['application/json']} TelegramInitiateResponseBody
+ *
+ * @typedef {TelegramInitiateResponseBody} TelegramInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} telegramId
+ * @param {TelegramInitiateRequest} request
+ * @returns {Promise<TelegramInitiateResponse>}
+ */
+export function initiateTelegram(client: ChatBotKitClient, telegramId: string, request: TelegramInitiateRequest): Promise<TelegramInitiateResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type TelegramIntegrationListRequest = {
@@ -116,3 +131,7 @@ export type TelegramIntegrationSetupRequestBody = import("../../types/api/v1.js"
 export type TelegramIntegrationSetupRequest = TelegramIntegrationSetupRequestBody;
 export type TelegramIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupTelegramIntegration"]["responses"]["200"]["content"]["application/json"];
 export type TelegramIntegrationSetupResponse = TelegramIntegrationSetupResponseBody;
+export type TelegramInitiateRequestBody = import("../../types/api/v1.js").operations["initiateTelegram"]["requestBody"]["content"]["application/json"];
+export type TelegramInitiateRequest = TelegramInitiateRequestBody;
+export type TelegramInitiateResponseBody = import("../../types/api/v1.js").operations["initiateTelegram"]["responses"]["200"]["content"]["application/json"];
+export type TelegramInitiateResponse = TelegramInitiateResponseBody;

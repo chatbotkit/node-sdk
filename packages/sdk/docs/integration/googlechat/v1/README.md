@@ -9,6 +9,10 @@
 ## Type Aliases
 
 - [ChatBotKitClient](type-aliases/ChatBotKitClient.md)
+- [GooglechatInitiateRequest](type-aliases/GooglechatInitiateRequest.md)
+- [GooglechatInitiateRequestBody](type-aliases/GooglechatInitiateRequestBody.md)
+- [GooglechatInitiateResponse](type-aliases/GooglechatInitiateResponse.md)
+- [GooglechatInitiateResponseBody](type-aliases/GooglechatInitiateResponseBody.md)
 - [GooglechatIntegrationCreateRequest](type-aliases/GooglechatIntegrationCreateRequest.md)
 - [GooglechatIntegrationCreateRequestBody](type-aliases/GooglechatIntegrationCreateRequestBody.md)
 - [GooglechatIntegrationCreateResponse](type-aliases/GooglechatIntegrationCreateResponse.md)
@@ -36,6 +40,7 @@
 - [createGooglechatIntegration](functions/createGooglechatIntegration.md)
 - [deleteGooglechatIntegration](functions/deleteGooglechatIntegration.md)
 - [fetchGooglechatIntegration](functions/fetchGooglechatIntegration.md)
+- [initiateGooglechat](functions/initiateGooglechat.md)
 - [listGooglechatIntegrations](functions/listGooglechatIntegrations.md)
 - [setupGooglechatIntegration](functions/setupGooglechatIntegration.md)
 - [updateGooglechatIntegration](functions/updateGooglechatIntegration.md)
