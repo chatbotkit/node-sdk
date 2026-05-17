@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.37.1
+
+### Patch Changes
+
+- 6279bdd: Fixed package rename issues.
+
 ## 1.37.0
 
 ### Minor Changes
