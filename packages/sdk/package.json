@@ -680,25 +680,25 @@
       "types": "./types/integration/support/v1.d.ts",
       "import": "./src/integration/support/v1.js"
     },
-    "./integration/teams": {
-      "types": "./types/integration/teams/index.d.ts",
-      "import": "./src/integration/teams/index.js"
+    "./integration/microsoftteams": {
+      "types": "./types/integration/microsoftteams/index.d.ts",
+      "import": "./src/integration/microsoftteams/index.js"
     },
-    "./integration/teams/index": {
-      "types": "./types/integration/teams/index.d.ts",
-      "import": "./src/integration/teams/index.js"
+    "./integration/microsoftteams/index": {
+      "types": "./types/integration/microsoftteams/index.d.ts",
+      "import": "./src/integration/microsoftteams/index.js"
     },
-    "./integration/teams/index.js": {
-      "types": "./types/integration/teams/index.d.ts",
-      "import": "./src/integration/teams/index.js"
+    "./integration/microsoftteams/index.js": {
+      "types": "./types/integration/microsoftteams/index.d.ts",
+      "import": "./src/integration/microsoftteams/index.js"
     },
-    "./integration/teams/v1": {
-      "types": "./types/integration/teams/v1.d.ts",
-      "import": "./src/integration/teams/v1.js"
+    "./integration/microsoftteams/v1": {
+      "types": "./types/integration/microsoftteams/v1.d.ts",
+      "import": "./src/integration/microsoftteams/v1.js"
     },
-    "./integration/teams/v1.js": {
-      "types": "./types/integration/teams/v1.d.ts",
-      "import": "./src/integration/teams/v1.js"
+    "./integration/microsoftteams/v1.js": {
+      "types": "./types/integration/microsoftteams/v1.d.ts",
+      "import": "./src/integration/microsoftteams/v1.js"
     },
     "./integration/telegram": {
       "types": "./types/integration/telegram/index.d.ts",
