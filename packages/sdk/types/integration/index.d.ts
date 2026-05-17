@@ -60,9 +60,9 @@ export class IntegrationClient extends ChatBotKitClient {
      */
     twilio: TwilioIntegrationClient;
     /**
-     * @type {TeamsIntegrationClient} teams client
+     * @type {MicrosoftteamsIntegrationClient} microsoftteams client
      */
-    teams: TeamsIntegrationClient;
+    microsoftteams: MicrosoftteamsIntegrationClient;
     /**
      * @type {GooglechatIntegrationClient} googlechat client
      */
@@ -85,5 +85,5 @@ import { SupportIntegrationClient } from './support/index.js';
 import { ExtractIntegrationClient } from './extract/index.js';
 import { McpServerIntegrationClient } from './mcpserver/index.js';
 import { TwilioIntegrationClient } from './twilio/index.js';
-import { TeamsIntegrationClient } from './teams/index.js';
+import { MicrosoftteamsIntegrationClient } from './microsoftteams/index.js';
 import { GooglechatIntegrationClient } from './googlechat/index.js';

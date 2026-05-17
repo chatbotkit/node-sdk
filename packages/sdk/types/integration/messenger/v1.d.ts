@@ -89,6 +89,21 @@ export function deleteMessengerIntegration(client: ChatBotKitClient, messengerId
  * @returns {Promise<MessengerIntegrationSetupResponse>}
  */
 export function setupMessengerIntegration(client: ChatBotKitClient, messengerId: string): Promise<MessengerIntegrationSetupResponse>;
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateMessenger']['requestBody']['content']['application/json']} MessengerInitiateRequestBody
+ *
+ * @typedef {MessengerInitiateRequestBody} MessengerInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateMessenger']['responses']['200']['content']['application/json']} MessengerInitiateResponseBody
+ *
+ * @typedef {MessengerInitiateResponseBody} MessengerInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} messengerId
+ * @param {MessengerInitiateRequest} request
+ * @returns {Promise<MessengerInitiateResponse>}
+ */
+export function initiateMessenger(client: ChatBotKitClient, messengerId: string, request: MessengerInitiateRequest): Promise<MessengerInitiateResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type MessengerIntegrationListRequest = {
@@ -116,3 +131,7 @@ export type MessengerIntegrationSetupRequestBody = import("../../types/api/v1.js
 export type MessengerIntegrationSetupRequest = MessengerIntegrationSetupRequestBody;
 export type MessengerIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupMessengerIntegration"]["responses"]["200"]["content"]["application/json"];
 export type MessengerIntegrationSetupResponse = MessengerIntegrationSetupResponseBody;
+export type MessengerInitiateRequestBody = import("../../types/api/v1.js").operations["initiateMessenger"]["requestBody"]["content"]["application/json"];
+export type MessengerInitiateRequest = MessengerInitiateRequestBody;
+export type MessengerInitiateResponseBody = import("../../types/api/v1.js").operations["initiateMessenger"]["responses"]["200"]["content"]["application/json"];
+export type MessengerInitiateResponse = MessengerInitiateResponseBody;

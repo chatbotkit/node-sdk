@@ -156,3 +156,31 @@ export async function setupTelegramIntegration(client, telegramId) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateTelegram']['requestBody']['content']['application/json']} TelegramInitiateRequestBody
+ *
+ * @typedef {TelegramInitiateRequestBody} TelegramInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateTelegram']['responses']['200']['content']['application/json']} TelegramInitiateResponseBody
+ *
+ * @typedef {TelegramInitiateResponseBody} TelegramInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} telegramId
+ * @param {TelegramInitiateRequest} request
+ * @returns {Promise<TelegramInitiateResponse>}
+ */
+export async function initiateTelegram(client, telegramId, request) {
+  const url = `/api/v1/integration/telegram/${telegramId}/initiate`
+
+  /** @type {TelegramInitiateResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {TelegramInitiateRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}

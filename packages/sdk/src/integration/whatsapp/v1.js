@@ -156,3 +156,31 @@ export async function setupWhatsAppIntegration(client, whatsappId) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateWhatsapp']['requestBody']['content']['application/json']} WhatsAppInitiateRequestBody
+ *
+ * @typedef {WhatsAppInitiateRequestBody} WhatsAppInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateWhatsapp']['responses']['200']['content']['application/json']} WhatsAppInitiateResponseBody
+ *
+ * @typedef {WhatsAppInitiateResponseBody} WhatsAppInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} whatsappId
+ * @param {WhatsAppInitiateRequest} request
+ * @returns {Promise<WhatsAppInitiateResponse>}
+ */
+export async function initiateWhatsApp(client, whatsappId, request) {
+  const url = `/api/v1/integration/whatsapp/${whatsappId}/initiate`
+
+  /** @type {WhatsAppInitiateResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {WhatsAppInitiateRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}

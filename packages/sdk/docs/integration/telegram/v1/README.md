@@ -10,6 +10,10 @@
 
 - [ChatBotKitClient](type-aliases/ChatBotKitClient.md)
 - [ResponsePromise](type-aliases/ResponsePromise.md)
+- [TelegramInitiateRequest](type-aliases/TelegramInitiateRequest.md)
+- [TelegramInitiateRequestBody](type-aliases/TelegramInitiateRequestBody.md)
+- [TelegramInitiateResponse](type-aliases/TelegramInitiateResponse.md)
+- [TelegramInitiateResponseBody](type-aliases/TelegramInitiateResponseBody.md)
 - [TelegramIntegrationCreateRequest](type-aliases/TelegramIntegrationCreateRequest.md)
 - [TelegramIntegrationCreateRequestBody](type-aliases/TelegramIntegrationCreateRequestBody.md)
 - [TelegramIntegrationCreateResponse](type-aliases/TelegramIntegrationCreateResponse.md)
@@ -36,6 +40,7 @@
 - [createTelegramIntegration](functions/createTelegramIntegration.md)
 - [deleteTelegramIntegration](functions/deleteTelegramIntegration.md)
 - [fetchTelegramIntegration](functions/fetchTelegramIntegration.md)
+- [initiateTelegram](functions/initiateTelegram.md)
 - [listTelegramIntegrations](functions/listTelegramIntegrations.md)
 - [setupTelegramIntegration](functions/setupTelegramIntegration.md)
 - [updateTelegramIntegration](functions/updateTelegramIntegration.md)

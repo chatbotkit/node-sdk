@@ -156,3 +156,31 @@ export async function setupDiscordIntegration(client, discordId) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateDiscord']['requestBody']['content']['application/json']} DiscordInitiateRequestBody
+ *
+ * @typedef {DiscordInitiateRequestBody} DiscordInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateDiscord']['responses']['200']['content']['application/json']} DiscordInitiateResponseBody
+ *
+ * @typedef {DiscordInitiateResponseBody} DiscordInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} discordId
+ * @param {DiscordInitiateRequest} request
+ * @returns {Promise<DiscordInitiateResponse>}
+ */
+export async function initiateDiscord(client, discordId, request) {
+  const url = `/api/v1/integration/discord/${discordId}/initiate`
+
+  /** @type {DiscordInitiateResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {DiscordInitiateRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}

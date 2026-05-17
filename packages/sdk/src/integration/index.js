@@ -10,7 +10,7 @@ import { NotionIntegrationClient } from './notion/index.js'
 import { SitemapIntegrationClient } from './sitemap/index.js'
 import { SlackIntegrationClient } from './slack/index.js'
 import { SupportIntegrationClient } from './support/index.js'
-import { TeamsIntegrationClient } from './teams/index.js'
+import { MicrosoftteamsIntegrationClient } from './microsoftteams/index.js'
 import { TelegramIntegrationClient } from './telegram/index.js'
 import { TriggerIntegrationClient } from './trigger/index.js'
 import { TwilioIntegrationClient } from './twilio/index.js'
@@ -100,9 +100,9 @@ export class IntegrationClient extends ChatBotKitClient {
     this.twilio = new TwilioIntegrationClient(options)
 
     /**
-     * @type {TeamsIntegrationClient} teams client
+     * @type {MicrosoftteamsIntegrationClient} microsoftteams client
      */
-    this.teams = new TeamsIntegrationClient(options)
+    this.microsoftteams = new MicrosoftteamsIntegrationClient(options)
 
     /**
      * @type {GooglechatIntegrationClient} googlechat client

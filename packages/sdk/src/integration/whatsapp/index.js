@@ -3,6 +3,7 @@ import {
   createWhatsAppIntegration,
   deleteWhatsAppIntegration,
   fetchWhatsAppIntegration,
+  initiateWhatsApp,
   listWhatsAppIntegrations,
   setupWhatsAppIntegration,
   updateWhatsAppIntegration,
@@ -81,6 +82,17 @@ export class WhatsAppIntegrationClient extends ChatBotKitClient {
    */
   setup(whatsappId) {
     return setupWhatsAppIntegration(this, whatsappId)
+  }
+
+  /**
+   * Initiates a whatsapp integration conversation.
+   *
+   * @param {string} whatsappId
+   * @param {import('./v1.js').WhatsAppInitiateRequest} request
+   * @returns {Promise<import('./v1.js').WhatsAppInitiateResponse>}
+   */
+  initiate(whatsappId, request) {
+    return initiateWhatsApp(this, whatsappId, request)
   }
 }
 

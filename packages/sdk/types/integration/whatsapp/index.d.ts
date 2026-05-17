@@ -47,6 +47,14 @@ export class WhatsAppIntegrationClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').WhatsAppIntegrationSetupResponse>}
      */
     setup(whatsappId: string): Promise<import("./v1.js").WhatsAppIntegrationSetupResponse>;
+    /**
+     * Initiates a whatsapp integration conversation.
+     *
+     * @param {string} whatsappId
+     * @param {import('./v1.js').WhatsAppInitiateRequest} request
+     * @returns {Promise<import('./v1.js').WhatsAppInitiateResponse>}
+     */
+    initiate(whatsappId: string, request: import("./v1.js").WhatsAppInitiateRequest): Promise<import("./v1.js").WhatsAppInitiateResponse>;
 }
 export default WhatsAppIntegrationClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

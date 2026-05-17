@@ -47,6 +47,14 @@ export class TelegramIntegrationClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').TelegramIntegrationSetupResponse>}
      */
     setup(telegramId: string): Promise<import("./v1.js").TelegramIntegrationSetupResponse>;
+    /**
+     * Initiates a telegram integration conversation.
+     *
+     * @param {string} telegramId
+     * @param {import('./v1.js').TelegramInitiateRequest} request
+     * @returns {Promise<import('./v1.js').TelegramInitiateResponse>}
+     */
+    initiate(telegramId: string, request: import("./v1.js").TelegramInitiateRequest): Promise<import("./v1.js").TelegramInitiateResponse>;
 }
 export default TelegramIntegrationClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

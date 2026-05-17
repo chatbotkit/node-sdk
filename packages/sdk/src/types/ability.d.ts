@@ -11,6 +11,7 @@ export type CbkAbilityName = 'abort'
   | 'agent/execute'
   | 'agent/task/evaluate'
   | 'agent/task/plan'
+  | 'anam/avatar/url[by-id]'
   | 'attachment/read'
   | 'blueprint/meta/fetch'
   | 'blueprint/note/list'
@@ -141,6 +142,7 @@ export type CbkAbilityName = 'abort'
   | 'rating/list[by-bot-id]'
   | 'rating/list[contact]'
   | 'rating/list[contact][by-bot-id]'
+  | 'recall/meeting/join[by-id]'
   | 'search/images'
   | 'search/news'
   | 'search/videos'
@@ -288,6 +290,11 @@ export type AgentTaskPlanParameters = {
   '@instructions'?: string
  /** optional timeout in milliseconds */
   timeout?: number
+}
+
+export type AnamAvatarUrlByIdParameters = {
+ /** The ID of the Anam integration to use */
+  anamIntegrationId: string
 }
 
 export type AttachmentReadParameters = {
@@ -1087,6 +1094,17 @@ export type RatingListContactByBotIdParameters = {
   value?: number
 }
 
+export type RecallMeetingJoinByIdParameters = {
+ /** The ID of the Recall integration to use */
+  recallIntegrationId: string
+ /** The meeting URL to join */
+  meetingUrl: string
+ /** The initial instruction to use when joining the meeting */
+  text: string
+ /** Optional display name for the Recall bot */
+  botName?: string
+}
+
 export type SearchImagesParameters = {
  /** search query */
   query: string
@@ -1800,6 +1818,11 @@ export interface CbkAbilityRegistry {
     description: 'Plan how a task should be executed by an agent'
     parameters: AgentTaskPlanParameters
   }
+  'anam/avatar/url[by-id]': {
+    name: 'Get Anam Avatar URL'
+    description: 'Returns the hosted Anam avatar frame URL for the selected integration.'
+    parameters: AnamAvatarUrlByIdParameters
+  }
   'attachment/read': {
     name: 'Read Attachment'
     description: 'Read and extract content from uploaded file attachments. For text-based files, extracts and returns the text content. For image files (png, jpg, jpeg, gif, webp, bmp, tiff, svg), analyzes the image using vision capabilities. Locate the corresponding tool call for the attachment information. Does not support audio or video files.'
@@ -2449,6 +2472,11 @@ export interface CbkAbilityRegistry {
     name: 'List Contact Ratings'
     description: 'List contact ratings with optional bot scoping'
     parameters: RatingListContactByBotIdParameters
+  }
+  'recall/meeting/join[by-id]': {
+    name: 'Join Recall Meeting'
+    description: 'Joins a meeting URL through a Recall integration and starts the meeting bot with the provided instruction.'
+    parameters: RecallMeetingJoinByIdParameters
   }
   'search/images': {
     name: 'Search Images'

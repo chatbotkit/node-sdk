@@ -47,6 +47,14 @@ export class MessengerIntegrationClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').MessengerIntegrationSetupResponse>}
      */
     setup(messengerId: string): Promise<import("./v1.js").MessengerIntegrationSetupResponse>;
+    /**
+     * Initiates a messenger integration conversation.
+     *
+     * @param {string} messengerId
+     * @param {import('./v1.js').MessengerInitiateRequest} request
+     * @returns {Promise<import('./v1.js').MessengerInitiateResponse>}
+     */
+    initiate(messengerId: string, request: import("./v1.js").MessengerInitiateRequest): Promise<import("./v1.js").MessengerInitiateResponse>;
 }
 export default MessengerIntegrationClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

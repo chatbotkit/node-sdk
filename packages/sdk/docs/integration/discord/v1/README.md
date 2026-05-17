@@ -9,6 +9,10 @@
 ## Type Aliases
 
 - [ChatBotKitClient](type-aliases/ChatBotKitClient.md)
+- [DiscordInitiateRequest](type-aliases/DiscordInitiateRequest.md)
+- [DiscordInitiateRequestBody](type-aliases/DiscordInitiateRequestBody.md)
+- [DiscordInitiateResponse](type-aliases/DiscordInitiateResponse.md)
+- [DiscordInitiateResponseBody](type-aliases/DiscordInitiateResponseBody.md)
 - [DiscordIntegrationCreateRequest](type-aliases/DiscordIntegrationCreateRequest.md)
 - [DiscordIntegrationCreateRequestBody](type-aliases/DiscordIntegrationCreateRequestBody.md)
 - [DiscordIntegrationCreateResponse](type-aliases/DiscordIntegrationCreateResponse.md)
@@ -36,6 +40,7 @@
 - [createDiscordIntegration](functions/createDiscordIntegration.md)
 - [deleteDiscordIntegration](functions/deleteDiscordIntegration.md)
 - [fetchDiscordIntegration](functions/fetchDiscordIntegration.md)
+- [initiateDiscord](functions/initiateDiscord.md)
 - [listDiscordIntegrations](functions/listDiscordIntegrations.md)
 - [setupDiscordIntegration](functions/setupDiscordIntegration.md)
 - [updateDiscordIntegration](functions/updateDiscordIntegration.md)

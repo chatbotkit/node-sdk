@@ -9,6 +9,10 @@
 ## Type Aliases
 
 - [ChatBotKitClient](type-aliases/ChatBotKitClient.md)
+- [MessengerInitiateRequest](type-aliases/MessengerInitiateRequest.md)
+- [MessengerInitiateRequestBody](type-aliases/MessengerInitiateRequestBody.md)
+- [MessengerInitiateResponse](type-aliases/MessengerInitiateResponse.md)
+- [MessengerInitiateResponseBody](type-aliases/MessengerInitiateResponseBody.md)
 - [MessengerIntegrationCreateRequest](type-aliases/MessengerIntegrationCreateRequest.md)
 - [MessengerIntegrationCreateRequestBody](type-aliases/MessengerIntegrationCreateRequestBody.md)
 - [MessengerIntegrationCreateResponse](type-aliases/MessengerIntegrationCreateResponse.md)
@@ -36,6 +40,7 @@
 - [createMessengerIntegration](functions/createMessengerIntegration.md)
 - [deleteMessengerIntegration](functions/deleteMessengerIntegration.md)
 - [fetchMessengerIntegration](functions/fetchMessengerIntegration.md)
+- [initiateMessenger](functions/initiateMessenger.md)
 - [listMessengerIntegrations](functions/listMessengerIntegrations.md)
 - [setupMessengerIntegration](functions/setupMessengerIntegration.md)
 - [updateMessengerIntegration](functions/updateMessengerIntegration.md)

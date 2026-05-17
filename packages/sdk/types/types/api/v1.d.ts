@@ -21,6 +21,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/discord/{discordIntegrationId}/initiate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Initiates conversation with the discord integration */
+        post: operations["initiateDiscord"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/email/{emailIntegrationId}/initiate": {
         parameters: {
             query?: never;
@@ -32,6 +49,74 @@ export interface paths {
         put?: never;
         /** Initiates conversation with the email integration */
         post: operations["initiateEmail"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/googlechat/{googlechatIntegrationId}/initiate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Initiates conversation with the googlechat integration */
+        post: operations["initiateGooglechat"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/{instagramIntegrationId}/initiate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Initiates conversation with the instagram integration */
+        post: operations["initiateInstagram"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/messenger/{messengerIntegrationId}/initiate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Initiates conversation with the messenger integration */
+        post: operations["initiateMessenger"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/microsoftteams/{microsoftteamsIntegrationId}/initiate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Initiates conversation with the teams integration */
+        post: operations["initiateTeams"];
         delete?: never;
         options?: never;
         head?: never;
@@ -55,6 +140,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/telegram/{telegramIntegrationId}/initiate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Initiates conversation with the telegram integration */
+        post: operations["initiateTelegram"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/twilio/{twilioIntegrationId}/initiate": {
         parameters: {
             query?: never;
@@ -66,6 +168,23 @@ export interface paths {
         put?: never;
         /** Initiates conversation with the twilio integration */
         post: operations["initiateTwilio"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/whatsapp/{whatsappIntegrationId}/initiate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Initiates conversation with the whatsapp integration */
+        post: operations["initiateWhatsapp"];
         delete?: never;
         options?: never;
         head?: never;
@@ -853,6 +972,23 @@ export interface paths {
         };
         /** List contacts */
         get: operations["listContacts"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/conversation/{conversationId}/attachment/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List conversation attachments */
+        get: operations["listConversationAttachments"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2608,6 +2744,108 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/microsoftteams/{microsoftteamsIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Teams integration */
+        post: operations["deleteMicrosoftteamsIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/microsoftteams/{microsoftteamsIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a microsoftteamsIntegration */
+        get: operations["fetchMicrosoftteamsIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/microsoftteams/{microsoftteamsIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup Teams integration */
+        post: operations["setupMicrosoftteamsIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/microsoftteams/{microsoftteamsIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Teams integration */
+        post: operations["updateMicrosoftteamsIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/microsoftteams/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Teams integration */
+        post: operations["createMicrosoftteamsIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/microsoftteams/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Teams integrations */
+        get: operations["listMicrosoftteamsIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/notion/{notionIntegrationId}/delete": {
         parameters: {
             query?: never;
@@ -3008,108 +3246,6 @@ export interface paths {
         };
         /** List Support integrations */
         get: operations["listSupportIntegrations"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/integration/teams/{teamsIntegrationId}/delete": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Delete Teams integration */
-        post: operations["deleteTeamsIntegration"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/integration/teams/{teamsIntegrationId}/fetch": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Fetch a teamsIntegration */
-        get: operations["fetchTeamsIntegration"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/integration/teams/{teamsIntegrationId}/setup": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Setup Teams integration */
-        post: operations["setupTeamsIntegration"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/integration/teams/{teamsIntegrationId}/update": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Update a Teams integration */
-        post: operations["updateTeamsIntegration"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/integration/teams/create": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Create Teams integration */
-        post: operations["createTeamsIntegration"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/integration/teams/list": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** List Teams integrations */
-        get: operations["listTeamsIntegrations"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6192,6 +6328,45 @@ export interface operations {
             };
         };
     };
+    initiateDiscord: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The Discord channel ID to send to */
+                    channelId: string;
+                    /** @description The text message to send to the Discord channel */
+                    text: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The discord integration was successfully initiated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the initiated integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     initiateEmail: {
         parameters: {
             query?: never;
@@ -6216,6 +6391,166 @@ export interface operations {
         };
         responses: {
             /** @description The email integration was successfully initiated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the initiated integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    initiateGooglechat: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The Google Chat space resource name to send to, such as spaces/AAAA..., or a Google Chat user identifier for a direct message */
+                    space?: string;
+                    /** @description The text message to send to the Google Chat space */
+                    text: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The googlechat integration was successfully initiated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the initiated integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    initiateInstagram: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The Instagram professional account ID sending the message */
+                    instagramUserId: string;
+                    /** @description The Instagram recipient ID from a prior interaction */
+                    recipientId: string;
+                    /** @description The free-form text message to send while Meta allows messaging this recipient */
+                    text: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The instagram integration was successfully initiated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the initiated integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    initiateMessenger: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The Facebook Page ID sending the message */
+                    pageId: string;
+                    /** @description The Messenger recipient PSID from a prior interaction */
+                    recipientId: string;
+                    /** @description The free-form text message to send while Meta allows messaging this recipient */
+                    text: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The messenger integration was successfully initiated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the initiated integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    initiateTeams: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The Microsoft Teams Bot Framework conversation ID to send to */
+                    conversationId: string;
+                    /** @description The text message to send to the Teams conversation */
+                    text: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The teams integration was successfully initiated */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -6275,6 +6610,45 @@ export interface operations {
             };
         };
     };
+    initiateTelegram: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The Telegram chat ID, user ID, group chat ID, or channel username to send to */
+                    chatId: string | number;
+                    /** @description The text instruction to use to initiate the conversation */
+                    text: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The telegram integration was successfully initiated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the initiated integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     initiateTwilio: {
         parameters: {
             query?: never;
@@ -6302,6 +6676,45 @@ export interface operations {
         };
         responses: {
             /** @description The twilio integration was successfully initiated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the initiated integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    initiateWhatsapp: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The recipient phone number in E.164 format, without the leading plus sign */
+                    to: string;
+                    /** @description The free-form text message to send within an active WhatsApp customer service window */
+                    text: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The whatsapp integration was successfully initiated */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -8966,6 +9379,61 @@ export interface operations {
                             /** @description The timestamp (ms) when the contact was verified */
                             verifiedAt?: number;
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listConversationAttachments: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                take?: number;
+            };
+            header?: never;
+            path: {
+                conversationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The attachments were listed successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The stored attachment file name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The inferred attachment MIME type */
+                            type?: string;
+                            /** @description The attachment size in bytes */
+                            size?: number;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                 };
             };
@@ -14948,6 +15416,8 @@ export interface operations {
                         contactCollection?: boolean;
                         /** @description The session duration for the integration */
                         sessionDuration?: number;
+                        /** @description Whether file attachment processing is enabled */
+                        attachments?: boolean;
                         /** @description The auto-respond configuration */
                         autoRespond?: string;
                         /** @description The allowed senders for this integration */
@@ -15032,6 +15502,8 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The session duration for the integration */
                     sessionDuration?: number;
+                    /** @description Whether file attachment processing is enabled */
+                    attachments?: boolean;
                     /** @description The auto-respond configuration */
                     autoRespond?: string;
                     /** @description The allowed senders for this integration */
@@ -15091,6 +15563,8 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The session duration for the Google Chat integration */
                     sessionDuration?: number;
+                    /** @description Whether file attachment processing is enabled */
+                    attachments?: boolean;
                     /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to DMs and direct messages only. */
                     autoRespond?: string;
                     /** @description Restrict which Google Chat users can interact with this integration. Accepts user resource names (users/USER_ID) or * to allow all. One per line. */
@@ -15170,6 +15644,8 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The session duration for the integration */
                             sessionDuration?: number;
+                            /** @description Whether file attachment processing is enabled */
+                            attachments?: boolean;
                             /** @description The auto-respond configuration */
                             autoRespond?: string;
                             /** @description The allowed senders for this integration */
@@ -15212,6 +15688,8 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The session duration for the integration */
                             sessionDuration?: number;
+                            /** @description Whether file attachment processing is enabled */
+                            attachments?: boolean;
                             /** @description The auto-respond configuration */
                             autoRespond?: string;
                             /** @description The allowed senders for this integration */
@@ -16186,6 +16664,327 @@ export interface operations {
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deleteMicrosoftteamsIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                microsoftteamsIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Teams integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Teams integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchMicrosoftteamsIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                microsoftteamsIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Teams integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
+                        /** @description The Microsoft Bot Framework Application ID */
+                        botFrameworkAppId?: string;
+                        /** @description Weather to collect contacts */
+                        contactCollection?: boolean;
+                        /** @description The chat session duration */
+                        sessionDuration?: number;
+                        /** @description The allowed senders for this integration */
+                        allowFrom?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    setupMicrosoftteamsIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                microsoftteamsIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Teams integration was setup successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the setup Teams integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    updateMicrosoftteamsIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                microsoftteamsIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                    /** @description The Microsoft Bot Framework Application ID */
+                    botFrameworkAppId?: string;
+                    /** @description The Microsoft Bot Framework Application Secret */
+                    botFrameworkAppSecret?: string;
+                    /** @description The Microsoft Entra tenant ID */
+                    tenantId?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The chat session duration */
+                    sessionDuration?: number;
+                    /** @description The allowed senders for this integration */
+                    allowFrom?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Teams integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Teams Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createMicrosoftteamsIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                    /** @description The Microsoft Bot Framework Application ID */
+                    botFrameworkAppId?: string;
+                    /** @description The Microsoft Bot Framework Application Secret */
+                    botFrameworkAppSecret?: string;
+                    /** @description The Microsoft Entra tenant ID */
+                    tenantId?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The chat session duration */
+                    sessionDuration?: number;
+                    /** @description The allowed senders for this integration */
+                    allowFrom?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Teams integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Teams Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listMicrosoftteamsIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Teams integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The Microsoft Bot Framework Application ID */
+                            botFrameworkAppId?: string;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The chat session duration */
+                            sessionDuration?: number;
+                            /** @description The allowed senders for this integration */
+                            allowFrom?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        data: unknown;
                     };
                 };
             };
@@ -17656,355 +18455,6 @@ export interface operations {
                             botId: string;
                             /** @description The email to use */
                             email?: string;
-                        };
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    deleteTeamsIntegration: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamsIntegrationId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": Record<string, never>;
-            };
-        };
-        responses: {
-            /** @description The Teams integration was deleted successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The ID of the deleted Teams integration */
-                        id: string;
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    fetchTeamsIntegration: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamsIntegrationId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The Teams integration was retrieved successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The associated name */
-                        name?: string;
-                        /** @description The associated description */
-                        description?: string;
-                        /** @description Meta data information */
-                        meta?: {
-                            [key: string]: unknown;
-                        };
-                        /** @description The instance ID */
-                        id: string;
-                        /** @description The timestamp (ms) when the instance was created */
-                        createdAt: number;
-                        /** @description The timestamp (ms) when the instance was updated */
-                        updatedAt: number;
-                        /** @description The ID of the bot this configuration is using */
-                        botId?: string;
-                        /** @description The ID of the blueprint */
-                        blueprintId?: string;
-                        /** @description The Microsoft Bot Framework Application ID */
-                        botFrameworkAppId?: string;
-                        /** @description Weather to collect contacts */
-                        contactCollection?: boolean;
-                        /** @description The chat session duration */
-                        sessionDuration?: number;
-                        /** @description The allowed senders for this integration */
-                        allowFrom?: string;
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    setupTeamsIntegration: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamsIntegrationId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": Record<string, never>;
-            };
-        };
-        responses: {
-            /** @description The Teams integration was setup successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The ID of the setup Teams integration */
-                        id: string;
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    updateTeamsIntegration: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                teamsIntegrationId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": {
-                    /** @description The associated name */
-                    name?: string;
-                    /** @description The associated description */
-                    description?: string;
-                    /** @description Meta data information */
-                    meta?: {
-                        [key: string]: unknown;
-                    };
-                    /** @description The ID of the blueprint */
-                    blueprintId?: string;
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                    /** @description The Microsoft Bot Framework Application ID */
-                    botFrameworkAppId?: string;
-                    /** @description The Microsoft Bot Framework Application Secret */
-                    botFrameworkAppSecret?: string;
-                    /** @description The Microsoft Entra tenant ID */
-                    tenantId?: string;
-                    /** @description Weather to collect contacts */
-                    contactCollection?: boolean;
-                    /** @description The chat session duration */
-                    sessionDuration?: number;
-                    /** @description The allowed senders for this integration */
-                    allowFrom?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The Teams integration was updated successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The ID of the Teams Integration */
-                        id: string;
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    createTeamsIntegration: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": {
-                    /** @description The associated name */
-                    name?: string;
-                    /** @description The associated description */
-                    description?: string;
-                    /** @description Meta data information */
-                    meta?: {
-                        [key: string]: unknown;
-                    };
-                    /** @description The ID of the blueprint */
-                    blueprintId?: string;
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                    /** @description The Microsoft Bot Framework Application ID */
-                    botFrameworkAppId?: string;
-                    /** @description The Microsoft Bot Framework Application Secret */
-                    botFrameworkAppSecret?: string;
-                    /** @description The Microsoft Entra tenant ID */
-                    tenantId?: string;
-                    /** @description Weather to collect contacts */
-                    contactCollection?: boolean;
-                    /** @description The chat session duration */
-                    sessionDuration?: number;
-                    /** @description The allowed senders for this integration */
-                    allowFrom?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description The Teams integration was created successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The ID of the Teams Integration */
-                        id: string;
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    listTeamsIntegrations: {
-        parameters: {
-            query?: {
-                cursor?: string;
-                order?: "asc" | "desc";
-                take?: number;
-                meta?: {
-                    [key: string]: string;
-                };
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of Teams integrations was retrieved successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        items: {
-                            /** @description The associated name */
-                            name?: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The instance ID */
-                            id: string;
-                            /** @description The timestamp (ms) when the instance was created */
-                            createdAt: number;
-                            /** @description The timestamp (ms) when the instance was updated */
-                            updatedAt: number;
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                            /** @description The ID of the blueprint */
-                            blueprintId?: string;
-                            /** @description The Microsoft Bot Framework Application ID */
-                            botFrameworkAppId?: string;
-                            /** @description Weather to collect contacts */
-                            contactCollection?: boolean;
-                            /** @description The chat session duration */
-                            sessionDuration?: number;
-                            /** @description The allowed senders for this integration */
-                            allowFrom?: string;
-                        }[];
-                        /** @description Cursor for fetching the next page */
-                        cursor: string;
-                    };
-                    "application/jsonl": {
-                        /**
-                         * @description The type of event
-                         * @enum {string}
-                         */
-                        type: "item";
-                        /** @description Blueprint properties */
-                        data: {
-                            /** @description The associated name */
-                            name?: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The instance ID */
-                            id: string;
-                            /** @description The timestamp (ms) when the instance was created */
-                            createdAt: number;
-                            /** @description The timestamp (ms) when the instance was updated */
-                            updatedAt: number;
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                            /** @description The ID of the blueprint */
-                            blueprintId?: string;
-                            /** @description The Microsoft Bot Framework Application ID */
-                            botFrameworkAppId?: string;
-                            /** @description Weather to collect contacts */
-                            contactCollection?: boolean;
-                            /** @description The chat session duration */
-                            sessionDuration?: number;
-                            /** @description The allowed senders for this integration */
-                            allowFrom?: string;
                         };
                     };
                 };

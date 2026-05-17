@@ -156,3 +156,31 @@ export async function setupInstagramIntegration(client, instagramId) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/api/v1.js').operations['initiateInstagram']['requestBody']['content']['application/json']} InstagramInitiateRequestBody
+ *
+ * @typedef {InstagramInitiateRequestBody} InstagramInitiateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['initiateInstagram']['responses']['200']['content']['application/json']} InstagramInitiateResponseBody
+ *
+ * @typedef {InstagramInitiateResponseBody} InstagramInitiateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} instagramId
+ * @param {InstagramInitiateRequest} request
+ * @returns {Promise<InstagramInitiateResponse>}
+ */
+export async function initiateInstagram(client, instagramId, request) {
+  const url = `/api/v1/integration/instagram/${instagramId}/initiate`
+
+  /** @type {InstagramInitiateResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {InstagramInitiateRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}

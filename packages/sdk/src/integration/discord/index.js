@@ -3,6 +3,7 @@ import {
   createDiscordIntegration,
   deleteDiscordIntegration,
   fetchDiscordIntegration,
+  initiateDiscord,
   listDiscordIntegrations,
   setupDiscordIntegration,
   updateDiscordIntegration,
@@ -81,6 +82,17 @@ export class DiscordIntegrationClient extends ChatBotKitClient {
    */
   setup(discordId) {
     return setupDiscordIntegration(this, discordId)
+  }
+
+  /**
+   * Initiates a discord integration conversation.
+   *
+   * @param {string} discordId
+   * @param {import('./v1.js').DiscordInitiateRequest} request
+   * @returns {Promise<import('./v1.js').DiscordInitiateResponse>}
+   */
+  initiate(discordId, request) {
+    return initiateDiscord(this, discordId, request)
   }
 }
 

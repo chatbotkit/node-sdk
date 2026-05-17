@@ -3,6 +3,7 @@ import {
   createInstagramIntegration,
   deleteInstagramIntegration,
   fetchInstagramIntegration,
+  initiateInstagram,
   listInstagramIntegrations,
   setupInstagramIntegration,
   updateInstagramIntegration,
@@ -81,6 +82,17 @@ export class InstagramIntegrationClient extends ChatBotKitClient {
    */
   setup(instagramId) {
     return setupInstagramIntegration(this, instagramId)
+  }
+
+  /**
+   * Initiates an instagram integration conversation.
+   *
+   * @param {string} instagramId
+   * @param {import('./v1.js').InstagramInitiateRequest} request
+   * @returns {Promise<import('./v1.js').InstagramInitiateResponse>}
+   */
+  initiate(instagramId, request) {
+    return initiateInstagram(this, instagramId, request)
   }
 }
 
