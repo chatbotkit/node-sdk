@@ -1,5 +1,8 @@
 import { ChatBotKitClient } from '../../client.js'
-import { uploadConversationAttachment } from './v1.js'
+import {
+  listConversationAttachments,
+  uploadConversationAttachment,
+} from './v1.js'
 
 /**
  * @template T
@@ -16,6 +19,17 @@ export class ConversationAttachmentClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+  }
+
+  /**
+   * Retrieves a list of all attachments.
+   *
+   * @param {string} conversationId
+   * @param {import('./v1.js').ConversationAttachmentListRequest} [request]
+   * @returns {ResponsePromise<import('./v1.js').ConversationAttachmentListResponse,never>}
+   */
+  list(conversationId, request) {
+    return listConversationAttachments(this, conversationId, request)
   }
 
   /**

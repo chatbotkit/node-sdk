@@ -12,6 +12,28 @@ import { getBuffer } from '../../buffer.js'
 
 /**
  * @typedef {{
+ *   cursor?: string,
+ *   take?: number,
+ * }} ConversationAttachmentListRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['listConversationAttachments']['responses']['200']['content']['application/json']} ConversationAttachmentListResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationAttachmentListRequest} [request]
+ * @returns {ResponsePromise<ConversationAttachmentListResponse,never>}
+ */
+export function listConversationAttachments(client, conversationId, request) {
+  let url = `/api/v1/conversation/${conversationId}/attachment/list`
+
+  /** @type {ResponsePromise<ConversationAttachmentListResponse,never>} */
+  const response = client.clientFetch(url, { query: request })
+
+  return response
+}
+
+/**
+ * @typedef {{
  *   data: string|ArrayBuffer
  *   type: string,
  *   name?: string,

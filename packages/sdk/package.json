@@ -600,6 +600,26 @@
       "types": "./types/integration/messenger/v1.d.ts",
       "import": "./src/integration/messenger/v1.js"
     },
+    "./integration/microsoftteams": {
+      "types": "./types/integration/microsoftteams/index.d.ts",
+      "import": "./src/integration/microsoftteams/index.js"
+    },
+    "./integration/microsoftteams/index": {
+      "types": "./types/integration/microsoftteams/index.d.ts",
+      "import": "./src/integration/microsoftteams/index.js"
+    },
+    "./integration/microsoftteams/index.js": {
+      "types": "./types/integration/microsoftteams/index.d.ts",
+      "import": "./src/integration/microsoftteams/index.js"
+    },
+    "./integration/microsoftteams/v1": {
+      "types": "./types/integration/microsoftteams/v1.d.ts",
+      "import": "./src/integration/microsoftteams/v1.js"
+    },
+    "./integration/microsoftteams/v1.js": {
+      "types": "./types/integration/microsoftteams/v1.d.ts",
+      "import": "./src/integration/microsoftteams/v1.js"
+    },
     "./integration/notion": {
       "types": "./types/integration/notion/index.d.ts",
       "import": "./src/integration/notion/index.js"
@@ -679,26 +699,6 @@
     "./integration/support/v1.js": {
       "types": "./types/integration/support/v1.d.ts",
       "import": "./src/integration/support/v1.js"
-    },
-    "./integration/microsoftteams": {
-      "types": "./types/integration/microsoftteams/index.d.ts",
-      "import": "./src/integration/microsoftteams/index.js"
-    },
-    "./integration/microsoftteams/index": {
-      "types": "./types/integration/microsoftteams/index.d.ts",
-      "import": "./src/integration/microsoftteams/index.js"
-    },
-    "./integration/microsoftteams/index.js": {
-      "types": "./types/integration/microsoftteams/index.d.ts",
-      "import": "./src/integration/microsoftteams/index.js"
-    },
-    "./integration/microsoftteams/v1": {
-      "types": "./types/integration/microsoftteams/v1.d.ts",
-      "import": "./src/integration/microsoftteams/v1.js"
-    },
-    "./integration/microsoftteams/v1.js": {
-      "types": "./types/integration/microsoftteams/v1.d.ts",
-      "import": "./src/integration/microsoftteams/v1.js"
     },
     "./integration/telegram": {
       "types": "./types/integration/telegram/index.d.ts",
