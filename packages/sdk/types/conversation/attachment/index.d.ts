@@ -8,6 +8,14 @@
  */
 export class ConversationAttachmentClient extends ChatBotKitClient {
     /**
+     * Retrieves a list of all attachments.
+     *
+     * @param {string} conversationId
+     * @param {import('./v1.js').ConversationAttachmentListRequest} [request]
+     * @returns {ResponsePromise<import('./v1.js').ConversationAttachmentListResponse,never>}
+     */
+    list(conversationId: string, request?: import("./v1.js").ConversationAttachmentListRequest): ResponsePromise<import("./v1.js").ConversationAttachmentListResponse, never>;
+    /**
      * Upload file data.
      *
      * @param {string} fileId
