@@ -2,8 +2,10 @@ import { ChatBotKitClient } from '../client.js'
 import {
   cloneBlueprint,
   createBlueprint,
+  createBlueprintBulletin,
   deleteBlueprint,
   fetchBlueprint,
+  listBlueprintBulletins,
   listBlueprintResources,
   listBlueprints,
   updateBlueprint,
@@ -96,6 +98,28 @@ export class BlueprintClient extends ChatBotKitClient {
    */
   listResources(blueprintId) {
     return listBlueprintResources(this, blueprintId)
+  }
+
+  /**
+   * Lists the bulletins on a blueprint's shared board.
+   *
+   * @param {string} blueprintId
+   * @param {import('./v1.js').BlueprintBulletinListRequest} [request]
+   * @returns {ResponsePromise<import('./v1.js').BlueprintListBulletinsResponse,import('./v1.js').BlueprintListBulletinsStreamType>}
+   */
+  listBulletins(blueprintId, request) {
+    return listBlueprintBulletins(this, blueprintId, request)
+  }
+
+  /**
+   * Posts a bulletin to a blueprint's shared board.
+   *
+   * @param {string} blueprintId
+   * @param {import('./v1.js').BlueprintCreateBulletinRequest} request
+   * @returns {Promise<import('./v1.js').BlueprintCreateBulletinResponse>}
+   */
+  createBulletin(blueprintId, request) {
+    return createBlueprintBulletin(this, blueprintId, request)
   }
 }
 

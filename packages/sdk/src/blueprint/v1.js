@@ -172,3 +172,56 @@ export async function listBlueprintResources(client, blueprintId) {
 
   return response
 }
+
+/**
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number
+ * }} BlueprintBulletinListRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['listBlueprintBulletins']['responses']['200']['content']['application/json']} BlueprintListBulletinsResponse
+ *
+ * @typedef {import('../types/api/v1.js').operations['listBlueprintBulletins']['responses']['200']['content']['application/jsonl']} BlueprintListBulletinsStreamType
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId
+ * @param {BlueprintBulletinListRequest} [request]
+ * @returns {ResponsePromise<BlueprintListBulletinsResponse,BlueprintListBulletinsStreamType>}
+ */
+export function listBlueprintBulletins(client, blueprintId, request) {
+  const url = `/api/v1/blueprint/${blueprintId}/bulletin/list`
+
+  /** @type {ResponsePromise<BlueprintListBulletinsResponse,BlueprintListBulletinsStreamType>} */
+  const response = client.clientFetch(url, { query: request })
+
+  return response
+}
+
+/**
+ * @typedef {import('../types/api/v1.js').operations['createBlueprintBulletin']['requestBody']['content']['application/json']} BlueprintCreateBulletinRequestBody
+ *
+ * @typedef {BlueprintCreateBulletinRequestBody} BlueprintCreateBulletinRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createBlueprintBulletin']['responses']['200']['content']['application/json']} BlueprintCreateBulletinResponseBody
+ *
+ * @typedef {BlueprintCreateBulletinResponseBody} BlueprintCreateBulletinResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId
+ * @param {BlueprintCreateBulletinRequest} request
+ * @returns {Promise<BlueprintCreateBulletinResponse>}
+ */
+export async function createBlueprintBulletin(client, blueprintId, request) {
+  const url = `/api/v1/blueprint/${blueprintId}/bulletin/create`
+
+  /** @type {BlueprintCreateBulletinResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {BlueprintCreateBulletinRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}

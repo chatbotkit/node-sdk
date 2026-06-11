@@ -70,6 +70,102 @@
       "createdAt": "2026-02-25T00:00:00.000Z",
       "updatedAt": "2026-02-25T00:00:00.000Z"
     },
+    "cru3m5n8k001008jq7h9e5b2c": {
+      "id": "cru3m5n8k001008jq7h9e5b2c",
+      "name": "Conversation Usage Report",
+      "description": "Token, conversation, and message usage totals for one or more conversations",
+      "input": {
+        "$ref": "#/definitions/conversation-usage-report-input",
+        "definitions": {
+          "conversation-usage-report-input": {
+            "type": "object",
+            "properties": {
+              "conversationIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "maxItems": 100,
+                "description": "IDs of conversations to include in the usage report"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 90,
+                "default": 90,
+                "description": "Number of days to analyse, up to the 90-day usage lookback"
+              }
+            },
+            "required": [
+              "conversationIds"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/conversation-usage-report-output",
+        "definitions": {
+          "conversation-usage-report-output": {
+            "type": "object",
+            "properties": {
+              "totalTokens": {
+                "type": "number"
+              },
+              "totalConversations": {
+                "type": "number"
+              },
+              "totalMessages": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "conversationId": {
+                      "type": "string"
+                    },
+                    "tokens": {
+                      "type": "number"
+                    },
+                    "conversations": {
+                      "type": "number"
+                    },
+                    "messages": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "conversationId",
+                    "tokens",
+                    "conversations",
+                    "messages"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "totalTokens",
+              "totalConversations",
+              "totalMessages",
+              "period",
+              "items"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2026-05-20T00:00:00.000Z",
+      "updatedAt": "2026-05-20T00:00:00.000Z"
+    },
     "clr3m5n8k000008jq7h9e5b1a": {
       "id": "clr3m5n8k000008jq7h9e5b1a",
       "name": "Total Ratings Report",
