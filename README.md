@@ -1,8 +1,8 @@
-[![Follow on Twitter](https://img.shields.io/twitter/follow/chatbotkit.svg?logo=twitter)](https://twitter.com/chatbotkit)
 [![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 [![CBK.AI](https://img.shields.io/badge/credits-CBK.AI-blue.svg)](https://cbk.ai)
 [![Email](https://img.shields.io/badge/Email-Support-blue?logo=mail.ru)](mailto:support@chatbotkit.com)
 [![Discord](https://img.shields.io/badge/Discord-Support-blue?logo=discord)](https://go.cbk.ai/discord)
+[![Follow on Twitter](https://img.shields.io/twitter/follow/chatbotkit.svg?logo=twitter)](https://twitter.com/chatbotkit)
 
 ```text
  .d8888b.  888888b.   888    d8P
@@ -17,9 +17,15 @@ Y88b  d88P 888   d88P 888   Y88b
 
 # ChatBotKit Node SDK
 
-Welcome to the ChatBotKit Node SDK. This SDK offers a JavaScript-based platform for effortlessly building conversational AI bots and agents. With [ChatBotKit](https://chatbotkit.com), you can swiftly develop and deploy AI bots capable of natural language interactions.
+The official JavaScript and TypeScript SDK suite for
+[ChatBotKit](https://chatbotkit.com) - a platform for building and deploying
+conversational AI applications. With ChatBotKit you can create bots and agents
+with custom data, skillsets, and integrations while keeping AI orchestration on
+the ChatBotKit platform.
 
-This is a meta repository for the ChatBotKit Node SDK. It contains the SDK packages for a number of popular platforms and frameworks such as **React**, **Next.js**, **NextAuth** and more.
+This meta repository contains SDK packages and tools for popular platforms and
+frameworks such as **Node.js**, **React**, **Next.js**, **NextAuth.js**, widgets,
+and more.
 
 ## Main Packages
 
@@ -46,13 +52,13 @@ This repository also contains the following tools:
 
 ## Why ChatBotKit?
 
-**Build lighter, future-proof AI agents.** When you build with ChatBotKit, the heavy lifting happens on our servers-not in your application. This architectural advantage delivers:
+**Build lighter, future-proof AI agents.** When you build with ChatBotKit, the heavy lifting happens on our servers, not in your application. This architectural advantage delivers:
 
 - 🪶 **Lightweight Agents**: Your agents stay lean because complex AI processing, model orchestration, and tool execution happen server-side. Less code in your app means faster load times and simpler maintenance.
 
 - 🛡️ **Robust & Streamlined**: Server-side processing provides a more reliable experience with built-in error handling, automatic retries, and consistent behavior across all platforms.
 
-- 🔄 **Backward & Forward Compatible**: As AI technology evolves-new models, new capabilities, new paradigms-your agents automatically benefit. No code changes required on your end.
+- 🔄 **Backward & Forward Compatible**: As AI technology evolves with new models, new capabilities, and new paradigms, your agents automatically benefit. No code changes required on your end.
 
 - 🔮 **Future-Proof**: Agents you build today will remain capable tomorrow. When we add support for new AI models or capabilities, your existing agents gain those powers without any updates to your codebase.
 

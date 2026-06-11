@@ -1,11 +1,5 @@
 # @chatbotkit/sdk
 
-## 1.37.2
-
-### Patch Changes
-
-- 27d6947: Re-generated types.
-
 ## 1.37.1
 
 ### Patch Changes

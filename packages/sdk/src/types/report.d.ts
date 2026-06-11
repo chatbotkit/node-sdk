@@ -3,7 +3,7 @@
  * Generated from report registry schemas.
  */
 
-export type ReportId = 'cm7k3m5n8k000008jq7h9e5b1a' | 'clr3m5n8k000008jq7h9e5b1a' | 'clr3m5n8k000108jq3c4d7f2b' | 'clr3m5n8k000208jq8e5f6g3c' | 'clr3m5n8k000308jq1h7i8j4d' | 'clr3m5n8k000408jq9i8j9k5e' | 'clr3m5n8k000508jq2j9k0l6f' | 'clr3m5n8k000608jq3k0l1m7g' | 'clr3m5n8k000708jq4l1m2n8h' | 'clr3m5n8k000808jq5m2n3o9i' | 'clr3m5n8k000908jq6n3o4p0j' | 'clr3m5n8k000a08jq7o4p5q1k' | 'clr3m5n8k000b08jq8p5q6r2l' | 'clr3m5n8k000c08jq9q6r7s3m' | 'clr3m5n8k000d08jqar7s8t4n' | 'clr3m5n8k000e08jqbs0t1u5o' | 'clr3m5n8k000f08jqcs1u2v6p' | 'clr3m5n8k000g08jqdt1u2v7q' | 'clr3m5n8k000h08jqeu2v3w8r' | 'clr3m5n8k000i08jqfv3w4x9s' | 'clr3m5n8k000j08jqgw4x5y0t' | 'gpv2an25fuhe2k6v6ckv85v8' | 'pov1s2k3l4m5n6o7p8q9r0sov'
+export type ReportId = 'cm7k3m5n8k000008jq7h9e5b1a' | 'cru3m5n8k001008jq7h9e5b2c' | 'clr3m5n8k000008jq7h9e5b1a' | 'clr3m5n8k000108jq3c4d7f2b' | 'clr3m5n8k000208jq8e5f6g3c' | 'clr3m5n8k000308jq1h7i8j4d' | 'clr3m5n8k000408jq9i8j9k5e' | 'clr3m5n8k000508jq2j9k0l6f' | 'clr3m5n8k000608jq3k0l1m7g' | 'clr3m5n8k000708jq4l1m2n8h' | 'clr3m5n8k000808jq5m2n3o9i' | 'clr3m5n8k000908jq6n3o4p0j' | 'clr3m5n8k000a08jq7o4p5q1k' | 'clr3m5n8k000b08jq8p5q6r2l' | 'clr3m5n8k000c08jq9q6r7s3m' | 'clr3m5n8k000d08jqar7s8t4n' | 'clr3m5n8k000e08jqbs0t1u5o' | 'clr3m5n8k000f08jqcs1u2v6p' | 'clr3m5n8k000g08jqdt1u2v7q' | 'clr3m5n8k000h08jqeu2v3w8r' | 'clr3m5n8k000i08jqfv3w4x9s' | 'clr3m5n8k000j08jqgw4x5y0t' | 'gpv2an25fuhe2k6v6ckv85v8' | 'pov1s2k3l4m5n6o7p8q9r0sov'
 
 export interface ReportMetadata {
   id: string
@@ -19,6 +19,12 @@ export interface ReportRegistry {
     description: string
     input: DatasetRecordsInput
     output: DatasetRecordsOutput
+  }
+  'cru3m5n8k001008jq7h9e5b2c': {
+    name: string
+    description: string
+    input: ConversationUsageInput
+    output: ConversationUsageOutput
   }
   'clr3m5n8k000008jq7h9e5b1a': {
     name: string
@@ -159,6 +165,11 @@ export type DatasetRecordsInput = {
   datasetIds: string[]
 }
 
+export type ConversationUsageInput = {
+  conversationIds: string[]
+  periodDays?: number
+}
+
 export type TotalRatingsInput = {
   periodDays?: number
 }
@@ -258,6 +269,14 @@ export type PlatformOverviewInput = {
 export type DatasetRecordsOutput = {
   totalRecords: number
   breakdown: { datasetId: string; records: number }[]
+}
+
+export type ConversationUsageOutput = {
+  totalTokens: number
+  totalConversations: number
+  totalMessages: number
+  period: string
+  items: { conversationId: string; tokens: number; conversations: number; messages: number }[]
 }
 
 export type TotalRatingsOutput = {
@@ -419,6 +438,7 @@ export type PlatformOverviewOutput = {
 // Mapping report IDs to their input/output types
 export type ReportInputTypes = {
   'cm7k3m5n8k000008jq7h9e5b1a': DatasetRecordsInput
+  'cru3m5n8k001008jq7h9e5b2c': ConversationUsageInput
   'clr3m5n8k000008jq7h9e5b1a': TotalRatingsInput
   'clr3m5n8k000108jq3c4d7f2b': ThumbsUpInput
   'clr3m5n8k000208jq8e5f6g3c': ThumbsDownInput
@@ -445,6 +465,7 @@ export type ReportInputTypes = {
 
 export type ReportOutputTypes = {
   'cm7k3m5n8k000008jq7h9e5b1a': DatasetRecordsOutput
+  'cru3m5n8k001008jq7h9e5b2c': ConversationUsageOutput
   'clr3m5n8k000008jq7h9e5b1a': TotalRatingsOutput
   'clr3m5n8k000108jq3c4d7f2b': ThumbsUpOutput
   'clr3m5n8k000208jq8e5f6g3c': ThumbsDownOutput
