@@ -1,5 +1,15 @@
 # @chatbotkit/sdk
 
+## 1.38.0
+
+### Minor Changes
+
+- 62dfd75: Re-generated types.
+
+### Patch Changes
+
+- 62dfd75: Re-generated types.
+
 ## 1.37.1
 
 ### Patch Changes
