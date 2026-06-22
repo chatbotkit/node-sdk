@@ -8,6 +8,7 @@ import { McpServerIntegrationClient } from './mcpserver/index.js'
 import { MessengerIntegrationClient } from './messenger/index.js'
 import { NotionIntegrationClient } from './notion/index.js'
 import { SitemapIntegrationClient } from './sitemap/index.js'
+import { SkillServerIntegrationClient } from './skillserver/index.js'
 import { SlackIntegrationClient } from './slack/index.js'
 import { SupportIntegrationClient } from './support/index.js'
 import { MicrosoftteamsIntegrationClient } from './microsoftteams/index.js'
@@ -93,6 +94,11 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {McpServerIntegrationClient} mcpserver client
      */
     this.mcpserver = new McpServerIntegrationClient(options)
+
+    /**
+     * @type {SkillServerIntegrationClient} skillserver client
+     */
+    this.skillserver = new SkillServerIntegrationClient(options)
 
     /**
      * @type {TwilioIntegrationClient} twilio client

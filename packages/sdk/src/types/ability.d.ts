@@ -88,6 +88,9 @@ export type CbkAbilityName = 'abort'
   | 'image/modify[gpt-image-1.5]'
   | 'image/modify[gpt-image-1]'
   | 'image/modify[gpt-image-2]'
+  | 'list/pop'
+  | 'list/push'
+  | 'list/read'
   | 'listen/transcribe'
   | 'math/evaluate'
   | 'memory/create'
@@ -114,6 +117,7 @@ export type CbkAbilityName = 'abort'
   | 'mock/sql'
   | 'pack/bot/reprogramming'
   | 'pack/cbk/space/skills'
+  | 'pack/cbk/space/skills[authoring]'
   | 'pack/cbk/space/storage'
   | 'pack/cbk/space/storage[read-only]'
   | 'pack/file'
@@ -154,6 +158,7 @@ export type CbkAbilityName = 'abort'
   | 'shell/exec/python'
   | 'shell/import'
   | 'shell/read'
+  | 'shell/replace'
   | 'shell/rw'
   | 'shell/skillset/install[by-id]'
   | 'shell/write'
@@ -227,6 +232,7 @@ export type CbkAbilityName = 'abort'
   | 'todo/read'
   | 'todo/write'
   | 'url/graphql'
+  | 'url/screenshot'
   | 'url/sql'
   | 'view/describe'
 
@@ -539,24 +545,20 @@ export type FetchMetadataParameters = {
 }
 
 export type FetchRequestParameters = {
- /** the HTTP method to use (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS) */
+ /** HTTP method */
   method: string
- /** the full URL to make the request to */
+ /** URL */
   url: string
- /** the content type header (e.g., application/json, text/plain) */
-  contentType?: string
- /** the request body as text - for POST, PUT, PATCH requests */
+ /** request body as text - for POST, PUT, PATCH requests */
   body?: string
 }
 
 export type FetchRequestWithAuthParameters = {
- /** the HTTP method to use (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS) */
+ /** HTTP method */
   method: string
- /** the full URL to make the request to */
+ /** URL */
   url: string
- /** the content type header (e.g., application/json, text/plain) */
-  contentType?: string
- /** the request body as text - for POST, PUT, PATCH requests */
+ /** request body as text - for POST, PUT, PATCH requests */
   body?: string
 }
 
@@ -804,6 +806,33 @@ export type ImageModifyGptImage2Parameters = {
   image_url: string
 }
 
+export type ListPopParameters = {
+ /** stable name of the bot-scoped list */
+  listName: string
+ /** start or end */
+  position: string
+}
+
+export type ListPushParameters = {
+ /** stable name of the bot-scoped list */
+  listName: string
+ /** item to add to the list */
+  item: string
+ /** start to prepend, end to append */
+  position: string
+}
+
+export type ListReadParameters = {
+ /** stable name of the bot-scoped list */
+  listName: string
+ /** start or end */
+  position: string
+ /** number of items to skip from the selected position */
+  offset: number
+ /** maximum number of items to read */
+  limit: number
+}
+
 export type ListenTranscribeParameters = {
  /** directions how to describe an image */
   directions?: string
@@ -925,6 +954,8 @@ export type MockSqlParameters = {
 export type PackBotReprogrammingParameters = Record<string, never>
 
 export type PackCbkSpaceSkillsParameters = Record<string, never>
+
+export type PackCbkSpaceSkillsAuthoringParameters = Record<string, never>
 
 export type PackCbkSpaceStorageParameters = Record<string, never>
 
@@ -1159,6 +1190,17 @@ export type ShellReadParameters = {
   endLine: number
 }
 
+export type ShellReplaceParameters = {
+ /** absolute path to the file to edit */
+  path: string
+ /** the exact text to search for */
+  search: string
+ /** the text to replace each match with */
+  replace: string
+ /** number of occurrences to replace (optional, replaces all if not specified) */
+  count?: number
+}
+
 export type ShellRwParameters = {
  /** absolute path to the file to read from or write to */
   path: string
@@ -1258,14 +1300,14 @@ export type SpaceSkillListByIdParameters = {
 }
 
 export type SpaceSkillReadParameters = {
- /** Path to a SKILL.md file, as returned by the list ability */
+ /** Path to a skill file in the linked space. Typically a SKILL.md returned by the list ability, but it can also be any supporting file within that skill's folder (such as references, scripts, or templates) that the SKILL.md links to. */
   path: string
 }
 
 export type SpaceSkillReadByIdParameters = {
  /** The ID of the space to read skills from */
   spaceId: string
- /** Path to a SKILL.md file, as returned by the list ability */
+ /** Path to a skill file in the linked space. Typically a SKILL.md returned by the list ability, but it can also be any supporting file within that skill's folder (such as references, scripts, or templates) that the SKILL.md links to. */
   path: string
 }
 
@@ -1466,6 +1508,12 @@ export type TaskCreateParameters = {
   description: string
  /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
+ /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
+  maxIterations?: number
+ /** optional max run time as a duration like "1 day" or "30 minutes" (or milliseconds); clamped 15 minutes–1 day; default 15 minutes */
+  maxTime?: string
+ /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
+  sessionDuration?: string
 }
 
 export type TaskCreateByBotIdParameters = {
@@ -1477,6 +1525,12 @@ export type TaskCreateByBotIdParameters = {
   description: string
  /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
+ /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
+  maxIterations?: number
+ /** optional max run time as a duration like "1 day" or "30 minutes" (or milliseconds); clamped 15 minutes–1 day; default 15 minutes */
+  maxTime?: string
+ /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
+  sessionDuration?: string
 }
 
 export type TaskCreateContactParameters = {
@@ -1486,6 +1540,12 @@ export type TaskCreateContactParameters = {
   description: string
  /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
+ /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
+  maxIterations?: number
+ /** optional max run time as a duration like "1 day" or "30 minutes" (or milliseconds); clamped 15 minutes–1 day; default 15 minutes */
+  maxTime?: string
+ /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
+  sessionDuration?: string
 }
 
 export type TaskCreateContactByBotIdParameters = {
@@ -1497,6 +1557,12 @@ export type TaskCreateContactByBotIdParameters = {
   description: string
  /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
+ /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
+  maxIterations?: number
+ /** optional max run time as a duration like "1 day" or "30 minutes" (or milliseconds); clamped 15 minutes–1 day; default 15 minutes */
+  maxTime?: string
+ /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
+  sessionDuration?: string
 }
 
 export type TaskDeleteParameters = {
@@ -1594,6 +1660,12 @@ export type TaskUpdateParameters = {
   description: string
  /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
+ /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
+  maxIterations?: number
+ /** optional max run time as a duration like "1 day" or "30 minutes" (or milliseconds); clamped 15 minutes–1 day; default 15 minutes */
+  maxTime?: string
+ /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
+  sessionDuration?: string
 }
 
 export type TaskUpdateByBotIdParameters = {
@@ -1607,6 +1679,12 @@ export type TaskUpdateByBotIdParameters = {
   description: string
  /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
+ /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
+  maxIterations?: number
+ /** optional max run time as a duration like "1 day" or "30 minutes" (or milliseconds); clamped 15 minutes–1 day; default 15 minutes */
+  maxTime?: string
+ /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
+  sessionDuration?: string
 }
 
 export type TaskUpdateContactParameters = {
@@ -1618,6 +1696,12 @@ export type TaskUpdateContactParameters = {
   description: string
  /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
+ /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
+  maxIterations?: number
+ /** optional max run time as a duration like "1 day" or "30 minutes" (or milliseconds); clamped 15 minutes–1 day; default 15 minutes */
+  maxTime?: string
+ /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
+  sessionDuration?: string
 }
 
 export type TaskUpdateContactByBotIdParameters = {
@@ -1631,6 +1715,12 @@ export type TaskUpdateContactByBotIdParameters = {
   description: string
  /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
+ /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
+  maxIterations?: number
+ /** optional max run time as a duration like "1 day" or "30 minutes" (or milliseconds); clamped 15 minutes–1 day; default 15 minutes */
+  maxTime?: string
+ /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
+  sessionDuration?: string
 }
 
 export type TextArticleGenerateParameters = {
@@ -1706,6 +1796,25 @@ export type UrlGraphqlParameters = {
   query: string
  /** optional GraphQL query variables in JSON format */
   variables?: string
+}
+
+export type UrlScreenshotParameters = {
+ /** the url of the page to screenshot, including the https:// prefix */
+  url: string
+ /** capture the entire scrollable page instead of just the visible viewport */
+  fullPage?: boolean
+ /** the image format of the screenshot */
+  format?: string
+ /** the browser viewport width in pixels */
+  viewportWidth?: number
+ /** the browser viewport height in pixels */
+  viewportHeight?: number
+ /** an optional CSS selector to capture a single element instead of the whole page */
+  selector?: string
+ /** render the page using a dark color scheme */
+  darkMode?: boolean
+ /** extra time to wait in milliseconds after the page loads before capturing */
+  delay?: number
 }
 
 export type UrlSqlParameters = {
@@ -1981,13 +2090,13 @@ export interface CbkAbilityRegistry {
     parameters: FetchMetadataParameters
   }
   'fetch/request': {
-    name: 'Custom HTTP Request (Public)'
-    description: 'Make a custom HTTP request to a public API without authentication. Full control over method, URL, headers, and body.'
+    name: 'HTTP Request'
+    description: 'Make an HTTP request'
     parameters: FetchRequestParameters
   }
   'fetch/request[with-auth]': {
-    name: 'Custom HTTP Request'
-    description: 'Make a custom HTTP request with full control over method, URL, headers, and body. Use this for any API that requires specific HTTP configurations.'
+    name: 'HTTP Request'
+    description: 'Make an HTTP request'
     parameters: FetchRequestWithAuthParameters
   }
   'fetch/text/get': {
@@ -2037,12 +2146,12 @@ export interface CbkAbilityRegistry {
   }
   'file/rw': {
     name: 'Read/Write File'
-    description: 'Read or write file content with a single combined operation. Use mode "read" to read content, or mode "write" to write content. Supports optional line ranges for both modes.'
+    description: 'Read or write file content with a single combined operation. Use mode "read" to read content, or mode "write" to write content. Supports optional line ranges for both modes. For write edits, prefer a full rewrite for small files, or file/replace for targeted edits, since line-range writes can break the file if the range is off.'
     parameters: FileRwParameters
   }
   'file/rw[by-id]': {
     name: 'Read/Write File'
-    description: 'Read or write file content with a single combined operation. Use mode "read" to read content, or mode "write" to write content. Supports optional line ranges for both modes.'
+    description: 'Read or write file content with a single combined operation. Use mode "read" to read content, or mode "write" to write content. Supports optional line ranges for both modes. For write edits, prefer a full rewrite for small files, or file/replace for targeted edits, since line-range writes can break the file if the range is off.'
     parameters: FileRwByIdParameters
   }
   'file/sql': {
@@ -2057,12 +2166,12 @@ export interface CbkAbilityRegistry {
   }
   'file/write': {
     name: 'Write File'
-    description: 'Write content to a file. Without line parameters, overwrites the entire file. With startLine only, inserts before that line. With startLine and endLine, replaces that range.'
+    description: 'Write content to a file. Without line parameters, overwrites the entire file. With startLine only, inserts before that line. With startLine and endLine, replaces that range. For small files prefer a full rewrite (omit the line parameters); for targeted edits prefer file/replace, which anchors on the surrounding text and cannot break the file with an off-by-one line range.'
     parameters: FileWriteParameters
   }
   'file/write[by-id]': {
     name: 'Write File'
-    description: 'Write content to a file. Without line parameters, overwrites the entire file. With startLine only, inserts before that line. With startLine and endLine, replaces that range.'
+    description: 'Write content to a file. Without line parameters, overwrites the entire file. With startLine only, inserts before that line. With startLine and endLine, replaces that range. For small files prefer a full rewrite (omit the line parameters); for targeted edits prefer file/replace, which anchors on the surrounding text and cannot break the file with an off-by-one line range.'
     parameters: FileWriteByIdParameters
   }
   'git/file/fetch': {
@@ -2139,6 +2248,21 @@ export interface CbkAbilityRegistry {
     name: 'Modify Image'
     description: 'Create a new image from previous input images using the GPT Image 2 model.'
     parameters: ImageModifyGptImage2Parameters
+  }
+  'list/pop': {
+    name: 'Pop From List'
+    description: 'Remove and return an item from the start or end of a bot-scoped temporary Redis list.'
+    parameters: ListPopParameters
+  }
+  'list/push': {
+    name: 'Push To List'
+    description: 'Add an item to the start or end of a bot-scoped temporary Redis list.'
+    parameters: ListPushParameters
+  }
+  'list/read': {
+    name: 'Read List'
+    description: 'Read items from the start or end of a bot-scoped temporary Redis list without removing them.'
+    parameters: ListReadParameters
   }
   'listen/transcribe': {
     name: 'Transcribe Audio'
@@ -2269,6 +2393,11 @@ export interface CbkAbilityRegistry {
     name: 'Install Space Skills Tools'
     description: 'Installs space skills tools into the conversation. You can list available skills and read their full content from the linked space.'
     parameters: PackCbkSpaceSkillsParameters
+  }
+  'pack/cbk/space/skills[authoring]': {
+    name: 'Install Space Skills Authoring Tools'
+    description: 'Installs space skills authoring tools into the conversation. You can list available skills, read their full content, and create new skills in the linked space.'
+    parameters: PackCbkSpaceSkillsAuthoringParameters
   }
   'pack/cbk/space/storage': {
     name: 'Install Space Storage Tools'
@@ -2470,9 +2599,14 @@ export interface CbkAbilityRegistry {
     description: 'Read the content of a file in a shell environment. Supports optional line range to read specific sections. For efficiency, prefer reading larger chunks rather than many small sequential reads. Supports parallel reads of different sections when needed upfront.'
     parameters: ShellReadParameters
   }
+  'shell/replace': {
+    name: 'Replace in File in Shell Environment'
+    description: 'Find and replace text in a file in a shell environment. Prefer this over line-range writes for targeted edits: it anchors on the surrounding text instead of line numbers, so it cannot break the file structure with an off-by-one range. The result includes a preview of the edited region so you can verify the change.'
+    parameters: ShellReplaceParameters
+  }
   'shell/rw': {
     name: 'Read/Write File in Shell Environment'
-    description: 'Read or write file content in a shell environment with a single combined operation. Use mode "read" to read content, or mode "write" to write content. Supports optional line ranges for both modes.'
+    description: 'Read or write file content in a shell environment with a single combined operation. Use mode "read" to read content, or mode "write" to write content. Supports optional line ranges for both modes. For write edits, prefer a full rewrite for small files, or shell/replace for targeted edits, since line-range writes can break the file if the range is off.'
     parameters: ShellRwParameters
   }
   'shell/skillset/install[by-id]': {
@@ -2482,7 +2616,7 @@ export interface CbkAbilityRegistry {
   }
   'shell/write': {
     name: 'Write File in Shell Environment'
-    description: 'Write content to a file in a shell environment. Without line parameters, overwrites the entire file. With startLine only, inserts before that line. With startLine and endLine, replaces that range.'
+    description: 'Write content to a file in a shell environment. Without line parameters, overwrites the entire file. With startLine only, inserts before that line. With startLine and endLine, replaces that range. For small files prefer a full rewrite (omit the line parameters); for targeted edits prefer shell/replace, which anchors on the surrounding text and cannot break the file with an off-by-one line range.'
     parameters: ShellWriteParameters
   }
   'space/create': {
@@ -2547,12 +2681,12 @@ export interface CbkAbilityRegistry {
   }
   'space/skill/read': {
     name: 'Read Space Skills'
-    description: 'Reads the full content of one or more skill files from the linked space by their paths. Use the list ability first to discover available skill paths.'
+    description: 'Reads the full content of one or more files from the linked space by their paths. Use the list ability first to discover skill paths, then read a SKILL.md or any supporting file within that skill\'s folder that it links to.'
     parameters: SpaceSkillReadParameters
   }
   'space/skill/read[by-id]': {
     name: 'Read Space Skills'
-    description: 'Reads the full content of one or more skill files from the space by their paths. Use the list ability first to discover available skill paths.'
+    description: 'Reads the full content of one or more files from the space by their paths. Use the list ability first to discover skill paths, then read a SKILL.md or any supporting file within that skill\'s folder that it links to.'
     parameters: SpaceSkillReadByIdParameters
   }
   'space/storage/copy': {
@@ -2834,6 +2968,11 @@ export interface CbkAbilityRegistry {
     name: 'Execute GraphQL Query'
     description: 'Execute a graphql query on a remote GraphQL endpoint'
     parameters: UrlGraphqlParameters
+  }
+  'url/screenshot': {
+    name: 'Take Screenshot'
+    description: 'Capture a screenshot of a web page from its URL and return a link to the rendered image.'
+    parameters: UrlScreenshotParameters
   }
   'url/sql': {
     name: 'Execute File SQL Query'

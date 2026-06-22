@@ -97,6 +97,69 @@ export function cloneBlueprint(client: ChatBotKitClient, blueprintId: string): P
  * @returns {Promise<BlueprintListResourcesResponse>}
  */
 export function listBlueprintResources(client: ChatBotKitClient, blueprintId: string): Promise<BlueprintListResourcesResponse>;
+/**
+ * @typedef {{
+ *   ensure?: boolean,
+ *   resources: Record<string, Array<Record<string, any>>>
+ * }} BlueprintImportResourcesRequest
+ *
+ * @typedef {{
+ *   id: string,
+ *   resources: Record<string, Array<{ id: string, name?: string, description?: string }>>
+ * }} BlueprintImportResourcesResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId can be a blueprint id or `@alias` (with `ensure` to create on miss)
+ * @param {BlueprintImportResourcesRequest} request
+ * @returns {Promise<BlueprintImportResourcesResponse>}
+ */
+export function importBlueprintResources(client: ChatBotKitClient, blueprintId: string, request: BlueprintImportResourcesRequest): Promise<BlueprintImportResourcesResponse>;
+/**
+ * @typedef {{
+ *   id?: string,
+ *   name?: string,
+ *   config?: Record<string, any>,
+ *   meta?: Record<string, any>,
+ *   resources: Record<string, { type: string, data: Record<string, any> }>
+ * }} BlueprintExportResourcesResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId can be a blueprint id or `@alias`
+ * @returns {Promise<BlueprintExportResourcesResponse>}
+ */
+export function exportBlueprintResources(client: ChatBotKitClient, blueprintId: string): Promise<BlueprintExportResourcesResponse>;
+/**
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number
+ * }} BlueprintBulletinListRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['listBlueprintBulletins']['responses']['200']['content']['application/json']} BlueprintListBulletinsResponse
+ *
+ * @typedef {import('../types/api/v1.js').operations['listBlueprintBulletins']['responses']['200']['content']['application/jsonl']} BlueprintListBulletinsStreamType
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId
+ * @param {BlueprintBulletinListRequest} [request]
+ * @returns {ResponsePromise<BlueprintListBulletinsResponse,BlueprintListBulletinsStreamType>}
+ */
+export function listBlueprintBulletins(client: ChatBotKitClient, blueprintId: string, request?: BlueprintBulletinListRequest): ResponsePromise<BlueprintListBulletinsResponse, BlueprintListBulletinsStreamType>;
+/**
+ * @typedef {import('../types/api/v1.js').operations['createBlueprintBulletin']['requestBody']['content']['application/json']} BlueprintCreateBulletinRequestBody
+ *
+ * @typedef {BlueprintCreateBulletinRequestBody} BlueprintCreateBulletinRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createBlueprintBulletin']['responses']['200']['content']['application/json']} BlueprintCreateBulletinResponseBody
+ *
+ * @typedef {BlueprintCreateBulletinResponseBody} BlueprintCreateBulletinResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId
+ * @param {BlueprintCreateBulletinRequest} request
+ * @returns {Promise<BlueprintCreateBulletinResponse>}
+ */
+export function createBlueprintBulletin(client: ChatBotKitClient, blueprintId: string, request: BlueprintCreateBulletinRequest): Promise<BlueprintCreateBulletinResponse>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type BlueprintListRequest = {
@@ -125,3 +188,36 @@ export type BlueprintCloneRequest = BlueprintCloneRequestBody;
 export type BlueprintCloneResponseBody = import("../types/api/v1.js").operations["cloneBlueprint"]["responses"]["200"]["content"]["application/json"];
 export type BlueprintCloneResponse = BlueprintCloneResponseBody;
 export type BlueprintListResourcesResponse = import("../types/api/v1.js").operations["listBlueprintResources"]["responses"]["200"]["content"]["application/json"];
+export type BlueprintImportResourcesRequest = {
+    ensure?: boolean;
+    resources: Record<string, Array<Record<string, any>>>;
+};
+export type BlueprintImportResourcesResponse = {
+    id: string;
+    resources: Record<string, Array<{
+        id: string;
+        name?: string;
+        description?: string;
+    }>>;
+};
+export type BlueprintExportResourcesResponse = {
+    id?: string;
+    name?: string;
+    config?: Record<string, any>;
+    meta?: Record<string, any>;
+    resources: Record<string, {
+        type: string;
+        data: Record<string, any>;
+    }>;
+};
+export type BlueprintBulletinListRequest = {
+    cursor?: string;
+    order?: "desc" | "asc";
+    take?: number;
+};
+export type BlueprintListBulletinsResponse = import("../types/api/v1.js").operations["listBlueprintBulletins"]["responses"]["200"]["content"]["application/json"];
+export type BlueprintListBulletinsStreamType = import("../types/api/v1.js").operations["listBlueprintBulletins"]["responses"]["200"]["content"]["application/jsonl"];
+export type BlueprintCreateBulletinRequestBody = import("../types/api/v1.js").operations["createBlueprintBulletin"]["requestBody"]["content"]["application/json"];
+export type BlueprintCreateBulletinRequest = BlueprintCreateBulletinRequestBody;
+export type BlueprintCreateBulletinResponseBody = import("../types/api/v1.js").operations["createBlueprintBulletin"]["responses"]["200"]["content"]["application/json"];
+export type BlueprintCreateBulletinResponse = BlueprintCreateBulletinResponseBody;

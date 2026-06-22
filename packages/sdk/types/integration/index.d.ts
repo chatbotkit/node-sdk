@@ -56,6 +56,10 @@ export class IntegrationClient extends ChatBotKitClient {
      */
     mcpserver: McpServerIntegrationClient;
     /**
+     * @type {SkillServerIntegrationClient} skillserver client
+     */
+    skillserver: SkillServerIntegrationClient;
+    /**
      * @type {TwilioIntegrationClient} twilio client
      */
     twilio: TwilioIntegrationClient;
@@ -84,6 +88,7 @@ import { NotionIntegrationClient } from './notion/index.js';
 import { SupportIntegrationClient } from './support/index.js';
 import { ExtractIntegrationClient } from './extract/index.js';
 import { McpServerIntegrationClient } from './mcpserver/index.js';
+import { SkillServerIntegrationClient } from './skillserver/index.js';
 import { TwilioIntegrationClient } from './twilio/index.js';
 import { MicrosoftteamsIntegrationClient } from './microsoftteams/index.js';
 import { GooglechatIntegrationClient } from './googlechat/index.js';

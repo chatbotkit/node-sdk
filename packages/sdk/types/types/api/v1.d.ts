@@ -115,8 +115,25 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Initiates conversation with the teams integration */
+        /** Initiate a conversation with a Microsoft Teams integration */
         post: operations["initiateTeams"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/recall/{recallIntegrationId}/initiate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Initiates a meeting session with the recall integration */
+        post: operations["initiateRecall"];
         delete?: never;
         options?: never;
         head?: never;
@@ -185,6 +202,26 @@ export interface paths {
         put?: never;
         /** Initiates conversation with the whatsapp integration */
         post: operations["initiateWhatsapp"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/openai/chat/completions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create a chat completion (OpenAI-compatible)
+         * @description An OpenAI Chat Completions compatible endpoint. Point any OpenAI client at this base URL and set `model` to a selector such as `model/name=...` or `bot/id=...`. Supports streaming and tool calling.
+         */
+        post: operations["createChatCompletion"];
         delete?: never;
         options?: never;
         head?: never;
@@ -280,6 +317,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/blueprint/{blueprintId}/bulletin/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Post a bulletin to a blueprint's shared board */
+        post: operations["createBlueprintBulletin"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/blueprint/{blueprintId}/bulletin/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List the bulletins on a blueprint's shared board */
+        get: operations["listBlueprintBulletins"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/blueprint/{blueprintId}/clone": {
         parameters: {
             query?: never;
@@ -365,7 +436,7 @@ export interface paths {
         put?: never;
         /**
          * Import resources into an existing blueprint
-         * @description Caller-provided resource ids are ignored and replaced with platform-generated ids.
+         * @description Reconciles resources by alias. A resource whose alias already exists in the blueprint is updated in place (credentials are preserved); otherwise it is created. Resources without an alias are always created. Caller-provided ids are used only to wire up references within the payload.
          */
         post: operations["importBlueprintResources"];
         delete?: never;
@@ -1410,6 +1481,23 @@ export interface paths {
         get: operations["fetchConversationUsage"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/conversation/compact": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Compact an array of messages into a single summary */
+        post: operations["compactConversationStateless"];
         delete?: never;
         options?: never;
         head?: never;
@@ -2753,7 +2841,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Delete Teams integration */
+        /** Delete a Microsoft Teams integration */
         post: operations["deleteMicrosoftteamsIntegration"];
         delete?: never;
         options?: never;
@@ -2768,7 +2856,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Fetch a microsoftteamsIntegration */
+        /** Fetch a Microsoft Teams integration */
         get: operations["fetchMicrosoftteamsIntegration"];
         put?: never;
         post?: never;
@@ -2787,7 +2875,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Setup Teams integration */
+        /** Set up a Microsoft Teams integration */
         post: operations["setupMicrosoftteamsIntegration"];
         delete?: never;
         options?: never;
@@ -2804,7 +2892,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Update a Teams integration */
+        /** Update a Microsoft Teams integration */
         post: operations["updateMicrosoftteamsIntegration"];
         delete?: never;
         options?: never;
@@ -2821,7 +2909,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create Teams integration */
+        /** Create a Microsoft Teams integration */
         post: operations["createMicrosoftteamsIntegration"];
         delete?: never;
         options?: never;
@@ -2836,7 +2924,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** List Teams integrations */
+        /** List Microsoft Teams integrations */
         get: operations["listMicrosoftteamsIntegrations"];
         put?: never;
         post?: never;
@@ -3042,6 +3130,115 @@ export interface paths {
         };
         /** List Sitemap integrations */
         get: operations["listSitemapIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/skillserver/{skillserverIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete SkillServer integration */
+        post: operations["deleteSkillServerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/skillserver/{skillserverIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a skillserverIntegration */
+        get: operations["fetchSkillServerIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/skillserver/{skillserverIntegrationId}/invoke": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Fetch the SkillServer manual
+         * @description Returns a text-first manual describing the abilities exposed by this skill server and how to invoke them. Authenticated with the static access token as a bearer token.
+         */
+        get: operations["fetchSkillServerManual"];
+        put?: never;
+        /**
+         * Invoke a SkillServer ability
+         * @description Directly invoke a single ability from the linked skillset by name. Authenticated with the static access token as a bearer token. Responses are plain text by default; append ?format=json (or send an Accept: application/json header) for a JSON response.
+         */
+        post: operations["invokeSkillServerAbility"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/skillserver/{skillserverIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a SkillServer integration */
+        post: operations["updateSkillServerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/skillserver/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create SkillServer integration */
+        post: operations["createSkillServerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/skillserver/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List SkillServer integrations */
+        get: operations["listSkillServerIntegrations"];
         put?: never;
         post?: never;
         delete?: never;
@@ -5206,6 +5403,91 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/space/{spaceId}/site/{siteId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete a space site */
+        post: operations["deleteSpaceSite"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/site/{siteId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a space site */
+        get: operations["fetchSpaceSite"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/site/{siteId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a space site */
+        post: operations["updateSpaceSite"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/site/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create a space site */
+        post: operations["createSpaceSite"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/site/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List space sites */
+        get: operations["listSpaceSites"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/space/{spaceId}/storage/copy/{path}": {
         parameters: {
             query?: never;
@@ -5832,7 +6114,7 @@ export interface components {
          * @description The policy type
          * @enum {string}
          */
-        PolicyType: "retention";
+        PolicyType: "retention" | "usage";
         /** @description Limits information */
         Limits: {
             /** @description The tokens limit */
@@ -6550,7 +6832,7 @@ export interface operations {
             };
         };
         responses: {
-            /** @description The teams integration was successfully initiated */
+            /** @description The Microsoft Teams integration was initiated successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -6559,6 +6841,51 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the initiated integration */
                         id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    initiateRecall: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                recallIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The URL of the meeting to join */
+                    meetingUrl: string;
+                    /** @description The instruction text to use to initiate the meeting session */
+                    text: string;
+                    /** @description The display name for the bot in the meeting */
+                    botName?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The recall integration was successfully initiated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the recall integration */
+                        id: string;
+                        /** @description The meeting bot data from Recall.ai */
+                        bot: Record<string, never>;
                     };
                 };
             };
@@ -6725,6 +7052,35 @@ export interface operations {
                         id: string;
                     };
                 };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createChatCompletion: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The chat completion (or a text/event-stream when streaming) */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description An error response */
             default: {
@@ -7008,6 +7364,128 @@ export interface operations {
             };
         };
     };
+    createBlueprintBulletin: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                blueprintId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The message to post to the shared board */
+                    text: string;
+                    /** @description Optional time-to-live in seconds before the bulletin expires */
+                    ttl?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The bulletin was posted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the blueprint */
+                        id: string;
+                        bulletin: {
+                            id: string;
+                            text: string;
+                            /** @description The display name of the author who posted the bulletin (a bot or a user) */
+                            author?: string;
+                            /** @description The ID of the bot the bulletin is associated with, when posted by a bot */
+                            botId?: string;
+                            createdAt: number;
+                            expiresAt: number;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listBlueprintBulletins: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path: {
+                blueprintId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Blueprint bulletins were retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The unique identifier of the bulletin */
+                            id: string;
+                            /** @description The message body */
+                            text: string;
+                            /** @description The display name of the author who posted the bulletin (a bot or a user) */
+                            author?: string;
+                            /** @description The ID of the bot the bulletin is associated with, when posted by a bot */
+                            botId?: string;
+                            /** @description The epoch millisecond timestamp when the bulletin was created */
+                            createdAt: number;
+                            /** @description The epoch millisecond timestamp when the bulletin expires */
+                            expiresAt: number;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        data: {
+                            /** @description The unique identifier of the bulletin */
+                            id: string;
+                            /** @description The message body */
+                            text: string;
+                            /** @description The display name of the author who posted the bulletin (a bot or a user) */
+                            author?: string;
+                            /** @description The ID of the bot the bulletin is associated with, when posted by a bot */
+                            botId?: string;
+                            /** @description The epoch millisecond timestamp when the bulletin was created */
+                            createdAt: number;
+                            /** @description The epoch millisecond timestamp when the bulletin expires */
+                            expiresAt: number;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     cloneBlueprint: {
         parameters: {
             query?: never;
@@ -7106,6 +7584,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -7159,10 +7639,6 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the blueprint */
                         id: string;
-                        /** @description The name of the blueprint */
-                        name?: string;
-                        /** @description The description of the blueprint */
-                        description?: string;
                         /** @description A map of the resources by category */
                         resources: Record<string, never>;
                     };
@@ -7190,7 +7666,9 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    resource: Record<string, never>;
+                    /** @description When true and the blueprint is addressed by the caller's own @alias, it is created if it does not exist yet (idempotent provision). Ignored for a raw id, which still 404s on miss. */
+                    ensure?: boolean;
+                    resources: Record<string, never>;
                 };
             };
         };
@@ -7371,6 +7849,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -7402,6 +7882,8 @@ export interface operations {
                         type: "item";
                         /** @description Instance list properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -7568,6 +8050,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -7971,6 +8455,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -8019,6 +8505,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -9534,6 +10022,13 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the created checkpoint message, or the conversation ID if there was nothing to compact */
                         id: string;
+                        /** @description The compacted text of the messages, or an empty string if there was nothing to compact */
+                        text: string;
+                        /** @description Usage information */
+                        usage: {
+                            /** @description The tokens used in this exchange */
+                            token: number;
+                        };
                     };
                 };
             };
@@ -11457,6 +11952,130 @@ export interface operations {
             };
         };
     };
+    compactConversationStateless: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description The timezone to use for the request */
+                "X-Timezone"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description An array of messages to be compacted */
+                    messages: {
+                        /**
+                         * @description The type of the message
+                         * @enum {string}
+                         */
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
+                        /** @description The text of the message */
+                        text: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                    }[];
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-5.4
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The messages were compacted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The compacted text of the messages, or an empty string if there was nothing to compact */
+                        text: string;
+                        /** @description Usage information */
+                        usage: {
+                            /** @description The tokens used in this exchange */
+                            token: number;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     completeConversation: {
         parameters: {
             query?: never;
@@ -12390,6 +13009,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -12615,6 +13236,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -13173,6 +13796,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -13224,6 +13849,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -13346,6 +13973,10 @@ export interface operations {
                             slackIntegrationId?: string;
                             /** @description Related Discord integration ID if applicable */
                             discordIntegrationId?: string;
+                            /** @description Related Microsoft Teams integration ID if applicable */
+                            microsoftteamsIntegrationId?: string;
+                            /** @description Related Google Chat integration ID if applicable */
+                            googlechatIntegrationId?: string;
                             /** @description Related WhatsApp integration ID if applicable */
                             whatsappIntegrationId?: string;
                             /** @description Related Messenger integration ID if applicable */
@@ -13368,6 +13999,8 @@ export interface operations {
                             extractIntegrationId?: string;
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
+                            /** @description Related webhook ID if applicable */
+                            webhookId?: string;
                         }[];
                         /** @description Cursor for fetching the next page */
                         cursor: string;
@@ -13426,6 +14059,10 @@ export interface operations {
                             slackIntegrationId?: string;
                             /** @description Related Discord integration ID if applicable */
                             discordIntegrationId?: string;
+                            /** @description Related Microsoft Teams integration ID if applicable */
+                            microsoftteamsIntegrationId?: string;
+                            /** @description Related Google Chat integration ID if applicable */
+                            googlechatIntegrationId?: string;
                             /** @description Related WhatsApp integration ID if applicable */
                             whatsappIntegrationId?: string;
                             /** @description Related Messenger integration ID if applicable */
@@ -13448,6 +14085,8 @@ export interface operations {
                             extractIntegrationId?: string;
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
+                            /** @description Related webhook ID if applicable */
+                            webhookId?: string;
                         };
                     };
                     "text/csv": string;
@@ -13532,6 +14171,10 @@ export interface operations {
                             slackIntegrationId?: string;
                             /** @description Related Discord integration ID if applicable */
                             discordIntegrationId?: string;
+                            /** @description Related Microsoft Teams integration ID if applicable */
+                            microsoftteamsIntegrationId?: string;
+                            /** @description Related Google Chat integration ID if applicable */
+                            googlechatIntegrationId?: string;
                             /** @description Related WhatsApp integration ID if applicable */
                             whatsappIntegrationId?: string;
                             /** @description Related Messenger integration ID if applicable */
@@ -13554,6 +14197,8 @@ export interface operations {
                             extractIntegrationId?: string;
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
+                            /** @description Related webhook ID if applicable */
+                            webhookId?: string;
                         }[];
                         /** @description Cursor for fetching the next page */
                         cursor: string;
@@ -13612,6 +14257,10 @@ export interface operations {
                             slackIntegrationId?: string;
                             /** @description Related Discord integration ID if applicable */
                             discordIntegrationId?: string;
+                            /** @description Related Microsoft Teams integration ID if applicable */
+                            microsoftteamsIntegrationId?: string;
+                            /** @description Related Google Chat integration ID if applicable */
+                            googlechatIntegrationId?: string;
                             /** @description Related WhatsApp integration ID if applicable */
                             whatsappIntegrationId?: string;
                             /** @description Related Messenger integration ID if applicable */
@@ -13634,6 +14283,8 @@ export interface operations {
                             extractIntegrationId?: string;
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
+                            /** @description Related webhook ID if applicable */
+                            webhookId?: string;
                         };
                     };
                 };
@@ -13729,6 +14380,10 @@ export interface operations {
                             slackIntegrationId?: string;
                             /** @description Related Discord integration ID if applicable */
                             discordIntegrationId?: string;
+                            /** @description Related Microsoft Teams integration ID if applicable */
+                            microsoftteamsIntegrationId?: string;
+                            /** @description Related Google Chat integration ID if applicable */
+                            googlechatIntegrationId?: string;
                             /** @description Related WhatsApp integration ID if applicable */
                             whatsappIntegrationId?: string;
                             /** @description Related Messenger integration ID if applicable */
@@ -13751,6 +14406,8 @@ export interface operations {
                             extractIntegrationId?: string;
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
+                            /** @description Related webhook ID if applicable */
+                            webhookId?: string;
                         };
                     };
                 };
@@ -13858,6 +14515,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -14123,6 +14782,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -14156,6 +14817,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -14244,6 +14907,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -14332,6 +14997,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -14393,6 +15060,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -14468,6 +15137,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -14508,6 +15179,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -14603,6 +15276,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -14689,6 +15364,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -14744,6 +15421,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -14813,6 +15492,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -14851,6 +15532,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -14944,6 +15627,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -14968,6 +15653,8 @@ export interface operations {
                         };
                         /** @description Optional webhook to receive the extracted data */
                         request?: string;
+                        /** @description The language model to use for data extraction */
+                        model?: string;
                     };
                 };
             };
@@ -15139,6 +15826,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -15194,6 +15883,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -15263,6 +15954,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -15287,6 +15980,8 @@ export interface operations {
                             };
                             /** @description Optional webhook to receive the extracted data */
                             request?: string;
+                            /** @description The language model to use for data extraction */
+                            model?: string;
                         }[];
                         /** @description Cursor for fetching the next page */
                         cursor: string;
@@ -15299,6 +15994,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -15323,6 +16020,8 @@ export interface operations {
                             };
                             /** @description Optional webhook to receive the extracted data */
                             request?: string;
+                            /** @description The language model to use for data extraction */
+                            model?: string;
                         };
                     };
                 };
@@ -15390,6 +16089,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -15482,6 +16183,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -15543,6 +16246,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -15618,6 +16323,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -15662,6 +16369,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -15761,6 +16470,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -15849,6 +16560,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -15904,6 +16617,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -15973,6 +16688,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -16013,6 +16730,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -16108,6 +16827,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -16152,6 +16873,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -16201,6 +16924,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -16264,6 +16989,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -16296,6 +17023,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -16383,6 +17112,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -16409,7 +17140,7 @@ export interface operations {
                         contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
-                        /** @description Weather the bot supports attachments */
+                        /** @description Whether the bot supports attachments */
                         attachments?: boolean;
                     };
                 };
@@ -16471,6 +17202,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -16489,7 +17222,7 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
-                    /** @description Weather the bot supports attachments */
+                    /** @description Whether the bot supports attachments */
                     attachments?: boolean;
                 };
             };
@@ -16526,6 +17259,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -16544,7 +17279,7 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
-                    /** @description Weather the bot supports attachments */
+                    /** @description Whether the bot supports attachments */
                     attachments?: boolean;
                 };
             };
@@ -16595,6 +17330,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -16621,7 +17358,7 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
-                            /** @description Weather the bot supports attachments */
+                            /** @description Whether the bot supports attachments */
                             attachments?: boolean;
                         }[];
                         /** @description Cursor for fetching the next page */
@@ -16635,6 +17372,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -16661,7 +17400,7 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
-                            /** @description Weather the bot supports attachments */
+                            /** @description Whether the bot supports attachments */
                             attachments?: boolean;
                         };
                     };
@@ -16691,14 +17430,14 @@ export interface operations {
             };
         };
         responses: {
-            /** @description The Teams integration was deleted successfully */
+            /** @description The Microsoft Teams integration was deleted successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the deleted Teams integration */
+                        /** @description The ID of the deleted Microsoft Teams integration */
                         id: string;
                     };
                 };
@@ -16723,13 +17462,15 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description The Teams integration was retrieved successfully */
+            /** @description The Microsoft Teams integration was retrieved successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -16783,14 +17524,14 @@ export interface operations {
             };
         };
         responses: {
-            /** @description The Teams integration was setup successfully */
+            /** @description The Microsoft Teams integration was set up successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the setup Teams integration */
+                        /** @description The ID of the Microsoft Teams integration that was set up */
                         id: string;
                     };
                 };
@@ -16816,6 +17557,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -16844,14 +17587,14 @@ export interface operations {
             };
         };
         responses: {
-            /** @description The Teams integration was updated successfully */
+            /** @description The Microsoft Teams integration was updated successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the Teams Integration */
+                        /** @description The ID of the Microsoft Teams integration */
                         id: string;
                     };
                 };
@@ -16875,6 +17618,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -16903,14 +17648,14 @@ export interface operations {
             };
         };
         responses: {
-            /** @description The Teams integration was created successfully */
+            /** @description The Microsoft Teams integration was created successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the Teams Integration */
+                        /** @description The ID of the Microsoft Teams integration */
                         id: string;
                     };
                 };
@@ -16940,7 +17685,7 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description The list of Teams integrations was retrieved successfully */
+            /** @description The list of Microsoft Teams integrations was retrieved successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -16948,6 +17693,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -16984,7 +17731,37 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        data: unknown;
+                        /** @description Blueprint properties */
+                        data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The Microsoft Bot Framework Application ID */
+                            botFrameworkAppId?: string;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The chat session duration */
+                            sessionDuration?: number;
+                            /** @description The allowed senders for this integration */
+                            allowFrom?: string;
+                        };
                     };
                 };
             };
@@ -17051,6 +17828,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -17145,6 +17924,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -17198,6 +17979,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -17265,6 +18048,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -17311,6 +18096,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -17412,6 +18199,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -17512,6 +18301,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -17571,6 +18362,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -17644,6 +18437,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -17696,6 +18491,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -17736,6 +18533,355 @@ export interface operations {
                             lastSyncedAt?: string;
                             /** @description Record expiry in milliseconds */
                             expiresIn?: number;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deleteSkillServerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                skillserverIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The SkillServer integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted SkillServer integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchSkillServerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                skillserverIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The SkillServer integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
+                        /** @description The ID of the skillset */
+                        skillsetId?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchSkillServerManual: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                skillserverIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The skill server manual */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/markdown": string;
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    invokeSkillServerAbility: {
+        parameters: {
+            query?: {
+                format?: "json";
+                session?: string;
+            };
+            header?: never;
+            path: {
+                skillserverIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The name of the ability to invoke (as listed in the manual) */
+                    ability: string;
+                    /** @description The ability input */
+                    input?: Record<string, never>;
+                };
+            };
+        };
+        responses: {
+            /** @description The ability was invoked */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/plain": string;
+                    "application/json": {
+                        result?: unknown;
+                        error?: string | null;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    updateSkillServerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                skillserverIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the skillset */
+                    skillsetId?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The SkillServer integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the SkillServer Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createSkillServerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the skillset */
+                    skillsetId?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The SkillServer integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the SkillServer Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listSkillServerIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of SkillServer integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The ID of the skillset */
+                            skillsetId?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Blueprint properties */
+                        data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The ID of the skillset */
+                            skillsetId?: string;
                         };
                     };
                 };
@@ -17803,6 +18949,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -17901,6 +19049,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -17968,6 +19118,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -18049,6 +19201,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -18099,6 +19253,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -18204,6 +19360,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -18291,6 +19449,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -18340,6 +19500,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -18403,6 +19565,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -18435,6 +19599,8 @@ export interface operations {
                         type: "item";
                         /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -18522,6 +19688,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -18608,6 +19776,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -18665,6 +19835,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -18736,6 +19908,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -18774,6 +19948,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -18867,6 +20043,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -18995,6 +20173,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -19053,6 +20233,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -19125,6 +20307,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -19169,6 +20353,8 @@ export interface operations {
                         type: "item";
                         /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -19268,6 +20454,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -19356,6 +20544,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -19415,6 +20605,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -19488,6 +20680,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -19528,6 +20722,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -19623,6 +20819,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -19715,6 +20913,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -19774,6 +20974,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -19847,6 +21049,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -19891,6 +21095,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -20026,6 +21232,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -20244,6 +21452,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -20347,6 +21557,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -20464,6 +21676,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -20550,6 +21764,8 @@ export interface operations {
                         type: "item";
                         /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -21856,6 +23072,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -21925,6 +23143,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -23933,6 +25153,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -23949,11 +25171,13 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the blueprint */
                         blueprintId?: string;
+                        /** @description The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot. */
+                        botId?: string;
                         /**
                          * @description The policy type
                          * @enum {string}
                          */
-                        type: "retention";
+                        type: "retention" | "usage";
                         /** @description The policy configuration as JSON */
                         config?: {
                             [key: string]: unknown;
@@ -23982,6 +25206,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -23992,11 +25218,13 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string;
+                    /** @description The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot. */
+                    botId?: string;
                     /**
                      * @description The policy type
                      * @enum {string}
                      */
-                    type?: "retention";
+                    type?: "retention" | "usage";
                     /** @description The policy configuration as JSON */
                     config?: {
                         [key: string]: unknown;
@@ -24036,6 +25264,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -24046,11 +25276,13 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string;
+                    /** @description The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot. */
+                    botId?: string;
                     /**
                      * @description The policy type
                      * @enum {string}
                      */
-                    type: "retention";
+                    type: "retention" | "usage";
                     /** @description The policy configuration as JSON */
                     config?: {
                         [key: string]: unknown;
@@ -24086,6 +25318,7 @@ export interface operations {
                 cursor?: string;
                 order?: "asc" | "desc";
                 take?: number;
+                botId?: string;
                 meta?: {
                     [key: string]: string;
                 };
@@ -24104,6 +25337,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -24120,11 +25355,13 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string;
+                            /** @description The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot. */
+                            botId?: string;
                             /**
                              * @description The policy type
                              * @enum {string}
                              */
-                            type: "retention";
+                            type: "retention" | "usage";
                             /** @description The policy configuration as JSON */
                             config?: {
                                 [key: string]: unknown;
@@ -24141,6 +25378,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -24157,11 +25396,13 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string;
+                            /** @description The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot. */
+                            botId?: string;
                             /**
                              * @description The policy type
                              * @enum {string}
                              */
-                            type: "retention";
+                            type: "retention" | "usage";
                             /** @description The policy configuration as JSON */
                             config?: {
                                 [key: string]: unknown;
@@ -24233,6 +25474,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -24399,6 +25642,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -24433,6 +25678,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -24560,6 +25807,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -24855,6 +26104,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -24902,6 +26153,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -25631,6 +26884,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -25794,6 +27049,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -25827,6 +27084,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -25915,6 +27174,8 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
                         /** @description The associated name */
                         name?: string;
                         /** @description The associated description */
@@ -25933,6 +27194,316 @@ export interface operations {
                         blueprintId?: string;
                         /** @description The contact associated with the space */
                         contactId?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deleteSpaceSite: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+                siteId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The site was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted site */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchSpaceSite: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+                siteId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The site was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string;
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The space the site belongs to */
+                        spaceId?: string;
+                        /** @description The host the site is served at */
+                        domain?: string;
+                        /** @description The folder prefix inside the space */
+                        prefix?: string;
+                        /** @description Directory index filename */
+                        index?: string;
+                        /** @description Not found filename */
+                        notFound?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    updateSpaceSite: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+                siteId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The host the site is served at (a <label>.chatbotkit.space subdomain) */
+                    domain?: string;
+                    /** @description Optional folder prefix inside the space to serve from */
+                    prefix?: string;
+                    /** @description Directory index filename */
+                    index?: string;
+                    /** @description Not found filename */
+                    notFound?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The site was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the updated site */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createSpaceSite: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The host the site is served at (a <label>.chatbotkit.space subdomain) */
+                    domain: string;
+                    /** @description Optional folder prefix inside the space to serve from */
+                    prefix?: string;
+                    /**
+                     * @description Directory index filename
+                     * @default index.html
+                     */
+                    index?: string;
+                    /**
+                     * @description Not found filename
+                     * @default 404.html
+                     */
+                    notFound?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The site was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created site */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listSpaceSites: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path: {
+                spaceId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of sites was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The host the site is served at */
+                            domain?: string;
+                            /** @description The folder prefix inside the space */
+                            prefix?: string;
+                            /** @description Directory index filename */
+                            index?: string;
+                            /** @description Not found filename */
+                            notFound?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The host the site is served at */
+                            domain?: string;
+                            /** @description The folder prefix inside the space */
+                            prefix?: string;
+                            /** @description Directory index filename */
+                            index?: string;
+                            /** @description Not found filename */
+                            notFound?: string;
+                        };
                     };
                 };
             };
@@ -26430,6 +28001,8 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -26460,6 +28033,8 @@ export interface operations {
                         type: "item";
                         /** @description Blueprint properties */
                         data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string;
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */

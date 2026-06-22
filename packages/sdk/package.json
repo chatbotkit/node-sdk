@@ -660,6 +660,26 @@
       "types": "./types/integration/sitemap/v1.d.ts",
       "import": "./src/integration/sitemap/v1.js"
     },
+    "./integration/skillserver": {
+      "types": "./types/integration/skillserver/index.d.ts",
+      "import": "./src/integration/skillserver/index.js"
+    },
+    "./integration/skillserver/index": {
+      "types": "./types/integration/skillserver/index.d.ts",
+      "import": "./src/integration/skillserver/index.js"
+    },
+    "./integration/skillserver/index.js": {
+      "types": "./types/integration/skillserver/index.d.ts",
+      "import": "./src/integration/skillserver/index.js"
+    },
+    "./integration/skillserver/v1": {
+      "types": "./types/integration/skillserver/v1.d.ts",
+      "import": "./src/integration/skillserver/v1.js"
+    },
+    "./integration/skillserver/v1.js": {
+      "types": "./types/integration/skillserver/v1.d.ts",
+      "import": "./src/integration/skillserver/v1.js"
+    },
     "./integration/slack": {
       "types": "./types/integration/slack/index.d.ts",
       "import": "./src/integration/slack/index.js"
@@ -1267,6 +1287,26 @@
     "./space/index.js": {
       "types": "./types/space/index.d.ts",
       "import": "./src/space/index.js"
+    },
+    "./space/site": {
+      "types": "./types/space/site/index.d.ts",
+      "import": "./src/space/site/index.js"
+    },
+    "./space/site/index": {
+      "types": "./types/space/site/index.d.ts",
+      "import": "./src/space/site/index.js"
+    },
+    "./space/site/index.js": {
+      "types": "./types/space/site/index.d.ts",
+      "import": "./src/space/site/index.js"
+    },
+    "./space/site/v1": {
+      "types": "./types/space/site/v1.d.ts",
+      "import": "./src/space/site/v1.js"
+    },
+    "./space/site/v1.js": {
+      "types": "./types/space/site/v1.d.ts",
+      "import": "./src/space/site/v1.js"
     },
     "./space/storage": {
       "types": "./types/space/storage/index.d.ts",
