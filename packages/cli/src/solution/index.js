@@ -290,6 +290,7 @@ export const WidgetIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('widgetIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -335,6 +336,7 @@ export const SitemapIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('sitemapIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -358,6 +360,7 @@ export const SlackIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('slackIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -386,6 +389,7 @@ export const DiscordIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('discordIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -413,6 +417,7 @@ export const TelegramIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('telegramIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -435,6 +440,7 @@ export const WhatsAppIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('whatsappIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -458,6 +464,7 @@ export const MessengerIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('messengerIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -479,6 +486,7 @@ export const NotionIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('notionIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -499,6 +507,7 @@ export const EmailIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('emailIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -520,6 +529,7 @@ export const TriggerIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('triggerIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -551,6 +561,7 @@ export const SupportIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('supportIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -570,6 +581,7 @@ export const ExtractIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('extractIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -590,6 +602,7 @@ export const McpServerIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('mcpserverIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
@@ -608,6 +621,7 @@ export const TwilioIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('twilioIntegration'),
     properties: z.object({
+      alias: z.string().optional(),
       name: z.string().optional(),
       description: z.string().optional(),
       meta: z.record(z.unknown()).optional(),
