@@ -1,4 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
+import { SpaceSiteClient } from './site/index.js'
 import { SpaceStorageClient } from './storage/index.js'
 import {
   createSpace,
@@ -28,6 +29,11 @@ export class SpaceClient extends ChatBotKitClient {
      * @type {SpaceStorageClient} storage client
      */
     this.storage = new SpaceStorageClient(options)
+
+    /**
+     * @type {SpaceSiteClient} site client
+     */
+    this.site = new SpaceSiteClient(options)
   }
 
   /**

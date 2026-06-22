@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1780560994250)"
+    "version": "v1 (build 1782137839710)"
   },
   "servers": [
     {
@@ -454,7 +454,8 @@
         "type": "string",
         "description": "The policy type",
         "enum": [
-          "retention"
+          "retention",
+          "usage"
         ]
       },
       "Limits": {
@@ -3652,9 +3653,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Instance list properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -3823,7 +3828,7 @@
       "post": {
         "operationId": "importBlueprintResources",
         "summary": "Import resources into an existing blueprint",
-        "description": "Caller-provided resource ids are ignored and replaced with platform-generated ids.",
+        "description": "Reconciles resources by alias. A resource whose alias already exists in the blueprint is updated in place (credentials are preserved); otherwise it is created. Resources without an alias are always created. Caller-provided ids are used only to wire up references within the payload.",
         "tags": [
           "Blueprint Resources"
         ],
@@ -3844,6 +3849,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "ensure": {
+                    "description": "When true and the blueprint is addressed by the caller's own @alias, it is created if it does not exist yet (idempotent provision). Ignored for a raw id, which still 404s on miss.",
+                    "type": "boolean"
+                  },
                   "resources": {
                     "type": "object"
                   }
@@ -4222,9 +4231,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Instance list properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -4294,9 +4307,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Instance list properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -4645,9 +4662,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -5528,9 +5549,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -5631,9 +5656,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -16511,9 +16540,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -17031,9 +17064,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -18428,9 +18465,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -18541,9 +18582,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -19975,9 +20020,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -20565,9 +20614,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -20641,9 +20694,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -20832,9 +20889,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -21027,9 +21088,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -21145,9 +21210,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -21313,9 +21382,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -21403,9 +21476,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -21608,9 +21685,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -21799,9 +21880,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -21905,9 +21990,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -22061,9 +22150,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -22147,9 +22240,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -22348,9 +22445,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -22392,6 +22493,10 @@
                     },
                     "request": {
                       "description": "Optional webhook to receive the extracted data",
+                      "type": "string"
+                    },
+                    "model": {
+                      "description": "The language model to use for data extraction",
                       "type": "string"
                     }
                   },
@@ -22812,9 +22917,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -22915,9 +23024,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -23068,9 +23181,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -23113,6 +23230,10 @@
                           "request": {
                             "description": "Optional webhook to receive the extracted data",
                             "type": "string"
+                          },
+                          "model": {
+                            "description": "The language model to use for data extraction",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -23148,9 +23269,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -23192,6 +23317,10 @@
                             },
                             "request": {
                               "description": "Optional webhook to receive the extracted data",
+                              "type": "string"
+                            },
+                            "model": {
+                              "description": "The language model to use for data extraction",
                               "type": "string"
                             }
                           },
@@ -23343,9 +23472,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -23546,9 +23679,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -23664,9 +23801,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -23832,9 +23973,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -23930,9 +24075,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -24143,9 +24292,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -24339,9 +24492,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -24445,9 +24602,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -24601,9 +24762,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -24692,9 +24857,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -24898,9 +25067,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -25000,9 +25173,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -25094,9 +25271,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -25238,9 +25419,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -25312,9 +25497,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -25501,9 +25690,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -25697,9 +25890,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -25803,9 +26000,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -25959,9 +26160,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -26050,9 +26255,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -26256,9 +26465,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -26447,9 +26660,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -26561,9 +26778,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -26725,9 +26946,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -26811,9 +27036,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -27012,9 +27241,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -27215,9 +27448,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -27317,9 +27554,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -27469,9 +27710,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -27567,9 +27812,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -27780,9 +28029,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -27995,9 +28248,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -28109,9 +28366,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -28273,9 +28534,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -28383,9 +28648,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -28507,6 +28776,777 @@
         ]
       }
     },
+    "/integration/skillserver/{skillserverIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteSkillServerIntegration",
+        "summary": "Delete SkillServer integration",
+        "tags": [
+          "SkillServer Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillserverIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the SkillServer integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The SkillServer integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted SkillServer integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteSkillServerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/skillserver/{skillserverIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchSkillServerIntegration",
+        "summary": "Fetch a skillserverIntegration",
+        "tags": [
+          "SkillServer Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillserverIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the SkillServer integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The SkillServer integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Blueprint properties",
+                  "type": "object",
+                  "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
+                    },
+                    "skillsetId": {
+                      "description": "The ID of the skillset",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchSkillServerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/skillserver/{skillserverIntegrationId}/invoke": {
+      "get": {
+        "operationId": "fetchSkillServerManual",
+        "summary": "Fetch the SkillServer manual",
+        "description": "Returns a text-first manual describing the abilities exposed by this skill server and how to invoke them. Authenticated with the static access token as a bearer token.",
+        "tags": [
+          "SkillServer Integration"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillserverIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the SkillServer integration",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The skill server manual",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchSkillServerManual"
+      },
+      "post": {
+        "operationId": "invokeSkillServerAbility",
+        "summary": "Invoke a SkillServer ability",
+        "description": "Directly invoke a single ability from the linked skillset by name. Authenticated with the static access token as a bearer token. Responses are plain text by default; append ?format=json (or send an Accept: application/json header) for a JSON response.",
+        "tags": [
+          "SkillServer Integration"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillserverIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the SkillServer integration",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "description": "Set to \"json\" to receive a JSON response",
+              "type": "string",
+              "enum": [
+                "json"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "session",
+            "schema": {
+              "description": "Optional session id to group tool state across calls",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ability": {
+                    "description": "The name of the ability to invoke (as listed in the manual)",
+                    "type": "string"
+                  },
+                  "input": {
+                    "description": "The ability input",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "ability"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The ability was invoked",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {},
+                    "error": {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "invokeSkillServerAbility"
+      }
+    },
+    "/integration/skillserver/{skillserverIntegrationId}/update": {
+      "post": {
+        "operationId": "updateSkillServerIntegration",
+        "summary": "Update a SkillServer integration",
+        "tags": [
+          "SkillServer Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillserverIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the SkillServer integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "Blueprint properties",
+                "type": "object",
+                "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "skillsetId": {
+                    "description": "The ID of the skillset",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The SkillServer integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the SkillServer Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateSkillServerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/skillserver/create": {
+      "post": {
+        "operationId": "createSkillServerIntegration",
+        "summary": "Create SkillServer integration",
+        "tags": [
+          "SkillServer Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "Blueprint properties",
+                "type": "object",
+                "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "skillsetId": {
+                    "description": "The ID of the skillset",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The SkillServer integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the SkillServer Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createSkillServerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/skillserver/list": {
+      "get": {
+        "operationId": "listSkillServerIntegrations",
+        "summary": "List SkillServer integrations",
+        "tags": [
+          "SkillServer Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of SkillServer integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "description": "Blueprint properties",
+                        "type": "object",
+                        "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
+                          "skillsetId": {
+                            "description": "The ID of the skillset",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "description": "Blueprint properties",
+                          "type": "object",
+                          "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
+                            },
+                            "skillsetId": {
+                              "description": "The ID of the skillset",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1skillserver~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listSkillServerIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/integration/slack/{slackIntegrationId}/delete": {
       "post": {
         "operationId": "deleteSlackIntegration",
@@ -28608,9 +29648,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -28823,9 +29867,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -28953,9 +30001,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -29133,9 +30185,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -29243,9 +30299,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -29468,9 +30528,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -29667,9 +30731,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -29761,9 +30829,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -29905,9 +30977,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -29980,9 +31056,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -30170,9 +31250,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -30361,9 +31445,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -30471,9 +31559,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -30631,9 +31723,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -30717,9 +31813,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -30918,9 +32018,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -31203,9 +32307,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -31312,9 +32420,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -31471,9 +32583,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -31574,9 +32690,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -31792,9 +32912,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -31987,9 +33111,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -32101,9 +33229,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -32265,9 +33397,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -32355,9 +33491,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -32560,9 +33700,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -32764,9 +33908,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -32878,9 +34026,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -33042,9 +34194,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -33141,9 +34297,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -33432,9 +34592,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -33914,9 +35078,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -34116,9 +35284,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -34368,9 +35540,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -34550,9 +35726,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -37588,9 +38768,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Instance crud properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -37723,9 +38907,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Instance crud properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -42488,9 +43676,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -42521,11 +43713,16 @@
                       "type": "string",
                       "description": "The ID of the blueprint"
                     },
+                    "botId": {
+                      "description": "The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot.",
+                      "type": "string"
+                    },
                     "type": {
                       "type": "string",
                       "description": "The policy type",
                       "enum": [
-                        "retention"
+                        "retention",
+                        "usage"
                       ],
                       "$$ref": "#/components/schemas/PolicyType"
                     },
@@ -42596,9 +43793,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -42617,11 +43818,16 @@
                     "type": "string",
                     "description": "The ID of the blueprint"
                   },
+                  "botId": {
+                    "description": "The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot.",
+                    "type": "string"
+                  },
                   "type": {
                     "type": "string",
                     "description": "The policy type",
                     "enum": [
-                      "retention"
+                      "retention",
+                      "usage"
                     ],
                     "$$ref": "#/components/schemas/PolicyType"
                   },
@@ -42695,9 +43901,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -42716,11 +43926,16 @@
                     "type": "string",
                     "description": "The ID of the blueprint"
                   },
+                  "botId": {
+                    "description": "The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot.",
+                    "type": "string"
+                  },
                   "type": {
                     "type": "string",
                     "description": "The policy type",
                     "enum": [
-                      "retention"
+                      "retention",
+                      "usage"
                     ],
                     "$$ref": "#/components/schemas/PolicyType"
                   },
@@ -42824,6 +44039,14 @@
           },
           {
             "in": "query",
+            "name": "botId",
+            "schema": {
+              "description": "Filter policies that apply to a specific bot",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
             "name": "meta",
             "schema": {
               "description": "Key-value pairs to filter the partner users by metadata",
@@ -42847,9 +44070,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -42880,11 +44107,16 @@
                             "type": "string",
                             "description": "The ID of the blueprint"
                           },
+                          "botId": {
+                            "description": "The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot.",
+                            "type": "string"
+                          },
                           "type": {
                             "type": "string",
                             "description": "The policy type",
                             "enum": [
-                              "retention"
+                              "retention",
+                              "usage"
                             ],
                             "$$ref": "#/components/schemas/PolicyType"
                           },
@@ -42927,9 +44159,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -42960,11 +44196,16 @@
                               "type": "string",
                               "description": "The ID of the blueprint"
                             },
+                            "botId": {
+                              "description": "The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot.",
+                              "type": "string"
+                            },
                             "type": {
                               "type": "string",
                               "description": "The policy type",
                               "enum": [
-                                "retention"
+                                "retention",
+                                "usage"
                               ],
                               "$$ref": "#/components/schemas/PolicyType"
                             },
@@ -43122,9 +44363,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -43472,9 +44717,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -43547,9 +44796,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -43819,9 +45072,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -44451,9 +45708,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -44555,9 +45816,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -46274,9 +47539,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -46627,9 +47896,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -46703,9 +47976,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"
@@ -46894,9 +48171,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Blueprint properties",
+                  "type": "object",
                   "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
                     "name": {
                       "type": "string",
                       "description": "The associated name"
@@ -46962,6 +48243,699 @@
           }
         },
         "__originalOperationId": "fetchSpace",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/site/{siteId}/delete": {
+      "post": {
+        "operationId": "deleteSpaceSite",
+        "summary": "Delete a space site",
+        "tags": [
+          "Space Site"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "siteId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the site to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The site was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted site",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteSpaceSite",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/site/{siteId}/fetch": {
+      "get": {
+        "operationId": "fetchSpaceSite",
+        "summary": "Fetch a space site",
+        "tags": [
+          "Space Site"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "siteId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the site to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The site was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Instance list properties",
+                  "type": "object",
+                  "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "spaceId": {
+                      "description": "The space the site belongs to",
+                      "type": "string"
+                    },
+                    "domain": {
+                      "description": "The host the site is served at",
+                      "type": "string"
+                    },
+                    "prefix": {
+                      "description": "The folder prefix inside the space",
+                      "type": "string"
+                    },
+                    "index": {
+                      "description": "Directory index filename",
+                      "type": "string"
+                    },
+                    "notFound": {
+                      "description": "Not found filename",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchSpaceSite",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/site/{siteId}/update": {
+      "post": {
+        "operationId": "updateSpaceSite",
+        "summary": "Update a space site",
+        "tags": [
+          "Space Site"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "siteId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "Instance crud properties",
+                "type": "object",
+                "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "domain": {
+                    "description": "The host the site is served at (a <label>.chatbotkit.space subdomain)",
+                    "type": "string"
+                  },
+                  "prefix": {
+                    "description": "Optional folder prefix inside the space to serve from",
+                    "type": "string"
+                  },
+                  "index": {
+                    "description": "Directory index filename",
+                    "type": "string"
+                  },
+                  "notFound": {
+                    "description": "Not found filename",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The site was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated site",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateSpaceSite",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/site/create": {
+      "post": {
+        "operationId": "createSpaceSite",
+        "summary": "Create a space site",
+        "tags": [
+          "Space Site"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "Instance crud properties",
+                "type": "object",
+                "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "domain": {
+                    "description": "The host the site is served at (a <label>.chatbotkit.space subdomain)",
+                    "type": "string"
+                  },
+                  "prefix": {
+                    "description": "Optional folder prefix inside the space to serve from",
+                    "type": "string"
+                  },
+                  "index": {
+                    "description": "Directory index filename",
+                    "type": "string",
+                    "default": "index.html"
+                  },
+                  "notFound": {
+                    "description": "Not found filename",
+                    "type": "string",
+                    "default": "404.html"
+                  }
+                },
+                "required": [
+                  "domain"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The site was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created site",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createSpaceSite",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/site/list": {
+      "get": {
+        "operationId": "listSpaceSites",
+        "summary": "List space sites",
+        "tags": [
+          "Space Site"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the sites by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of sites was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "description": "Instance list properties",
+                        "type": "object",
+                        "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "domain": {
+                            "description": "The host the site is served at",
+                            "type": "string"
+                          },
+                          "prefix": {
+                            "description": "The folder prefix inside the space",
+                            "type": "string"
+                          },
+                          "index": {
+                            "description": "Directory index filename",
+                            "type": "string"
+                          },
+                          "notFound": {
+                            "description": "Not found filename",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "description": "Instance list properties",
+                          "type": "object",
+                          "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "domain": {
+                              "description": "The host the site is served at",
+                              "type": "string"
+                            },
+                            "prefix": {
+                              "description": "The folder prefix inside the space",
+                              "type": "string"
+                            },
+                            "index": {
+                              "description": "Directory index filename",
+                              "type": "string"
+                            },
+                            "notFound": {
+                              "description": "Not found filename",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1space~1{spaceId}~1site~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listSpaceSites",
         "security": [
           {
             "BearerAuth": []
@@ -48106,9 +50080,13 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Blueprint properties",
+                        "type": "object",
                         "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance"
+                          },
                           "name": {
                             "type": "string",
                             "description": "The associated name"
@@ -48176,9 +50154,13 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Blueprint properties",
+                          "type": "object",
                           "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance"
+                            },
                             "name": {
                               "type": "string",
                               "description": "The associated name"

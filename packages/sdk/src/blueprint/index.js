@@ -4,7 +4,9 @@ import {
   createBlueprint,
   createBlueprintBulletin,
   deleteBlueprint,
+  exportBlueprintResources,
   fetchBlueprint,
+  importBlueprintResources,
   listBlueprintBulletins,
   listBlueprintResources,
   listBlueprints,
@@ -98,6 +100,28 @@ export class BlueprintClient extends ChatBotKitClient {
    */
   listResources(blueprintId) {
     return listBlueprintResources(this, blueprintId)
+  }
+
+  /**
+   * Imports (reconciles) resources into a blueprint. The blueprint may be
+   * addressed by id or `@alias`; pass `ensure: true` to create it on miss.
+   *
+   * @param {string} blueprintId
+   * @param {import('./v1.js').BlueprintImportResourcesRequest} request
+   * @returns {Promise<import('./v1.js').BlueprintImportResourcesResponse>}
+   */
+  importResources(blueprintId, request) {
+    return importBlueprintResources(this, blueprintId, request)
+  }
+
+  /**
+   * Exports a blueprint's resources as a transportable document.
+   *
+   * @param {string} blueprintId
+   * @returns {Promise<import('./v1.js').BlueprintExportResourcesResponse>}
+   */
+  exportResources(blueprintId) {
+    return exportBlueprintResources(this, blueprintId)
   }
 
   /**

@@ -6,7 +6,7 @@
 
 # Class: SpaceClient
 
-Defined in: [space/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L20)
+Defined in: [space/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L21)
 
 Space client.
 
@@ -20,7 +20,7 @@ Space client.
 
 > **new SpaceClient**(`options`): `SpaceClient`
 
-Defined in: [space/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L24)
+Defined in: [space/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L25)
 
 #### Parameters
 
@@ -38,11 +38,19 @@ Defined in: [space/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main
 
 ## Properties
 
+### site
+
+> **site**: `SpaceSiteClient`
+
+Defined in: [space/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L36)
+
+***
+
 ### storage
 
 > **storage**: [`SpaceStorageClient`](../storage/classes/SpaceStorageClient.md)
 
-Defined in: [space/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L30)
+Defined in: [space/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L31)
 
 ## Methods
 
@@ -50,7 +58,7 @@ Defined in: [space/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [space/index.js:59](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L59)
+Defined in: [space/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L65)
 
 Creates a new space.
 
@@ -68,7 +76,7 @@ Creates a new space.
 
 > **delete**(`spaceId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`SpaceDeleteResponse`](../v1/type-aliases/SpaceDeleteResponse.md)\>
 
-Defined in: [space/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L80)
+Defined in: [space/index.js:86](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L86)
 
 Deletes the space.
 
@@ -122,7 +130,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`spaceId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [space/index.js:49](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L49)
+Defined in: [space/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L55)
 
 Fetches a space.
 
@@ -142,7 +150,7 @@ Fetches a space.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [space/index.js:39](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L39)
+Defined in: [space/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L45)
 
 Retrieves a list of all spaces.
 
@@ -162,7 +170,7 @@ Retrieves a list of all spaces.
 
 > **update**(`spaceId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [space/index.js:70](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L70)
+Defined in: [space/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/space/index.js#L76)
 
 Updates a space.
 

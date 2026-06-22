@@ -58,6 +58,38 @@ export class BlueprintClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').BlueprintListResourcesResponse>}
      */
     listResources(blueprintId: string): Promise<import("./v1.js").BlueprintListResourcesResponse>;
+    /**
+     * Imports (reconciles) resources into a blueprint. The blueprint may be
+     * addressed by id or `@alias`; pass `ensure: true` to create it on miss.
+     *
+     * @param {string} blueprintId
+     * @param {import('./v1.js').BlueprintImportResourcesRequest} request
+     * @returns {Promise<import('./v1.js').BlueprintImportResourcesResponse>}
+     */
+    importResources(blueprintId: string, request: import("./v1.js").BlueprintImportResourcesRequest): Promise<import("./v1.js").BlueprintImportResourcesResponse>;
+    /**
+     * Exports a blueprint's resources as a transportable document.
+     *
+     * @param {string} blueprintId
+     * @returns {Promise<import('./v1.js').BlueprintExportResourcesResponse>}
+     */
+    exportResources(blueprintId: string): Promise<import("./v1.js").BlueprintExportResourcesResponse>;
+    /**
+     * Lists the bulletins on a blueprint's shared board.
+     *
+     * @param {string} blueprintId
+     * @param {import('./v1.js').BlueprintBulletinListRequest} [request]
+     * @returns {ResponsePromise<import('./v1.js').BlueprintListBulletinsResponse,import('./v1.js').BlueprintListBulletinsStreamType>}
+     */
+    listBulletins(blueprintId: string, request?: import("./v1.js").BlueprintBulletinListRequest): ResponsePromise<import("./v1.js").BlueprintListBulletinsResponse, import("./v1.js").BlueprintListBulletinsStreamType>;
+    /**
+     * Posts a bulletin to a blueprint's shared board.
+     *
+     * @param {string} blueprintId
+     * @param {import('./v1.js').BlueprintCreateBulletinRequest} request
+     * @returns {Promise<import('./v1.js').BlueprintCreateBulletinResponse>}
+     */
+    createBulletin(blueprintId: string, request: import("./v1.js").BlueprintCreateBulletinRequest): Promise<import("./v1.js").BlueprintCreateBulletinResponse>;
 }
 export default BlueprintClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;

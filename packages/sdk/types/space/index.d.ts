@@ -12,6 +12,10 @@ export class SpaceClient extends ChatBotKitClient {
      */
     storage: SpaceStorageClient;
     /**
+     * @type {SpaceSiteClient} site client
+     */
+    site: SpaceSiteClient;
+    /**
      * Retrieves a list of all spaces.
      *
      * @param {import('./v1.js').SpaceListRequest} [request]
@@ -52,3 +56,4 @@ export default SpaceClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../client.js';
 import { SpaceStorageClient } from './storage/index.js';
+import { SpaceSiteClient } from './site/index.js';

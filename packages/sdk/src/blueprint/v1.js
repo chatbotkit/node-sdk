@@ -175,6 +175,56 @@ export async function listBlueprintResources(client, blueprintId) {
 
 /**
  * @typedef {{
+ *   ensure?: boolean,
+ *   resources: Record<string, Array<Record<string, any>>>
+ * }} BlueprintImportResourcesRequest
+ *
+ * @typedef {{
+ *   id: string,
+ *   resources: Record<string, Array<{ id: string, name?: string, description?: string }>>
+ * }} BlueprintImportResourcesResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId can be a blueprint id or `@alias` (with `ensure` to create on miss)
+ * @param {BlueprintImportResourcesRequest} request
+ * @returns {Promise<BlueprintImportResourcesResponse>}
+ */
+export async function importBlueprintResources(client, blueprintId, request) {
+  const url = `/api/v1/blueprint/${blueprintId}/resource/import`
+
+  /** @type {BlueprintImportResourcesResponse} */
+  const response = await client.clientFetch(url, {
+    /** @type {BlueprintImportResourcesRequest} */
+    record: request,
+  })
+
+  return response
+}
+
+/**
+ * @typedef {{
+ *   id?: string,
+ *   name?: string,
+ *   config?: Record<string, any>,
+ *   meta?: Record<string, any>,
+ *   resources: Record<string, { type: string, data: Record<string, any> }>
+ * }} BlueprintExportResourcesResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId can be a blueprint id or `@alias`
+ * @returns {Promise<BlueprintExportResourcesResponse>}
+ */
+export async function exportBlueprintResources(client, blueprintId) {
+  const url = `/api/v1/blueprint/${blueprintId}/resource/export`
+
+  /** @type {BlueprintExportResourcesResponse} */
+  const response = await client.clientFetch(url)
+
+  return response
+}
+
+/**
+ * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number
