@@ -1,8 +1,11 @@
+const path = require('node:path')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-
+  turbopack: {
+    root: path.resolve(__dirname, '../../../..'),
+  },
   transpilePackages: [
     '@chatbotkit/react',
     '@chatbotkit/sdk',

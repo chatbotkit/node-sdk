@@ -12,7 +12,7 @@ A Next.js example demonstrating how to use **ChatBotKit Contacts** for managing 
 - **Identity Management** - Use fingerprints to reliably identify users across sessions
 - **Authentication Management** - Users can authenticate their sessions to allow AI agents to connect to 3rd-party systems on their behalf (Google, Microsoft, etc.)
 
-Learn more: [ChatBotKit Contacts Documentation](https://chatbotkit.com/manuals/contacts.md)
+Learn more: [ChatBotKit Contacts Documentation](https://docs.cbk.ai/contacts.md)
 
 ## How It Works
 

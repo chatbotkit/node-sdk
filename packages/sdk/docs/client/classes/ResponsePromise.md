@@ -6,7 +6,11 @@
 
 # Class: ResponsePromise\<T, U\>
 
-Defined in: [client.js:38](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L38)
+Defined in: [client.js:58](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L58)
+
+## Template
+
+## Template
 
 ## Type Parameters
 
@@ -24,7 +28,7 @@ Defined in: [client.js:38](https://github.com/chatbotkit/node-sdk/blob/main/sdks
 
 > **new ResponsePromise**\<`T`, `U`\>(`url`, `request`, `cacheMap?`): `ResponsePromise`\<`T`, `U`\>
 
-Defined in: [client.js:53](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L53)
+Defined in: [client.js:74](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L74)
 
 #### Parameters
 
@@ -49,6 +53,10 @@ Defined in: [client.js:53](https://github.com/chatbotkit/node-sdk/blob/main/sdks
 ###### method
 
 `string`
+
+###### passthrough?
+
+`boolean`
 
 ###### retries?
 
@@ -80,7 +88,7 @@ Defined in: [client.js:53](https://github.com/chatbotkit/node-sdk/blob/main/sdks
 
 > **cache**(`key?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`T`\>
 
-Defined in: [client.js:253](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L253)
+Defined in: [client.js:305](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L305)
 
 #### Parameters
 
@@ -98,7 +106,7 @@ Defined in: [client.js:253](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **catch**\<`TResult`\>(`fn?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`T` \| `TResult`\>
 
-Defined in: [client.js:207](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L207)
+Defined in: [client.js:259](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L259)
 
 #### Type Parameters
 
@@ -110,7 +118,7 @@ Defined in: [client.js:207](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 ##### fn?
 
-(`reason`) => `TResult` \| `PromiseLike`\<`TResult`\>
+(`reason`) => `TResult` \| `PromiseLike`\<`TResult`\> | `null`
 
 #### Returns
 
@@ -122,13 +130,13 @@ Defined in: [client.js:207](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **finally**(`fn?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`T`\>
 
-Defined in: [client.js:215](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L215)
+Defined in: [client.js:267](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L267)
 
 #### Parameters
 
 ##### fn?
 
-() => `void`
+() => `void` | `null`
 
 #### Returns
 
@@ -140,7 +148,7 @@ Defined in: [client.js:215](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **getRequest**(`params?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
 
-Defined in: [client.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L82)
+Defined in: [client.js:103](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L103)
 
 #### Parameters
 
@@ -192,7 +200,31 @@ Defined in: [client.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks
 
 > **getStreamPromise**(`params?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
 
-Defined in: [client.js:164](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L164)
+Defined in: [client.js:216](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L216)
+
+#### Parameters
+
+##### params?
+
+###### abortSignal?
+
+[`AbortSignal`](https://developer.mozilla.org/docs/Web/API/AbortSignal)
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+***
+
+### raw()
+
+> **raw**(`params?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+Defined in: [client.js:209](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L209)
+
+Resolves to the raw `Response` without parsing the body. Combined with the
+`passthrough` request option it does not throw on a non-2xx status, which
+makes it suitable for passthrough endpoints such as the secret proxy.
 
 #### Parameters
 
@@ -212,7 +244,7 @@ Defined in: [client.js:164](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **stream**(`params?`): [`AsyncGenerator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)\<`U`, `any`, `any`\>
 
-Defined in: [client.js:238](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L238)
+Defined in: [client.js:290](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L290)
 
 #### Parameters
 
@@ -232,7 +264,7 @@ Defined in: [client.js:238](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **then**\<`TResult1`, `TResult2`\>(`onSuccess?`, `onFail?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`TResult1` \| `TResult2`\>
 
-Defined in: [client.js:182](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L182)
+Defined in: [client.js:234](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L234)
 
 #### Type Parameters
 
@@ -248,11 +280,11 @@ Defined in: [client.js:182](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 ##### onSuccess?
 
-(`value`) => `TResult1` \| `PromiseLike`\<`TResult1`\>
+(`value`) => `TResult1` \| `PromiseLike`\<`TResult1`\> | `null`
 
 ##### onFail?
 
-(`reason`) => `TResult2` \| `PromiseLike`\<`TResult2`\>
+(`reason`) => `TResult2` \| `PromiseLike`\<`TResult2`\> | `null`
 
 #### Returns
 

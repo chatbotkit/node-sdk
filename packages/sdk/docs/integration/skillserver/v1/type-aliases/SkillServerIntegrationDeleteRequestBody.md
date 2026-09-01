@@ -1,0 +1,13 @@
+[**@chatbotkit/sdk**](../../../../README.md)
+
+***
+
+[@chatbotkit/sdk](../../../../modules.md) / [integration/skillserver/v1](../README.md) / SkillServerIntegrationDeleteRequestBody
+
+# Type Alias: SkillServerIntegrationDeleteRequestBody
+
+> **SkillServerIntegrationDeleteRequestBody**\<\> = `operations`\[`"deleteSkillServerIntegration"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
+
+Defined in: [integration/skillserver/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/skillserver/v1.js#L112)
+
+## Type Parameters

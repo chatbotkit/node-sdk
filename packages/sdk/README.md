@@ -69,5 +69,6 @@ Encountered a bug or interested in contributing? Your participation is highly ap
 
 ## Built With ChatBotKit
 
+- [AfterDark](https://afterdark.so/) - AI-powered creative platform.
 - [FormShare](https://formshare.ai/) - Bring your forms to life with generative UI.
 - [PeopleAI](https://people.ai/) - Experience history like never before with our AI chatbots.

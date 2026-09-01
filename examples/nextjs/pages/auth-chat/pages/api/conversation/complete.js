@@ -32,7 +32,7 @@ const NAMESPACE = '6ba7b810-9dad-11d1-80b4-00c04fd430c8'
 // their sessions so AI agents can connect to 3rd-party systems on their behalf
 // (such as Google, Microsoft, and other integrations).
 //
-// @see https://chatbotkit.com/manuals/contacts.md
+// @see https://docs.cbk.ai/contacts.md
 //
 // This endpoint is protected by NextAuth session validation.
 

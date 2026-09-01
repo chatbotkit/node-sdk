@@ -8,9 +8,9 @@
     "./src/contact/index.js",
     "./src/contact/provider.js",
     "./src/index.js",
-    "./src/partner/adapter.js",
-    "./src/partner/index.js",
-    "./src/partner/provider.js"
+    "./src/user/adapter.js",
+    "./src/user/index.js",
+    "./src/user/provider.js"
   ],
   "externalPattern": [
     "**/node_modules/**",

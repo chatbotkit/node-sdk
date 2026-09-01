@@ -6,7 +6,7 @@
 
 # Interface: ChatBotKitClientOptions
 
-Defined in: [client.js:285](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L285)
+Defined in: [client.js:337](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L337)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [client.js:285](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > `optional` **baseUrl**: `string` \| [`URL`](https://developer.mozilla.org/docs/Web/API/URL)
 
-Defined in: [client.js:287](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L287)
+Defined in: [client.js:339](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L339)
 
 An optional base URL to use for the API
 
@@ -24,7 +24,7 @@ An optional base URL to use for the API
 
 > `optional` **endpoints**: [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `string`\>
 
-Defined in: [client.js:290](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L290)
+Defined in: [client.js:342](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L342)
 
 An optional map of endpoints to override
 
@@ -34,7 +34,7 @@ An optional map of endpoints to override
 
 > `optional` **fetchFn**: [`FetchFunction`](../type-aliases/FetchFunction.md)
 
-Defined in: [client.js:299](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L299)
+Defined in: [client.js:351](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L351)
 
 An optional fetch implementation function to use instead
 
@@ -44,7 +44,7 @@ An optional fetch implementation function to use instead
 
 > `optional` **headers**: [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `string`\>
 
-Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L294)
+Defined in: [client.js:346](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L346)
 
 An optional map of headers to add to the request
 
@@ -54,7 +54,7 @@ An optional map of headers to add to the request
 
 > `optional` **host**: `string`
 
-Defined in: [client.js:288](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L288)
+Defined in: [client.js:340](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L340)
 
 An optional hostname to use for the API
 
@@ -64,7 +64,7 @@ An optional hostname to use for the API
 
 > `optional` **protocol**: `"http:"` \| `"https:"`
 
-Defined in: [client.js:289](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L289)
+Defined in: [client.js:341](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L341)
 
 An optional protocol to use for the API
 
@@ -74,7 +74,7 @@ An optional protocol to use for the API
 
 > `optional` **retries**: `number`
 
-Defined in: [client.js:296](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L296)
+Defined in: [client.js:348](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L348)
 
 An optional number of retries for the request
 
@@ -84,7 +84,7 @@ An optional number of retries for the request
 
 > `optional` **retryDelay**: `number`
 
-Defined in: [client.js:297](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L297)
+Defined in: [client.js:349](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L349)
 
 An optional delay in milliseconds between retries
 
@@ -94,7 +94,7 @@ An optional delay in milliseconds between retries
 
 > `optional` **retryTimeout**: `boolean`
 
-Defined in: [client.js:298](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L298)
+Defined in: [client.js:350](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L350)
 
 An optional flag to retry on timeout errors
 
@@ -104,7 +104,7 @@ An optional flag to retry on timeout errors
 
 > `optional` **runAsChildUserEmail**: `string`
 
-Defined in: [client.js:292](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L292)
+Defined in: [client.js:344](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L344)
 
 An optional child user email to run as (experimental)
 
@@ -114,7 +114,7 @@ An optional child user email to run as (experimental)
 
 > `optional` **runAsUserId**: `string`
 
-Defined in: [client.js:291](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L291)
+Defined in: [client.js:343](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L343)
 
 An optional user ID to run as
 
@@ -124,7 +124,7 @@ An optional user ID to run as
 
 > **secret**: `string`
 
-Defined in: [client.js:286](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L286)
+Defined in: [client.js:338](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L338)
 
 A token to authenticate with the API
 
@@ -134,7 +134,7 @@ A token to authenticate with the API
 
 > `optional` **timeout**: `number`
 
-Defined in: [client.js:295](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L295)
+Defined in: [client.js:347](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L347)
 
 An optional timeout in milliseconds for the request
 
@@ -144,6 +144,6 @@ An optional timeout in milliseconds for the request
 
 > `optional` **timezone**: `string`
 
-Defined in: [client.js:293](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L293)
+Defined in: [client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L345)
 
 An optional timezone to use for the API

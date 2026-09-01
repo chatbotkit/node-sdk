@@ -66,6 +66,14 @@ const templates = [
     branch: 'main',
   },
   {
+    value: 'template-nextjs-slack-agent-platform-js',
+    label: 'Next.js Slack Agent Platform (JavaScript)',
+    description:
+      'A subscription-based Slack agent platform with Stripe, blueprints, tools, and Slack integrations',
+    repo: 'chatbotkit/template-nextjs-slack-agent-platform-js',
+    branch: 'main',
+  },
+  {
     value: 'template-node-agent-cli-js',
     label: 'Node.js Agent CLI (JavaScript)',
     description: 'A standalone command-line AI agent with built-in tools',

@@ -69,6 +69,38 @@ export function verifySecret(client: ChatBotKitClient, contactId: string, secret
  * @returns {Promise<SecretAuthenticateResponse>}
  */
 export function authenticateSecret(client: ChatBotKitClient, contactId: string, secretId: string): Promise<SecretAuthenticateResponse>;
+/**
+ * @typedef {import('../../types/api/v1.js').operations['proxyContactSecret']['requestBody']['content']['application/json']} SecretProxyRequestBody
+ *
+ * @typedef {SecretProxyRequestBody} SecretProxyRequest
+ *
+ * Proxies a request through a contact's (personal) secret, injected server-side.
+ * Returns the raw upstream `Response` (success or error, including streaming and
+ * binary bodies). A CBK `authorization_required` signal - common here, since the
+ * contact may not have authenticated the secret yet - is thrown as an
+ * {@link AuthorizationRequiredError} carrying the `url` the user must visit.
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} contactId
+ * @param {string} secretId
+ * @param {SecretProxyRequest} request
+ * @returns {Promise<Response>}
+ */
+export function proxySecret(client: ChatBotKitClient, contactId: string, secretId: string, request: SecretProxyRequest): Promise<Response>;
+/**
+ * @typedef {import('../../types/api/v1.js').operations['mintContactSecret']['responses']['200']['content']['application/json']} SecretMintResponseBody
+ *
+ * @typedef {SecretMintResponseBody} SecretMintResponse
+ *
+ * Mints a usable token from a contact's (personal) secret. Owner-only; only
+ * `oauth`/`jwt` secrets are mintable.
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} contactId
+ * @param {string} secretId
+ * @returns {Promise<SecretMintResponse>}
+ */
+export function mintSecret(client: ChatBotKitClient, contactId: string, secretId: string): Promise<SecretMintResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type SecretListRequest = {
@@ -91,3 +123,19 @@ export type SecretAuthenticateRequestBody = import("../../types/api/v1.js").oper
 export type SecretAuthenticateRequest = SecretAuthenticateRequestBody;
 export type SecretAuthenticateResponseBody = import("../../types/api/v1.js").operations["authenticateContactSecret"]["responses"]["200"]["content"]["application/json"];
 export type SecretAuthenticateResponse = SecretAuthenticateResponseBody;
+export type SecretProxyRequestBody = import("../../types/api/v1.js").operations["proxyContactSecret"]["requestBody"]["content"]["application/json"];
+/**
+ *
+ * Proxies a request through a contact's (personal) secret, injected server-side.
+ * Returns the raw upstream `Response` (success or error, including streaming and
+ * binary bodies). A CBK `authorization_required` signal - common here, since the
+ * contact may not have authenticated the secret yet - is thrown as an
+ * {@link AuthorizationRequiredError} carrying the `url` the user must visit.
+ */
+export type SecretProxyRequest = SecretProxyRequestBody;
+export type SecretMintResponseBody = import("../../types/api/v1.js").operations["mintContactSecret"]["responses"]["200"]["content"]["application/json"];
+/**
+ * Mints a usable token from a contact's (personal) secret. Owner-only; only
+ * `oauth`/`jwt` secrets are mintable.
+ */
+export type SecretMintResponse = SecretMintResponseBody;

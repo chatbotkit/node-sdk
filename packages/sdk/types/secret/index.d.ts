@@ -64,6 +64,22 @@ export class SecretClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').SecretAuthenticateResponse>}
      */
     authenticate(secretId: string): Promise<import("./v1.js").SecretAuthenticateResponse>;
+    /**
+     * Proxies a request through the secret, injecting it server-side. Returns the
+     * raw upstream `Response` (a non-2xx status is returned, not thrown).
+     *
+     * @param {string} secretId
+     * @param {import('./v1.js').SecretProxyRequest} request
+     * @returns {Promise<Response>}
+     */
+    proxy(secretId: string, request: import("./v1.js").SecretProxyRequest): Promise<Response>;
+    /**
+     * Mints a usable token from the secret (owner-only; `oauth`/`jwt` only).
+     *
+     * @param {string} secretId
+     * @returns {Promise<import('./v1.js').SecretMintResponse>}
+     */
+    mint(secretId: string): Promise<import("./v1.js").SecretMintResponse>;
 }
 export default SecretClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;

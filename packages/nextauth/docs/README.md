@@ -17,13 +17,13 @@ The [ChatBotKit](https://chatbotkit.com) SDK for NextAuth.js enables passwordles
 
 This SDK provides two adapters for different use cases:
 
-### 1. Partner Adapter (Sub-Accounts)
+### 1. User Adapter
 
-Use `ChatBotKitPartnerAdapter` when you want each user to have their own isolated ChatBotKit sub-account:
+Use `ChatBotKitUserAdapter` when you want each application user needs an isolated ChatBotKit User:
 
 - **Separate environments**: Each user gets their own bots, datasets, and resources
 - **Complete isolation**: Users cannot see or access each other's data
-- **Partner API integration**: Requires a Partner API secret
+- **User API integration**: Requires a parent-user API secret
 - **Best for**: SaaS applications, white-label solutions, multi-tenant platforms
 
 ### 2. Contact Adapter (Single Account)
@@ -71,19 +71,19 @@ Add the SDK to your project using npm:
 npm install @chatbotkit/nextauth next-auth
 ```
 
-### Partner Adapter Configuration
+### User Adapter Configuration
 
-Use this approach when each user needs their own isolated ChatBotKit environment:
+Use this approach when each application user needs an isolated ChatBotKit environment:
 
 ```javascript
 import {
   ChatBotKitEmailProvider,
-  ChatBotKitPartnerAdapter,
+  ChatBotKitUserAdapter,
   MemoryStore,
-} from '@chatbotkit/nextauth/partner'
+} from '@chatbotkit/nextauth/user'
 
 const nextAuthConfig = {
-  adapter: ChatBotKitPartnerAdapter({
+  adapter: ChatBotKitUserAdapter({
     secret: process.env.CHATBOTKIT_API_SECRET,
 
     // Use Redis or another persistent store in production
@@ -221,19 +221,19 @@ Add your ChatBotKit API secret to `.env`:
 CHATBOTKIT_API_SECRET=your_api_secret_here
 ```
 
-## Choosing Between Partner and Contact Adapters
+## Choosing Between User and Contact Adapters
 
-| Feature          | Partner Adapter                    | Contact Adapter                               |
+| Feature          | User Adapter                    | Contact Adapter                               |
 | ---------------- | ---------------------------------- | --------------------------------------------- |
-| User isolation   | Complete (separate sub-accounts)   | Partial (shared account, individual contacts) |
-| Resource sharing | None (each user has own resources) | Full (all contacts share bots/datasets)       |
-| API type         | Partner API                        | Standard API                                  |
+| User isolation   | Complete (separate Users)   | Partial (shared account, individual contacts) |
+| Resource sharing | None (each User owns its resources) | Full (all contacts share bots/datasets)       |
+| API type         | User API                     | Standard API                                  |
 | User identity    | Separate ChatBotKit accounts       | Contacts within single account                |
 | Best for         | SaaS, white-label, multi-tenant    | Chat apps, support systems, communities       |
 
 ## Complete Example
 
-A complete working example demonstrating passwordless authentication with the ChatBotKit Partner API can be found in the [partner-auth example](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/pages/partner-auth).
+A complete working example demonstrating passwordless authentication with the ChatBotKit User API can be found in the [user-auth example](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/pages/user-auth).
 
 ## Documentation
 

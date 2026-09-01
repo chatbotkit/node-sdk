@@ -173,7 +173,6 @@ export const DatasetResourceConfigSchema = BasicResourceConfigSchema.extend({
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
     blueprintId: z.string().optional(),
-    store: z.string().optional(),
     reranker: z.string().optional(),
     recordMaxTokens: z.number().optional(),
     searchMinScore: z.number().optional(),
@@ -256,6 +255,7 @@ export const SkillsetResourceConfigSchema = BasicResourceConfigSchema.extend({
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
     blueprintId: z.string().optional(),
+    state: z.enum(['enabled', 'disabled']).optional(),
     visibility: z.enum(['private', 'protected', 'public']).optional(),
   }),
 })
@@ -271,13 +271,16 @@ export const TaskResourceConfigSchema = BasicResourceConfigSchema.extend({
     name: z.string().optional(),
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
+    blueprintId: z.string().optional(),
     contactId: z.string().optional(),
     botId: z.string().optional(),
     schedule: z.string().optional(),
     timezone: z.string().nullable().optional(),
+    expiresAt: z.number().nullable().optional(),
     sessionDuration: z.number().optional(),
     maxIterations: z.number().optional(),
     maxTime: z.number().optional(),
+    maxCalls: z.number().nullable().optional(),
   }),
 })
 
@@ -448,6 +451,7 @@ export const WhatsAppIntegrationResourceConfigSchema =
       botId: z.string().optional(),
       phoneNumberId: z.string().optional(),
       accessToken: z.string().optional(),
+      appSecret: z.string().nullable().optional(),
       contactCollection: z.boolean().optional(),
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
@@ -471,6 +475,7 @@ export const MessengerIntegrationResourceConfigSchema =
       blueprintId: z.string().optional(),
       botId: z.string().optional(),
       accessToken: z.string().optional(),
+      appSecret: z.string().nullable().optional(),
       contactCollection: z.boolean().optional(),
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
@@ -832,14 +837,9 @@ export class DatasetResource extends Resource {
    * @returns {import('@chatbotkit/sdk/dataset/v1').DatasetUpdateRequest}
    */
   get updateProperties() {
-    // @note dataset updates only support a subset of create properties - store
-    // cannot be changed after creation
-
-    const updateSchema = DatasetResourceConfigSchema.shape.properties.omit({
-      store: true,
-    })
-
-    return updateSchema.parse(this.config.properties)
+    return DatasetResourceConfigSchema.shape.properties.parse(
+      this.config.properties
+    )
   }
 }
 

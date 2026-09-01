@@ -7,7 +7,7 @@ import dataset from './dataset/index.js'
 import file from './file/index.js'
 import integration from './integration/index.js'
 import memory from './memory/index.js'
-import partner from './partner/index.js'
+import user from './user/index.js'
 import platform from './platform/index.js'
 import secret from './secret/index.js'
 import skillset from './skillset/index.js'
@@ -36,7 +36,7 @@ const commands = {
   file,
   integration,
   memory,
-  partner,
+  user,
   platform,
   secret,
   skillset,

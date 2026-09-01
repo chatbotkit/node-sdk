@@ -2,9 +2,10 @@
   "name": "@chatbotkit/monorepo",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "pnpm@11.24.0",
   "engines": {
-    "node": ">=20.0.0",
-    "pnpm": ">=10.16.1"
+    "node": ">=24.20.0",
+    "pnpm": ">=11.24.0 <12.0.0"
   },
   "type": "module",
   "scripts": {
@@ -19,31 +20,30 @@
     "format:src": "prettier -w .",
     "lint": "run-s lint:*",
     "lint:all": "turbo run lint",
-    "preinstall": "npx only-allow pnpm",
     "prepare-changes": "changeset",
     "publish-changes": "turbo run lint check build test && changeset version && changeset publish",
     "release": "turbo run lint check build test && changeset publish",
     "test": "turbo run test"
   },
-  "packageManager": "pnpm@10.16.1",
   "dependencies": {
+    "@eslint/eslintrc": "^3.3.6",
     "@changesets/cli": "^2.29.8",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@tsconfig/recommended": "^1.0.2",
     "@types/node": "^20.9.1",
-    "@typescript-eslint/eslint-plugin": "^8.40.0",
-    "@typescript-eslint/parser": "^8.40.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
+    "@typescript-eslint/parser": "^8.56.0",
     "dotenv": "^16.4.5",
-    "eslint": "^8.38.0",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.1.8",
     "format-package": "^7.0.0",
-    "npm-run-all": "^4.1.5",
+    "npm-run-all2": "^9.0.3",
     "prettier": "^2.8.7",
     "rimraf": "^5.0.5",
     "turbo": "^2.3.3",
-    "typedoc": "^0.28.14",
+    "typedoc": "^0.28.20",
     "typedoc-plugin-markdown": "^4.9.0",
     "typedoc-plugin-mdn-links": "^5.0.10",
-    "typescript": "^5.0.4"
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   }
 }

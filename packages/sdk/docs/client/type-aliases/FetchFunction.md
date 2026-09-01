@@ -8,6 +8,6 @@
 
 > **FetchFunction**\<\> = `FetchFn`
 
-Defined in: [client.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L31)
+Defined in: [client.js:51](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L51)
 
 ## Type Parameters

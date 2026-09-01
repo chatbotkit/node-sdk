@@ -28,6 +28,26 @@ const standardErrors = {
 }
 
 /**
+ * Thrown when the API responds with `409 authorization_required` - the linked
+ * secret or connection has not been authenticated yet. `url` is the address the
+ * user must visit to authorize; `data` carries the full response body.
+ */
+export class AuthorizationRequiredError extends FetchError {
+  /**
+   * @param {string} message
+   * @param {{ url?: string, status?: number, data?: any }} [meta]
+   */
+  constructor(message, meta = {}) {
+    super(message, 'AUTHORIZATION_REQUIRED', meta)
+
+    this.name = 'AuthorizationRequiredError'
+    this.url = meta.url
+    this.status = meta.status
+    this.data = meta.data
+  }
+}
+
+/**
  * @typedef {import('@chatbotkit/fetch').FetchFn<import('@chatbotkit/fetch').withRetryOptions & import('@chatbotkit/fetch').withTimeoutOptions>} FetchFunction
  */
 
@@ -46,6 +66,7 @@ export class ResponsePromise {
    *   retries?: number,
    *   retryDelay?: number,
    *   retryTimeout?: boolean,
+   *   passthrough?: boolean,
    *   fetchFn?: FetchFunction
    * }} request
    * @param {Map<string,Promise<T>>} [cacheMap]
@@ -126,25 +147,44 @@ export class ResponsePromise {
       cache: 'no-cache',
     })
 
-    if (!response.ok) {
+    if (!response.ok && !this.request.passthrough) {
       let message
       let code
+      let data
 
       const buffer = await response.arrayBuffer()
 
       try {
-        const data = JSON.parse(new TextDecoder().decode(buffer))
+        data = JSON.parse(new TextDecoder().decode(buffer))
 
         message = data.message || `HTTP Error: ${response.statusText}`
         code = data.code || `ERROR_${response.status}`
       } catch {
-        const data = standardErrors[response.status] || standardErrors.default
+        const fallback = standardErrors[response.status] || standardErrors.default
 
-        message = data.message
-        code = data.code
+        message = fallback.message
+        code = fallback.code
       }
 
-      throw new FetchError(message, code, { url })
+      // surface the authorize URL on a typed error so callers can drive a
+      // connect flow when a secret/connection has not been authenticated yet
+      if (data && data.error === 'authorization_required') {
+        throw new AuthorizationRequiredError(message, {
+          url: data.url,
+          status: response.status,
+          data,
+        })
+      }
+
+      // attach the parsed body + status so structured error fields are reachable
+      const error = /** @type {FetchError & { status?: number, data?: any }} */ (
+        new FetchError(message, code, { url })
+      )
+
+      error.status = response.status
+      error.data = data
+
+      throw error
     }
 
     return response
@@ -156,6 +196,18 @@ export class ResponsePromise {
     }
 
     return this.fetchPromise
+  }
+
+  /**
+   * Resolves to the raw `Response` without parsing the body. Combined with the
+   * `passthrough` request option it does not throw on a non-2xx status, which
+   * makes it suitable for passthrough endpoints such as the secret proxy.
+   *
+   * @param {{ abortSignal?: AbortSignal }} [params]
+   * @returns {Promise<Response>}
+   */
+  raw(params) {
+    return this.getRequest(params)
   }
 
   /**
@@ -451,6 +503,7 @@ export class ChatBotKitClient {
    *   retries?: number,
    *   retryDelay?: number,
    *   retryTimeout?: boolean,
+   *   passthrough?: boolean,
    *   fetchFn?: FetchFunction
    * }} [options]
    * @returns {ResponsePromise<T,U>}
@@ -556,9 +609,72 @@ export class ChatBotKitClient {
       retryDelay: options?.retryDelay ?? this.#retryDelay,
       retryTimeout: options?.retryTimeout ?? this.#retryTimeout,
 
+      passthrough: options?.passthrough,
+
       fetchFn: options?.fetchFn || this.#fetchFn,
     }
 
     return new ResponsePromise(url, request, this.#cacheMap)
+  }
+
+  /**
+   * Proxies a request and resolves the upstream `Response`. Successful and
+   * upstream-error responses pass through untouched - streaming, binary and
+   * large bodies are preserved (the body is never read on the success path).
+   * The one exception is a CBK `authorization_required` signal, which is thrown
+   * as an {@link AuthorizationRequiredError} carrying the `url` the user must
+   * visit to authenticate.
+   *
+   * @param {string} path
+   * @param {{
+   *   method?: string,
+   *   headers?: Record<string,any>,
+   *   query?: Record<string,any>,
+   *   record?: Record<string,any>,
+   *   buffer?: ArrayBuffer,
+   *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
+   *   external?: boolean,
+   *   endpoint?: string,
+   *   timeout?: number,
+   *   retries?: number,
+   *   retryDelay?: number,
+   *   retryTimeout?: boolean,
+   *   fetchFn?: FetchFunction
+   * }} [options]
+   * @returns {Promise<Response>}
+   */
+  async clientProxy(path, options) {
+    const response = await this.clientFetch(path, {
+      ...options,
+      passthrough: true,
+    }).raw()
+
+    if (response.ok) {
+      return response
+    }
+
+    const contentType = response.headers.get('content-type') || ''
+
+    if (!contentType.includes('application/json')) {
+      return response
+    }
+
+    let data
+
+    try {
+      data = await response.clone().json()
+    } catch {
+      return response
+    }
+
+    if (data && data.error === 'authorization_required') {
+      throw new AuthorizationRequiredError(data.message, {
+        url: data.url,
+        status: response.status,
+        data,
+      })
+    }
+
+    return response
   }
 }

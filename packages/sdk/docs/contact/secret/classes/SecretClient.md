@@ -6,7 +6,7 @@
 
 # Class: SecretClient
 
-Defined in: [contact/secret/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L18)
+Defined in: [contact/secret/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L20)
 
 Contact secret client.
 
@@ -20,7 +20,7 @@ Contact secret client.
 
 > **new SecretClient**(`options`): `SecretClient`
 
-Defined in: [contact/secret/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L22)
+Defined in: [contact/secret/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L24)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [contact/secret/index.js:22](https://github.com/chatbotkit/node-sdk/
 
 > **authenticate**(`contactId`, `secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [contact/secret/index.js:66](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L66)
+Defined in: [contact/secret/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L68)
 
 Authenticates the contact secret.
 
@@ -62,11 +62,106 @@ Authenticates the contact secret.
 
 ***
 
+### clientProxy()
+
+> **clientProxy**(`path`, `options?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+Defined in: [client.js:646](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L646)
+
+Proxies a request and resolves the upstream `Response`. Successful and
+upstream-error responses pass through untouched - streaming, binary and
+large bodies are preserved (the body is never read on the success path).
+The one exception is a CBK `authorization_required` signal, which is thrown
+as an [AuthorizationRequiredError](../../../client/classes/AuthorizationRequiredError.md) carrying the `url` the user must
+visit to authenticate.
+
+#### Parameters
+
+##### path
+
+`string`
+
+##### options?
+
+###### buffer?
+
+[`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+
+###### endpoint?
+
+`string`
+
+###### external?
+
+`boolean`
+
+###### fetchFn?
+
+[`FetchFunction`](../../../client/type-aliases/FetchFunction.md)
+
+###### file?
+
+\{ `data`: `string` \| [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer); `name?`: `string`; `type?`: `string`; \}
+
+###### file.data
+
+`string` \| [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+
+###### file.name?
+
+`string`
+
+###### file.type?
+
+`string`
+
+###### headers?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### method?
+
+`string`
+
+###### query?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### record?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### retries?
+
+`number`
+
+###### retryDelay?
+
+`number`
+
+###### retryTimeout?
+
+`boolean`
+
+###### timeout?
+
+`number`
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+#### Inherited from
+
+[`ChatBotKitClient`](../../../client/classes/ChatBotKitClient.md).[`clientProxy`](../../../client/classes/ChatBotKitClient.md#clientproxy)
+
+***
+
 ### extend()
 
 > **extend**(`extensionOptions`): `SecretClient`
 
-Defined in: [client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L390)
+Defined in: [client.js:442](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L442)
 
 Creates a new instance of the same client type with extended options.
 
@@ -100,7 +195,7 @@ A new instance of the same client class with extended options
 
 > **list**(`contactId`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [contact/secret/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L33)
+Defined in: [contact/secret/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L35)
 
 Retrieves a list of all contact secrets.
 
@@ -120,11 +215,62 @@ Retrieves a list of all contact secrets.
 
 ***
 
+### mint()
+
+> **mint**(`contactId`, `secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+Defined in: [contact/secret/index.js:92](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L92)
+
+Mints a usable token from a contact's secret (owner-only; `oauth`/`jwt` only).
+
+#### Parameters
+
+##### contactId
+
+`string`
+
+##### secretId
+
+`string`
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+***
+
+### proxy()
+
+> **proxy**(`contactId`, `secretId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+Defined in: [contact/secret/index.js:81](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L81)
+
+Proxies a request through a contact's secret, injected server-side. Returns
+the raw upstream `Response` (a non-2xx status is returned, not thrown).
+
+#### Parameters
+
+##### contactId
+
+`string`
+
+##### secretId
+
+`string`
+
+##### request
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+***
+
 ### revoke()
 
 > **revoke**(`contactId`, `secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [contact/secret/index.js:44](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L44)
+Defined in: [contact/secret/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L46)
 
 Revokes the contact secret.
 
@@ -148,7 +294,7 @@ Revokes the contact secret.
 
 > **verify**(`contactId`, `secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [contact/secret/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L55)
+Defined in: [contact/secret/index.js:57](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L57)
 
 Verifies the contact secret.
 

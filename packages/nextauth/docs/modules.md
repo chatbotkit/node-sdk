@@ -8,5 +8,5 @@
 
 - [contact/adapter](contact/adapter/README.md)
 - [contact/provider](contact/provider/README.md)
-- [partner/adapter](partner/adapter/README.md)
-- [partner/provider](partner/provider/README.md)
+- [user/adapter](user/adapter/README.md)
+- [user/provider](user/provider/README.md)

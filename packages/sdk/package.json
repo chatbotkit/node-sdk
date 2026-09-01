@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/sdk",
-  "version": "1.39.0",
+  "version": "1.38.0",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {
@@ -876,106 +876,6 @@
       "types": "./types/param.d.ts",
       "import": "./src/param.js"
     },
-    "./partner": {
-      "types": "./types/partner/index.d.ts",
-      "import": "./src/partner/index.js"
-    },
-    "./partner/index": {
-      "types": "./types/partner/index.d.ts",
-      "import": "./src/partner/index.js"
-    },
-    "./partner/index.js": {
-      "types": "./types/partner/index.d.ts",
-      "import": "./src/partner/index.js"
-    },
-    "./partner/user/context": {
-      "types": "./types/partner/user/context/index.d.ts",
-      "import": "./src/partner/user/context/index.js"
-    },
-    "./partner/user/context/index": {
-      "types": "./types/partner/user/context/index.d.ts",
-      "import": "./src/partner/user/context/index.js"
-    },
-    "./partner/user/context/index.js": {
-      "types": "./types/partner/user/context/index.d.ts",
-      "import": "./src/partner/user/context/index.js"
-    },
-    "./partner/user/context/v1": {
-      "types": "./types/partner/user/context/v1.d.ts",
-      "import": "./src/partner/user/context/v1.js"
-    },
-    "./partner/user/context/v1.js": {
-      "types": "./types/partner/user/context/v1.d.ts",
-      "import": "./src/partner/user/context/v1.js"
-    },
-    "./partner/user": {
-      "types": "./types/partner/user/index.d.ts",
-      "import": "./src/partner/user/index.js"
-    },
-    "./partner/user/index": {
-      "types": "./types/partner/user/index.d.ts",
-      "import": "./src/partner/user/index.js"
-    },
-    "./partner/user/index.js": {
-      "types": "./types/partner/user/index.d.ts",
-      "import": "./src/partner/user/index.js"
-    },
-    "./partner/user/session": {
-      "types": "./types/partner/user/session/index.d.ts",
-      "import": "./src/partner/user/session/index.js"
-    },
-    "./partner/user/session/index": {
-      "types": "./types/partner/user/session/index.d.ts",
-      "import": "./src/partner/user/session/index.js"
-    },
-    "./partner/user/session/index.js": {
-      "types": "./types/partner/user/session/index.d.ts",
-      "import": "./src/partner/user/session/index.js"
-    },
-    "./partner/user/session/v1": {
-      "types": "./types/partner/user/session/v1.d.ts",
-      "import": "./src/partner/user/session/v1.js"
-    },
-    "./partner/user/session/v1.js": {
-      "types": "./types/partner/user/session/v1.d.ts",
-      "import": "./src/partner/user/session/v1.js"
-    },
-    "./partner/user/token": {
-      "types": "./types/partner/user/token/index.d.ts",
-      "import": "./src/partner/user/token/index.js"
-    },
-    "./partner/user/token/index": {
-      "types": "./types/partner/user/token/index.d.ts",
-      "import": "./src/partner/user/token/index.js"
-    },
-    "./partner/user/token/index.js": {
-      "types": "./types/partner/user/token/index.d.ts",
-      "import": "./src/partner/user/token/index.js"
-    },
-    "./partner/user/token/v1": {
-      "types": "./types/partner/user/token/v1.d.ts",
-      "import": "./src/partner/user/token/v1.js"
-    },
-    "./partner/user/token/v1.js": {
-      "types": "./types/partner/user/token/v1.d.ts",
-      "import": "./src/partner/user/token/v1.js"
-    },
-    "./partner/user/v1": {
-      "types": "./types/partner/user/v1.d.ts",
-      "import": "./src/partner/user/v1.js"
-    },
-    "./partner/user/v1.js": {
-      "types": "./types/partner/user/v1.d.ts",
-      "import": "./src/partner/user/v1.js"
-    },
-    "./partner/v1": {
-      "types": "./types/partner/v1.d.ts",
-      "import": "./src/partner/v1.js"
-    },
-    "./partner/v1.js": {
-      "types": "./types/partner/v1.d.ts",
-      "import": "./src/partner/v1.js"
-    },
     "./platform/ability": {
       "types": "./types/platform/ability/index.d.ts",
       "import": "./src/platform/ability/index.js"
@@ -1016,26 +916,6 @@
       "types": "./types/platform/action/v1.d.ts",
       "import": "./src/platform/action/v1.js"
     },
-    "./platform/doc": {
-      "types": "./types/platform/doc/index.d.ts",
-      "import": "./src/platform/doc/index.js"
-    },
-    "./platform/doc/index": {
-      "types": "./types/platform/doc/index.d.ts",
-      "import": "./src/platform/doc/index.js"
-    },
-    "./platform/doc/index.js": {
-      "types": "./types/platform/doc/index.d.ts",
-      "import": "./src/platform/doc/index.js"
-    },
-    "./platform/doc/v1": {
-      "types": "./types/platform/doc/v1.d.ts",
-      "import": "./src/platform/doc/v1.js"
-    },
-    "./platform/doc/v1.js": {
-      "types": "./types/platform/doc/v1.d.ts",
-      "import": "./src/platform/doc/v1.js"
-    },
     "./platform/example": {
       "types": "./types/platform/example/index.d.ts",
       "import": "./src/platform/example/index.js"
@@ -1067,26 +947,6 @@
     "./platform/index.js": {
       "types": "./types/platform/index.d.ts",
       "import": "./src/platform/index.js"
-    },
-    "./platform/manual": {
-      "types": "./types/platform/manual/index.d.ts",
-      "import": "./src/platform/manual/index.js"
-    },
-    "./platform/manual/index": {
-      "types": "./types/platform/manual/index.d.ts",
-      "import": "./src/platform/manual/index.js"
-    },
-    "./platform/manual/index.js": {
-      "types": "./types/platform/manual/index.d.ts",
-      "import": "./src/platform/manual/index.js"
-    },
-    "./platform/manual/v1": {
-      "types": "./types/platform/manual/v1.d.ts",
-      "import": "./src/platform/manual/v1.js"
-    },
-    "./platform/manual/v1.js": {
-      "types": "./types/platform/manual/v1.d.ts",
-      "import": "./src/platform/manual/v1.js"
     },
     "./platform/model": {
       "types": "./types/platform/model/index.d.ts",
@@ -1147,26 +1007,6 @@
     "./platform/secret/v1.js": {
       "types": "./types/platform/secret/v1.d.ts",
       "import": "./src/platform/secret/v1.js"
-    },
-    "./platform/tutorial": {
-      "types": "./types/platform/tutorial/index.d.ts",
-      "import": "./src/platform/tutorial/index.js"
-    },
-    "./platform/tutorial/index": {
-      "types": "./types/platform/tutorial/index.d.ts",
-      "import": "./src/platform/tutorial/index.js"
-    },
-    "./platform/tutorial/index.js": {
-      "types": "./types/platform/tutorial/index.d.ts",
-      "import": "./src/platform/tutorial/index.js"
-    },
-    "./platform/tutorial/v1": {
-      "types": "./types/platform/tutorial/v1.d.ts",
-      "import": "./src/platform/tutorial/v1.js"
-    },
-    "./platform/tutorial/v1.js": {
-      "types": "./types/platform/tutorial/v1.d.ts",
-      "import": "./src/platform/tutorial/v1.js"
     },
     "./platform/v1": {
       "types": "./types/platform/v1.d.ts",
@@ -1436,21 +1276,101 @@
       "types": "./types/usage/v1.d.ts",
       "import": "./src/usage/v1.js"
     },
+    "./user/context": {
+      "types": "./types/user/context/index.d.ts",
+      "import": "./src/user/context/index.js"
+    },
+    "./user/context/index": {
+      "types": "./types/user/context/index.d.ts",
+      "import": "./src/user/context/index.js"
+    },
+    "./user/context/index.js": {
+      "types": "./types/user/context/index.d.ts",
+      "import": "./src/user/context/index.js"
+    },
+    "./user/context/v1": {
+      "types": "./types/user/context/v1.d.ts",
+      "import": "./src/user/context/v1.js"
+    },
+    "./user/context/v1.js": {
+      "types": "./types/user/context/v1.d.ts",
+      "import": "./src/user/context/v1.js"
+    },
+    "./user": {
+      "types": "./types/user/index.d.ts",
+      "import": "./src/user/index.js"
+    },
+    "./user/index": {
+      "types": "./types/user/index.d.ts",
+      "import": "./src/user/index.js"
+    },
+    "./user/index.js": {
+      "types": "./types/user/index.d.ts",
+      "import": "./src/user/index.js"
+    },
+    "./user/session": {
+      "types": "./types/user/session/index.d.ts",
+      "import": "./src/user/session/index.js"
+    },
+    "./user/session/index": {
+      "types": "./types/user/session/index.d.ts",
+      "import": "./src/user/session/index.js"
+    },
+    "./user/session/index.js": {
+      "types": "./types/user/session/index.d.ts",
+      "import": "./src/user/session/index.js"
+    },
+    "./user/session/v1": {
+      "types": "./types/user/session/v1.d.ts",
+      "import": "./src/user/session/v1.js"
+    },
+    "./user/session/v1.js": {
+      "types": "./types/user/session/v1.d.ts",
+      "import": "./src/user/session/v1.js"
+    },
+    "./user/token": {
+      "types": "./types/user/token/index.d.ts",
+      "import": "./src/user/token/index.js"
+    },
+    "./user/token/index": {
+      "types": "./types/user/token/index.d.ts",
+      "import": "./src/user/token/index.js"
+    },
+    "./user/token/index.js": {
+      "types": "./types/user/token/index.d.ts",
+      "import": "./src/user/token/index.js"
+    },
+    "./user/token/v1": {
+      "types": "./types/user/token/v1.d.ts",
+      "import": "./src/user/token/v1.js"
+    },
+    "./user/token/v1.js": {
+      "types": "./types/user/token/v1.d.ts",
+      "import": "./src/user/token/v1.js"
+    },
+    "./user/v1": {
+      "types": "./types/user/v1.d.ts",
+      "import": "./src/user/v1.js"
+    },
+    "./user/v1.js": {
+      "types": "./types/user/v1.d.ts",
+      "import": "./src/user/v1.js"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
     "build": "run-s build:*",
-    "build:01-cjs": "tsc -p tsconfig.cjs.json",
+    "build:01-cjs": "tsc6 -p tsconfig.cjs.json",
     "build:01-cjs_rename": "node ../../scripts/rename-cjs.js",
     "build:01-cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
     "build:01-cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
     "build:03-docs": "typedoc",
-    "build:02-esm": "tsc -p tsconfig.esm.json",
+    "build:02-esm": "tsc6 -p tsconfig.esm.json",
     "build:00-exports": "node ../../scripts/create-standard-exports.js",
-    "build:00-types": "tsc -p tsconfig.types.json",
+    "build:00-types": "tsc6 -p tsconfig.types.json",
     "build:types_copy": "node scripts/copy-types.js",
     "build:types_dist": "node scripts/copy-types-dist.js",
-    "check": "tsc -p tsconfig.check.json",
+    "check": "tsc6 -p tsconfig.check.json",
     "check:api-coverage": "node scripts/check-api-coverage.js",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
@@ -1471,11 +1391,11 @@
     "@chatbotkit/fetch": "workspace:*"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5",
-    "typedoc": "^0.28.14",
+    "npm-run-all2": "^9.0.3",
+    "typedoc": "^0.28.20",
     "typedoc-plugin-markdown": "^4.9.0",
     "typedoc-plugin-mdn-links": "^5.0.10",
-    "typescript": "^5.9",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
     "openapi-typescript": "7.4.4",
     "swagger-client": "^3.24.5"
   }

@@ -17,6 +17,10 @@
 - [SecretListRequest](type-aliases/SecretListRequest.md)
 - [SecretListResponse](type-aliases/SecretListResponse.md)
 - [SecretListStreamType](type-aliases/SecretListStreamType.md)
+- [SecretMintResponse](type-aliases/SecretMintResponse.md)
+- [SecretMintResponseBody](type-aliases/SecretMintResponseBody.md)
+- [SecretProxyRequest](type-aliases/SecretProxyRequest.md)
+- [SecretProxyRequestBody](type-aliases/SecretProxyRequestBody.md)
 - [SecretRevokeRequest](type-aliases/SecretRevokeRequest.md)
 - [SecretRevokeRequestBody](type-aliases/SecretRevokeRequestBody.md)
 - [SecretRevokeResponse](type-aliases/SecretRevokeResponse.md)
@@ -30,5 +34,7 @@
 
 - [authenticateSecret](functions/authenticateSecret.md)
 - [listSecrets](functions/listSecrets.md)
+- [mintSecret](functions/mintSecret.md)
+- [proxySecret](functions/proxySecret.md)
 - [revokeSecret](functions/revokeSecret.md)
 - [verifySecret](functions/verifySecret.md)

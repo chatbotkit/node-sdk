@@ -2,10 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "downlevelIteration": true,
+    "ignoreDeprecations": "6.0",
     "esModuleInterop": true,
     "incremental": true,
     "lib": ["es2020", "dom"],
     "target": "es2020",
+    "types": ["node"],
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "allowJs": true,

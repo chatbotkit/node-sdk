@@ -38,10 +38,8 @@ export async function complete({ messages }: { messages: InputMessage[] }) {
   return streamComplete({
     client: cbk.conversation,
 
-    // You can pass any botId or a combination between backstory, model,
-    // datasetId and skillsetId parameters here.
-
-    model: 'gpt-4-turbo',
+    // You can pass a botId or an inline configuration here. This example uses
+    // the account defaults so the request only needs its message state.
 
     messages,
 

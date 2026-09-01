@@ -6,7 +6,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "tsc --noEmit"
+    "check": "tsc6 --noEmit"
   },
   "dependencies": {
     "@chatbotkit/sdk": "workspace:*",

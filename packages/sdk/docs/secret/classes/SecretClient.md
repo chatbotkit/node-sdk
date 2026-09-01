@@ -6,7 +6,7 @@
 
 # Class: SecretClient
 
-Defined in: [secret/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L22)
+Defined in: [secret/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L24)
 
 Secret client.
 
@@ -20,7 +20,7 @@ Secret client.
 
 > **new SecretClient**(`options`): `SecretClient`
 
-Defined in: [secret/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L26)
+Defined in: [secret/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L28)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [secret/index.js:26](https://github.com/chatbotkit/node-sdk/blob/mai
 
 > **authenticate**(`secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:107](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L107)
+Defined in: [secret/index.js:109](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L109)
 
 Authenticates the secret.
 
@@ -58,11 +58,106 @@ Authenticates the secret.
 
 ***
 
+### clientProxy()
+
+> **clientProxy**(`path`, `options?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+Defined in: [client.js:646](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L646)
+
+Proxies a request and resolves the upstream `Response`. Successful and
+upstream-error responses pass through untouched - streaming, binary and
+large bodies are preserved (the body is never read on the success path).
+The one exception is a CBK `authorization_required` signal, which is thrown
+as an [AuthorizationRequiredError](../../client/classes/AuthorizationRequiredError.md) carrying the `url` the user must
+visit to authenticate.
+
+#### Parameters
+
+##### path
+
+`string`
+
+##### options?
+
+###### buffer?
+
+[`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+
+###### endpoint?
+
+`string`
+
+###### external?
+
+`boolean`
+
+###### fetchFn?
+
+[`FetchFunction`](../../client/type-aliases/FetchFunction.md)
+
+###### file?
+
+\{ `data`: `string` \| [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer); `name?`: `string`; `type?`: `string`; \}
+
+###### file.data
+
+`string` \| [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+
+###### file.name?
+
+`string`
+
+###### file.type?
+
+`string`
+
+###### headers?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### method?
+
+`string`
+
+###### query?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### record?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### retries?
+
+`number`
+
+###### retryDelay?
+
+`number`
+
+###### retryTimeout?
+
+`boolean`
+
+###### timeout?
+
+`number`
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+#### Inherited from
+
+[`ChatBotKitClient`](../../client/classes/ChatBotKitClient.md).[`clientProxy`](../../client/classes/ChatBotKitClient.md#clientproxy)
+
+***
+
 ### create()
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L56)
+Defined in: [secret/index.js:58](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L58)
 
 Creates a new secret.
 
@@ -80,7 +175,7 @@ Creates a new secret.
 
 > **delete**(`secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:77](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L77)
+Defined in: [secret/index.js:79](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L79)
 
 Deletes the secret.
 
@@ -100,7 +195,7 @@ Deletes the secret.
 
 > **extend**(`extensionOptions`): `SecretClient`
 
-Defined in: [client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L390)
+Defined in: [client.js:442](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L442)
 
 Creates a new instance of the same client type with extended options.
 
@@ -134,7 +229,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`secretId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [secret/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L46)
+Defined in: [secret/index.js:48](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L48)
 
 Fetches a secret.
 
@@ -154,7 +249,7 @@ Fetches a secret.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [secret/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L36)
+Defined in: [secret/index.js:38](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L38)
 
 Retrieves a list of all secrets.
 
@@ -170,11 +265,54 @@ Retrieves a list of all secrets.
 
 ***
 
+### mint()
+
+> **mint**(`secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+Defined in: [secret/index.js:131](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L131)
+
+Mints a usable token from the secret (owner-only; `oauth`/`jwt` only).
+
+#### Parameters
+
+##### secretId
+
+`string`
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+***
+
+### proxy()
+
+> **proxy**(`secretId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+Defined in: [secret/index.js:121](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L121)
+
+Proxies a request through the secret, injecting it server-side. Returns the
+raw upstream `Response` (a non-2xx status is returned, not thrown).
+
+#### Parameters
+
+##### secretId
+
+`string`
+
+##### request
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+***
+
 ### revoke()
 
 > **revoke**(`secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:87](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L87)
+Defined in: [secret/index.js:89](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L89)
 
 Revokes a secret.
 
@@ -194,7 +332,7 @@ Revokes a secret.
 
 > **update**(`secretId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:67](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L67)
+Defined in: [secret/index.js:69](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L69)
 
 Updates a secret.
 
@@ -216,7 +354,7 @@ Updates a secret.
 
 > **verify**(`secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:97](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L97)
+Defined in: [secret/index.js:99](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/secret/index.js#L99)
 
 Verifies the secret.
 

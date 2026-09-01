@@ -6,7 +6,7 @@
 
 # Class: PlatformClient
 
-Defined in: [platform/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L15)
+Defined in: [platform/index.js:12](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L12)
 
 Platform client.
 
@@ -20,7 +20,7 @@ Platform client.
 
 > **new PlatformClient**(`options`): `PlatformClient`
 
-Defined in: [platform/index.js:19](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L19)
+Defined in: [platform/index.js:16](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L16)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [platform/index.js:19](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **ability**: [`PlatformAbilityClient`](../ability/classes/PlatformAbilityClient.md)
 
-Defined in: [platform/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L30)
+Defined in: [platform/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L27)
 
 ***
 
@@ -50,15 +50,7 @@ Defined in: [platform/index.js:30](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **action**: [`PlatformActionClient`](../action/classes/PlatformActionClient.md)
 
-Defined in: [platform/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L35)
-
-***
-
-### doc
-
-> **doc**: [`PlatformDocClient`](../doc/classes/PlatformDocClient.md)
-
-Defined in: [platform/index.js:40](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L40)
+Defined in: [platform/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L32)
 
 ***
 
@@ -66,15 +58,7 @@ Defined in: [platform/index.js:40](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **example**: [`PlatformExampleClient`](../example/classes/PlatformExampleClient.md)
 
-Defined in: [platform/index.js:60](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L60)
-
-***
-
-### manual
-
-> **manual**: [`PlatformManualClient`](../manual/classes/PlatformManualClient.md)
-
-Defined in: [platform/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L45)
+Defined in: [platform/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L42)
 
 ***
 
@@ -82,7 +66,7 @@ Defined in: [platform/index.js:45](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **model**: [`PlatformModelClient`](../model/classes/PlatformModelClient.md)
 
-Defined in: [platform/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L25)
+Defined in: [platform/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L22)
 
 ***
 
@@ -90,7 +74,7 @@ Defined in: [platform/index.js:25](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **report**: [`PlatformReportClient`](../report/classes/PlatformReportClient.md)
 
-Defined in: [platform/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L65)
+Defined in: [platform/index.js:47](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L47)
 
 ***
 
@@ -98,23 +82,110 @@ Defined in: [platform/index.js:65](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **secret**: [`PlatformSecretClient`](../secret/classes/PlatformSecretClient.md)
 
-Defined in: [platform/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L55)
-
-***
-
-### tutorial
-
-> **tutorial**: [`PlatformTutorialClient`](../tutorial/classes/PlatformTutorialClient.md)
-
-Defined in: [platform/index.js:50](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L50)
+Defined in: [platform/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L37)
 
 ## Methods
+
+### clientProxy()
+
+> **clientProxy**(`path`, `options?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+Defined in: [client.js:646](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L646)
+
+Proxies a request and resolves the upstream `Response`. Successful and
+upstream-error responses pass through untouched - streaming, binary and
+large bodies are preserved (the body is never read on the success path).
+The one exception is a CBK `authorization_required` signal, which is thrown
+as an [AuthorizationRequiredError](../../client/classes/AuthorizationRequiredError.md) carrying the `url` the user must
+visit to authenticate.
+
+#### Parameters
+
+##### path
+
+`string`
+
+##### options?
+
+###### buffer?
+
+[`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+
+###### endpoint?
+
+`string`
+
+###### external?
+
+`boolean`
+
+###### fetchFn?
+
+[`FetchFunction`](../../client/type-aliases/FetchFunction.md)
+
+###### file?
+
+\{ `data`: `string` \| [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer); `name?`: `string`; `type?`: `string`; \}
+
+###### file.data
+
+`string` \| [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+
+###### file.name?
+
+`string`
+
+###### file.type?
+
+`string`
+
+###### headers?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### method?
+
+`string`
+
+###### query?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### record?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### retries?
+
+`number`
+
+###### retryDelay?
+
+`number`
+
+###### retryTimeout?
+
+`boolean`
+
+###### timeout?
+
+`number`
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+#### Inherited from
+
+[`ChatBotKitClient`](../../client/classes/ChatBotKitClient.md).[`clientProxy`](../../client/classes/ChatBotKitClient.md#clientproxy)
+
+***
 
 ### extend()
 
 > **extend**(`extensionOptions`): `PlatformClient`
 
-Defined in: [client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L390)
+Defined in: [client.js:442](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L442)
 
 Creates a new instance of the same client type with extended options.
 

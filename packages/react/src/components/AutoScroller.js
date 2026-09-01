@@ -35,8 +35,8 @@ export function AutoScroller(props) {
     ...rest
   } = props || {}
 
-  const rootRef = /** @type {React.MutableRefObject<HTMLDivElement>} */ (
-    useRef()
+  const rootRef = /** @type {React.RefObject<HTMLDivElement | null>} */ (
+    useRef(null)
   )
 
   useEffect(() => {

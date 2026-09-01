@@ -26,7 +26,7 @@ Defined in: [space/storage/v1.js:54](https://github.com/chatbotkit/node-sdk/blob
 
 ### request?
 
-`never`
+`undefined`
 
 ## Returns
 
