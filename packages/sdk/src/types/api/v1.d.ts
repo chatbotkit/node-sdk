@@ -13645,7 +13645,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -13655,7 +13655,7 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The reranker class for the dataset */
                     reranker?: string;
                     /** @description The total number of tokens to for each record */
@@ -13713,7 +13713,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -13723,9 +13723,7 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
-                    /** @description The storage class for the dataset */
-                    store?: string;
+                    blueprintId?: string | null;
                     /** @description The reranker class for the dataset */
                     reranker?: string;
                     /** @description The total number of tokens for each record */
@@ -16561,7 +16559,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -16571,15 +16569,17 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The ID of the bot this configuration is using */
-                    botId?: string;
+                    botId?: string | null;
                     /** @description The Instagram integration access token */
-                    accessToken?: string;
+                    accessToken?: string | null;
+                    /** @description The Meta app secret used to validate webhook signatures */
+                    appSecret?: string | null;
                     /** @description Whether to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
-                    sessionDuration?: number;
+                    sessionDuration?: number | null;
                     /** @description Whether the bot supports attachments */
                     attachments?: boolean;
                 };
@@ -16618,7 +16618,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -16628,15 +16628,17 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The ID of the bot this configuration is using */
-                    botId?: string;
+                    botId?: string | null;
                     /** @description The Instagram integration access token */
-                    accessToken?: string;
+                    accessToken?: string | null;
+                    /** @description The Meta app secret used to validate webhook signatures */
+                    appSecret?: string | null;
                     /** @description Whether to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
-                    sessionDuration?: number;
+                    sessionDuration?: number | null;
                     /** @description Whether the bot supports attachments */
                     attachments?: boolean;
                 };
@@ -17203,7 +17205,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -17213,15 +17215,17 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The ID of the bot this configuration is using */
-                    botId?: string;
+                    botId?: string | null;
                     /** @description The Messenger integration access token */
-                    accessToken?: string;
+                    accessToken?: string | null;
+                    /** @description The Meta app secret used to validate webhook signatures */
+                    appSecret?: string | null;
                     /** @description Whether to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
-                    sessionDuration?: number;
+                    sessionDuration?: number | null;
                     /** @description Whether the bot supports attachments */
                     attachments?: boolean;
                 };
@@ -17260,7 +17264,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -17270,15 +17274,17 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The ID of the bot this configuration is using */
-                    botId?: string;
+                    botId?: string | null;
                     /** @description The Messenger integration access token */
-                    accessToken?: string;
+                    accessToken?: string | null;
+                    /** @description The Meta app secret used to validate webhook signatures */
+                    appSecret?: string | null;
                     /** @description Whether to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
-                    sessionDuration?: number;
+                    sessionDuration?: number | null;
                     /** @description Whether the bot supports attachments */
                     attachments?: boolean;
                 };
@@ -20914,7 +20920,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -20924,21 +20930,23 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The ID of the bot this configuration is using */
-                    botId?: string;
+                    botId?: string | null;
                     /** @description The WhatsApp integration phone number ID */
-                    phoneNumberId?: string;
+                    phoneNumberId?: string | null;
                     /** @description The WhatsApp integration access token */
-                    accessToken?: string;
+                    accessToken?: string | null;
+                    /** @description The Meta app secret used to validate webhook signatures */
+                    appSecret?: string | null;
                     /** @description Weather to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
-                    sessionDuration?: number;
+                    sessionDuration?: number | null;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
                     /** @description Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all. */
-                    allowFrom?: string;
+                    allowFrom?: string | null;
                 };
             };
         };
@@ -20975,7 +20983,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -20985,21 +20993,23 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The ID of the bot this configuration is using */
-                    botId?: string;
+                    botId?: string | null;
                     /** @description The WhatsApp integration phone number ID */
-                    phoneNumberId?: string;
+                    phoneNumberId?: string | null;
                     /** @description The WhatsApp integration access token */
-                    accessToken?: string;
+                    accessToken?: string | null;
+                    /** @description The Meta app secret used to validate webhook signatures */
+                    appSecret?: string | null;
                     /** @description Weather to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
-                    sessionDuration?: number;
+                    sessionDuration?: number | null;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
                     /** @description Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all. */
-                    allowFrom?: string;
+                    allowFrom?: string | null;
                 };
             };
         };
@@ -25207,7 +25217,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -25217,7 +25227,7 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot. */
                     botId?: string;
                     /**
@@ -25225,6 +25235,11 @@ export interface operations {
                      * @enum {string}
                      */
                     type?: "retention" | "usage";
+                    /**
+                     * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                     * @enum {string}
+                     */
+                    state?: "enabled" | "disabled";
                     /** @description The policy configuration as JSON */
                     config?: {
                         [key: string]: unknown;
@@ -25265,7 +25280,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -25275,7 +25290,7 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot. */
                     botId?: string;
                     /**
@@ -25283,6 +25298,11 @@ export interface operations {
                      * @enum {string}
                      */
                     type: "retention" | "usage";
+                    /**
+                     * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                     * @enum {string}
+                     */
+                    state?: "enabled" | "disabled";
                     /** @description The policy configuration as JSON */
                     config?: {
                         [key: string]: unknown;
@@ -26531,6 +26551,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -26540,17 +26562,22 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The ID of the secret associated with the ability */
-                    secretId?: string;
+                    linkedSecretId?: string | null;
                     /** @description The ID of the file associated with the ability */
-                    fileId?: string;
+                    linkedFileId?: string | null;
                     /** @description The ID of the bot associated with the ability */
-                    botId?: string;
+                    linkedBotId?: string | null;
                     /** @description The ID of the space associated with the ability */
-                    spaceId?: string;
+                    linkedSpaceId?: string | null;
                     /** @description The text to update the ability with */
                     instruction?: string;
+                    /**
+                     * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                     * @enum {string}
+                     */
+                    state?: "enabled" | "disabled";
                 };
             };
         };
@@ -26588,6 +26615,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -26597,17 +26626,22 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /** @description The ID of the secret associated with the ability */
-                    secretId?: string;
+                    linkedSecretId?: string | null;
                     /** @description The ID of the file associated with the ability */
-                    fileId?: string;
+                    linkedFileId?: string | null;
                     /** @description The ID of the bot associated with the ability */
-                    botId?: string;
+                    linkedBotId?: string | null;
                     /** @description The ID of the space associated with the ability */
-                    spaceId?: string;
+                    linkedSpaceId?: string | null;
                     /** @description The instruction of the ability */
                     instruction?: string;
+                    /**
+                     * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                     * @enum {string}
+                     */
+                    state?: "enabled" | "disabled";
                 };
             };
         };
@@ -26932,7 +26966,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -26942,12 +26976,17 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /**
                      * @description The skillset visibility
                      * @enum {string}
                      */
                     visibility?: "private" | "protected" | "public";
+                    /**
+                     * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                     * @enum {string}
+                     */
+                    state?: "enabled" | "disabled";
                 };
             };
         };
@@ -26984,7 +27023,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -26994,12 +27033,17 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the blueprint */
-                    blueprintId?: string;
+                    blueprintId?: string | null;
                     /**
                      * @description The skillset visibility
                      * @enum {string}
                      */
                     visibility?: "private" | "protected" | "public";
+                    /**
+                     * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                     * @enum {string}
+                     */
+                    state?: "enabled" | "disabled";
                 };
             };
         };
@@ -27314,7 +27358,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -27323,8 +27367,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The host the site is served at (a <label>.chatbotkit.space subdomain) */
-                    domain?: string;
+                    /** @description The subdomain slug beneath the configured space apex */
+                    slug?: string;
                     /** @description Optional folder prefix inside the space to serve from */
                     prefix?: string;
                     /** @description Directory index filename */
@@ -27369,7 +27413,7 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The unique alias for the instance */
-                    alias?: string;
+                    alias?: string | null;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -27378,8 +27422,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The host the site is served at (a <label>.chatbotkit.space subdomain) */
-                    domain: string;
+                    /** @description The subdomain slug beneath the configured space apex */
+                    slug: string;
                     /** @description Optional folder prefix inside the space to serve from */
                     prefix?: string;
                     /**
@@ -28427,6 +28471,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string | null;
                     /** @description The contact associated with the task */
                     contactId?: string;
                     /** @description The bot associated with the task */
@@ -28438,12 +28484,16 @@ export interface operations {
                      * @example America/New_York
                      */
                     timezone?: string | null;
+                    /** @description An optional epoch-millisecond timestamp after which the task is automatically deleted. Pass null to clear an existing expiry. */
+                    expiresAt?: number | null;
                     /** @description The session duration of the Widget integration */
                     sessionDuration?: number;
                     /** @description The maximum number of iterations per task execution */
                     maxIterations?: number;
                     /** @description The maximum time per task execution in milliseconds */
                     maxTime?: number;
+                    /** @description The maximum number of tool calls across the whole task run (0 or null for unbounded) */
+                    maxCalls?: number | null;
                 };
             };
         };
@@ -28487,6 +28537,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string | null;
                     /** @description The contact associated with the task */
                     contactId?: string;
                     /** @description The bot associated with the task */
@@ -28498,12 +28550,16 @@ export interface operations {
                      * @example America/New_York
                      */
                     timezone?: string | null;
+                    /** @description An optional epoch-millisecond timestamp after which the task is automatically deleted. Pass null or omit for no expiry. */
+                    expiresAt?: number | null;
                     /** @description The session duration of the Widget integration */
                     sessionDuration?: number;
                     /** @description The maximum number of iterations per task execution */
                     maxIterations?: number;
                     /** @description The maximum time per task execution in milliseconds */
                     maxTime?: number;
+                    /** @description The maximum number of tool calls across the whole task run (0 or null for unbounded) */
+                    maxCalls?: number | null;
                 };
             };
         };
