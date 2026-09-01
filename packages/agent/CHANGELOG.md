@@ -1,5 +1,14 @@
 # @chatbotkit/agent
 
+## 1.39.0
+
+### Patch Changes
+
+- Updated dependencies [5faf4b2]
+- Updated dependencies [5faf4b2]
+- Updated dependencies [5faf4b2]
+  - @chatbotkit/sdk@1.39.0
+
 ## 1.38.0
 
 ### Patch Changes
