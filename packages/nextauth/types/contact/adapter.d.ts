@@ -3,10 +3,10 @@
  * user management within a single account.
  *
  * This adapter enables you to authenticate users as contacts within a single
- * ChatBotKit account using NextAuth.js. Unlike the Partner adapter which
- * creates separate sub-accounts for each user, this adapter manages users as
- * contacts within your main account, making it ideal for scenarios where you
- * want all users to interact within the same ChatBotKit environment.
+ * ChatBotKit account using NextAuth.js. Unlike the User adapter, which creates
+ * a separate ChatBotKit User for each application user, this adapter manages
+ * users as contacts within your main account. This is ideal when all users
+ * should interact within the same ChatBotKit environment.
  *
  * ## Overview
  *
@@ -15,7 +15,7 @@
  * this adapter automatically manages them as contacts within your account,
  * creating, updating, or removing contacts based on your configuration.
  *
- * ## Key Differences from Partner Adapter
+ * ## Key Differences from User Adapter
  *
  * - **Single Account**: All contacts exist within your main ChatBotKit account
  * - **Fingerprint-Based Identity**: Contacts are identified by fingerprints instead of separate account IDs

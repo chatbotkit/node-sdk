@@ -1,8 +1,0 @@
-{
-  "servers": {
-    "chatbotkit-skillset-cme41chxu0xbb1ljze86v662x": {
-      "type": "http",
-      "url": "https://mcp.cbk.ai/mcp"
-    }
-  }
-}

@@ -6,7 +6,7 @@
 
 # Class: ChatBotKitClient
 
-Defined in: [client.js:302](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L302)
+Defined in: [client.js:354](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L354)
 
 ## Extended by
 
@@ -41,6 +41,7 @@ Defined in: [client.js:302](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 - [`MicrosoftteamsIntegrationClient`](../../integration/microsoftteams/classes/MicrosoftteamsIntegrationClient.md)
 - [`NotionIntegrationClient`](../../integration/notion/classes/NotionIntegrationClient.md)
 - [`SitemapIntegrationClient`](../../integration/sitemap/classes/SitemapIntegrationClient.md)
+- [`SkillServerIntegrationClient`](../../integration/skillserver/classes/SkillServerIntegrationClient.md)
 - [`SlackIntegrationClient`](../../integration/slack/classes/SlackIntegrationClient.md)
 - [`SupportIntegrationClient`](../../integration/support/classes/SupportIntegrationClient.md)
 - [`TelegramIntegrationClient`](../../integration/telegram/classes/TelegramIntegrationClient.md)
@@ -50,33 +51,30 @@ Defined in: [client.js:302](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 - [`WidgetIntegrationClient`](../../integration/widget/classes/WidgetIntegrationClient.md)
 - [`MagicClient`](../../magic/classes/MagicClient.md)
 - [`MemoryClient`](../../memory/classes/MemoryClient.md)
-- [`PartnerClient`](../../partner/classes/PartnerClient.md)
-- [`PartnerUserContextClient`](../../partner/user/context/classes/PartnerUserContextClient.md)
-- [`PartnerUserClient`](../../partner/user/classes/PartnerUserClient.md)
-- [`PartnerUserSessionClient`](../../partner/user/session/classes/PartnerUserSessionClient.md)
-- [`PartnerUserTokenClient`](../../partner/user/token/classes/PartnerUserTokenClient.md)
 - [`PlatformAbilityClient`](../../platform/ability/classes/PlatformAbilityClient.md)
 - [`PlatformActionClient`](../../platform/action/classes/PlatformActionClient.md)
-- [`PlatformDocClient`](../../platform/doc/classes/PlatformDocClient.md)
 - [`PlatformExampleClient`](../../platform/example/classes/PlatformExampleClient.md)
 - [`PlatformClient`](../../platform/classes/PlatformClient.md)
-- [`PlatformManualClient`](../../platform/manual/classes/PlatformManualClient.md)
 - [`PlatformModelClient`](../../platform/model/classes/PlatformModelClient.md)
 - [`PlatformReportClient`](../../platform/report/classes/PlatformReportClient.md)
 - [`PlatformSecretClient`](../../platform/secret/classes/PlatformSecretClient.md)
-- [`PlatformTutorialClient`](../../platform/tutorial/classes/PlatformTutorialClient.md)
 - [`PolicyClient`](../../policy/classes/PolicyClient.md)
 - [`PortalClient`](../../portal/classes/PortalClient.md)
 - [`SecretClient`](../../secret/classes/SecretClient.md)
 - [`SkillsetAbilityClient`](../../skillset/ability/classes/SkillsetAbilityClient.md)
 - [`SkillsetClient`](../../skillset/classes/SkillsetClient.md)
 - [`SpaceClient`](../../space/classes/SpaceClient.md)
+- [`SpaceSiteClient`](../../space/site/classes/SpaceSiteClient.md)
 - [`SpaceStorageClient`](../../space/storage/classes/SpaceStorageClient.md)
 - [`TaskExecutionClient`](../../task/execution/classes/TaskExecutionClient.md)
 - [`TaskClient`](../../task/classes/TaskClient.md)
 - [`TeamClient`](../../team/classes/TeamClient.md)
 - [`UsageClient`](../../usage/classes/UsageClient.md)
 - [`UsageSeriesClient`](../../usage/series/classes/UsageSeriesClient.md)
+- [`UserContextClient`](../../user/context/classes/UserContextClient.md)
+- [`UserClient`](../../user/classes/UserClient.md)
+- [`UserSessionClient`](../../user/session/classes/UserSessionClient.md)
+- [`UserTokenClient`](../../user/token/classes/UserTokenClient.md)
 
 ## Constructors
 
@@ -84,7 +82,7 @@ Defined in: [client.js:302](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **new ChatBotKitClient**(`options`): `ChatBotKitClient`
 
-Defined in: [client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L345)
+Defined in: [client.js:397](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L397)
 
 #### Parameters
 
@@ -98,11 +96,102 @@ Defined in: [client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 ## Methods
 
+### clientProxy()
+
+> **clientProxy**(`path`, `options?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+Defined in: [client.js:646](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L646)
+
+Proxies a request and resolves the upstream `Response`. Successful and
+upstream-error responses pass through untouched - streaming, binary and
+large bodies are preserved (the body is never read on the success path).
+The one exception is a CBK `authorization_required` signal, which is thrown
+as an [AuthorizationRequiredError](AuthorizationRequiredError.md) carrying the `url` the user must
+visit to authenticate.
+
+#### Parameters
+
+##### path
+
+`string`
+
+##### options?
+
+###### buffer?
+
+[`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+
+###### endpoint?
+
+`string`
+
+###### external?
+
+`boolean`
+
+###### fetchFn?
+
+[`FetchFunction`](../type-aliases/FetchFunction.md)
+
+###### file?
+
+\{ `data`: `string` \| [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer); `name?`: `string`; `type?`: `string`; \}
+
+###### file.data
+
+`string` \| [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+
+###### file.name?
+
+`string`
+
+###### file.type?
+
+`string`
+
+###### headers?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### method?
+
+`string`
+
+###### query?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### record?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+###### retries?
+
+`number`
+
+###### retryDelay?
+
+`number`
+
+###### retryTimeout?
+
+`boolean`
+
+###### timeout?
+
+`number`
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+***
+
 ### extend()
 
 > **extend**(`extensionOptions`): `ChatBotKitClient`
 
-Defined in: [client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L390)
+Defined in: [client.js:442](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L442)
 
 Creates a new instance of the same client type with extended options.
 

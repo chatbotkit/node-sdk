@@ -2,6 +2,8 @@ import { ChatBotKitClient } from '../../client.js'
 import {
   authenticateSecret,
   listSecrets,
+  mintSecret,
+  proxySecret,
   revokeSecret,
   verifySecret,
 } from './v1.js'
@@ -65,6 +67,30 @@ export class SecretClient extends ChatBotKitClient {
    */
   authenticate(contactId, secretId) {
     return authenticateSecret(this, contactId, secretId)
+  }
+
+  /**
+   * Proxies a request through a contact's secret, injected server-side. Returns
+   * the raw upstream `Response` (a non-2xx status is returned, not thrown).
+   *
+   * @param {string} contactId
+   * @param {string} secretId
+   * @param {import('./v1.js').SecretProxyRequest} request
+   * @returns {Promise<Response>}
+   */
+  proxy(contactId, secretId, request) {
+    return proxySecret(this, contactId, secretId, request)
+  }
+
+  /**
+   * Mints a usable token from a contact's secret (owner-only; `oauth`/`jwt` only).
+   *
+   * @param {string} contactId
+   * @param {string} secretId
+   * @returns {Promise<import('./v1.js').SecretMintResponse>}
+   */
+  mint(contactId, secretId) {
+    return mintSecret(this, contactId, secretId)
   }
 }
 

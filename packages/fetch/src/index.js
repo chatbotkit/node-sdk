@@ -6,7 +6,6 @@ const globalObject = typeof global !== 'undefined' ? global : globalThis
   if (
     typeof globalObject !== 'undefined' &&
     typeof globalObject.ReadableStream === 'function' &&
-    // @ts-expect-error because it is non standard
     typeof globalObject.ReadableStream.prototype[Symbol.asyncIterator] !==
       'function'
   ) {

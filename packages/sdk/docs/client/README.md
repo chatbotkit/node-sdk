@@ -8,6 +8,7 @@
 
 ## Classes
 
+- [AuthorizationRequiredError](classes/AuthorizationRequiredError.md)
 - [ChatBotKitClient](classes/ChatBotKitClient.md)
 - [ResponsePromise](classes/ResponsePromise.md)
 

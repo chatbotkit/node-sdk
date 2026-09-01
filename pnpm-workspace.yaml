@@ -1,3 +1,10 @@
+# Installation policy
+engineStrict: true
+enablePrePostScripts: false
+minimumReleaseAge: 43200
+strictDepBuilds: true
+
+# Workspace packages
 packages:
   - 'packages/*'
   - 'tools/*'
@@ -8,3 +15,41 @@ packages:
   - 'examples/nextjs/hybrid/*'
   - 'examples/cloudflare/*'
   - 'examples/vite/react/*'
+
+# Dependency deprecation exceptions
+# @note ESLint 10 cannot lint TypeScript until typescript-eslint implements
+# ScopeManager.addGlobals. Keep the last ESLint 9 release explicit meanwhile.
+allowedDeprecatedVersions:
+  eslint: 9.39.5
+
+# These security-release packages are newer than the normal 30-day supply-chain
+# quarantine and are explicitly allowed so every Next.js example can resolve
+# the patched 16.3.3 runtime.
+minimumReleaseAgeExclude:
+  - '@next/env@16.3.3'
+  - '@next/eslint-plugin-next@16.3.3'
+  - '@next/swc-darwin-arm64@16.3.3'
+  - '@next/swc-darwin-x64@16.3.3'
+  - '@next/swc-linux-arm64-gnu@16.3.3'
+  - '@next/swc-linux-arm64-musl@16.3.3'
+  - '@next/swc-linux-x64-gnu@16.3.3'
+  - '@next/swc-linux-x64-musl@16.3.3'
+  - '@next/swc-win32-arm64-msvc@16.3.3'
+  - '@next/swc-win32-x64-msvc@16.3.3'
+  - 'eslint-config-next@16.3.3'
+  - 'next@16.3.3'
+minimumReleaseAgeExcludePrune: true
+
+# Dependency build scripts
+# Unlisted scripts are denied but considered unreviewed. With strictDepBuilds,
+# false records a reviewed denial; only true entries may execute.
+allowBuilds:
+  '@parcel/watcher': false
+  '@scarf/scarf': false
+  '@tree-sitter-grammars/tree-sitter-yaml': false
+  core-js-pure: false
+  esbuild: false
+  sharp: false
+  tree-sitter: false
+  tree-sitter-json: false
+  unrs-resolver: false

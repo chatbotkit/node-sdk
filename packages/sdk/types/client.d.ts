@@ -1,4 +1,23 @@
 /**
+ * Thrown when the API responds with `409 authorization_required` - the linked
+ * secret or connection has not been authenticated yet. `url` is the address the
+ * user must visit to authorize; `data` carries the full response body.
+ */
+export class AuthorizationRequiredError extends FetchError {
+    /**
+     * @param {string} message
+     * @param {{ url?: string, status?: number, data?: any }} [meta]
+     */
+    constructor(message: string, meta?: {
+        url?: string;
+        status?: number;
+        data?: any;
+    });
+    url: string | undefined;
+    status: number | undefined;
+    data: any;
+}
+/**
  * @typedef {import('@chatbotkit/fetch').FetchFn<import('@chatbotkit/fetch').withRetryOptions & import('@chatbotkit/fetch').withTimeoutOptions>} FetchFunction
  */
 /**
@@ -16,6 +35,7 @@ export class ResponsePromise<T, U> {
      *   retries?: number,
      *   retryDelay?: number,
      *   retryTimeout?: boolean,
+     *   passthrough?: boolean,
      *   fetchFn?: FetchFunction
      * }} request
      * @param {Map<string,Promise<T>>} [cacheMap]
@@ -28,6 +48,7 @@ export class ResponsePromise<T, U> {
         retries?: number;
         retryDelay?: number;
         retryTimeout?: boolean;
+        passthrough?: boolean;
         fetchFn?: FetchFunction;
     }, cacheMap?: Map<string, Promise<T>>);
     url: string | URL;
@@ -39,6 +60,7 @@ export class ResponsePromise<T, U> {
         retries?: number;
         retryDelay?: number;
         retryTimeout?: boolean;
+        passthrough?: boolean;
         fetchFn?: FetchFunction;
     };
     decoder: TextDecoder;
@@ -70,6 +92,17 @@ export class ResponsePromise<T, U> {
         abortSignal?: AbortSignal;
     }): Promise<Response>;
     getFetchPromise(): Promise<Response>;
+    /**
+     * Resolves to the raw `Response` without parsing the body. Combined with the
+     * `passthrough` request option it does not throw on a non-2xx status, which
+     * makes it suitable for passthrough endpoints such as the secret proxy.
+     *
+     * @param {{ abortSignal?: AbortSignal }} [params]
+     * @returns {Promise<Response>}
+     */
+    raw(params?: {
+        abortSignal?: AbortSignal;
+    }): Promise<Response>;
     /**
      * @param {{ abortSignal?: AbortSignal }} [params]
      */
@@ -162,6 +195,7 @@ export class ChatBotKitClient {
      *   retries?: number,
      *   retryDelay?: number,
      *   retryTimeout?: boolean,
+     *   passthrough?: boolean,
      *   fetchFn?: FetchFunction
      * }} [options]
      * @returns {ResponsePromise<T,U>}
@@ -183,8 +217,54 @@ export class ChatBotKitClient {
         retries?: number;
         retryDelay?: number;
         retryTimeout?: boolean;
+        passthrough?: boolean;
         fetchFn?: FetchFunction;
     }): ResponsePromise<T, U>;
+    /**
+     * Proxies a request and resolves the upstream `Response`. Successful and
+     * upstream-error responses pass through untouched - streaming, binary and
+     * large bodies are preserved (the body is never read on the success path).
+     * The one exception is a CBK `authorization_required` signal, which is thrown
+     * as an {@link AuthorizationRequiredError} carrying the `url` the user must
+     * visit to authenticate.
+     *
+     * @param {string} path
+     * @param {{
+     *   method?: string,
+     *   headers?: Record<string,any>,
+     *   query?: Record<string,any>,
+     *   record?: Record<string,any>,
+     *   buffer?: ArrayBuffer,
+     *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
+     *   external?: boolean,
+     *   endpoint?: string,
+     *   timeout?: number,
+     *   retries?: number,
+     *   retryDelay?: number,
+     *   retryTimeout?: boolean,
+     *   fetchFn?: FetchFunction
+     * }} [options]
+     * @returns {Promise<Response>}
+     */
+    clientProxy(path: string, options?: {
+        method?: string;
+        headers?: Record<string, any>;
+        query?: Record<string, any>;
+        record?: Record<string, any>;
+        buffer?: ArrayBuffer;
+        file?: {
+            name?: string;
+            type?: string;
+            data: string | ArrayBuffer;
+        };
+        external?: boolean;
+        endpoint?: string;
+        timeout?: number;
+        retries?: number;
+        retryDelay?: number;
+        retryTimeout?: boolean;
+        fetchFn?: FetchFunction;
+    }): Promise<Response>;
     #private;
 }
 export type FetchFunction = import("@chatbotkit/fetch").FetchFn<import("@chatbotkit/fetch").withRetryOptions & import("@chatbotkit/fetch").withTimeoutOptions>;
@@ -246,3 +326,4 @@ export type ChatBotKitClientOptions = {
      */
     fetchFn?: FetchFunction | undefined;
 };
+import { FetchError } from '@chatbotkit/fetch';

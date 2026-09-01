@@ -1,13 +1,10 @@
 import { ChatBotKitClient } from '../client.js'
 import { PlatformAbilityClient } from './ability/index.js'
 import { PlatformActionClient } from './action/index.js'
-import { PlatformDocClient } from './doc/index.js'
 import { PlatformExampleClient } from './example/index.js'
-import { PlatformManualClient } from './manual/index.js'
 import { PlatformModelClient } from './model/index.js'
 import { PlatformReportClient } from './report/index.js'
 import { PlatformSecretClient } from './secret/index.js'
-import { PlatformTutorialClient } from './tutorial/index.js'
 
 /**
  * Platform client.
@@ -33,21 +30,6 @@ export class PlatformClient extends ChatBotKitClient {
      * @type {PlatformActionClient} action client
      */
     this.action = new PlatformActionClient(options)
-
-    /**
-     * @type {PlatformDocClient} doc client
-     */
-    this.doc = new PlatformDocClient(options)
-
-    /**
-     * @type {PlatformManualClient} manual client
-     */
-    this.manual = new PlatformManualClient(options)
-
-    /**
-     * @type {PlatformTutorialClient} tutorial client
-     */
-    this.tutorial = new PlatformTutorialClient(options)
 
     /**
      * @type {PlatformSecretClient} secret client

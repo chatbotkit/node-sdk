@@ -16,7 +16,7 @@ import { ConversationClient } from '@chatbotkit/sdk'
 
 /**
  * @typedef {string} EndpointURL
- * @typedef {(options: any) => AsyncGenerator<any>} EndpointFunction
+ * @typedef {(options: any) => AsyncGenerator<any>|Promise<any>} EndpointFunction
  */
 
 /**

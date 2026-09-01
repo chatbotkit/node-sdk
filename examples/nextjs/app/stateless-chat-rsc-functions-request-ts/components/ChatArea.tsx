@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext } from 'react'
+import { useContext, type ChangeEvent } from 'react'
 
 import { complete } from '@/actions/conversation'
 
@@ -79,7 +79,9 @@ export function ChatMessages(): JSX.Element {
       </div>
       <ChatInput
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+          setText(e.target.value)
+        }
         onSubmit={submit}
         placeholder="Type something..."
         style={{

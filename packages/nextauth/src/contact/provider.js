@@ -19,7 +19,7 @@
  * - Authenticate users as contacts within your ChatBotKit account
  * - Track individual user conversations and preferences
  * - Share AI assistants and resources across all contacts
- * - Build multi-user applications without managing separate sub-accounts
+ * - Build multi-user applications without managing separate users
  *
  * ## Overview
  *

@@ -17,17 +17,15 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup pnpm and Node.js
+        uses: pnpm/setup@v2
         with:
-          node-version: '22'
-
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.16.1
+          version: 11.24.0
+          runtime: node@24.20.0
+          cache: true
+          install: false
 
       - name: Install Dependencies
         run: pnpm install

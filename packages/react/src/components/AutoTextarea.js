@@ -38,8 +38,6 @@ export function AutoTextarea(props, forwardedRef) {
     }
 
     if (typeof CSS === 'object' && CSS.supports?.('field-sizing', 'content')) {
-      // @ts-expect-error fieldSizing is not in the type definition because it
-      // is not commonly supported yet
       textarea.style.fieldSizing = 'content'
 
       return

@@ -12,15 +12,15 @@ Demonstrates passwordless email authentication with ChatBotKit Contacts using th
 
 ## Use Case
 
-Ideal for building AI applications where multiple users interact with shared AI assistants within a single ChatBotKit account. Unlike the Partner API approach (which creates separate sub-accounts), all contacts exist within your main account.
+Ideal for building AI applications where multiple users interact with shared AI assistants within a single ChatBotKit account. Unlike the User API approach, which creates separate users, all contacts exist within your main account.
 
-## Key Differences from Partner Auth
+## Key Differences from User Auth
 
-| Feature | Contact Auth | Partner Auth |
+| Feature | Contact Auth | User Auth |
 |---------|--------------|--------------|
-| User isolation | Shared account | Separate sub-accounts |
+| User isolation | Shared account | Separate users |
 | Resources | Shared across contacts | Per-user resources |
-| Billing | Single account | Per sub-account |
+| Billing | Single account | Per user |
 | Use case | Multi-user chat apps | White-label solutions |
 
 ## Getting Started

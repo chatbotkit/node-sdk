@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/nextauth",
-  "version": "1.39.0",
+  "version": "1.38.0",
   "description": "ChatBotKit adapter for NextAuth.js to make conversational AI bots with authentication and authorization",
   "license": "ISC",
   "engines": {
@@ -64,47 +64,47 @@
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
     },
-    "./partner/adapter": {
-      "types": "./types/partner/adapter.d.ts",
-      "import": "./src/partner/adapter.js"
+    "./user/adapter": {
+      "types": "./types/user/adapter.d.ts",
+      "import": "./src/user/adapter.js"
     },
-    "./partner/adapter.js": {
-      "types": "./types/partner/adapter.d.ts",
-      "import": "./src/partner/adapter.js"
+    "./user/adapter.js": {
+      "types": "./types/user/adapter.d.ts",
+      "import": "./src/user/adapter.js"
     },
-    "./partner": {
-      "types": "./types/partner/index.d.ts",
-      "import": "./src/partner/index.js"
+    "./user": {
+      "types": "./types/user/index.d.ts",
+      "import": "./src/user/index.js"
     },
-    "./partner/index": {
-      "types": "./types/partner/index.d.ts",
-      "import": "./src/partner/index.js"
+    "./user/index": {
+      "types": "./types/user/index.d.ts",
+      "import": "./src/user/index.js"
     },
-    "./partner/index.js": {
-      "types": "./types/partner/index.d.ts",
-      "import": "./src/partner/index.js"
+    "./user/index.js": {
+      "types": "./types/user/index.d.ts",
+      "import": "./src/user/index.js"
     },
-    "./partner/provider": {
-      "types": "./types/partner/provider.d.ts",
-      "import": "./src/partner/provider.js"
+    "./user/provider": {
+      "types": "./types/user/provider.d.ts",
+      "import": "./src/user/provider.js"
     },
-    "./partner/provider.js": {
-      "types": "./types/partner/provider.d.ts",
-      "import": "./src/partner/provider.js"
+    "./user/provider.js": {
+      "types": "./types/user/provider.d.ts",
+      "import": "./src/user/provider.js"
     },
     "./package.json": "./package.json"
   },
   "scripts": {
     "build": "run-s build:*",
-    "build:01-cjs": "tsc -p tsconfig.cjs.json",
+    "build:01-cjs": "tsc6 -p tsconfig.cjs.json",
     "build:01-cjs_rename": "node ../../scripts/rename-cjs.js",
     "build:01-cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
     "build:01-cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
     "build:03-docs": "typedoc",
-    "build:02-esm": "tsc -p tsconfig.esm.json",
+    "build:02-esm": "tsc6 -p tsconfig.esm.json",
     "build:00-exports": "node ../../scripts/create-standard-exports.js",
-    "build:00-types": "tsc -p tsconfig.types.json",
-    "check": "tsc -p tsconfig.check.json",
+    "build:00-types": "tsc6 -p tsconfig.types.json",
+    "check": "tsc6 -p tsconfig.check.json",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:dists": "rimraf dist",
@@ -121,11 +121,13 @@
     "@chatbotkit/sdk": "workspace:*"
   },
   "devDependencies": {
-    "typescript": "^5.9"
+    "next": "^16.3.3",
+    "next-auth": "^4.24.15",
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
   "peerDependencies": {
-    "npm-run-all": "^4.1.5",
-    "typedoc": "^0.28.14",
+    "npm-run-all2": "^9.0.3",
+    "typedoc": "^0.28.20",
     "typedoc-plugin-markdown": "^4.9.0",
     "typedoc-plugin-mdn-links": "^5.0.10",
     "next-auth": ">=3.0.0",

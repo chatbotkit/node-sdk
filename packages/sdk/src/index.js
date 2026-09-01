@@ -11,7 +11,7 @@ import { GraphqlClient } from './graphql/index.js'
 import { IntegrationClient } from './integration/index.js'
 import { MagicClient } from './magic/index.js'
 import { MemoryClient } from './memory/index.js'
-import { PartnerClient } from './partner/index.js'
+import { UserClient } from './user/index.js'
 import { PlatformClient } from './platform/index.js'
 import { PolicyClient } from './policy/index.js'
 import { PortalClient } from './portal/index.js'
@@ -28,7 +28,7 @@ export { ChannelClient }
 export { EventClient }
 export { FileClient }
 export { MagicClient }
-export { PartnerClient }
+export { UserClient }
 export { DatasetClient }
 export { SkillsetClient }
 export { IntegrationClient }
@@ -42,6 +42,8 @@ export { PortalClient }
 export { GraphqlClient }
 export { SpaceClient }
 export { UsageClient }
+
+export { AuthorizationRequiredError } from './client.js'
 
 /**
  * ChatBotKit SDK - Main client class for interacting with the ChatBotKit API
@@ -71,7 +73,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.file = new FileClient(options)
     this.secret = new SecretClient(options)
     this.magic = new MagicClient(options)
-    this.partner = new PartnerClient(options)
+    this.user = new UserClient(options)
     this.dataset = new DatasetClient(options)
     this.skillset = new SkillsetClient(options)
     this.integration = new IntegrationClient(options)

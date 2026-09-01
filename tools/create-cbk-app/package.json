@@ -1,6 +1,6 @@
 {
   "name": "create-cbk-app",
-  "version": "1.39.0",
+  "version": "1.38.0",
   "description": "A quick tool to create a new ChatbotKit app",
   "license": "ISC",
   "engines": {
@@ -43,15 +43,15 @@
   },
   "scripts": {
     "build": "run-s build:*",
-    "build:01-cjs": "tsc -p tsconfig.cjs.json",
+    "build:01-cjs": "tsc6 -p tsconfig.cjs.json",
     "build:01-cjs_rename": "node ../../scripts/rename-cjs.js",
     "build:01-cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
     "build:01-cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
     "build:03-docs": "true",
-    "build:02-esm": "tsc -p tsconfig.esm.json",
+    "build:02-esm": "tsc6 -p tsconfig.esm.json",
     "build:00-exports": "node ../../scripts/create-standard-exports.js",
-    "build:00-types": "tsc -p tsconfig.types.json",
-    "check": "tsc -p tsconfig.check.json",
+    "build:00-types": "tsc6 -p tsconfig.types.json",
+    "check": "tsc6 -p tsconfig.check.json",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:dists": "rimraf dist",

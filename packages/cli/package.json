@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/cli",
-  "version": "1.39.0",
+  "version": "1.38.0",
   "description": "ChatBotKit command line tools",
   "license": "ISC",
   "engines": {
@@ -369,30 +369,6 @@
       "types": "./types/command/api/memory/index.d.ts",
       "import": "./src/command/api/memory/index.js"
     },
-    "./command/api/partner": {
-      "types": "./types/command/api/partner/index.d.ts",
-      "import": "./src/command/api/partner/index.js"
-    },
-    "./command/api/partner/index": {
-      "types": "./types/command/api/partner/index.d.ts",
-      "import": "./src/command/api/partner/index.js"
-    },
-    "./command/api/partner/index.js": {
-      "types": "./types/command/api/partner/index.d.ts",
-      "import": "./src/command/api/partner/index.js"
-    },
-    "./command/api/partner/user": {
-      "types": "./types/command/api/partner/user/index.d.ts",
-      "import": "./src/command/api/partner/user/index.js"
-    },
-    "./command/api/partner/user/index": {
-      "types": "./types/command/api/partner/user/index.d.ts",
-      "import": "./src/command/api/partner/user/index.js"
-    },
-    "./command/api/partner/user/index.js": {
-      "types": "./types/command/api/partner/user/index.d.ts",
-      "import": "./src/command/api/partner/user/index.js"
-    },
     "./command/api/platform": {
       "types": "./types/command/api/platform/index.d.ts",
       "import": "./src/command/api/platform/index.js"
@@ -464,6 +440,18 @@
     "./command/api/team/index.js": {
       "types": "./types/command/api/team/index.d.ts",
       "import": "./src/command/api/team/index.js"
+    },
+    "./command/api/user": {
+      "types": "./types/command/api/user/index.d.ts",
+      "import": "./src/command/api/user/index.js"
+    },
+    "./command/api/user/index": {
+      "types": "./types/command/api/user/index.d.ts",
+      "import": "./src/command/api/user/index.js"
+    },
+    "./command/api/user/index.js": {
+      "types": "./types/command/api/user/index.d.ts",
+      "import": "./src/command/api/user/index.js"
     },
     "./command/chat": {
       "types": "./types/command/chat/index.d.ts",
@@ -601,16 +589,16 @@
   },
   "scripts": {
     "build": "run-s build:*",
-    "build:01-cjs": "tsc -p tsconfig.cjs.json",
+    "build:01-cjs": "tsc6 -p tsconfig.cjs.json",
     "build:01-cjs_rename": "node ../../scripts/rename-cjs.js",
     "build:01-cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
     "build:01-cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
     "build:03-docs": "typedoc",
-    "build:02-esm": "tsc -p tsconfig.esm.json",
+    "build:02-esm": "tsc6 -p tsconfig.esm.json",
     "build:00-exports": "node ../../scripts/create-standard-exports.js",
-    "build:00-types": "tsc -p tsconfig.types.json",
+    "build:00-types": "tsc6 -p tsconfig.types.json",
     "cbk": "node bin/cbk.js",
-    "check": "tsc -p tsconfig.check.json",
+    "check": "tsc6 -p tsconfig.check.json",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:dists": "rimraf dist",
@@ -634,10 +622,10 @@
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
-    "npm-run-all": "^4.1.5",
-    "typedoc": "^0.28.14",
+    "npm-run-all2": "^9.0.3",
+    "typedoc": "^0.28.20",
     "typedoc-plugin-markdown": "^4.9.0",
     "typedoc-plugin-mdn-links": "^5.0.10",
-    "typescript": "^5.9"
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   }
 }

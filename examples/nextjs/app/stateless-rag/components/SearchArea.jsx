@@ -1,6 +1,6 @@
 'use client'
 
-import { query } from '../actions/search.js'
+import { query } from '../actions/search.jsx'
 
 import { ChatInput, useConversationManager } from '@chatbotkit/react'
 

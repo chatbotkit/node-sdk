@@ -206,3 +206,53 @@ export async function authenticateSecret(client, secretId) {
 
   return response
 }
+
+/**
+ * @typedef {import('../types/api/v1.js').operations['proxySecret']['requestBody']['content']['application/json']} SecretProxyRequestBody
+ *
+ * @typedef {SecretProxyRequestBody} SecretProxyRequest
+ *
+ * Proxies a request through the secret. The secret is injected into the request
+ * headers server-side (it never leaves the platform). The upstream response -
+ * success or error - is returned as a raw `Response` (inspect `.status`/`.json()`/
+ * `.text()` as you would a `fetch` response, including streaming and binary
+ * bodies). The one exception is a CBK `authorization_required` signal, which is
+ * thrown as an {@link AuthorizationRequiredError} carrying the `url` the user
+ * must visit to authenticate.
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} secretId
+ * @param {SecretProxyRequest} request
+ * @returns {Promise<Response>}
+ */
+export async function proxySecret(client, secretId, request) {
+  const url = `/api/v1/secret/${secretId}/proxy`
+
+  return client.clientProxy(url, {
+    /** @type {SecretProxyRequestBody} */
+    record: request,
+  })
+}
+
+/**
+ * @typedef {import('../types/api/v1.js').operations['mintSecret']['responses']['200']['content']['application/json']} SecretMintResponseBody
+ *
+ * @typedef {SecretMintResponseBody} SecretMintResponse
+ *
+ * Mints a usable token from the secret (a refreshed OAuth access token or a
+ * freshly signed JWT). Owner-only; only `oauth`/`jwt` secrets are mintable.
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} secretId
+ * @returns {Promise<SecretMintResponse>}
+ */
+export async function mintSecret(client, secretId) {
+  const url = `/api/v1/secret/${secretId}/mint`
+
+  /** @type {SecretMintResponseBody} */
+  const response = await client.clientFetch(url, {
+    record: {},
+  })
+
+  return response
+}
