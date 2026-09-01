@@ -31,7 +31,6 @@ export type CbkAbilityName = 'abort'
   | 'bot/call[by-id]'
   | 'bot/call[multi]'
   | 'bot/list'
-  | 'browser/dispatch'
   | 'conversation/fetch[bot][by-id]'
   | 'conversation/fetch[by-id]'
   | 'conversation/fetch[contact][by-id]'
@@ -74,17 +73,20 @@ export type CbkAbilityName = 'abort'
   | 'file/write'
   | 'file/write[by-id]'
   | 'git/file/fetch'
+  | 'git/skill/list'
   | 'git/tree/fetch'
   | 'graphql[cbk]'
   | 'image/generate'
   | 'image/generate[gemini-2.5-flash-image]'
   | 'image/generate[gemini-3.1-flash-image]'
+  | 'image/generate[gemini-3.1-flash-lite-image]'
   | 'image/generate[gpt-image-1.5]'
   | 'image/generate[gpt-image-1]'
   | 'image/generate[gpt-image-2]'
   | 'image/modify'
   | 'image/modify[gemini-2.5-flash-image]'
   | 'image/modify[gemini-3.1-flash-image]'
+  | 'image/modify[gemini-3.1-flash-lite-image]'
   | 'image/modify[gpt-image-1.5]'
   | 'image/modify[gpt-image-1]'
   | 'image/modify[gpt-image-2]'
@@ -116,12 +118,16 @@ export type CbkAbilityName = 'abort'
   | 'mock/dataset'
   | 'mock/sql'
   | 'pack/bot/reprogramming'
+  | 'pack/cbk/git/repo'
+  | 'pack/cbk/git/skills'
+  | 'pack/cbk/research'
   | 'pack/cbk/space/skills'
   | 'pack/cbk/space/skills[authoring]'
   | 'pack/cbk/space/storage'
   | 'pack/cbk/space/storage[read-only]'
   | 'pack/file'
   | 'pack/file[by-id]'
+  | 'pack/memory'
   | 'pack/rating'
   | 'pack/rating[by-bot-id]'
   | 'pack/rating[contact]'
@@ -172,8 +178,12 @@ export type CbkAbilityName = 'abort'
   | 'space/list[contact]'
   | 'space/skill/create'
   | 'space/skill/create[by-id]'
+  | 'space/skill/delete'
+  | 'space/skill/delete[by-id]'
   | 'space/skill/list'
   | 'space/skill/list[by-id]'
+  | 'space/skill/move'
+  | 'space/skill/move[by-id]'
   | 'space/skill/read'
   | 'space/skill/read[by-id]'
   | 'space/storage/copy'
@@ -307,8 +317,8 @@ export type AvatarUrlIntegrationByIdParameters = {
 export type BlueprintBulletinCreateParameters = {
  /** the message to post to the shared bulletin board */
   text: string
- /** optional time-to-live in seconds before the bulletin expires */
-  ttl?: number
+ /** optional time-to-live before the bulletin expires - a number of seconds or a duration like "1 hour", "30 minutes" or "2d" */
+  ttl?: string
 }
 
 export type BlueprintBulletinListParameters = Record<string, never>
@@ -411,15 +421,6 @@ export type BotCallMultiParameters = {
 export type BotListParameters = {
  /** optional limit on the number of bots to return */
   take?: number
-}
-
-export type BrowserDispatchParameters = {
- /** the task to perform in the browser */
-  task: string
- /** optional URL of the page to dispatch the action */
-  url?: string
- /** timeout in milliseconds */
-  timeout?: number
 }
 
 export type ConversationFetchBotByIdParameters = {
@@ -692,6 +693,15 @@ export type GitFileFetchParameters = {
   filePath: string
 }
 
+export type GitSkillListParameters = {
+ /** Git repository URL */
+  url: string
+ /** Git reference (branch, tag, or commit SHA) */
+  ref: string
+ /** Directory to scan for skills (holding skill folders each with a SKILL.md). Defaults to "skills" when omitted. Use ".claude/skills" or ".github/skills" for internal repos. */
+  directory: string
+}
+
 export type GitTreeFetchParameters = {
  /** Git repository URL */
   url: string
@@ -725,6 +735,13 @@ export type ImageGenerateGemini25FlashImageParameters = {
 }
 
 export type ImageGenerateGemini31FlashImageParameters = {
+ /** the prompt to use for image generation */
+  prompt: string
+ /** detailed directions how to generate the image */
+  directions?: string
+}
+
+export type ImageGenerateGemini31FlashLiteImageParameters = {
  /** the prompt to use for image generation */
   prompt: string
  /** detailed directions how to generate the image */
@@ -771,6 +788,15 @@ export type ImageModifyGemini25FlashImageParameters = {
 }
 
 export type ImageModifyGemini31FlashImageParameters = {
+ /** the prompt to use for image generation */
+  prompt: string
+ /** detailed directions how to modify the image */
+  directions?: string
+ /** the URL of the image to edit */
+  image_url: string
+}
+
+export type ImageModifyGemini31FlashLiteImageParameters = {
  /** the prompt to use for image generation */
   prompt: string
  /** detailed directions how to modify the image */
@@ -953,6 +979,12 @@ export type MockSqlParameters = {
 
 export type PackBotReprogrammingParameters = Record<string, never>
 
+export type PackCbkGitRepoParameters = Record<string, never>
+
+export type PackCbkGitSkillsParameters = Record<string, never>
+
+export type PackCbkResearchParameters = Record<string, never>
+
 export type PackCbkSpaceSkillsParameters = Record<string, never>
 
 export type PackCbkSpaceSkillsAuthoringParameters = Record<string, never>
@@ -964,6 +996,8 @@ export type PackCbkSpaceStorageReadOnlyParameters = Record<string, never>
 export type PackFileParameters = Record<string, never>
 
 export type PackFileByIdParameters = Record<string, never>
+
+export type PackMemoryParameters = Record<string, never>
 
 export type PackRatingParameters = Record<string, never>
 
@@ -1292,11 +1326,39 @@ export type SpaceSkillCreateByIdParameters = {
   content: string
 }
 
+export type SpaceSkillDeleteParameters = {
+ /** The kebab-case slug of the skill to delete, matching its directory name under .skills/ */
+  slug: string
+}
+
+export type SpaceSkillDeleteByIdParameters = {
+ /** The ID of the space to delete the skill(s) from */
+  spaceId: string
+ /** The kebab-case slug of the skill to delete, matching its directory name under .skills/ */
+  slug: string
+}
+
 export type SpaceSkillListParameters = Record<string, never>
 
 export type SpaceSkillListByIdParameters = {
  /** The ID of the space to list skills from */
   spaceId: string
+}
+
+export type SpaceSkillMoveParameters = {
+ /** The current kebab-case slug of the skill to rename, matching its directory name under .skills/ */
+  from: string
+ /** The new kebab-case slug for the skill */
+  to: string
+}
+
+export type SpaceSkillMoveByIdParameters = {
+ /** The ID of the space to rename the skill(s) in */
+  spaceId: string
+ /** The current kebab-case slug of the skill to rename, matching its directory name under .skills/ */
+  from: string
+ /** The new kebab-case slug for the skill */
+  to: string
 }
 
 export type SpaceSkillReadParameters = {
@@ -1506,7 +1568,7 @@ export type TaskCreateParameters = {
   name: string
  /** a detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, or cron 0 0 * * * */
   schedule?: string
  /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
   maxIterations?: number
@@ -1523,7 +1585,7 @@ export type TaskCreateByBotIdParameters = {
   name: string
  /** a detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, or cron 0 0 * * * */
   schedule?: string
  /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
   maxIterations?: number
@@ -1538,7 +1600,7 @@ export type TaskCreateContactParameters = {
   name: string
  /** a detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, or cron 0 0 * * * */
   schedule?: string
  /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
   maxIterations?: number
@@ -1555,7 +1617,7 @@ export type TaskCreateContactByBotIdParameters = {
   name: string
  /** a detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, or cron 0 0 * * * */
   schedule?: string
  /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
   maxIterations?: number
@@ -1658,7 +1720,7 @@ export type TaskUpdateParameters = {
   name: string
  /** an updated detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, or cron 0 0 * * * */
   schedule?: string
  /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
   maxIterations?: number
@@ -1677,7 +1739,7 @@ export type TaskUpdateByBotIdParameters = {
   name: string
  /** an updated detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, or cron 0 0 * * * */
   schedule?: string
  /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
   maxIterations?: number
@@ -1694,7 +1756,7 @@ export type TaskUpdateContactParameters = {
   name: string
  /** an updated detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, or cron 0 0 * * * */
   schedule?: string
  /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
   maxIterations?: number
@@ -1713,7 +1775,7 @@ export type TaskUpdateContactByBotIdParameters = {
   name: string
  /** an updated detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, or cron 0 0 * * * */
   schedule?: string
  /** optional max reasoning iterations per run (clamped 10–100000; default 1000) */
   maxIterations?: number
@@ -1866,7 +1928,7 @@ export interface CbkAbilityRegistry {
   }
   'attachment/read': {
     name: 'Read Attachment'
-    description: 'Read and extract content from uploaded file attachments. For text-based files, extracts and returns the text content. For image files (png, jpg, jpeg, gif, webp, bmp, tiff, svg), analyzes the image using vision capabilities. Locate the corresponding tool call for the attachment information. Does not support audio or video files.'
+    description: 'Read and extract content from uploaded file attachments. For text-based files, extracts and returns the text content. For image files (png, jpg, jpeg, gif, webp, bmp, tiff, svg), analyzes the image using vision capabilities. For audio files (mp3, m4a, wav, ogg, oga, opus, flac, aac), including voice notes, transcribes the audio to text. Locate the corresponding tool call for the attachment information. Does not support video files.'
     parameters: AttachmentReadParameters
   }
   'avatar/url[integration-by-id]': {
@@ -1963,11 +2025,6 @@ export interface CbkAbilityRegistry {
     name: 'List Bots'
     description: 'List all available bots for the current user account'
     parameters: BotListParameters
-  }
-  'browser/dispatch': {
-    name: 'Dispatch Browser Task'
-    description: 'Dispatch a specific task within a live web browser.'
-    parameters: BrowserDispatchParameters
   }
   'conversation/fetch[bot][by-id]': {
     name: 'Fetch Conversation'
@@ -2179,6 +2236,11 @@ export interface CbkAbilityRegistry {
     description: 'Fetches a file from a Git repository at a specific reference.'
     parameters: GitFileFetchParameters
   }
+  'git/skill/list': {
+    name: 'List Git Skills'
+    description: 'Lists all skills in a Git repository by scanning its .skills, .github/skills, and .claude/skills directories at a specific reference. Returns the name, description, and path for each skill found.'
+    parameters: GitSkillListParameters
+  }
   'git/tree/fetch': {
     name: 'Fetch Git Tree'
     description: 'Fetches all files from a directory in a Git repository at a specific reference.'
@@ -2203,6 +2265,11 @@ export interface CbkAbilityRegistry {
     name: 'Generate Image'
     description: 'Generate an image using the Gemini 3.1 Flash Image model with Pro-level visual quality at Flash speed.'
     parameters: ImageGenerateGemini31FlashImageParameters
+  }
+  'image/generate[gemini-3.1-flash-lite-image]': {
+    name: 'Generate Image'
+    description: 'Generate an image using the Gemini 3.1 Flash Lite Image model, a fast, lower-cost option optimized for high-volume visual workflows.'
+    parameters: ImageGenerateGemini31FlashLiteImageParameters
   }
   'image/generate[gpt-image-1.5]': {
     name: 'Generate Image'
@@ -2233,6 +2300,11 @@ export interface CbkAbilityRegistry {
     name: 'Modify Image'
     description: 'Create a new image from previous input images using the Gemini 3.1 Flash Image model.'
     parameters: ImageModifyGemini31FlashImageParameters
+  }
+  'image/modify[gemini-3.1-flash-lite-image]': {
+    name: 'Modify Image'
+    description: 'Create a new image from previous input images using the Gemini 3.1 Flash Lite Image model.'
+    parameters: ImageModifyGemini31FlashLiteImageParameters
   }
   'image/modify[gpt-image-1.5]': {
     name: 'Modify Image'
@@ -2389,6 +2461,21 @@ export interface CbkAbilityRegistry {
     description: 'Installs bot backstory read and write tools into the conversation. You can read the current backstory of the connected bot and overwrite it with new content.'
     parameters: PackBotReprogrammingParameters
   }
+  'pack/cbk/git/repo': {
+    name: 'Install Git Repository Tools'
+    description: 'Installs Git repository reading tools into the conversation. Fetch an individual file or a whole directory tree from any public Git repository at a given ref, no space required.'
+    parameters: PackCbkGitRepoParameters
+  }
+  'pack/cbk/git/skills': {
+    name: 'Install Git Skills Tools'
+    description: 'Installs Git skills tools into the conversation. You can list available skills in a Git repository and fetch their files directly from the repo, no space required.'
+    parameters: PackCbkGitSkillsParameters
+  }
+  'pack/cbk/research': {
+    name: 'Install Research Tools'
+    description: 'Installs web research tools into the conversation. You can search the web, search recent news, and fetch the content of a web page as text.'
+    parameters: PackCbkResearchParameters
+  }
   'pack/cbk/space/skills': {
     name: 'Install Space Skills Tools'
     description: 'Installs space skills tools into the conversation. You can list available skills and read their full content from the linked space.'
@@ -2396,7 +2483,7 @@ export interface CbkAbilityRegistry {
   }
   'pack/cbk/space/skills[authoring]': {
     name: 'Install Space Skills Authoring Tools'
-    description: 'Installs space skills authoring tools into the conversation. You can list available skills, read their full content, and create new skills in the linked space.'
+    description: 'Installs space skills authoring tools into the conversation. You can list available skills, read their full content, create new skills, rename them, and delete them in the linked space.'
     parameters: PackCbkSpaceSkillsAuthoringParameters
   }
   'pack/cbk/space/storage': {
@@ -2418,6 +2505,11 @@ export interface CbkAbilityRegistry {
     name: 'Install File Tools'
     description: 'Installs file tools into the conversation to read, write, prepend, append, and replace content in files by specifying the file ID.'
     parameters: PackFileByIdParameters
+  }
+  'pack/memory': {
+    name: 'Install Memory Tools'
+    description: 'Installs memory tools into the conversation. You can search, list, create, update, and delete durable memories within the account.'
+    parameters: PackMemoryParameters
   }
   'pack/rating': {
     name: 'Install Rating Tools'
@@ -2669,6 +2761,16 @@ export interface CbkAbilityRegistry {
     description: 'Creates one or more skills in the specified space under the .skills directory. Each skill is stored as a SKILL.md file with frontmatter containing the name and description.'
     parameters: SpaceSkillCreateByIdParameters
   }
+  'space/skill/delete': {
+    name: 'Delete Space Skills'
+    description: 'Deletes one or more skills from the linked space by their slug. Removes the entire skill directory under .skills/, including the SKILL.md and any supporting files.'
+    parameters: SpaceSkillDeleteParameters
+  }
+  'space/skill/delete[by-id]': {
+    name: 'Delete Space Skills'
+    description: 'Deletes one or more skills from the specified space by their slug. Removes the entire skill directory under .skills/, including the SKILL.md and any supporting files.'
+    parameters: SpaceSkillDeleteByIdParameters
+  }
   'space/skill/list': {
     name: 'List Space Skills'
     description: 'Lists all available skills in the linked space by scanning .skills, .github/skills, and .claude/skills directories. Returns the name, description, and path for each skill found.'
@@ -2678,6 +2780,16 @@ export interface CbkAbilityRegistry {
     name: 'List Space Skills'
     description: 'Lists all available skills in the space by scanning .skills, .github/skills, and .claude/skills directories. Returns the name, description, and path for each skill found.'
     parameters: SpaceSkillListByIdParameters
+  }
+  'space/skill/move': {
+    name: 'Move Space Skills'
+    description: 'Renames one or more skills in the linked space by changing their slug. Moves the entire skill directory under .skills/ from the old slug to the new one, including the SKILL.md and any supporting files.'
+    parameters: SpaceSkillMoveParameters
+  }
+  'space/skill/move[by-id]': {
+    name: 'Move Space Skills'
+    description: 'Renames one or more skills in the specified space by changing their slug. Moves the entire skill directory under .skills/ from the old slug to the new one, including the SKILL.md and any supporting files.'
+    parameters: SpaceSkillMoveByIdParameters
   }
   'space/skill/read': {
     name: 'Read Space Skills'

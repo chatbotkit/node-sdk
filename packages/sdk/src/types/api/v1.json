@@ -18152,7 +18152,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -18170,7 +18171,8 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "reranker": {
                     "description": "The reranker class for the dataset",
@@ -18284,7 +18286,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -18302,11 +18305,8 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
-                  },
-                  "store": {
-                    "description": "The storage class for the dataset",
-                    "type": "string"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "reranker": {
                     "description": "The reranker class for the dataset",
@@ -24497,7 +24497,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -24515,15 +24516,23 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "botId": {
                     "type": "string",
-                    "description": "The ID of the bot this configuration is using"
+                    "description": "The ID of the bot this configuration is using",
+                    "nullable": true
                   },
                   "accessToken": {
                     "description": "The Instagram integration access token",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "appSecret": {
+                    "description": "The Meta app secret used to validate webhook signatures",
+                    "type": "string",
+                    "nullable": true
                   },
                   "contactCollection": {
                     "description": "Whether to collect contacts",
@@ -24531,7 +24540,8 @@
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
-                    "type": "number"
+                    "type": "number",
+                    "nullable": true
                   },
                   "attachments": {
                     "description": "Whether the bot supports attachments",
@@ -24607,7 +24617,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -24625,15 +24636,23 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "botId": {
                     "type": "string",
-                    "description": "The ID of the bot this configuration is using"
+                    "description": "The ID of the bot this configuration is using",
+                    "nullable": true
                   },
                   "accessToken": {
                     "description": "The Instagram integration access token",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "appSecret": {
+                    "description": "The Meta app secret used to validate webhook signatures",
+                    "type": "string",
+                    "nullable": true
                   },
                   "contactCollection": {
                     "description": "Whether to collect contacts",
@@ -24641,7 +24660,8 @@
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
-                    "type": "number"
+                    "type": "number",
+                    "nullable": true
                   },
                   "attachments": {
                     "description": "Whether the bot supports attachments",
@@ -25895,7 +25915,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -25913,15 +25934,23 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "botId": {
                     "type": "string",
-                    "description": "The ID of the bot this configuration is using"
+                    "description": "The ID of the bot this configuration is using",
+                    "nullable": true
                   },
                   "accessToken": {
                     "description": "The Messenger integration access token",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "appSecret": {
+                    "description": "The Meta app secret used to validate webhook signatures",
+                    "type": "string",
+                    "nullable": true
                   },
                   "contactCollection": {
                     "description": "Whether to collect contacts",
@@ -25929,7 +25958,8 @@
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
-                    "type": "number"
+                    "type": "number",
+                    "nullable": true
                   },
                   "attachments": {
                     "description": "Whether the bot supports attachments",
@@ -26005,7 +26035,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -26023,15 +26054,23 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "botId": {
                     "type": "string",
-                    "description": "The ID of the bot this configuration is using"
+                    "description": "The ID of the bot this configuration is using",
+                    "nullable": true
                   },
                   "accessToken": {
                     "description": "The Messenger integration access token",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "appSecret": {
+                    "description": "The Meta app secret used to validate webhook signatures",
+                    "type": "string",
+                    "nullable": true
                   },
                   "contactCollection": {
                     "description": "Whether to collect contacts",
@@ -26039,7 +26078,8 @@
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
-                    "type": "number"
+                    "type": "number",
+                    "nullable": true
                   },
                   "attachments": {
                     "description": "Whether the bot supports attachments",
@@ -33913,7 +33953,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -33931,19 +33972,28 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "botId": {
                     "type": "string",
-                    "description": "The ID of the bot this configuration is using"
+                    "description": "The ID of the bot this configuration is using",
+                    "nullable": true
                   },
                   "phoneNumberId": {
                     "description": "The WhatsApp integration phone number ID",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   },
                   "accessToken": {
                     "description": "The WhatsApp integration access token",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "appSecret": {
+                    "description": "The Meta app secret used to validate webhook signatures",
+                    "type": "string",
+                    "nullable": true
                   },
                   "contactCollection": {
                     "description": "Weather to collect contacts",
@@ -33951,7 +34001,8 @@
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
-                    "type": "number"
+                    "type": "number",
+                    "nullable": true
                   },
                   "attachments": {
                     "description": "Weather the bot supports attachments",
@@ -33959,7 +34010,8 @@
                   },
                   "allowFrom": {
                     "description": "Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all.",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   }
                 }
               }
@@ -34031,7 +34083,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -34049,19 +34102,28 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "botId": {
                     "type": "string",
-                    "description": "The ID of the bot this configuration is using"
+                    "description": "The ID of the bot this configuration is using",
+                    "nullable": true
                   },
                   "phoneNumberId": {
                     "description": "The WhatsApp integration phone number ID",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   },
                   "accessToken": {
                     "description": "The WhatsApp integration access token",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "appSecret": {
+                    "description": "The Meta app secret used to validate webhook signatures",
+                    "type": "string",
+                    "nullable": true
                   },
                   "contactCollection": {
                     "description": "Weather to collect contacts",
@@ -34069,7 +34131,8 @@
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
-                    "type": "number"
+                    "type": "number",
+                    "nullable": true
                   },
                   "attachments": {
                     "description": "Weather the bot supports attachments",
@@ -34077,7 +34140,8 @@
                   },
                   "allowFrom": {
                     "description": "Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all.",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   }
                 }
               }
@@ -43798,7 +43862,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -43816,7 +43881,8 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "botId": {
                     "description": "The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot.",
@@ -43830,6 +43896,15 @@
                       "usage"
                     ],
                     "$$ref": "#/components/schemas/PolicyType"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ],
+                    "$$ref": "#/components/schemas/ResourceState"
                   },
                   "config": {
                     "description": "The policy configuration as JSON",
@@ -43906,7 +43981,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -43924,7 +44000,8 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "botId": {
                     "description": "The ID of the bot this policy applies to. When omitted the policy is global and applies to every bot.",
@@ -43938,6 +44015,15 @@
                       "usage"
                     ],
                     "$$ref": "#/components/schemas/PolicyType"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ],
+                    "$$ref": "#/components/schemas/ResourceState"
                   },
                   "config": {
                     "description": "The policy configuration as JSON",
@@ -46727,9 +46813,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance",
+                    "nullable": true
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -46746,27 +46837,41 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
-                  "secretId": {
+                  "linkedSecretId": {
                     "description": "The ID of the secret associated with the ability",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   },
-                  "fileId": {
+                  "linkedFileId": {
                     "description": "The ID of the file associated with the ability",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   },
-                  "botId": {
+                  "linkedBotId": {
                     "description": "The ID of the bot associated with the ability",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   },
-                  "spaceId": {
+                  "linkedSpaceId": {
                     "description": "The ID of the space associated with the ability",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   },
                   "instruction": {
                     "description": "The text to update the ability with",
                     "type": "string"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ],
+                    "$$ref": "#/components/schemas/ResourceState"
                   }
                 }
               }
@@ -46843,9 +46948,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance",
+                    "nullable": true
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -46862,27 +46972,41 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
-                  "secretId": {
+                  "linkedSecretId": {
                     "description": "The ID of the secret associated with the ability",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   },
-                  "fileId": {
+                  "linkedFileId": {
                     "description": "The ID of the file associated with the ability",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   },
-                  "botId": {
+                  "linkedBotId": {
                     "description": "The ID of the bot associated with the ability",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   },
-                  "spaceId": {
+                  "linkedSpaceId": {
                     "description": "The ID of the space associated with the ability",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                   },
                   "instruction": {
                     "description": "The instruction of the ability",
                     "type": "string"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ],
+                    "$$ref": "#/components/schemas/ResourceState"
                   }
                 }
               }
@@ -47651,7 +47775,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -47669,7 +47794,8 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "visibility": {
                     "type": "string",
@@ -47680,6 +47806,15 @@
                       "public"
                     ],
                     "$$ref": "#/components/schemas/SkillsetVisibility"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ],
+                    "$$ref": "#/components/schemas/ResourceState"
                   }
                 }
               }
@@ -47751,7 +47886,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -47769,7 +47905,8 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint"
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "visibility": {
                     "type": "string",
@@ -47780,6 +47917,15 @@
                       "public"
                     ],
                     "$$ref": "#/components/schemas/SkillsetVisibility"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ],
+                    "$$ref": "#/components/schemas/ResourceState"
                   }
                 }
               }
@@ -48493,7 +48639,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -48509,8 +48656,8 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
-                  "domain": {
-                    "description": "The host the site is served at (a <label>.chatbotkit.space subdomain)",
+                  "slug": {
+                    "description": "The subdomain slug beneath the configured space apex",
                     "type": "string"
                   },
                   "prefix": {
@@ -48605,7 +48752,8 @@
                 "properties": {
                   "alias": {
                     "type": "string",
-                    "description": "The unique alias for the instance"
+                    "description": "The unique alias for the instance",
+                    "nullable": true
                   },
                   "name": {
                     "type": "string",
@@ -48621,8 +48769,8 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
-                  "domain": {
-                    "description": "The host the site is served at (a <label>.chatbotkit.space subdomain)",
+                  "slug": {
+                    "description": "The subdomain slug beneath the configured space apex",
                     "type": "string"
                   },
                   "prefix": {
@@ -48641,7 +48789,7 @@
                   }
                 },
                 "required": [
-                  "domain"
+                  "slug"
                 ]
               }
             }
@@ -51035,7 +51183,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -51050,6 +51198,11 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "contactId": {
                     "type": "string",
@@ -51069,6 +51222,11 @@
                     "description": "An optional IANA timezone identifier used when evaluating the task schedule.",
                     "example": "America/New_York"
                   },
+                  "expiresAt": {
+                    "type": "number",
+                    "nullable": true,
+                    "description": "An optional epoch-millisecond timestamp after which the task is automatically deleted. Pass null to clear an existing expiry."
+                  },
                   "sessionDuration": {
                     "description": "The session duration of the Widget integration",
                     "type": "number"
@@ -51080,6 +51238,11 @@
                   "maxTime": {
                     "description": "The maximum time per task execution in milliseconds",
                     "type": "number"
+                  },
+                  "maxCalls": {
+                    "description": "The maximum number of tool calls across the whole task run (0 or null for unbounded)",
+                    "type": "number",
+                    "nullable": true
                   }
                 }
               }
@@ -51148,7 +51311,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -51163,6 +51326,11 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint",
+                    "nullable": true
                   },
                   "contactId": {
                     "type": "string",
@@ -51182,6 +51350,11 @@
                     "description": "An optional IANA timezone identifier used when evaluating the task schedule.",
                     "example": "America/New_York"
                   },
+                  "expiresAt": {
+                    "type": "number",
+                    "nullable": true,
+                    "description": "An optional epoch-millisecond timestamp after which the task is automatically deleted. Pass null or omit for no expiry."
+                  },
                   "sessionDuration": {
                     "description": "The session duration of the Widget integration",
                     "type": "number"
@@ -51193,6 +51366,11 @@
                   "maxTime": {
                     "description": "The maximum time per task execution in milliseconds",
                     "type": "number"
+                  },
+                  "maxCalls": {
+                    "description": "The maximum number of tool calls across the whole task run (0 or null for unbounded)",
+                    "type": "number",
+                    "nullable": true
                   }
                 }
               }
