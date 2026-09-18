@@ -44,17 +44,22 @@ function streamIt(source) {
     throw new Error('Invalid source')
   }
 
-  return new Promise((resolve, reject) => {
-    it.then(async (res) => {
-      if (res.done) {
-        resolve({ iteratorResult: res })
-      } else {
-        resolve({ iteratorResult: res, next: streamIt(source) })
-      }
-    })
+  // A chunk after the first settles once the server action has returned, so
+  // a rejection cannot reach the client intact. The failure is sent as an
+  // error chunk instead, which the consumer turns into a StreamError.
 
-    it.catch((error) => reject(error))
-  })
+  return it.then(
+    (res) =>
+      res.done
+        ? { iteratorResult: res }
+        : { iteratorResult: res, next: streamIt(source) },
+    (error) => ({
+      error: {
+        message: error?.message ?? String(error),
+        code: error?.code,
+      },
+    })
+  )
 }
 
 /**

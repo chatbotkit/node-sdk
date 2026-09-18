@@ -9,7 +9,7 @@ export { AuthorizationRequiredError } from "./client.js";
  * import ChatBotKit from '@chatbotkit/sdk'
  *
  * const client = new ChatBotKit({
- *   secret: 'your-secret-key'
+ *   token: 'your-api-token'
  * })
  */
 export class ChatBotKit extends ChatBotKitClient {
@@ -23,6 +23,7 @@ export class ChatBotKit extends ChatBotKitClient {
     magic: MagicClient;
     user: UserClient;
     dataset: DatasetClient;
+    decision: DecisionClient;
     skillset: SkillsetClient;
     integration: IntegrationClient;
     team: TeamClient;
@@ -45,6 +46,7 @@ import { FileClient } from './file/index.js';
 import { MagicClient } from './magic/index.js';
 import { UserClient } from './user/index.js';
 import { DatasetClient } from './dataset/index.js';
+import { DecisionClient } from './decision/index.js';
 import { SkillsetClient } from './skillset/index.js';
 import { IntegrationClient } from './integration/index.js';
 import { ConversationClient } from './conversation/index.js';
@@ -60,4 +62,4 @@ import { UsageClient } from './usage/index.js';
 import { ChatBotKitClient } from './client.js';
 import { PlatformClient } from './platform/index.js';
 import { TaskClient } from './task/index.js';
-export { BlueprintClient, BotClient, ChannelClient, EventClient, FileClient, MagicClient, UserClient, DatasetClient, SkillsetClient, IntegrationClient, ConversationClient, ContactClient, SecretClient, TeamClient, MemoryClient, PolicyClient, PortalClient, GraphqlClient, SpaceClient, UsageClient };
+export { BlueprintClient, BotClient, ChannelClient, EventClient, FileClient, MagicClient, UserClient, DatasetClient, DecisionClient, SkillsetClient, IntegrationClient, ConversationClient, ContactClient, SecretClient, TeamClient, MemoryClient, PolicyClient, PortalClient, GraphqlClient, SpaceClient, UsageClient };

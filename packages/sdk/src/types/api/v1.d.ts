@@ -4293,6 +4293,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/decision/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Answer typed questions about a state */
+        post: operations["createDecision"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/dataset/list": {
         parameters: {
             query?: never;
@@ -6539,6 +6556,75 @@ export interface components {
                 code: string;
                 /** @description The error message */
                 message: string;
+            };
+        };
+        /** @description A typed question to answer about the state */
+        DecisionQuestion: {
+            /** @enum {string} */
+            type: "boolean";
+            /** @description Text, or a JSON object or array of related context */
+            instructions: string | {
+                [key: string]: unknown;
+            } | unknown[];
+            /** @description What a true and a false answer mean */
+            criteria?: {
+                /** @description A description of an option or level, or null when its name says enough */
+                true: (string | {
+                    [key: string]: unknown;
+                } | unknown[]) | null;
+                /** @description A description of an option or level, or null when its name says enough */
+                false: (string | {
+                    [key: string]: unknown;
+                } | unknown[]) | null;
+            };
+        } | {
+            /** @enum {string} */
+            type: "choice";
+            /** @description Text, or a JSON object or array of related context */
+            instructions: string | {
+                [key: string]: unknown;
+            } | unknown[];
+            /** @description The options keyed by name, each with a description (2 to 255) */
+            criteria: {
+                [key: string]: (string | {
+                    [key: string]: unknown;
+                } | unknown[]) | null;
+            };
+        } | {
+            /** @enum {string} */
+            type: "score";
+            /** @description Text, or a JSON object or array of related context */
+            instructions: string | {
+                [key: string]: unknown;
+            } | unknown[];
+            /** @description The levels ordered from lowest to highest (2 to 10) */
+            criteria: ((string | {
+                [key: string]: unknown;
+            } | unknown[]) | null)[];
+        };
+        /** @description The answer to a typed question */
+        DecisionAnswer: {
+            /** @enum {string} */
+            type: "boolean";
+            /** @description The probability from 0 to 1 that the answer is true */
+            probability: number;
+        } | {
+            /** @enum {string} */
+            type: "choice";
+            /** @description The name of the most likely option */
+            choice: string;
+            /** @description The probability of each option */
+            probabilities?: {
+                [key: string]: number;
+            };
+        } | {
+            /** @enum {string} */
+            type: "score";
+            /** @description The probability-weighted level index, starting at 0 */
+            score: number;
+            /** @description The probability of each level keyed by its index */
+            probabilities?: {
+                [key: string]: number;
             };
         };
     };
@@ -12616,7 +12702,7 @@ export interface operations {
     listPlatformModels: {
         parameters: {
             query?: {
-                type?: "language" | "image" | "video" | "rerank";
+                type?: "language" | "image" | "video" | "rerank" | "decision";
                 cursor?: string;
                 order?: "asc" | "desc";
                 take?: number;
@@ -12656,7 +12742,7 @@ export interface operations {
                              * @description The type of the model
                              * @enum {string}
                              */
-                            type: "language" | "image" | "video" | "rerank";
+                            type: "language" | "image" | "video" | "rerank" | "decision";
                             /** @description Whether this model is the deployment's default for its type */
                             default?: boolean;
                             /** @description The backstory of the model */
@@ -12699,7 +12785,7 @@ export interface operations {
                              * @description The type of the model
                              * @enum {string}
                              */
-                            type: "language" | "image" | "video" | "rerank";
+                            type: "language" | "image" | "video" | "rerank" | "decision";
                             /** @description Whether this model is the deployment's default for its type */
                             default?: boolean;
                             /** @description The backstory of the model */
@@ -22140,6 +22226,124 @@ export interface operations {
                         };
                     };
                     "text/csv": string;
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createDecision: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The decision model to use */
+                    model?: string;
+                    /** @description The content to decide about, as text or a JSON object or array of related context */
+                    state: string | {
+                        [key: string]: unknown;
+                    } | unknown[];
+                    /** @description The questions to answer keyed by a name of your choice */
+                    questions: {
+                        [key: string]: {
+                            /** @enum {string} */
+                            type: "boolean";
+                            /** @description Text, or a JSON object or array of related context */
+                            instructions: string | {
+                                [key: string]: unknown;
+                            } | unknown[];
+                            /** @description What a true and a false answer mean */
+                            criteria?: {
+                                /** @description A description of an option or level, or null when its name says enough */
+                                true: (string | {
+                                    [key: string]: unknown;
+                                } | unknown[]) | null;
+                                /** @description A description of an option or level, or null when its name says enough */
+                                false: (string | {
+                                    [key: string]: unknown;
+                                } | unknown[]) | null;
+                            };
+                        } | {
+                            /** @enum {string} */
+                            type: "choice";
+                            /** @description Text, or a JSON object or array of related context */
+                            instructions: string | {
+                                [key: string]: unknown;
+                            } | unknown[];
+                            /** @description The options keyed by name, each with a description (2 to 255) */
+                            criteria: {
+                                [key: string]: (string | {
+                                    [key: string]: unknown;
+                                } | unknown[]) | null;
+                            };
+                        } | {
+                            /** @enum {string} */
+                            type: "score";
+                            /** @description Text, or a JSON object or array of related context */
+                            instructions: string | {
+                                [key: string]: unknown;
+                            } | unknown[];
+                            /** @description The levels ordered from lowest to highest (2 to 10) */
+                            criteria: ((string | {
+                                [key: string]: unknown;
+                            } | unknown[]) | null)[];
+                        };
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description The decision was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The answers keyed by the question names */
+                        answers: {
+                            [key: string]: {
+                                /** @enum {string} */
+                                type: "boolean";
+                                /** @description The probability from 0 to 1 that the answer is true */
+                                probability: number;
+                            } | {
+                                /** @enum {string} */
+                                type: "choice";
+                                /** @description The name of the most likely option */
+                                choice: string;
+                                /** @description The probability of each option */
+                                probabilities?: {
+                                    [key: string]: number;
+                                };
+                            } | {
+                                /** @enum {string} */
+                                type: "score";
+                                /** @description The probability-weighted level index, starting at 0 */
+                                score: number;
+                                /** @description The probability of each level keyed by its index */
+                                probabilities?: {
+                                    [key: string]: number;
+                                };
+                            };
+                        };
+                        usage: {
+                            /** @description The model that answered */
+                            model: string;
+                            inputTokens: number;
+                            outputTokens: number;
+                        };
+                    };
                 };
             };
             /** @description An error response */

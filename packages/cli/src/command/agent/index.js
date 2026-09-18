@@ -1,5 +1,5 @@
 import { formatBlue } from '../../color.js'
-import { getRUNAS_USERID, getSECRET } from '../../env.js'
+import { getAPI_URL, getRUNAS_USERID, getTOKEN } from '../../env.js'
 import { print, printError } from '../../output.js'
 import { Spinner } from '../../spinner.js'
 import { getTools, parseSelectedTools } from '../../tools.js'
@@ -132,7 +132,8 @@ class OutputManager {
 
 function getClient() {
   return new ChatBotKit({
-    secret: getSECRET(),
+    token: getTOKEN(),
+    baseUrl: getAPI_URL(),
     runAsUserId: getRUNAS_USERID(),
   })
 }
@@ -182,6 +183,7 @@ export const command = new Command()
     const tools = getTools(options.tools)
 
     let prompt = options.prompt
+
     {
       const filePath = resolve(process.cwd(), options.prompt)
 
@@ -235,6 +237,7 @@ export const command = new Command()
       if (options.debug) {
         process.stderr.write(`[debug] ${JSON.stringify({ type, data })}\n`)
       }
+
       if (type === 'iteration') {
         if (isInteractive) {
           const iterationNum = data.iteration - 1

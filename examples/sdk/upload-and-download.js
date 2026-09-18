@@ -10,7 +10,7 @@ dotenv.config()
  */
 async function main() {
   const client = new FileClient({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
   })
 
   const { id } = await client.create({ name: 'TEST' })

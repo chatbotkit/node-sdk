@@ -1,7 +1,6 @@
-[![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 [![CBK.AI](https://img.shields.io/badge/credits-CBK.AI-blue.svg)](https://cbk.ai)
 [![NPM](https://img.shields.io/npm/v/@chatbotkit/cli.svg)](https://www.npmjs.com/package/@chatbotkit/cli)
-[![Email](https://img.shields.io/badge/Email-Support-blue?logo=mail.ru)](mailto:support@chatbotkit.com)
+[![Email](https://img.shields.io/badge/Email-Support-blue?logo=mail.ru)](mailto:support@cbk.ai)
 [![Discord](https://img.shields.io/badge/Discord-Support-blue?logo=discord)](https://go.cbk.ai/discord)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/chatbotkit.svg?logo=twitter)](https://twitter.com/chatbotkit)
 
@@ -37,6 +36,23 @@ Set your ChatBotKit API token as an environment variable:
 
 ```bash
 export CHATBOTKIT_API_TOKEN=<your token here>
+```
+
+`CBK_API_TOKEN` works as a shorthand, and every variable here has a `CBK_`
+form. The older names `CHATBOTKIT_API_SECRET` and `CHATBOTKIT_API_KEY` (and
+their `CBK_` forms) are still read, so existing setups keep working.
+
+To use a self-hosted platform, also set its URL. Plain `http` works for local
+use, and a path prefix is preserved:
+
+```bash
+export CHATBOTKIT_API_URL=http://localhost:3000
+```
+
+To operate on behalf of a child User, set its ID:
+
+```bash
+export CHATBOTKIT_API_RUNAS_USERID=<child user id>
 ```
 
 ### Environment Configuration

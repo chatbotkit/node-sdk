@@ -144,8 +144,9 @@ export class ResponsePromise<T, U> {
 }
 /**
  * @typedef {Object} ChatBotKitClientOptions
- * @property {string} secret A token to authenticate with the API
- * @property {string|URL} [baseUrl] An optional base URL to use for the API
+ * @property {string} [token] A token to authenticate with the API
+ * @property {string} [secret] Deprecated: use `token`. Ignored when `token` is set.
+ * @property {string|URL} [baseUrl] An optional base URL to use for the API, e.g. `http://localhost:3000` for a self-hosted platform. A path prefix is preserved.
  * @property {string} [host] An optional hostname to use for the API
  * @property {'http:'|'https:'} [protocol] An optional protocol to use for the API
  * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
@@ -272,9 +273,13 @@ export type ChatBotKitClientOptions = {
     /**
      * A token to authenticate with the API
      */
-    secret: string;
+    token?: string | undefined;
     /**
-     * An optional base URL to use for the API
+     * Deprecated: use `token`. Ignored when `token` is set.
+     */
+    secret?: string | undefined;
+    /**
+     * An optional base URL to use for the API, e.g. `http://localhost:3000` for a self-hosted platform. A path prefix is preserved.
      */
     baseUrl?: string | URL | undefined;
     /**

@@ -14,7 +14,7 @@ app.use(cors())
 app.use(express.json())
 
 const cbk = new ChatBotKit({
-  secret: process.env.CHATBOTKIT_API_SECRET,
+  token: process.env.CHATBOTKIT_API_TOKEN,
 })
 
 app.post('/api/conversation/complete', async (req, res) => {

@@ -364,6 +364,26 @@
       "types": "./types/dataset/v1.d.ts",
       "import": "./src/dataset/v1.js"
     },
+    "./decision": {
+      "types": "./types/decision/index.d.ts",
+      "import": "./src/decision/index.js"
+    },
+    "./decision/index": {
+      "types": "./types/decision/index.d.ts",
+      "import": "./src/decision/index.js"
+    },
+    "./decision/index.js": {
+      "types": "./types/decision/index.d.ts",
+      "import": "./src/decision/index.js"
+    },
+    "./decision/v1": {
+      "types": "./types/decision/v1.d.ts",
+      "import": "./src/decision/v1.js"
+    },
+    "./decision/v1.js": {
+      "types": "./types/decision/v1.d.ts",
+      "import": "./src/decision/v1.js"
+    },
     "./event": {
       "types": "./types/event/index.d.ts",
       "import": "./src/event/index.js"

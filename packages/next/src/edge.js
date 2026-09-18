@@ -15,7 +15,7 @@
  * import { stream } from '@chatbotkit/next/edge'
  *
  * const cbk = new ChatBotKit({
- *  secret: process.env.CHATBOTKIT_API_SECRET,
+ *  token: process.env.CHATBOTKIT_API_TOKEN,
  * })
  *
  * export default async function handler(req) {

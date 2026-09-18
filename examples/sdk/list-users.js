@@ -6,14 +6,14 @@ import { UserClient } from '@chatbotkit/sdk/user/index.js'
 dotenv.config()
 
 async function main() {
-  if (!process.env.CHATBOTKIT_API_SECRET) {
-    console.log(`Please set the CHATBOTKIT_API_SECRET environment variable.`)
+  if (!process.env.CHATBOTKIT_API_TOKEN) {
+    console.log(`Please set the CHATBOTKIT_API_TOKEN environment variable.`)
 
     process.exit(1)
   }
 
   const client = new UserClient({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
   })
 
   for await (const { data } of client.list().stream()) {

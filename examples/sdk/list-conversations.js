@@ -12,7 +12,7 @@ dotenv.config()
  */
 async function main() {
   const client = new ConversationClient({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
   })
 
   for (const conversation of (await client.list()).items) {

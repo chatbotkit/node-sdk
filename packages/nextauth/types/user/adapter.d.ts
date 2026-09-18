@@ -48,10 +48,12 @@
  * - Set `autoCreateUser: false` and manually approve user creation
  * - Enable `autoUpdateUser: true` to keep user data synchronized
  * - Set `autoDeleteUser: false` to prevent accidental data loss
- * - Store your parent-user API secret securely in environment variables
+ * - Store your parent-user API token securely in environment variables
  *
  * @param {{
- *   secret: string,
+ *   token?: string,
+ *   secret?: string,
+ *   baseUrl?: string|URL,
  *   store: Store,
  *   autoCreateUser?: boolean,
  *   autoUpdateUser?: boolean,
@@ -65,7 +67,7 @@
  *
  * export default NextAuth({
  *   adapter: ChatBotKitUserAdapter({
- *     secret: process.env.CHATBOTKIT_API_SECRET,
+ *     token: process.env.CHATBOTKIT_API_TOKEN,
  *     store: new MemoryStore(), // Use Redis or another store in production
  *     autoCreateUser: false,
  *     autoUpdateUser: true,
@@ -74,8 +76,10 @@
  *   // ... other NextAuth configuration
  * })
  */
-export function ChatBotKitUserAdapter({ secret, store, autoCreateUser, autoUpdateUser, autoDeleteUser, }: {
-    secret: string;
+export function ChatBotKitUserAdapter({ token, secret, baseUrl, store, autoCreateUser, autoUpdateUser, autoDeleteUser, }: {
+    token?: string;
+    secret?: string;
+    baseUrl?: string | URL;
     store: Store;
     autoCreateUser?: boolean;
     autoUpdateUser?: boolean;

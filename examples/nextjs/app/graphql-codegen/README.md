@@ -44,7 +44,7 @@ schema: [
   {
     'https://api.chatbotkit.com/api/v1/graphql': {
       headers: {
-        Authorization: `Bearer ${process.env.CHATBOTKIT_API_SECRET}`,
+        Authorization: `Bearer ${process.env.CHATBOTKIT_API_TOKEN}`,
       },
     },
   },
@@ -83,7 +83,7 @@ This approach generates:
 Before getting started, ensure you have:
 
 - Node.js installed
-- A ChatBotKit account with an API key
+- A ChatBotKit account with a API token
 - At least one chatbot created in your account (to see results)
 
 ## Getting Started
@@ -106,11 +106,11 @@ pnpm -F @examples/nextjs-app-router-graphql-codegen dev
 
    This will copy `.env.example` to `.env` and install all dependencies.
 
-2. **Configure your API key**:
-   Edit `.env` and add your ChatBotKit API secret:
+2. **Configure your API token**:
+   Edit `.env` and add your ChatBotKit API token:
 
    ```bash
-   CHATBOTKIT_API_SECRET=your_api_secret_here
+   CHATBOTKIT_API_TOKEN=your_api_token_here
    ```
 
 3. **Generate GraphQL types**:
@@ -197,7 +197,7 @@ export default async function Page() {
     'https://api.chatbotkit.com/api/v1/graphql',
     {
       headers: {
-        Authorization: `Bearer ${process.env.CHATBOTKIT_API_SECRET}`,
+        Authorization: `Bearer ${process.env.CHATBOTKIT_API_TOKEN}`,
       },
     }
   )
@@ -223,10 +223,10 @@ The SDK provides methods for all your defined GraphQL operations with full type 
 
 If you encounter authentication errors during code generation:
 
-1. Verify your API key is correct in `.env`
+1. Verify your API token is correct in `.env`
 2. Ensure the `.env` file is in the project root
-3. Check that your API key has the necessary permissions
-4. Try running with explicit environment loading: `CHATBOTKIT_API_SECRET=your_key npm run codegen`
+3. Check that your API token has the necessary permissions
+4. Try running with explicit environment loading: `CHATBOTKIT_API_TOKEN=your_key npm run codegen`
 
 ### Missing Generated Files
 
@@ -236,7 +236,7 @@ If the `src/generated/graphql.ts` file doesn't exist:
 2. Check that your `.graphql` files in `src/queries/` have valid syntax
 3. Verify the `codegen.ts` configuration is correct
 4. Look for error messages in the console output
-5. Ensure your API key in `.env` is correct
+5. Ensure your API token in `.env` is correct
 
 ### Type Errors
 
@@ -252,7 +252,7 @@ If the application runs but shows no bots:
 
 1. Verify you have bots created in your ChatBotKit account
 2. Check the server console for API errors
-3. Ensure your API key has permission to read bots
+3. Ensure your API token has permission to read bots
 
 ## Best Practices
 
@@ -265,7 +265,7 @@ If the application runs but shows no bots:
    - The ChatBotKit API schema changes
    - You pull changes that include new operations
 
-3. **Environment Management**: Never commit `.env` files with actual API keys. Use `.env.example` as a template.
+3. **Environment Management**: Never commit `.env` files with actual API tokens. Use `.env.example` as a template.
 
 4. **Operation Organization**:
 

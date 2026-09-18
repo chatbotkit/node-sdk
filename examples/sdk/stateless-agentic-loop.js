@@ -29,7 +29,7 @@ dotenv.config()
  */
 async function main() {
   const client = new ConversationClient({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
   })
 
   // Define a simple function that the AI can call

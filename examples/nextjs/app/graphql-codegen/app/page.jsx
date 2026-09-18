@@ -13,7 +13,7 @@ export default async function Page() {
     'https://api.chatbotkit.com/api/v1/graphql',
     {
       headers: {
-        Authorization: `Bearer ${process.env.CHATBOTKIT_API_SECRET}`,
+        Authorization: `Bearer ${process.env.CHATBOTKIT_API_TOKEN}`,
       },
     }
   )

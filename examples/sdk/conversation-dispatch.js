@@ -23,7 +23,7 @@ dotenv.config()
 async function main() {
   // Initialize the ChatBotKit client
   const client = new ChatBotKit({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
   })
 
   console.log('Starting background AI analysis...\n')

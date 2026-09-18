@@ -101,7 +101,7 @@ export function useConversationManagerRemote({
     }
 
     if (token) {
-      extension.secret = token
+      extension.token = token
     }
 
     if (Object.keys(extension).length === 0) {

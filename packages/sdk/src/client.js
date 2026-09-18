@@ -335,8 +335,9 @@ export class ResponsePromise {
 
 /**
  * @typedef {Object} ChatBotKitClientOptions
- * @property {string} secret A token to authenticate with the API
- * @property {string|URL} [baseUrl] An optional base URL to use for the API
+ * @property {string} [token] A token to authenticate with the API
+ * @property {string} [secret] Deprecated: use `token`. Ignored when `token` is set.
+ * @property {string|URL} [baseUrl] An optional base URL to use for the API, e.g. `http://localhost:3000` for a self-hosted platform. A path prefix is preserved.
  * @property {string} [host] An optional hostname to use for the API
  * @property {'http:'|'https:'} [protocol] An optional protocol to use for the API
  * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
@@ -353,7 +354,7 @@ export class ResponsePromise {
 
 export class ChatBotKitClient {
   /** @type {string|null} */
-  #secret = null
+  #token = null
 
   /** @type {URL} */
   #baseUrl
@@ -395,7 +396,7 @@ export class ChatBotKitClient {
    * @param {ChatBotKitClientOptions} options
    */
   constructor(options) {
-    this.#secret = options.secret
+    this.#token = options.token || options.secret || null
 
     this.#baseUrl = new URL(options.baseUrl || `https://api.chatbotkit.com`)
 
@@ -440,8 +441,19 @@ export class ChatBotKitClient {
    * @returns {this} A new instance of the same client class with extended options
    */
   extend(extensionOptions) {
+    // @note the deprecated `secret` is folded into `token` first, otherwise
+    // the current token would win over a new credential passed as `secret`
+
+    const { secret, ...extension } = extensionOptions
+
+    if (extension.token === undefined && secret !== undefined) {
+      extension.token = secret
+    }
+
+    extensionOptions = extension
+
     const currentOptions = {
-      secret: this.#secret || '',
+      token: this.#token || '',
 
       baseUrl: this.#baseUrl.toString(),
 
@@ -511,10 +523,19 @@ export class ChatBotKitClient {
   clientFetch(path, options) {
     let method = options?.method
 
-    const url = new URL(
-      this.#endpoints[options?.endpoint || path] || path,
-      this.#baseUrl
-    )
+    const target = this.#endpoints[options?.endpoint || path] || path
+
+    // @note an absolute endpoint override stands alone; anything else is
+    // appended to the base URL so that a path prefix on it is preserved
+
+    const url = /^[a-z][a-z0-9+.-]*:\/\//i.test(target)
+      ? new URL(target)
+      : new URL(
+          this.#baseUrl.pathname.replace(/\/+$/, '') +
+            '/' +
+            target.replace(/^\/+/, ''),
+          this.#baseUrl
+        )
 
     if (
       url.hostname === 'api.chatbotkit.com' &&
@@ -549,8 +570,8 @@ export class ChatBotKitClient {
     }
 
     if (!options?.external) {
-      if (this.#secret) {
-        headers['authorization'] = `Bearer ${this.#secret}`
+      if (this.#token) {
+        headers['authorization'] = `Bearer ${this.#token}`
       }
 
       if (this.#runAsUserId) {

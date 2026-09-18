@@ -5,6 +5,7 @@ import { ChatBotKitClient } from './client.js'
 import { ContactClient } from './contact/index.js'
 import { ConversationClient } from './conversation/index.js'
 import { DatasetClient } from './dataset/index.js'
+import { DecisionClient } from './decision/index.js'
 import { EventClient } from './event/index.js'
 import { FileClient } from './file/index.js'
 import { GraphqlClient } from './graphql/index.js'
@@ -30,6 +31,7 @@ export { FileClient }
 export { MagicClient }
 export { UserClient }
 export { DatasetClient }
+export { DecisionClient }
 export { SkillsetClient }
 export { IntegrationClient }
 export { ConversationClient }
@@ -55,7 +57,7 @@ export { AuthorizationRequiredError } from './client.js'
  * import ChatBotKit from '@chatbotkit/sdk'
  *
  * const client = new ChatBotKit({
- *   secret: 'your-secret-key'
+ *   token: 'your-api-token'
  * })
  */
 export class ChatBotKit extends ChatBotKitClient {
@@ -75,6 +77,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.magic = new MagicClient(options)
     this.user = new UserClient(options)
     this.dataset = new DatasetClient(options)
+    this.decision = new DecisionClient(options)
     this.skillset = new SkillsetClient(options)
     this.integration = new IntegrationClient(options)
     this.team = new TeamClient(options)

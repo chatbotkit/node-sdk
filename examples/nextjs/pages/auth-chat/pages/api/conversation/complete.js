@@ -9,7 +9,7 @@ import { v5 as uuidv5 } from 'uuid'
 // put it in a separate library file and reuse it elsewhere in your project.
 
 const cbk = new ChatBotKit({
-  secret: process.env.CHATBOTKIT_API_SECRET,
+  token: process.env.CHATBOTKIT_API_TOKEN,
 })
 
 // Static namespace for generating consistent UUIDs

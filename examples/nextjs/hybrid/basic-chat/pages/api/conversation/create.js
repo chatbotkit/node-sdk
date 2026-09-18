@@ -4,7 +4,7 @@ import { ChatBotKit } from '@chatbotkit/sdk'
 // put it in a separate library file and reuse it elsewhere in your project.
 
 const cbk = new ChatBotKit({
-  secret: process.env.CHATBOTKIT_API_SECRET,
+  token: process.env.CHATBOTKIT_API_TOKEN,
 })
 
 // This method creates a conversation id and returns it to the front-end.

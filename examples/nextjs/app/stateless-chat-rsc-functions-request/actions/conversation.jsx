@@ -9,7 +9,7 @@ import { ChatBotKit } from '@chatbotkit/sdk'
 // put it in a separate library file and reuse it elsewhere in your project.
 
 const cbk = new ChatBotKit({
-  secret: process.env.CHATBOTKIT_API_SECRET,
+  token: process.env.CHATBOTKIT_API_TOKEN,
 })
 
 // Define a list of calendar events. This is just a simple example to show how

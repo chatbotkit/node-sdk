@@ -1,5 +1,5 @@
 declare namespace NodeJS {
   interface ProcessEnv {
-    CHATBOTKIT_API_SECRET: string
+    CHATBOTKIT_API_TOKEN: string
   }
 }

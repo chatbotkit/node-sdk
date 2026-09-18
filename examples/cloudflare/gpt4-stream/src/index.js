@@ -17,7 +17,7 @@ export default {
     const client = new ConversationClient({
       // @ts-expect-error we need better linting for cf
       // eslint-disable-next-line no-undef
-      secret: CHATBOTKIT_API_SECRET,
+      token: CHATBOTKIT_API_TOKEN,
     })
 
     // Add previous bot and user messages to the messages array
