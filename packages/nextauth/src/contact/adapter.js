@@ -148,10 +148,12 @@ export class ContactMemoryStore extends ContactStore {
  * - Set `autoCreateContact: false` and manually approve contact creation
  * - Enable `autoUpdateContact: true` to keep contact data synchronized
  * - Set `autoDeleteContact: false` to prevent accidental data loss
- * - Store your ChatBotKit API secret securely in environment variables
+ * - Store your ChatBotKit API token securely in environment variables
  *
  * @param {{
- *   secret: string,
+ *   token?: string,
+ *   secret?: string,
+ *   baseUrl?: string|URL,
  *   store: ContactStore,
  *   autoCreateContact?: boolean,
  *   autoUpdateContact?: boolean,
@@ -165,7 +167,7 @@ export class ContactMemoryStore extends ContactStore {
  *
  * export default NextAuth({
  *   adapter: ChatBotKitContactAdapter({
- *     secret: process.env.CHATBOTKIT_API_SECRET,
+ *     token: process.env.CHATBOTKIT_API_TOKEN,
  *     store: new ContactMemoryStore(), // Use Redis or another store in production
  *     autoCreateContact: true,
  *     autoUpdateContact: true,
@@ -175,14 +177,18 @@ export class ContactMemoryStore extends ContactStore {
  * })
  */
 export function ChatBotKitContactAdapter({
+  token,
   secret,
+  baseUrl,
   store,
   autoCreateContact = false,
   autoUpdateContact = true,
   autoDeleteContact = false,
 }) {
   const client = new ContactClient({
-    secret,
+    // @note `secret` is the deprecated name for `token`
+    token: token || secret,
+    baseUrl,
   })
 
   /**

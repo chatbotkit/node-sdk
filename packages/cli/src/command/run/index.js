@@ -11,6 +11,7 @@
  *   import { ChatBotKit } from '@chatbotkit/sdk'
  *   import { complete } from '@chatbotkit/agent'
  */
+import { findTOKEN } from '../../env.js'
 import { CommandError, printError } from '../../output.js'
 
 import { spawn } from 'child_process'
@@ -73,10 +74,12 @@ async function runScript(scriptPath, scriptArgs) {
         env: {
           ...process.env,
 
-          // Ensure the script can access CBK_API_KEY if set
+          // Ensure the script can access the token under the current name and
+          // its shorthand, and under CBK_API_KEY which older scripts read
 
-          CBK_API_KEY:
-            process.env.CBK_API_KEY || process.env.CHATBOTKIT_API_KEY,
+          CHATBOTKIT_API_TOKEN: findTOKEN(),
+          CBK_API_TOKEN: findTOKEN(),
+          CBK_API_KEY: findTOKEN(),
         },
         cwd: process.cwd(),
       }
@@ -125,7 +128,7 @@ Example script:
     .parse()
 
   const client = new ChatBotKit({
-    secret: process.env.CBK_API_KEY
+    token: process.env.CHATBOTKIT_API_TOKEN
   })
 
   console.log('Running in', program.opts().env)

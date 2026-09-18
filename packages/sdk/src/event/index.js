@@ -9,7 +9,7 @@ import { EventLogClient } from './log/index.js'
  * `log` sub-client to list, export, or subscribe to events.
  *
  * @example
- * const client = new EventClient({ secret: 'your-secret' })
+ * const client = new EventClient({ token: 'your-api-token' })
  *
  * // List recent events
  * const events = await client.log.list({ take: 100 })

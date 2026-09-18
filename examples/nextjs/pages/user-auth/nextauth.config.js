@@ -7,7 +7,7 @@ import {
 /** @type {import('next-auth').nextAuthConfig} */
 const nextAuthConfig = {
   adapter: ChatBotKitUserAdapter({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
 
     /**
      * You will need to implement your own store to persist the user data. This

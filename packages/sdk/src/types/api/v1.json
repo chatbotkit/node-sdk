@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1788263393875)"
+    "version": "v1 (build 1789735920837)"
   },
   "servers": [
     {
@@ -1483,6 +1483,272 @@
               "type",
               "createdAt",
               "data"
+            ]
+          }
+        ]
+      },
+      "DecisionQuestion": {
+        "description": "A typed question to answer about the state",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "boolean"
+                ]
+              },
+              "instructions": {
+                "description": "Text, or a JSON object or array of related context",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "array",
+                    "items": {}
+                  }
+                ]
+              },
+              "criteria": {
+                "description": "What a true and a false answer mean",
+                "type": "object",
+                "properties": {
+                  "true": {
+                    "description": "A description of an option or level, or null when its name says enough",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      {
+                        "type": "array",
+                        "items": {}
+                      }
+                    ],
+                    "nullable": true
+                  },
+                  "false": {
+                    "description": "A description of an option or level, or null when its name says enough",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      {
+                        "type": "array",
+                        "items": {}
+                      }
+                    ],
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "true",
+                  "false"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "instructions"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "choice"
+                ]
+              },
+              "instructions": {
+                "description": "Text, or a JSON object or array of related context",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "array",
+                    "items": {}
+                  }
+                ]
+              },
+              "criteria": {
+                "description": "The options keyed by name, each with a description (2 to 255)",
+                "type": "object",
+                "minProperties": 2,
+                "maxProperties": 255,
+                "additionalProperties": {
+                  "description": "A description of an option or level, or null when its name says enough",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    {
+                      "type": "array",
+                      "items": {}
+                    }
+                  ],
+                  "nullable": true
+                }
+              }
+            },
+            "required": [
+              "type",
+              "instructions",
+              "criteria"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "score"
+                ]
+              },
+              "instructions": {
+                "description": "Text, or a JSON object or array of related context",
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  {
+                    "type": "array",
+                    "items": {}
+                  }
+                ]
+              },
+              "criteria": {
+                "description": "The levels ordered from lowest to highest (2 to 10)",
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 10,
+                "items": {
+                  "description": "A description of an option or level, or null when its name says enough",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    {
+                      "type": "array",
+                      "items": {}
+                    }
+                  ],
+                  "nullable": true
+                }
+              }
+            },
+            "required": [
+              "type",
+              "instructions",
+              "criteria"
+            ]
+          }
+        ]
+      },
+      "DecisionAnswer": {
+        "description": "The answer to a typed question",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "boolean"
+                ]
+              },
+              "probability": {
+                "description": "The probability from 0 to 1 that the answer is true",
+                "type": "number"
+              }
+            },
+            "required": [
+              "type",
+              "probability"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "choice"
+                ]
+              },
+              "choice": {
+                "description": "The name of the most likely option",
+                "type": "string"
+              },
+              "probabilities": {
+                "description": "The probability of each option",
+                "type": "object",
+                "additionalProperties": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "type",
+              "choice"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "score"
+                ]
+              },
+              "score": {
+                "description": "The probability-weighted level index, starting at 0",
+                "type": "number"
+              },
+              "probabilities": {
+                "description": "The probability of each level keyed by its index",
+                "type": "object",
+                "additionalProperties": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "type",
+              "score"
             ]
           }
         ]
@@ -15195,7 +15461,8 @@
                 "language",
                 "image",
                 "video",
-                "rerank"
+                "rerank",
+                "decision"
               ],
               "default": "language"
             }
@@ -15290,7 +15557,8 @@
                               "language",
                               "image",
                               "video",
-                              "rerank"
+                              "rerank",
+                              "decision"
                             ]
                           },
                           "default": {
@@ -15392,7 +15660,8 @@
                                 "language",
                                 "image",
                                 "video",
-                                "rerank"
+                                "rerank",
+                                "decision"
                               ]
                             },
                             "default": {
@@ -36445,6 +36714,391 @@
           }
         },
         "__originalOperationId": "exportEventLogs",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/decision/create": {
+      "post": {
+        "operationId": "createDecision",
+        "summary": "Answer typed questions about a state",
+        "tags": [
+          "Decision"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "model": {
+                    "description": "The decision model to use",
+                    "type": "string"
+                  },
+                  "state": {
+                    "description": "The content to decide about, as text or a JSON object or array of related context",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      {
+                        "type": "array",
+                        "items": {}
+                      }
+                    ]
+                  },
+                  "questions": {
+                    "description": "The questions to answer keyed by a name of your choice",
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": {
+                      "description": "A typed question to answer about the state",
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "boolean"
+                              ]
+                            },
+                            "instructions": {
+                              "description": "Text, or a JSON object or array of related context",
+                              "oneOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "object",
+                                  "additionalProperties": true
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {}
+                                }
+                              ]
+                            },
+                            "criteria": {
+                              "description": "What a true and a false answer mean",
+                              "type": "object",
+                              "properties": {
+                                "true": {
+                                  "description": "A description of an option or level, or null when its name says enough",
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {}
+                                    }
+                                  ],
+                                  "nullable": true
+                                },
+                                "false": {
+                                  "description": "A description of an option or level, or null when its name says enough",
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {}
+                                    }
+                                  ],
+                                  "nullable": true
+                                }
+                              },
+                              "required": [
+                                "true",
+                                "false"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "instructions"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "choice"
+                              ]
+                            },
+                            "instructions": {
+                              "description": "Text, or a JSON object or array of related context",
+                              "oneOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "object",
+                                  "additionalProperties": true
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {}
+                                }
+                              ]
+                            },
+                            "criteria": {
+                              "description": "The options keyed by name, each with a description (2 to 255)",
+                              "type": "object",
+                              "minProperties": 2,
+                              "maxProperties": 255,
+                              "additionalProperties": {
+                                "description": "A description of an option or level, or null when its name says enough",
+                                "oneOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "object",
+                                    "additionalProperties": true
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {}
+                                  }
+                                ],
+                                "nullable": true
+                              }
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "instructions",
+                            "criteria"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "score"
+                              ]
+                            },
+                            "instructions": {
+                              "description": "Text, or a JSON object or array of related context",
+                              "oneOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "object",
+                                  "additionalProperties": true
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {}
+                                }
+                              ]
+                            },
+                            "criteria": {
+                              "description": "The levels ordered from lowest to highest (2 to 10)",
+                              "type": "array",
+                              "minItems": 2,
+                              "maxItems": 10,
+                              "items": {
+                                "description": "A description of an option or level, or null when its name says enough",
+                                "oneOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "object",
+                                    "additionalProperties": true
+                                  },
+                                  {
+                                    "type": "array",
+                                    "items": {}
+                                  }
+                                ],
+                                "nullable": true
+                              }
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "instructions",
+                            "criteria"
+                          ]
+                        }
+                      ],
+                      "$$ref": "#/components/schemas/DecisionQuestion"
+                    }
+                  }
+                },
+                "required": [
+                  "state",
+                  "questions"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The decision was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "answers": {
+                      "description": "The answers keyed by the question names",
+                      "type": "object",
+                      "additionalProperties": {
+                        "description": "The answer to a typed question",
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "boolean"
+                                ]
+                              },
+                              "probability": {
+                                "description": "The probability from 0 to 1 that the answer is true",
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "probability"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "choice"
+                                ]
+                              },
+                              "choice": {
+                                "description": "The name of the most likely option",
+                                "type": "string"
+                              },
+                              "probabilities": {
+                                "description": "The probability of each option",
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "choice"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "score"
+                                ]
+                              },
+                              "score": {
+                                "description": "The probability-weighted level index, starting at 0",
+                                "type": "number"
+                              },
+                              "probabilities": {
+                                "description": "The probability of each level keyed by its index",
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "score"
+                            ]
+                          }
+                        ],
+                        "$$ref": "#/components/schemas/DecisionAnswer"
+                      }
+                    },
+                    "usage": {
+                      "type": "object",
+                      "properties": {
+                        "model": {
+                          "description": "The model that answered",
+                          "type": "string"
+                        },
+                        "inputTokens": {
+                          "type": "number"
+                        },
+                        "outputTokens": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "model",
+                        "inputTokens",
+                        "outputTokens"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "answers",
+                    "usage"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createDecision",
         "security": [
           {
             "BearerAuth": []

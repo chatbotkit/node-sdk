@@ -38,6 +38,8 @@
     "./src/dataset/record/index.js",
     "./src/dataset/record/v1.js",
     "./src/dataset/v1.js",
+    "./src/decision/index.js",
+    "./src/decision/v1.js",
     "./src/event/index.js",
     "./src/event/log/index.js",
     "./src/event/log/v1.js",

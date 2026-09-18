@@ -7,7 +7,7 @@ import { ChatBotKit } from '@chatbotkit/sdk'
 // put it in a separate library file and reuse it elsewhere in your project.
 
 const cbk = new ChatBotKit({
-  secret: process.env.CHATBOTKIT_API_SECRET,
+  token: process.env.CHATBOTKIT_API_TOKEN,
 })
 
 // Now let's define a server action that will be called by the client to

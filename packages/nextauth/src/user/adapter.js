@@ -137,10 +137,12 @@ export class MemoryStore extends Store {
  * - Set `autoCreateUser: false` and manually approve user creation
  * - Enable `autoUpdateUser: true` to keep user data synchronized
  * - Set `autoDeleteUser: false` to prevent accidental data loss
- * - Store your parent-user API secret securely in environment variables
+ * - Store your parent-user API token securely in environment variables
  *
  * @param {{
- *   secret: string,
+ *   token?: string,
+ *   secret?: string,
+ *   baseUrl?: string|URL,
  *   store: Store,
  *   autoCreateUser?: boolean,
  *   autoUpdateUser?: boolean,
@@ -154,7 +156,7 @@ export class MemoryStore extends Store {
  *
  * export default NextAuth({
  *   adapter: ChatBotKitUserAdapter({
- *     secret: process.env.CHATBOTKIT_API_SECRET,
+ *     token: process.env.CHATBOTKIT_API_TOKEN,
  *     store: new MemoryStore(), // Use Redis or another store in production
  *     autoCreateUser: false,
  *     autoUpdateUser: true,
@@ -164,14 +166,18 @@ export class MemoryStore extends Store {
  * })
  */
 export function ChatBotKitUserAdapter({
+  token,
   secret,
+  baseUrl,
   store,
   autoCreateUser = false,
   autoUpdateUser = true,
   autoDeleteUser = false,
 }) {
   const client = new UserClient({
-    secret,
+    // @note `secret` is the deprecated name for `token`
+    token: token || secret,
+    baseUrl,
   })
 
   /**

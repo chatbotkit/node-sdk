@@ -1,7 +1,6 @@
-[![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 [![CBK.AI](https://img.shields.io/badge/credits-CBK.AI-blue.svg)](https://cbk.ai)
 [![NPM](https://img.shields.io/npm/v/@chatbotkit/agent.svg)](https://www.npmjs.com/package/@chatbotkit/agent)
-[![Email](https://img.shields.io/badge/Email-Support-blue?logo=mail.ru)](mailto:support@chatbotkit.com)
+[![Email](https://img.shields.io/badge/Email-Support-blue?logo=mail.ru)](mailto:support@cbk.ai)
 [![Discord](https://img.shields.io/badge/Discord-Support-blue?logo=discord)](https://go.cbk.ai/discord)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/chatbotkit.svg?logo=twitter)](https://twitter.com/chatbotkit)
 
@@ -65,7 +64,7 @@ import { z } from 'zod'
 
 const execAsync = promisify(exec)
 
-const client = new ChatBotKit({ secret: process.env.CHATBOTKIT_API_TOKEN })
+const client = new ChatBotKit({ token: process.env.CHATBOTKIT_API_TOKEN })
 
 const localTools = {
   analyzeGitDiff: {
@@ -157,7 +156,7 @@ import { ChatBotKit } from '@chatbotkit/sdk'
 
 import { z } from 'zod'
 
-const client = new ChatBotKit({ secret: process.env.CHATBOTKIT_API_TOKEN })
+const client = new ChatBotKit({ token: process.env.CHATBOTKIT_API_TOKEN })
 
 const tools = {
   calculateSum: {
@@ -200,7 +199,7 @@ Load skills from local directories and pass them as a feature to the agent. Skil
 import { createSkillsFeature, execute, loadSkills } from '@chatbotkit/agent'
 import { ChatBotKit } from '@chatbotkit/sdk'
 
-const client = new ChatBotKit({ secret: process.env.CHATBOTKIT_API_TOKEN })
+const client = new ChatBotKit({ token: process.env.CHATBOTKIT_API_TOKEN })
 
 // Load skills from directories
 const skillsResult = await loadSkills(['./skills'], { watch: true })

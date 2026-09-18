@@ -21,7 +21,7 @@ cp.execSync('npm install', { stdio: 'inherit' })
 
 console.log('\nSetup complete!\n')
 console.log('Next steps:')
-console.log('   1. Edit .env file with your ChatBotKit API secret')
+console.log('   1. Edit .env file with your ChatBotKit API token')
 console.log('   2. Run: npm run codegen (to generate GraphQL types)')
 console.log('   3. Run: npm run dev (to start the development server)')
 console.log('\nHappy coding!\n')

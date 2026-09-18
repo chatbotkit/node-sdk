@@ -11,7 +11,7 @@ export default async function handler(req) {
   }
 
   const cbk = new ChatBotKit({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
     runAsUserId: session.user.id,
   })
 

@@ -62,7 +62,7 @@
  *
  * export default NextAuth({
  *   adapter: ChatBotKitContactAdapter({
- *     secret: process.env.CHATBOTKIT_API_SECRET,
+ *     token: process.env.CHATBOTKIT_API_TOKEN,
  *     store: new ContactMemoryStore(),
  *     autoCreateContact: true,
  *     autoUpdateContact: true,

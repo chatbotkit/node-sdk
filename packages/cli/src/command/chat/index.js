@@ -1,4 +1,4 @@
-import { getRUNAS_USERID, getSECRET } from '../../env.js'
+import { getAPI_URL, getRUNAS_USERID, getTOKEN } from '../../env.js'
 import { Spinner } from '../../spinner.js'
 import { getTools, parseSelectedTools } from '../../tools.js'
 
@@ -15,7 +15,8 @@ import readline from 'readline/promises'
 
 function getClient() {
   return new ChatBotKit({
-    secret: getSECRET(),
+    token: getTOKEN(),
+    baseUrl: getAPI_URL(),
     runAsUserId: getRUNAS_USERID(),
   })
 }

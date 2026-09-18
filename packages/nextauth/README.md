@@ -1,7 +1,6 @@
-[![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 [![CBK.AI](https://img.shields.io/badge/credits-CBK.AI-blue.svg)](https://cbk.ai)
 [![NPM](https://img.shields.io/npm/v/@chatbotkit/nextauth.svg)](https://www.npmjs.com/package/@chatbotkit/nextauth)
-[![Email](https://img.shields.io/badge/Email-Support-blue?logo=mail.ru)](mailto:support@chatbotkit.com)
+[![Email](https://img.shields.io/badge/Email-Support-blue?logo=mail.ru)](mailto:support@cbk.ai)
 [![Discord](https://img.shields.io/badge/Discord-Support-blue?logo=discord)](https://go.cbk.ai/discord)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/chatbotkit.svg?logo=twitter)](https://twitter.com/chatbotkit)
 
@@ -19,7 +18,7 @@ Use `ChatBotKitUserAdapter` when each application user needs an isolated ChatBot
 
 - **Separate environments**: Each user gets their own bots, datasets, and resources
 - **Complete isolation**: Users cannot see or access each other's data
-- **User API integration**: Requires a parent-user API secret
+- **User API integration**: Requires a parent-user API token
 - **Best for**: SaaS applications, white-label solutions, multi-tenant platforms
 
 ### 2. Contact Adapter (Single Account)
@@ -28,7 +27,7 @@ Use `ChatBotKitContactAdapter` when you want all users to be contacts within a s
 
 - **Shared resources**: All contacts can interact with the same bots and datasets
 - **Individual tracking**: Each contact has their own conversation history and preferences
-- **Standard API integration**: Works with a regular API secret
+- **Standard API integration**: Works with a regular API token
 - **Best for**: Chat applications, customer support systems, community platforms
 
 ## Why Use This?
@@ -80,7 +79,7 @@ import {
 
 const nextAuthConfig = {
   adapter: ChatBotKitUserAdapter({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
 
     // Use Redis or another persistent store in production
     store: new MemoryStore(),
@@ -145,7 +144,7 @@ import {
 
 const nextAuthConfig = {
   adapter: ChatBotKitContactAdapter({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
 
     // Use Redis or another persistent store in production
     store: new ContactMemoryStore(),
@@ -211,10 +210,10 @@ export default NextAuth(nextAuthConfig)
 
 ### Environment Variables
 
-Add your ChatBotKit API secret to `.env`:
+Add your ChatBotKit API token to `.env`:
 
 ```bash
-CHATBOTKIT_API_SECRET=your_api_secret_here
+CHATBOTKIT_API_TOKEN=your_api_token_here
 ```
 
 ## Choosing Between User and Contact Adapters

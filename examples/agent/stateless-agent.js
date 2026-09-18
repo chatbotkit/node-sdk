@@ -38,7 +38,7 @@ const tools = {
 
 async function main() {
   const client = new ChatBotKit({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
   })
 
   /** @type {import('@chatbotkit/sdk/conversation/v1').Message[]} */

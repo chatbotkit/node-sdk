@@ -1,4 +1,4 @@
-import { getRUNAS_USERID, getSECRET } from '../../../../env.js'
+import { getAPI_URL, getRUNAS_USERID, getTOKEN } from '../../../../env.js'
 import { print } from '../../../../output.js'
 
 import { MessengerIntegrationClient } from '@chatbotkit/sdk/integration/messenger/index.js'
@@ -7,7 +7,8 @@ import { Command } from 'commander'
 
 function getClient() {
   return new MessengerIntegrationClient({
-    secret: getSECRET(),
+    token: getTOKEN(),
+    baseUrl: getAPI_URL(),
     runAsUserId: getRUNAS_USERID(),
   })
 }

@@ -41,7 +41,7 @@ dotenv.config()
  */
 async function main() {
   const client = new ChatBotKit({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
   })
 
   // Generate unique channel IDs (must be at least 16 characters)

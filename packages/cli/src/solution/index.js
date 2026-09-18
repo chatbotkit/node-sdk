@@ -1,4 +1,4 @@
-import { getRUNAS_USERID, getSECRET } from '../env.js'
+import { getAPI_URL, getRUNAS_USERID, getTOKEN } from '../env.js'
 import { CommandError } from '../output.js'
 
 import ChatBotKit from '@chatbotkit/sdk'
@@ -739,7 +739,8 @@ export class Resource {
    */
   get baseClient() {
     const client = new ChatBotKit({
-      secret: getSECRET(),
+      token: getTOKEN(),
+      baseUrl: getAPI_URL(),
       runAsUserId: getRUNAS_USERID(),
     })
 
@@ -1105,7 +1106,8 @@ export class Solution {
    */
   get baseClient() {
     const client = new ChatBotKit({
-      secret: getSECRET(),
+      token: getTOKEN(),
+      baseUrl: getAPI_URL(),
       runAsUserId: getRUNAS_USERID(),
     })
 

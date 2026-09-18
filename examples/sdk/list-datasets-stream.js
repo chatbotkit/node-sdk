@@ -7,7 +7,7 @@ dotenv.config()
 
 async function main() {
   const client = new DatasetClient({
-    secret: process.env.CHATBOTKIT_API_SECRET,
+    token: process.env.CHATBOTKIT_API_TOKEN,
   })
 
   for await (const { data } of client.list().stream()) {

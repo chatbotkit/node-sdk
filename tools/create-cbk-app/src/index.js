@@ -210,7 +210,7 @@ export default async function cbk() {
         print('Next steps:')
         print(`  cd ${appDir}`)
         print('  npm install')
-        print('  # Set your CHATBOTKIT_API_SECRET in .env.local')
+        print('  # Set your CHATBOTKIT_API_TOKEN in .env.local')
         print('  npm run dev')
       }
     })

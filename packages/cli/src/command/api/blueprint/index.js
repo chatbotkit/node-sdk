@@ -1,4 +1,4 @@
-import { getRUNAS_USERID, getSECRET } from '../../../env.js'
+import { getAPI_URL, getRUNAS_USERID, getTOKEN } from '../../../env.js'
 import { print } from '../../../output.js'
 
 import { BlueprintClient } from '@chatbotkit/sdk/blueprint/index.js'
@@ -7,7 +7,8 @@ import { Command } from 'commander'
 
 function getClient() {
   return new BlueprintClient({
-    secret: getSECRET(),
+    token: getTOKEN(),
+    baseUrl: getAPI_URL(),
     runAsUserId: getRUNAS_USERID(),
   })
 }
