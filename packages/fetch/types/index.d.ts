@@ -49,14 +49,13 @@ export function withTimeout(fetch: FetchFn<{}>, defaultOptions?: withTimeoutOpti
  */
 export function withRetry(fetch: FetchFn<{}>, defaultOptions?: withRetryOptions): FetchFn<withRetryOptions>;
 /**
- * Expose a JSONL stream as an async iterable.
+ * Expose a JSONL stream as an async iterable. The body can be a
+ * `ReadableStream`, any object with `getReader()` or an async iterable.
  *
- * @param {ReadableStream<Uint8Array> & {[Symbol.asyncIterator](): AsyncIterator<Uint8Array>}} body
+ * @param {StreamBody} body
  * @returns {AsyncGenerator<Record<string,any>>}
  */
-export function jsonl(body: ReadableStream<Uint8Array> & {
-    [Symbol.asyncIterator](): AsyncIterator<Uint8Array>;
-}): AsyncGenerator<Record<string, any>>;
+export function jsonl(body: StreamBody): AsyncGenerator<Record<string, any>>;
 export const Blob: {
     new (blobParts?: BlobPart[], options?: BlobPropertyBag): Blob;
     prototype: Blob;
@@ -154,6 +153,16 @@ export class AbortError extends Error {
 export class TimeoutError extends Error {
     code: string;
 }
+export const STREAM_UNSUPPORTED_ERROR_NAME: "StreamUnsupportedError";
+export const STREAM_UNSUPPORTED_CODE: "STREAM_UNSUPPORTED";
+/**
+ * A StreamUnsupportedError is thrown when a response cannot be read as a
+ * stream, e.g. when the fetch implementation does not expose a response body
+ * (React Native) or the runtime has no TextDecoder.
+ */
+export class StreamUnsupportedError extends Error {
+    code: string;
+}
 export default fetch;
 export type FetchFn<T> = (url: string | URL, options?: RequestInit & T) => Promise<Response>;
 /**
@@ -170,4 +179,14 @@ export type withRetryOptions = {
     retryDelay?: number;
     retryTimeout?: boolean;
     retryStatuses?: number[];
+};
+export type StreamBody = ReadableStream<Uint8Array> | AsyncIterable<Uint8Array> | {
+    getReader(): {
+        read(): Promise<{
+            done: boolean;
+            value?: Uint8Array;
+        }>;
+        cancel?(reason?: any): Promise<void>;
+        releaseLock?(): void;
+    };
 };

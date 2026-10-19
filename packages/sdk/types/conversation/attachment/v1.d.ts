@@ -22,7 +22,7 @@
 export function listConversationAttachments(client: ChatBotKitClient, conversationId: string, request?: ConversationAttachmentListRequest): ResponsePromise<ConversationAttachmentListResponse, never>;
 /**
  * @typedef {{
- *   data: string|ArrayBuffer
+ *   data: string|ArrayBuffer|import('../../buffer.js').FileReference,
  *   type: string,
  *   name?: string,
  * }} ConversationAttachmentUploadRequest
@@ -45,7 +45,7 @@ export type ConversationAttachmentListRequest = {
 };
 export type ConversationAttachmentListResponse = import("../../types/api/v1.js").operations["listConversationAttachments"]["responses"]["200"]["content"]["application/json"];
 export type ConversationAttachmentUploadRequest = {
-    data: string | ArrayBuffer;
+    data: string | ArrayBuffer | import("../../buffer.js").FileReference;
     type: string;
     name?: string;
 };

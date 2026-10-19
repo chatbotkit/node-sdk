@@ -1,3 +1,4 @@
+export { StreamUnsupportedError };
 /**
  * Thrown when the API responds with `409 authorization_required` - the linked
  * secret or connection has not been authenticated yet. `url` is the address the
@@ -63,10 +64,10 @@ export class ResponsePromise<T, U> {
         passthrough?: boolean;
         fetchFn?: FetchFunction;
     };
-    decoder: TextDecoder;
     fetchPromise: Promise<Response> | null;
     streamPromise: Promise<Response> | null;
     cacheMap: Map<string, Promise<T>>;
+    get decoder(): TextDecoder;
     /**
      * @param {{
      *   method?: string,
@@ -188,8 +189,8 @@ export class ChatBotKitClient {
      *   headers?: Record<string,any>,
      *   query?: Record<string,any>,
      *   record?: Record<string,any>,
-     *   buffer?: ArrayBuffer,
-     *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
+     *   buffer?: ArrayBuffer|Blob,
+     *   file?: { name?: string, type?: string, data: string|ArrayBuffer|import('./buffer.js').FileReference },
      *   external?: boolean,
      *   endpoint?: string,
      *   timeout?: number,
@@ -206,11 +207,11 @@ export class ChatBotKitClient {
         headers?: Record<string, any>;
         query?: Record<string, any>;
         record?: Record<string, any>;
-        buffer?: ArrayBuffer;
+        buffer?: ArrayBuffer | Blob;
         file?: {
             name?: string;
             type?: string;
-            data: string | ArrayBuffer;
+            data: string | ArrayBuffer | import("./buffer.js").FileReference;
         };
         external?: boolean;
         endpoint?: string;
@@ -235,8 +236,8 @@ export class ChatBotKitClient {
      *   headers?: Record<string,any>,
      *   query?: Record<string,any>,
      *   record?: Record<string,any>,
-     *   buffer?: ArrayBuffer,
-     *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
+     *   buffer?: ArrayBuffer|Blob,
+     *   file?: { name?: string, type?: string, data: string|ArrayBuffer|import('./buffer.js').FileReference },
      *   external?: boolean,
      *   endpoint?: string,
      *   timeout?: number,
@@ -252,11 +253,11 @@ export class ChatBotKitClient {
         headers?: Record<string, any>;
         query?: Record<string, any>;
         record?: Record<string, any>;
-        buffer?: ArrayBuffer;
+        buffer?: ArrayBuffer | Blob;
         file?: {
             name?: string;
             type?: string;
-            data: string | ArrayBuffer;
+            data: string | ArrayBuffer | import("./buffer.js").FileReference;
         };
         external?: boolean;
         endpoint?: string;
@@ -331,4 +332,5 @@ export type ChatBotKitClientOptions = {
      */
     fetchFn?: FetchFunction | undefined;
 };
+import { StreamUnsupportedError } from '@chatbotkit/fetch';
 import { FetchError } from '@chatbotkit/fetch';

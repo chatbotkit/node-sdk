@@ -411,20 +411,103 @@ export function withRetry(fetch, defaultOptions) {
   }
 }
 
+export const STREAM_UNSUPPORTED_ERROR_NAME = 'StreamUnsupportedError'
+export const STREAM_UNSUPPORTED_CODE = 'STREAM_UNSUPPORTED'
+
 /**
- * Expose a JSONL stream as an async iterable.
+ * A StreamUnsupportedError is thrown when a response cannot be read as a
+ * stream, e.g. when the fetch implementation does not expose a response body
+ * (React Native) or the runtime has no TextDecoder.
+ */
+export class StreamUnsupportedError extends Error {
+  /**
+   * @param {string} [message]
+   */
+  constructor(message) {
+    super(message || STREAM_UNSUPPORTED_ERROR_NAME)
+
+    this.name = STREAM_UNSUPPORTED_ERROR_NAME
+    this.code = STREAM_UNSUPPORTED_CODE
+  }
+}
+
+/**
+ * @typedef {ReadableStream<Uint8Array> | AsyncIterable<Uint8Array> | {
+ *   getReader(): {
+ *     read(): Promise<{ done: boolean, value?: Uint8Array }>,
+ *     cancel?(reason?: any): Promise<void>,
+ *     releaseLock?(): void
+ *   }
+ * }} StreamBody
+ */
+
+/**
+ * @param {StreamBody} body
+ * @returns {AsyncGenerator<Uint8Array>}
+ */
+async function* readChunks(body) {
+  const anyBody = /** @type {any} */ (body)
+
+  if (typeof anyBody?.getReader === 'function') {
+    const reader = anyBody.getReader()
+
+    let done = false
+
+    try {
+      while (!done) {
+        const result = await reader.read()
+
+        done = result.done
+
+        if (!done) {
+          yield result.value
+        }
+      }
+    } finally {
+      if (!done && typeof reader.cancel === 'function') {
+        await Promise.resolve()
+          .then(() => reader.cancel())
+          .catch(() => undefined)
+      }
+
+      if (typeof reader.releaseLock === 'function') {
+        reader.releaseLock()
+      }
+    }
+
+    return
+  }
+
+  if (typeof anyBody?.[Symbol.asyncIterator] === 'function') {
+    yield* anyBody
+
+    return
+  }
+
+  throw new StreamUnsupportedError('The response body is not a readable stream')
+}
+
+/**
+ * Expose a JSONL stream as an async iterable. The body can be a
+ * `ReadableStream`, any object with `getReader()` or an async iterable.
  *
- * @param {ReadableStream<Uint8Array> & {[Symbol.asyncIterator](): AsyncIterator<Uint8Array>}} body
+ * @param {StreamBody} body
  * @returns {AsyncGenerator<Record<string,any>>}
  */
 export async function* jsonl(body) {
+  if (typeof globalObject.TextDecoder !== 'function') {
+    throw new StreamUnsupportedError(
+      'TextDecoder is not available in this runtime, install a polyfill such as fast-text-encoding to read streams'
+    )
+  }
+
   try {
-    const decoder = new TextDecoder()
+    const decoder = new globalObject.TextDecoder()
 
     let previous = ''
 
-    for await (const chunk of body) {
-      previous += decoder.decode(chunk)
+    for await (const chunk of readChunks(body)) {
+      previous += decoder.decode(chunk, { stream: true })
 
       let eolIndex
 
@@ -438,6 +521,8 @@ export async function* jsonl(body) {
         previous = previous.slice(eolIndex + 1)
       }
     }
+
+    previous += decoder.decode()
 
     if (previous.trim().length > 0) {
       yield JSON.parse(previous)

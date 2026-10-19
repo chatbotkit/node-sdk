@@ -1,12 +1,17 @@
+import { isFileReference } from './buffer.js'
+
 import {
   Blob,
   FetchError,
   FormData,
+  StreamUnsupportedError,
   fetch,
   jsonl,
   withRetry,
   withTimeout,
 } from '@chatbotkit/fetch'
+
+export { StreamUnsupportedError }
 
 const fetchPlusPlus = withRetry(withTimeout(fetch, { timeout: Infinity }), {
   retries: 3,
@@ -75,12 +80,14 @@ export class ResponsePromise {
     this.url = url
     this.request = request
 
-    this.decoder = new TextDecoder()
-
     this.fetchPromise = null
     this.streamPromise = null
 
     this.cacheMap = cacheMap
+  }
+
+  get decoder() {
+    return new TextDecoder()
   }
 
   get [Symbol.toStringTag]() {
@@ -291,11 +298,16 @@ export class ResponsePromise {
     const response = await this.getStreamPromise(params)
 
     if (!response.body) {
-      return
+      if (response.status === 204) {
+        return
+      }
+
+      throw new StreamUnsupportedError(
+        'The response has no readable body stream. The fetch implementation in use does not support streaming (e.g. the React Native built-in fetch); pass a streaming fetch such as expo/fetch as the fetchFn option.'
+      )
     }
 
-    // @ts-expect-error polyfill
-    yield* jsonl(response.body)
+    yield* /** @type {AsyncGenerator<U>} */ (jsonl(response.body))
   }
 
   /**
@@ -507,8 +519,8 @@ export class ChatBotKitClient {
    *   headers?: Record<string,any>,
    *   query?: Record<string,any>,
    *   record?: Record<string,any>,
-   *   buffer?: ArrayBuffer,
-   *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
+   *   buffer?: ArrayBuffer|Blob,
+   *   file?: { name?: string, type?: string, data: string|ArrayBuffer|import('./buffer.js').FileReference },
    *   external?: boolean,
    *   endpoint?: string,
    *   timeout?: number,
@@ -606,11 +618,24 @@ export class ChatBotKitClient {
 
       data = new FormData()
 
-      data.append(
-        'file',
-        new Blob([options.file.data], { type: options.file.type }),
-        options.file.name
-      )
+      const fileData = options.file.data
+
+      if (isFileReference(fileData)) {
+        data.append(
+          'file',
+          /** @type {any} */ ({
+            uri: fileData.uri,
+            name: options.file.name ?? fileData.name,
+            type: options.file.type ?? fileData.type,
+          })
+        )
+      } else {
+        data.append(
+          'file',
+          new Blob([fileData], { type: options.file.type }),
+          options.file.name
+        )
+      }
     } else {
       method = method || 'GET'
     }
@@ -652,8 +677,8 @@ export class ChatBotKitClient {
    *   headers?: Record<string,any>,
    *   query?: Record<string,any>,
    *   record?: Record<string,any>,
-   *   buffer?: ArrayBuffer,
-   *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
+   *   buffer?: ArrayBuffer|Blob,
+   *   file?: { name?: string, type?: string, data: string|ArrayBuffer|import('./buffer.js').FileReference },
    *   external?: boolean,
    *   endpoint?: string,
    *   timeout?: number,

@@ -1,4 +1,3 @@
-export { AuthorizationRequiredError } from "./client.js";
 /**
  * ChatBotKit SDK - Main client class for interacting with the ChatBotKit API
  *
@@ -63,3 +62,4 @@ import { ChatBotKitClient } from './client.js';
 import { PlatformClient } from './platform/index.js';
 import { TaskClient } from './task/index.js';
 export { BlueprintClient, BotClient, ChannelClient, EventClient, FileClient, MagicClient, UserClient, DatasetClient, DecisionClient, SkillsetClient, IntegrationClient, ConversationClient, ContactClient, SecretClient, TeamClient, MemoryClient, PolicyClient, PortalClient, GraphqlClient, SpaceClient, UsageClient };
+export { AuthorizationRequiredError, StreamUnsupportedError } from "./client.js";
