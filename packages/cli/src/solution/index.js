@@ -133,6 +133,7 @@ export const BlueprintResourceConfigSchema = BasicResourceConfigSchema.extend({
     name: z.string().optional(),
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
+    contactId: z.string().optional(),
     visibility: z.enum(['private', 'protected', 'public']).optional(),
   }),
 })
@@ -156,6 +157,7 @@ export const BotResourceConfigSchema = BasicResourceConfigSchema.extend({
     moderation: z.boolean().optional(),
     privacy: z.boolean().optional(),
     blueprintId: z.string().optional(),
+    contactId: z.string().optional(),
     visibility: z.enum(['private', 'protected', 'public']).optional(),
   }),
 })
@@ -173,6 +175,7 @@ export const DatasetResourceConfigSchema = BasicResourceConfigSchema.extend({
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
     blueprintId: z.string().optional(),
+    contactId: z.string().optional(),
     reranker: z.string().optional(),
     recordMaxTokens: z.number().optional(),
     searchMinScore: z.number().optional(),
@@ -198,6 +201,7 @@ export const FileResourceConfigSchema = BasicResourceConfigSchema.extend({
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
     blueprintId: z.string().optional(),
+    contactId: z.string().optional(),
     visibility: z.enum(['private', 'protected', 'public']).optional(),
   }),
 })
@@ -232,6 +236,7 @@ export const SecretResourceConfigSchema = BasicResourceConfigSchema.extend({
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
     blueprintId: z.string().optional(),
+    contactId: z.string().optional(),
     kind: z.enum(['shared', 'personal']).optional(),
     type: z
       .enum(['plain', 'basic', 'bearer', 'oauth', 'template', 'reference'])
@@ -255,6 +260,7 @@ export const SkillsetResourceConfigSchema = BasicResourceConfigSchema.extend({
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
     blueprintId: z.string().optional(),
+    contactId: z.string().optional(),
     state: z.enum(['enabled', 'disabled']).optional(),
     visibility: z.enum(['private', 'protected', 'public']).optional(),
   }),
