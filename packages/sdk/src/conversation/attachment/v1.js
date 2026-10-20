@@ -44,16 +44,16 @@ export function listConversationAttachments(client, conversationId, request) {
  * }} ConversationAttachmentUploadResponse
  *
  * @param {ChatBotKitClient} client
- * @param {string} attachmentId
+ * @param {string} conversationId
  * @param {ConversationAttachmentUploadRequest} request
  * @returns {Promise<ConversationAttachmentUploadResponse>}
  */
 export async function uploadConversationAttachment(
   client,
-  attachmentId,
+  conversationId,
   request
 ) {
-  const url = `/api/v1/Attachment/${attachmentId}/upload`
+  const url = `/api/v1/conversation/${conversationId}/attachment/upload`
 
   const buffer = getBuffer(request.data)
 
