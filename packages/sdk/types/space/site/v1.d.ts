@@ -80,6 +80,22 @@ export function updateSpaceSite(client: ChatBotKitClient, spaceId: string, siteI
  * @returns {Promise<SpaceSiteDeleteResponse>}
  */
 export function deleteSpaceSite(client: ChatBotKitClient, spaceId: string, siteId: string, request?: SpaceSiteDeleteRequest): Promise<SpaceSiteDeleteResponse>;
+/**
+ * @typedef {import('../../types/api/v1.js').operations['createSpaceSiteLink']['requestBody']['content']['application/json']} SpaceSiteLinkCreateRequestBody
+ *
+ * @typedef {SpaceSiteLinkCreateRequestBody} SpaceSiteLinkCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createSpaceSiteLink']['responses']['200']['content']['application/json']} SpaceSiteLinkCreateResponseBody
+ *
+ * @typedef {SpaceSiteLinkCreateResponseBody} SpaceSiteLinkCreateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} spaceId
+ * @param {string} siteId
+ * @param {SpaceSiteLinkCreateRequest} [request]
+ * @returns {Promise<SpaceSiteLinkCreateResponse>}
+ */
+export function createSpaceSiteLink(client: ChatBotKitClient, spaceId: string, siteId: string, request?: SpaceSiteLinkCreateRequest): Promise<SpaceSiteLinkCreateResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type SpaceSiteListRequest = {
@@ -103,3 +119,7 @@ export type SpaceSiteDeleteRequestBody = import("../../types/api/v1.js").operati
 export type SpaceSiteDeleteRequest = SpaceSiteDeleteRequestBody;
 export type SpaceSiteDeleteResponseBody = import("../../types/api/v1.js").operations["deleteSpaceSite"]["responses"]["200"]["content"]["application/json"];
 export type SpaceSiteDeleteResponse = SpaceSiteDeleteResponseBody;
+export type SpaceSiteLinkCreateRequestBody = import("../../types/api/v1.js").operations["createSpaceSiteLink"]["requestBody"]["content"]["application/json"];
+export type SpaceSiteLinkCreateRequest = SpaceSiteLinkCreateRequestBody;
+export type SpaceSiteLinkCreateResponseBody = import("../../types/api/v1.js").operations["createSpaceSiteLink"]["responses"]["200"]["content"]["application/json"];
+export type SpaceSiteLinkCreateResponse = SpaceSiteLinkCreateResponseBody;

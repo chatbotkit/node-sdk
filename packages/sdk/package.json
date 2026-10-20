@@ -124,6 +124,66 @@
       "types": "./types/client.d.ts",
       "import": "./src/client.js"
     },
+    "./computer/file": {
+      "types": "./types/computer/file/index.d.ts",
+      "import": "./src/computer/file/index.js"
+    },
+    "./computer/file/index": {
+      "types": "./types/computer/file/index.d.ts",
+      "import": "./src/computer/file/index.js"
+    },
+    "./computer/file/index.js": {
+      "types": "./types/computer/file/index.d.ts",
+      "import": "./src/computer/file/index.js"
+    },
+    "./computer/file/v1": {
+      "types": "./types/computer/file/v1.d.ts",
+      "import": "./src/computer/file/v1.js"
+    },
+    "./computer/file/v1.js": {
+      "types": "./types/computer/file/v1.d.ts",
+      "import": "./src/computer/file/v1.js"
+    },
+    "./computer": {
+      "types": "./types/computer/index.d.ts",
+      "import": "./src/computer/index.js"
+    },
+    "./computer/index": {
+      "types": "./types/computer/index.d.ts",
+      "import": "./src/computer/index.js"
+    },
+    "./computer/index.js": {
+      "types": "./types/computer/index.d.ts",
+      "import": "./src/computer/index.js"
+    },
+    "./computer/session": {
+      "types": "./types/computer/session/index.d.ts",
+      "import": "./src/computer/session/index.js"
+    },
+    "./computer/session/index": {
+      "types": "./types/computer/session/index.d.ts",
+      "import": "./src/computer/session/index.js"
+    },
+    "./computer/session/index.js": {
+      "types": "./types/computer/session/index.d.ts",
+      "import": "./src/computer/session/index.js"
+    },
+    "./computer/session/v1": {
+      "types": "./types/computer/session/v1.d.ts",
+      "import": "./src/computer/session/v1.js"
+    },
+    "./computer/session/v1.js": {
+      "types": "./types/computer/session/v1.d.ts",
+      "import": "./src/computer/session/v1.js"
+    },
+    "./computer/v1": {
+      "types": "./types/computer/v1.d.ts",
+      "import": "./src/computer/v1.js"
+    },
+    "./computer/v1.js": {
+      "types": "./types/computer/v1.d.ts",
+      "import": "./src/computer/v1.js"
+    },
     "./contact/conversation": {
       "types": "./types/contact/conversation/index.d.ts",
       "import": "./src/contact/conversation/index.js"
