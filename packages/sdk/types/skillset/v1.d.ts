@@ -82,6 +82,7 @@ export type SkillsetListRequest = {
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
+    contactId?: string;
 };
 export type SkillsetListResponse = import("../types/api/v1.js").operations["listSkillsets"]["responses"]["200"]["content"]["application/json"];
 export type SkillsetListStreamType = import("../types/api/v1.js").operations["listSkillsets"]["responses"]["200"]["content"]["application/jsonl"];

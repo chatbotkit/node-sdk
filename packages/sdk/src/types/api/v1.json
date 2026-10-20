@@ -10297,6 +10297,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -10348,6 +10356,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the skillset",
+                            "type": "string"
                           },
                           "visibility": {
                             "type": "string",
@@ -10439,6 +10451,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the skillset",
+                              "type": "string"
                             },
                             "visibility": {
                               "type": "string",
@@ -10544,6 +10560,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the skillset"
                   },
                   "visibility": {
                     "type": "string",
@@ -10665,6 +10685,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the skillset"
                   },
                   "visibility": {
                     "type": "string",
@@ -10800,6 +10824,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the skillset",
+                      "type": "string"
                     },
                     "visibility": {
                       "type": "string",
@@ -12634,6 +12662,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12685,6 +12721,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the secret",
+                            "type": "string"
                           },
                           "kind": {
                             "type": "string",
@@ -12795,6 +12835,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the secret",
+                              "type": "string"
                             },
                             "kind": {
                               "type": "string",
@@ -12919,6 +12963,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the secret"
                   },
                   "kind": {
                     "type": "string",
@@ -13174,6 +13222,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the secret"
                   },
                   "kind": {
                     "type": "string",
@@ -13564,6 +13616,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the secret",
+                      "type": "string"
                     },
                     "kind": {
                       "type": "string",
@@ -34904,6 +34960,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -34955,6 +35019,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the file",
+                            "type": "string"
                           },
                           "visibility": {
                             "type": "string",
@@ -35037,6 +35105,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the file",
+                              "type": "string"
                             },
                             "visibility": {
                               "type": "string",
@@ -35133,6 +35205,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the file"
                   },
                   "visibility": {
                     "type": "string",
@@ -35406,6 +35482,10 @@
                     "description": "The ID of the blueprint",
                     "nullable": true
                   },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the file"
+                  },
                   "visibility": {
                     "type": "string",
                     "description": "The file visibility",
@@ -35608,6 +35688,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the file",
+                      "type": "string"
                     },
                     "visibility": {
                       "type": "string",
@@ -37374,6 +37458,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -37425,6 +37517,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the dataset",
+                            "type": "string"
                           },
                           "reranker": {
                             "description": "The reranker class for the dataset",
@@ -37539,6 +37635,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the dataset",
+                              "type": "string"
                             },
                             "reranker": {
                               "description": "The reranker class for the dataset",
@@ -37667,6 +37767,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the dataset"
                   },
                   "reranker": {
                     "description": "The reranker class for the dataset",
@@ -37811,6 +37915,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the dataset"
                   },
                   "reranker": {
                     "description": "The reranker class for the dataset",
@@ -38193,6 +38301,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the dataset",
+                      "type": "string"
                     },
                     "reranker": {
                       "description": "The reranker class for the dataset",
@@ -50587,6 +50699,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -50638,6 +50758,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the computer",
+                            "type": "string"
                           },
                           "kind": {
                             "description": "The kind of computer",
@@ -50732,6 +50856,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the computer",
+                              "type": "string"
                             },
                             "kind": {
                               "description": "The kind of computer",
@@ -51046,6 +51174,10 @@
                     "description": "The ID of the blueprint",
                     "nullable": true
                   },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the computer"
+                  },
                   "kind": {
                     "type": "string",
                     "description": "The kind of computer, a headless shell or a desktop with a remote view",
@@ -51156,6 +51288,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the computer"
                   },
                   "kind": {
                     "type": "string",
@@ -51538,6 +51674,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the computer",
+                      "type": "string"
                     },
                     "kind": {
                       "description": "The kind of computer",
@@ -52278,6 +52418,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -52359,6 +52507,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the bot",
+                            "type": "string"
                           },
                           "visibility": {
                             "type": "string",
@@ -52471,6 +52623,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the bot",
+                              "type": "string"
                             },
                             "visibility": {
                               "type": "string",
@@ -52597,6 +52753,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the bot"
                   },
                   "visibility": {
                     "type": "string",
@@ -52829,6 +52989,10 @@
                     "description": "The ID of the blueprint",
                     "nullable": true
                   },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the bot"
+                  },
                   "visibility": {
                     "type": "string",
                     "description": "The bot visibility",
@@ -52984,6 +53148,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the bot",
+                      "type": "string"
                     },
                     "visibility": {
                       "type": "string",
@@ -53683,6 +53851,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -53729,6 +53905,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the blueprint",
+                            "type": "string"
                           },
                           "visibility": {
                             "type": "string",
@@ -53806,6 +53986,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the blueprint",
+                              "type": "string"
                             },
                             "visibility": {
                               "type": "string",
@@ -53897,6 +54081,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the blueprint"
                   },
                   "visibility": {
                     "type": "string",
@@ -54004,6 +54192,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the blueprint"
                   },
                   "visibility": {
                     "type": "string",
@@ -54125,6 +54317,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the blueprint",
+                      "type": "string"
                     },
                     "visibility": {
                       "type": "string",

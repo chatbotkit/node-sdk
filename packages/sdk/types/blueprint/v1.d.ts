@@ -167,6 +167,7 @@ export type BlueprintListRequest = {
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
+    contactId?: string;
 };
 export type BlueprintListResponse = import("../types/api/v1.js").operations["listBlueprints"]["responses"]["200"]["content"]["application/json"];
 export type BlueprintListStreamType = import("../types/api/v1.js").operations["listBlueprints"]["responses"]["200"]["content"]["application/jsonl"];

@@ -97,6 +97,7 @@ export type DatasetListRequest = {
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
+    contactId?: string;
 };
 export type DatasetListResponse = import("../types/api/v1.js").operations["listDatasets"]["responses"]["200"]["content"]["application/json"];
 export type DatasetListStreamType = import("../types/api/v1.js").operations["listDatasets"]["responses"]["200"]["content"]["application/jsonl"];
