@@ -1,5 +1,27 @@
 # @chatbotkit/sdk
 
+## 1.41.0
+
+### Minor Changes
+
+- 83ce296: Add the computer client. `cbk.computer` creates, lists, fetches, updates and deletes computers (`kind: 'shell' | 'desktop'`), starts, stops and restarts them, and runs commands with `exec`. `cbk.computer.file.read` and `cbk.computer.file.write` share text files, and `cbk.computer.session.create` mints a short-lived web VNC link to a desktop computer. Skillset abilities accept `linkedComputerId` to run shell abilities on a computer instead of an ephemeral sandbox.
+- 6905c70: Blueprints, bots, datasets, skillsets, files, secrets and computers accept an optional `contactId` on create and update, return it on fetch and list, and their list methods accept a `contactId` filter.
+- 31311f5: React Native and Expo support.
+
+  - `@chatbotkit/sdk`: `stream()` now throws a `StreamUnsupportedError` (`code: 'STREAM_UNSUPPORTED'`) when the response has no readable body, e.g. with the built-in React Native `fetch`, instead of silently yielding nothing. Pass a streaming fetch such as `expo/fetch` as `fetchFn`. Requests no longer construct a `TextDecoder` up front.
+  - `@chatbotkit/sdk`: `file.upload()` and `conversation.attachment.upload()` accept React Native file references (`{ uri, name, type }`) as `data`.
+  - `@chatbotkit/fetch`: `jsonl()` reads any body with `getReader()` or an async iterable, decodes multi-byte characters split across chunks, cancels the reader when the consumer stops early, and throws a `StreamUnsupportedError` when the body cannot be read or `TextDecoder` is missing.
+  - `@chatbotkit/react`: new `@chatbotkit/react/headless` entry point with the conversation manager hooks and context only, no `react-dom` or DOM APIs. `react-dom` and `react-markdown` are now optional peer dependencies.
+
+- 83ce296: Add private space sites. Space sites accept `access: 'public' | 'private'`, and `cbk.space.site.createLink(spaceId, siteId, { path, durationInSeconds })` mints a temporary link that opens a site, or one folder of it, until it expires.
+
+### Patch Changes
+
+- 1a280ae: Fix `conversation.attachment.upload` posting to the non-existent `/api/v1/Attachment/{id}/upload` route. It now registers the upload at `/api/v1/conversation/{conversationId}/attachment/upload`. The first argument is the conversation id (previously documented as `fileId`/`attachmentId`); positional callers are unaffected.
+- 83ce296: Add `failureCode` and `failureReason` to the `cbk.task.execution.list` item types. `failureCode` is `agent_failure`, `limit_iterations`, `limit_time` or `limit_calls` for a failed run, and `null` otherwise.
+- Updated dependencies [31311f5]
+  - @chatbotkit/fetch@1.41.0
+
 ## 1.40.0
 
 ### Minor Changes
