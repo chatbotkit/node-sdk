@@ -15,7 +15,8 @@ import { buildModelString } from '../model/v1.js'
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
- *   meta?: Record<string,string>
+ *   meta?: Record<string,string>,
+ *   contactId?: string
  * }} BotListRequest
  *
  * @typedef {import('../types/api/v1.js').operations['listBots']['responses']['200']['content']['application/json']} BotListResponse

@@ -117,6 +117,7 @@ export type ComputerListRequest = {
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
+    contactId?: string;
 };
 export type ComputerListResponse = import("../types/api/v1.js").operations["listComputers"]["responses"]["200"]["content"]["application/json"];
 export type ComputerListStreamType = import("../types/api/v1.js").operations["listComputers"]["responses"]["200"]["content"]["application/jsonl"];

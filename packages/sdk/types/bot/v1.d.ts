@@ -116,6 +116,7 @@ export type BotListRequest = {
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
+    contactId?: string;
 };
 export type BotListResponse = import("../types/api/v1.js").operations["listBots"]["responses"]["200"]["content"]["application/json"];
 export type BotListStreamType = import("../types/api/v1.js").operations["listBots"]["responses"]["200"]["content"]["application/jsonl"];

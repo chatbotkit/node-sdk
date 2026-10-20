@@ -10657,6 +10657,7 @@ export interface operations {
                 meta?: {
                     [key: string]: string;
                 };
+                contactId?: string;
             };
             header?: never;
             path?: never;
@@ -10690,6 +10691,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the skillset */
+                            contactId?: string;
                             /**
                              * @description The skillset visibility
                              * @enum {string}
@@ -10730,6 +10733,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the skillset */
+                            contactId?: string;
                             /**
                              * @description The skillset visibility
                              * @enum {string}
@@ -10775,6 +10780,8 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the skillset */
+                    contactId?: string;
                     /**
                      * @description The skillset visibility
                      * @enum {string}
@@ -10834,6 +10841,8 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the skillset */
+                    contactId?: string;
                     /**
                      * @description The skillset visibility
                      * @enum {string}
@@ -10905,6 +10914,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the blueprint */
                         blueprintId?: string | null;
+                        /** @description The contact associated with the skillset */
+                        contactId?: string;
                         /**
                          * @description The skillset visibility
                          * @enum {string}
@@ -11652,6 +11663,7 @@ export interface operations {
                 meta?: {
                     [key: string]: string;
                 };
+                contactId?: string;
             };
             header?: never;
             path?: never;
@@ -11685,6 +11697,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the secret */
+                            contactId?: string;
                             /**
                              * @description The kind of the secret
                              * @enum {string}
@@ -11734,6 +11748,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the secret */
+                            contactId?: string;
                             /**
                              * @description The kind of the secret
                              * @enum {string}
@@ -11788,6 +11804,8 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the secret */
+                    contactId?: string;
                     /**
                      * @description The kind of the secret
                      * @enum {string}
@@ -11908,6 +11926,8 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the secret */
+                    contactId?: string;
                     /**
                      * @description The kind of the secret
                      * @enum {string}
@@ -12102,6 +12122,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the blueprint */
                         blueprintId?: string | null;
+                        /** @description The contact associated with the secret */
+                        contactId?: string;
                         /**
                          * @description The kind of the secret
                          * @enum {string}
@@ -21646,6 +21668,7 @@ export interface operations {
                 meta?: {
                     [key: string]: string;
                 };
+                contactId?: string;
             };
             header?: never;
             path?: never;
@@ -21679,6 +21702,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the file */
+                            contactId?: string;
                             /**
                              * @description The file visibility
                              * @enum {string}
@@ -21714,6 +21739,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the file */
+                            contactId?: string;
                             /**
                              * @description The file visibility
                              * @enum {string}
@@ -21754,6 +21781,8 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the file */
+                    contactId?: string;
                     /**
                      * @description The file visibility
                      * @enum {string}
@@ -21874,6 +21903,8 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the file */
+                    contactId?: string;
                     /**
                      * @description The file visibility
                      * @enum {string}
@@ -21976,6 +22007,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the blueprint */
                         blueprintId?: string | null;
+                        /** @description The contact associated with the file */
+                        contactId?: string;
                         /**
                          * @description The file visibility
                          * @enum {string}
@@ -22714,6 +22747,7 @@ export interface operations {
                 meta?: {
                     [key: string]: string;
                 };
+                contactId?: string;
             };
             header?: never;
             path?: never;
@@ -22747,6 +22781,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the dataset */
+                            contactId?: string;
                             /** @description The reranker class for the dataset */
                             reranker?: string;
                             /** @description The total number of tokens for each record */
@@ -22798,6 +22834,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the dataset */
+                            contactId?: string;
                             /** @description The reranker class for the dataset */
                             reranker?: string;
                             /** @description The total number of tokens for each record */
@@ -22854,6 +22892,8 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the dataset */
+                    contactId?: string;
                     /** @description The reranker class for the dataset */
                     reranker?: string;
                     /** @description The total number of tokens for each record */
@@ -22924,6 +22964,8 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the dataset */
+                    contactId?: string;
                     /** @description The reranker class for the dataset */
                     reranker?: string;
                     /** @description The total number of tokens to for each record */
@@ -23068,6 +23110,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the blueprint */
                         blueprintId?: string | null;
+                        /** @description The contact associated with the dataset */
+                        contactId?: string;
                         /** @description The reranker class for the dataset */
                         reranker?: string;
                         /** @description The total number of tokens for each record */
@@ -28134,6 +28178,7 @@ export interface operations {
                 meta?: {
                     [key: string]: string;
                 };
+                contactId?: string;
             };
             header?: never;
             path?: never;
@@ -28167,6 +28212,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the computer */
+                            contactId?: string;
                             /**
                              * @description The kind of computer
                              * @enum {string}
@@ -28212,6 +28259,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the computer */
+                            contactId?: string;
                             /**
                              * @description The kind of computer
                              * @enum {string}
@@ -28348,6 +28397,8 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the computer */
+                    contactId?: string;
                     /**
                      * @description The kind of computer, a headless shell or a desktop with a remote view
                      * @default shell
@@ -28403,6 +28454,8 @@ export interface operations {
                     };
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the computer */
+                    contactId?: string;
                     /**
                      * @description The kind of computer. Accepted only when unchanged
                      * @enum {string}
@@ -28592,6 +28645,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the blueprint */
                         blueprintId?: string | null;
+                        /** @description The contact associated with the computer */
+                        contactId?: string;
                         /**
                          * @description The kind of computer
                          * @enum {string}
@@ -28928,6 +28983,7 @@ export interface operations {
                 meta?: {
                     [key: string]: string;
                 };
+                contactId?: string;
             };
             header?: never;
             path?: never;
@@ -28976,6 +29032,8 @@ export interface operations {
                             moderation?: boolean;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the bot */
+                            contactId?: string;
                             /**
                              * @description The bot visibility
                              * @enum {string}
@@ -29026,6 +29084,8 @@ export interface operations {
                             moderation?: boolean;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the bot */
+                            contactId?: string;
                             /**
                              * @description The bot visibility
                              * @enum {string}
@@ -29081,6 +29141,8 @@ export interface operations {
                     moderation?: boolean;
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the bot */
+                    contactId?: string;
                     /**
                      * @description The bot visibility
                      * @enum {string}
@@ -29194,6 +29256,8 @@ export interface operations {
                     moderation?: boolean;
                     /** @description The ID of the blueprint */
                     blueprintId?: string | null;
+                    /** @description The contact associated with the bot */
+                    contactId?: string;
                     /**
                      * @description The bot visibility
                      * @enum {string}
@@ -29275,6 +29339,8 @@ export interface operations {
                         moderation?: boolean;
                         /** @description The ID of the blueprint */
                         blueprintId?: string | null;
+                        /** @description The contact associated with the bot */
+                        contactId?: string;
                         /**
                          * @description The bot visibility
                          * @enum {string}
@@ -29568,6 +29634,7 @@ export interface operations {
                 meta?: {
                     [key: string]: string;
                 };
+                contactId?: string;
             };
             header?: never;
             path?: never;
@@ -29599,6 +29666,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The contact associated with the blueprint */
+                            contactId?: string;
                             /**
                              * @description The blueprint visibility
                              * @enum {string}
@@ -29632,6 +29701,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The contact associated with the blueprint */
+                            contactId?: string;
                             /**
                              * @description The blueprint visibility
                              * @enum {string}
@@ -29670,6 +29741,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The contact associated with the blueprint */
+                    contactId?: string;
                     /**
                      * @description The blueprint visibility
                      * @enum {string}
@@ -29722,6 +29795,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The contact associated with the blueprint */
+                    contactId?: string;
                     /**
                      * @description The blueprint visibility
                      * @enum {string}
@@ -29786,6 +29861,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The contact associated with the blueprint */
+                        contactId?: string;
                         /**
                          * @description The blueprint visibility
                          * @enum {string}

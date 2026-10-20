@@ -123,6 +123,7 @@ export type FileListRequest = {
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
+    contactId?: string;
 };
 export type FileListResponse = import("../types/api/v1.js").operations["listFiles"]["responses"]["200"]["content"]["application/json"];
 export type FileListStreamType = import("../types/api/v1.js").operations["listFiles"]["responses"]["200"]["content"]["application/jsonl"];
