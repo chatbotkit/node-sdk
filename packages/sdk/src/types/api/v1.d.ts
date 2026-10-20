@@ -28223,7 +28223,7 @@ export interface operations {
                              * @description The last known state of the computer
                              * @enum {string}
                              */
-                            status?: "stopped" | "running";
+                            status?: "stopped" | "running" | "suspended";
                             /**
                              * Format: date-time
                              * @description When the computer was last started, stopped or provisioned
@@ -28270,7 +28270,7 @@ export interface operations {
                              * @description The last known state of the computer
                              * @enum {string}
                              */
-                            status?: "stopped" | "running";
+                            status?: "stopped" | "running" | "suspended";
                             /**
                              * Format: date-time
                              * @description When the computer was last started, stopped or provisioned
@@ -28514,7 +28514,7 @@ export interface operations {
                          * @description The state of the computer
                          * @enum {string}
                          */
-                        status: "stopped" | "running";
+                        status: "stopped" | "running" | "suspended";
                     };
                 };
             };
@@ -28555,7 +28555,7 @@ export interface operations {
                          * @description The state of the computer
                          * @enum {string}
                          */
-                        status: "stopped" | "running";
+                        status: "stopped" | "running" | "suspended";
                     };
                 };
             };
@@ -28596,7 +28596,7 @@ export interface operations {
                          * @description The state of the computer
                          * @enum {string}
                          */
-                        status: "stopped" | "running";
+                        status: "stopped" | "running" | "suspended";
                     };
                 };
             };
@@ -28656,7 +28656,7 @@ export interface operations {
                          * @description The last known state of the computer
                          * @enum {string}
                          */
-                        status?: "stopped" | "running";
+                        status?: "stopped" | "running" | "suspended";
                         /**
                          * Format: date-time
                          * @description When the computer was last started, stopped or provisioned

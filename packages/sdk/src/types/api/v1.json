@@ -50776,7 +50776,8 @@
                             "type": "string",
                             "enum": [
                               "stopped",
-                              "running"
+                              "running",
+                              "suspended"
                             ]
                           },
                           "lastActiveAt": {
@@ -50874,7 +50875,8 @@
                               "type": "string",
                               "enum": [
                                 "stopped",
-                                "running"
+                                "running",
+                                "suspended"
                               ]
                             },
                             "lastActiveAt": {
@@ -51400,7 +51402,8 @@
                       "type": "string",
                       "enum": [
                         "stopped",
-                        "running"
+                        "running",
+                        "suspended"
                       ]
                     }
                   },
@@ -51486,7 +51489,8 @@
                       "type": "string",
                       "enum": [
                         "stopped",
-                        "running"
+                        "running",
+                        "suspended"
                       ]
                     }
                   },
@@ -51572,7 +51576,8 @@
                       "type": "string",
                       "enum": [
                         "stopped",
-                        "running"
+                        "running",
+                        "suspended"
                       ]
                     }
                   },
@@ -51692,7 +51697,8 @@
                       "type": "string",
                       "enum": [
                         "stopped",
-                        "running"
+                        "running",
+                        "suspended"
                       ]
                     },
                     "lastActiveAt": {
