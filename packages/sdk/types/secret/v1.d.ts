@@ -156,6 +156,7 @@ export type SecretListRequest = {
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
+    contactId?: string;
 };
 export type SecretListResponse = import("../types/api/v1.js").operations["listSecrets"]["responses"]["200"]["content"]["application/json"];
 export type SecretListStreamType = import("../types/api/v1.js").operations["listSecrets"]["responses"]["200"]["content"]["application/jsonl"];

@@ -18,11 +18,11 @@ export class ConversationAttachmentClient extends ChatBotKitClient {
     /**
      * Upload file data.
      *
-     * @param {string} fileId
+     * @param {string} conversationId
      * @param {import('./v1.js').ConversationAttachmentUploadRequest} request
      * @returns {Promise<import('./v1.js').ConversationAttachmentUploadResponse>}
      */
-    upload(fileId: string, request: import("./v1.js").ConversationAttachmentUploadRequest): Promise<import("./v1.js").ConversationAttachmentUploadResponse>;
+    upload(conversationId: string, request: import("./v1.js").ConversationAttachmentUploadRequest): Promise<import("./v1.js").ConversationAttachmentUploadResponse>;
 }
 export default ConversationAttachmentClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

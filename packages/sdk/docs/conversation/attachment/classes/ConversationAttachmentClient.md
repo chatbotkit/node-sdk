@@ -193,7 +193,7 @@ Retrieves a list of all attachments.
 
 ### upload()
 
-> **upload**(`fileId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`ConversationAttachmentUploadResponse`](../v1/type-aliases/ConversationAttachmentUploadResponse.md)\>
+> **upload**(`conversationId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`ConversationAttachmentUploadResponse`](../v1/type-aliases/ConversationAttachmentUploadResponse.md)\>
 
 Defined in: [conversation/attachment/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/attachment/index.js#L42)
 
@@ -201,7 +201,7 @@ Upload file data.
 
 #### Parameters
 
-##### fileId
+##### conversationId
 
 `string`
 

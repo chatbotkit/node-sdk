@@ -1,4 +1,4 @@
-import { getBuffer } from '../buffer.js'
+import { getUploadBody } from '../buffer.js'
 
 // @todo improve types
 
@@ -17,7 +17,8 @@ import { getBuffer } from '../buffer.js'
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
- *   meta?: Record<string,string>
+ *   meta?: Record<string,string>,
+ *   contactId?: string
  * }} FileListRequest
  *
  * @typedef {import('../types/api/v1.js').operations['listFiles']['responses']['200']['content']['application/json']} FileListResponse
@@ -140,7 +141,7 @@ export async function deleteFile(client, fileId, request) {
  * @typedef {import('../types/api/v1.js').operations['uploadFile']['requestBody']['content']['application/json']} FileUploadRequestBody
  *
  * @typedef {{
- *   data: string|ArrayBuffer
+ *   data: string|ArrayBuffer|import('../buffer.js').FileReference,
  *   type: string,
  *   name?: string,
  * }} FileUploadRequest
@@ -157,16 +158,16 @@ export async function deleteFile(client, fileId, request) {
 export async function uploadFile(client, fileId, request) {
   const url = `/api/v1/file/${fileId}/upload`
 
-  const buffer = getBuffer(request.data)
+  const upload = await getUploadBody(request.data)
 
   /** @type {FileUploadResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {FileUploadRequestBody} */
     record: {
       file: {
-        size: buffer.byteLength,
+        size: upload.size,
         type: request.type,
-        name: request.name,
+        name: request.name ?? upload.name,
       },
     },
   })
@@ -182,7 +183,7 @@ export async function uploadFile(client, fileId, request) {
 
     headers: uploadRequest.headers,
 
-    buffer: buffer,
+    buffer: upload.body,
 
     external: true,
   })

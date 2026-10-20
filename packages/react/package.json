@@ -82,6 +82,14 @@
       "types": "./types/components/ConversationManager.d.ts",
       "import": "./src/components/ConversationManager.js"
     },
+    "./headless": {
+      "types": "./types/headless.d.ts",
+      "import": "./src/headless.js"
+    },
+    "./headless.js": {
+      "types": "./types/headless.d.ts",
+      "import": "./src/headless.js"
+    },
     "./hooks/useConversationManager": {
       "types": "./types/hooks/useConversationManager.d.ts",
       "import": "./src/hooks/useConversationManager.js"
@@ -212,7 +220,7 @@
     "lint": "eslint .",
     "postpack": "node ../../scripts/create-standard-exports.js",
     "prepack": "node ../../scripts/create-dist-exports.js",
-    "test": "true"
+    "test": "node --test test/*.test.js"
   },
   "types": "./types/index.d.ts",
   "dependencies": {
@@ -223,6 +231,14 @@
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
     "react-markdown": "^8.0.4"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    },
+    "react-markdown": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/react": "19.2.18",

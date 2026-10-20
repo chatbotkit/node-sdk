@@ -311,6 +311,30 @@ export const config = {
 
 Discover more examples [here](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs).
 
+### React Native and Expo
+
+Import the hooks and context from `@chatbotkit/react/headless`. This entry point has no `react-dom` or DOM dependencies, so it works in React Native and Expo:
+
+```javascript
+import { useConversationManager } from '@chatbotkit/react/headless'
+import { ConversationClient } from '@chatbotkit/sdk'
+
+import { fetch } from 'expo/fetch'
+
+const client = new ConversationClient({ token: sessionToken, fetchFn: fetch })
+
+function Chat({ conversationId }) {
+  const { messages, text, setText, submit } = useConversationManager({
+    client,
+    conversationId,
+  })
+
+  // render with React Native components
+}
+```
+
+The components (`ChatInput`, `ChatMessage`, `AutoScroller` and others) render DOM elements and remain web-only. See the [React Native / Expo guide](https://docs.cbk.ai/react-native-sdk).
+
 ## Documentation
 
 For a comprehensive understanding of the ChatBotKit React SDK, including detailed insights into its capabilities and configuration for various environments, please visit our [type documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.html).

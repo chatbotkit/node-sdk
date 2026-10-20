@@ -11,6 +11,7 @@
     "./src/components/ChatMessage.js",
     "./src/components/ChatMessages.js",
     "./src/components/ConversationManager.js",
+    "./src/headless.js",
     "./src/hooks/useConversationManager.js",
     "./src/hooks/useConversationManagerRemote.js",
     "./src/hooks/useConversationManagerState.js",

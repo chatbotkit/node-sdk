@@ -57,6 +57,28 @@ for await (const { type, data } of client
 
 Explore a detailed example with more advanced features [here](https://github.com/chatbotkit/node-sdk/tree/main/examples/sdk).
 
+### React Native and Expo
+
+The SDK works in React Native and Expo. The built-in React Native `fetch` cannot stream responses, so pass a streaming implementation such as `expo/fetch` as `fetchFn`. Authenticate with a short-lived session token minted by your backend and never ship an API secret in the app:
+
+```javascript
+import { ChatBotKit } from '@chatbotkit/sdk'
+
+import { fetch } from 'expo/fetch'
+
+const cbk = new ChatBotKit({ token: sessionToken, fetchFn: fetch })
+
+for await (const { type, data } of cbk.conversation
+  .complete(conversationId, { text: 'Hello' })
+  .stream()) {
+  if (type === 'token') {
+    console.log(data.token)
+  }
+}
+```
+
+When the response has no readable body, `stream()` throws a `StreamUnsupportedError` (`code: 'STREAM_UNSUPPORTED'`) instead of returning an empty stream. File uploads also accept `{ uri, name, type }` references from React Native pickers. See the [React Native / Expo guide](https://docs.cbk.ai/react-native-sdk) for details and known limits.
+
 ## Documentation
 
 For an in-depth exploration of the ChatBotKit Node SDK, including insights into its capabilities and configurations for different environments, visit our [type documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_sdk.html).

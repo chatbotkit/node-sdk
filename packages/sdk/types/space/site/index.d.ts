@@ -48,6 +48,16 @@ export class SpaceSiteClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').SpaceSiteDeleteResponse>}
      */
     delete(spaceId: string, siteId: string): Promise<import("./v1.js").SpaceSiteDeleteResponse>;
+    /**
+     * Creates a temporary link that opens the site, or one folder of it, until
+     * the link expires. Private sites can only be opened through these links.
+     *
+     * @param {string} spaceId
+     * @param {string} siteId
+     * @param {import('./v1.js').SpaceSiteLinkCreateRequest} [request]
+     * @returns {Promise<import('./v1.js').SpaceSiteLinkCreateResponse>}
+     */
+    createLink(spaceId: string, siteId: string, request?: import("./v1.js").SpaceSiteLinkCreateRequest): Promise<import("./v1.js").SpaceSiteLinkCreateResponse>;
 }
 export default SpaceSiteClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

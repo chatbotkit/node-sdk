@@ -2,11 +2,11 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1789735920837)"
+    "version": "v1 (build 1792250957995)"
   },
   "servers": [
     {
-      "url": "https://api.chatbotkit.com/v1"
+      "url": "http://localhost:8080/api/v1"
     }
   ],
   "components": {
@@ -7643,6 +7643,22 @@
                             "type": "string",
                             "format": "date-time",
                             "description": "When a paused run is expected to resume; null while actively running"
+                          },
+                          "failureCode": {
+                            "type": "string",
+                            "nullable": true,
+                            "enum": [
+                              "agent_failure",
+                              "limit_iterations",
+                              "limit_time",
+                              "limit_calls"
+                            ],
+                            "description": "Why a failed run ended - the agent reported failure, or the run stopped at its iteration, time or call limit; null otherwise"
+                          },
+                          "failureReason": {
+                            "type": "string",
+                            "nullable": true,
+                            "description": "The human-readable reason a failed run ended; null otherwise"
                           }
                         },
                         "required": [
@@ -7747,6 +7763,22 @@
                               "type": "string",
                               "format": "date-time",
                               "description": "When a paused run is expected to resume; null while actively running"
+                            },
+                            "failureCode": {
+                              "type": "string",
+                              "nullable": true,
+                              "enum": [
+                                "agent_failure",
+                                "limit_iterations",
+                                "limit_time",
+                                "limit_calls"
+                              ],
+                              "description": "Why a failed run ended - the agent reported failure, or the run stopped at its iteration, time or call limit; null otherwise"
+                            },
+                            "failureReason": {
+                              "type": "string",
+                              "nullable": true,
+                              "description": "The human-readable reason a failed run ended; null otherwise"
                             }
                           },
                           "$$ref": "#/paths/~1task~1{taskId}~1execution~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -9496,6 +9528,14 @@
                           "notFound": {
                             "description": "Not found filename",
                             "type": "string"
+                          },
+                          "access": {
+                            "description": "Who can open the site - public (anyone) or private (only through a temporary link)",
+                            "type": "string",
+                            "enum": [
+                              "public",
+                              "private"
+                            ]
                           }
                         },
                         "required": [
@@ -9579,6 +9619,14 @@
                             "notFound": {
                               "description": "Not found filename",
                               "type": "string"
+                            },
+                            "access": {
+                              "description": "Who can open the site - public (anyone) or private (only through a temporary link)",
+                              "type": "string",
+                              "enum": [
+                                "public",
+                                "private"
+                              ]
                             }
                           },
                           "$$ref": "#/paths/~1space~1{spaceId}~1site~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -9688,6 +9736,15 @@
                     "description": "Not found filename",
                     "type": "string",
                     "default": "404.html"
+                  },
+                  "access": {
+                    "description": "Who can open the site - public (anyone) or private (only through a temporary link)",
+                    "type": "string",
+                    "enum": [
+                      "public",
+                      "private"
+                    ],
+                    "default": "public"
                   }
                 },
                 "required": [
@@ -9812,6 +9869,14 @@
                   "notFound": {
                     "description": "Not found filename",
                     "type": "string"
+                  },
+                  "access": {
+                    "description": "Who can open the site - public (anyone) or private (only through a temporary link)",
+                    "type": "string",
+                    "enum": [
+                      "public",
+                      "private"
+                    ]
                   }
                 }
               }
@@ -9951,6 +10016,14 @@
                     "notFound": {
                       "description": "Not found filename",
                       "type": "string"
+                    },
+                    "access": {
+                      "description": "Who can open the site - public (anyone) or private (only through a temporary link)",
+                      "type": "string",
+                      "enum": [
+                        "public",
+                        "private"
+                      ]
                     }
                   },
                   "required": [
@@ -10075,6 +10148,106 @@
         ]
       }
     },
+    "/space/{spaceId}/site/{siteId}/link/create": {
+      "post": {
+        "operationId": "createSpaceSiteLink",
+        "summary": "Create a temporary link to a space site",
+        "description": "Mints a signed link that opens the site, or one folder of it, until the link expires. This is how a private site is opened. The link is a credential; share it only with people who should see the content.",
+        "tags": [
+          "Space Site"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "siteId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "description": "The folder the link unlocks, relative to the site root (e.g. reports/q1). Leave empty to unlock the whole site.",
+                    "type": "string"
+                  },
+                  "durationInSeconds": {
+                    "description": "How long the link stays valid, in seconds (60 to 604800, default 3600)",
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The link was created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "description": "The temporary link to the site",
+                      "type": "string"
+                    },
+                    "expiresAt": {
+                      "description": "When the link stops working",
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "expiresAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createSpaceSiteLink",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/skillset/list": {
       "get": {
         "operationId": "listSkillsets",
@@ -10124,6 +10297,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -10175,6 +10356,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the skillset",
+                            "type": "string"
                           },
                           "visibility": {
                             "type": "string",
@@ -10266,6 +10451,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the skillset",
+                              "type": "string"
                             },
                             "visibility": {
                               "type": "string",
@@ -10371,6 +10560,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the skillset"
                   },
                   "visibility": {
                     "type": "string",
@@ -10492,6 +10685,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the skillset"
                   },
                   "visibility": {
                     "type": "string",
@@ -10627,6 +10824,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the skillset",
+                      "type": "string"
                     },
                     "visibility": {
                       "type": "string",
@@ -10879,6 +11080,11 @@
                             "type": "string",
                             "nullable": true
                           },
+                          "linkedComputerId": {
+                            "description": "The ID of the computer the ability runs shell commands on",
+                            "type": "string",
+                            "nullable": true
+                          },
                           "instruction": {
                             "type": "string"
                           },
@@ -10983,6 +11189,11 @@
                             },
                             "linkedSpaceId": {
                               "description": "The ID of the space associated with the ability",
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "linkedComputerId": {
+                              "description": "The ID of the computer the ability runs shell commands on",
                               "type": "string",
                               "nullable": true
                             },
@@ -11165,6 +11376,11 @@
                             "type": "string",
                             "nullable": true
                           },
+                          "linkedComputerId": {
+                            "description": "The ID of the computer the ability runs shell commands on",
+                            "type": "string",
+                            "nullable": true
+                          },
                           "instruction": {
                             "type": "string"
                           }
@@ -11260,6 +11476,11 @@
                             },
                             "linkedSpaceId": {
                               "description": "The ID of the space associated with the ability",
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "linkedComputerId": {
+                              "description": "The ID of the computer the ability runs shell commands on",
                               "type": "string",
                               "nullable": true
                             },
@@ -11387,6 +11608,11 @@
                   },
                   "linkedSpaceId": {
                     "description": "The ID of the space associated with the ability",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "linkedComputerId": {
+                    "description": "The ID of the computer the ability runs shell commands on",
                     "type": "string",
                     "nullable": true
                   },
@@ -11530,6 +11756,11 @@
                   },
                   "linkedSpaceId": {
                     "description": "The ID of the space associated with the ability",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "linkedComputerId": {
+                    "description": "The ID of the computer the ability runs shell commands on",
                     "type": "string",
                     "nullable": true
                   },
@@ -11688,6 +11919,11 @@
                     },
                     "linkedSpaceId": {
                       "description": "The ID of the space associated with the ability",
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "linkedComputerId": {
+                      "description": "The ID of the computer the ability runs shell commands on",
                       "type": "string",
                       "nullable": true
                     },
@@ -12426,6 +12662,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12477,6 +12721,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the secret",
+                            "type": "string"
                           },
                           "kind": {
                             "type": "string",
@@ -12587,6 +12835,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the secret",
+                              "type": "string"
                             },
                             "kind": {
                               "type": "string",
@@ -12711,6 +12963,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the secret"
                   },
                   "kind": {
                     "type": "string",
@@ -12966,6 +13222,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the secret"
                   },
                   "kind": {
                     "type": "string",
@@ -13356,6 +13616,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the secret",
+                      "type": "string"
                     },
                     "kind": {
                       "type": "string",
@@ -16725,6 +16989,9 @@
                           "space": {
                             "type": "string"
                           },
+                          "computer": {
+                            "type": "string"
+                          },
                           "provider": {
                             "type": "string"
                           },
@@ -16957,6 +17224,10 @@
                             "type": "string",
                             "description": "The ID of the space associated with the ability"
                           },
+                          "computer": {
+                            "type": "string",
+                            "description": "Set when the ability can run on a linked computer"
+                          },
                           "provider": {
                             "type": "string",
                             "description": "The provider of the ability"
@@ -17100,6 +17371,10 @@
                             "space": {
                               "type": "string",
                               "description": "The ID of the space associated with the ability"
+                            },
+                            "computer": {
+                              "type": "string",
+                              "description": "Set when the ability can run on a linked computer"
                             },
                             "provider": {
                               "type": "string",
@@ -34685,6 +34960,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -34736,6 +35019,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the file",
+                            "type": "string"
                           },
                           "visibility": {
                             "type": "string",
@@ -34818,6 +35105,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the file",
+                              "type": "string"
                             },
                             "visibility": {
                               "type": "string",
@@ -34914,6 +35205,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the file"
                   },
                   "visibility": {
                     "type": "string",
@@ -35187,6 +35482,10 @@
                     "description": "The ID of the blueprint",
                     "nullable": true
                   },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the file"
+                  },
                   "visibility": {
                     "type": "string",
                     "description": "The file visibility",
@@ -35389,6 +35688,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the file",
+                      "type": "string"
                     },
                     "visibility": {
                       "type": "string",
@@ -37155,6 +37458,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -37206,6 +37517,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the dataset",
+                            "type": "string"
                           },
                           "reranker": {
                             "description": "The reranker class for the dataset",
@@ -37320,6 +37635,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the dataset",
+                              "type": "string"
                             },
                             "reranker": {
                               "description": "The reranker class for the dataset",
@@ -37448,6 +37767,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the dataset"
                   },
                   "reranker": {
                     "description": "The reranker class for the dataset",
@@ -37592,6 +37915,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the dataset"
                   },
                   "reranker": {
                     "description": "The reranker class for the dataset",
@@ -37974,6 +38301,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the dataset",
+                      "type": "string"
                     },
                     "reranker": {
                       "description": "The reranker class for the dataset",
@@ -50319,6 +50650,1540 @@
         ]
       }
     },
+    "/computer/list": {
+      "get": {
+        "operationId": "listComputers",
+        "summary": "List computers",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the items by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of computers was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "description": "Blueprint properties",
+                        "type": "object",
+                        "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance",
+                            "nullable": true
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint",
+                            "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the computer",
+                            "type": "string"
+                          },
+                          "kind": {
+                            "description": "The kind of computer",
+                            "type": "string",
+                            "enum": [
+                              "shell",
+                              "desktop"
+                            ]
+                          },
+                          "status": {
+                            "description": "The last known state of the computer",
+                            "type": "string",
+                            "enum": [
+                              "stopped",
+                              "running"
+                            ]
+                          },
+                          "lastActiveAt": {
+                            "description": "When the computer was last started, stopped or provisioned",
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "description": "Blueprint properties",
+                          "type": "object",
+                          "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance",
+                              "nullable": true
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint",
+                              "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the computer",
+                              "type": "string"
+                            },
+                            "kind": {
+                              "description": "The kind of computer",
+                              "type": "string",
+                              "enum": [
+                                "shell",
+                                "desktop"
+                              ]
+                            },
+                            "status": {
+                              "description": "The last known state of the computer",
+                              "type": "string",
+                              "enum": [
+                                "stopped",
+                                "running"
+                              ]
+                            },
+                            "lastActiveAt": {
+                              "description": "When the computer was last started, stopped or provisioned",
+                              "type": "string",
+                              "format": "date-time",
+                              "nullable": true
+                            }
+                          },
+                          "$$ref": "#/paths/~1computer~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listComputers",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/export": {
+      "get": {
+        "operationId": "exportComputers",
+        "summary": "Export computers",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The computers were exported successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Blueprint properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint",
+                            "nullable": true
+                          },
+                          "kind": {
+                            "description": "The kind of computer",
+                            "type": "string",
+                            "enum": [
+                              "shell",
+                              "desktop"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Blueprint properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint",
+                              "nullable": true
+                            },
+                            "kind": {
+                              "description": "The kind of computer",
+                              "type": "string",
+                              "enum": [
+                                "shell",
+                                "desktop"
+                              ]
+                            }
+                          },
+                          "$$ref": "#/paths/~1computer~1export/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "exportComputers",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/create": {
+      "post": {
+        "operationId": "createComputer",
+        "summary": "Create computer",
+        "tags": [
+          "Computer"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "Blueprint properties",
+                "type": "object",
+                "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance",
+                    "nullable": true
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint",
+                    "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the computer"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "description": "The kind of computer, a headless shell or a desktop with a remote view",
+                    "enum": [
+                      "shell",
+                      "desktop"
+                    ],
+                    "default": "shell"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The computer was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created computer",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createComputer",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/{computerId}/update": {
+      "post": {
+        "operationId": "updateComputer",
+        "summary": "Update computer",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "computerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "Blueprint properties",
+                "type": "object",
+                "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance",
+                    "nullable": true
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint",
+                    "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the computer"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "description": "The kind of computer. Accepted only when unchanged",
+                    "enum": [
+                      "shell",
+                      "desktop"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The computer was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated computer",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateComputer",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/{computerId}/stop": {
+      "post": {
+        "operationId": "stopComputer",
+        "summary": "Stop a computer",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "computerId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the computer to stop",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The computer is stopped",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the computer",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The state of the computer",
+                      "type": "string",
+                      "enum": [
+                        "stopped",
+                        "running"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "stopComputer",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/{computerId}/start": {
+      "post": {
+        "operationId": "startComputer",
+        "summary": "Start a computer",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "computerId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the computer to start",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The computer is running",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the computer",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The state of the computer",
+                      "type": "string",
+                      "enum": [
+                        "stopped",
+                        "running"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "startComputer",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/{computerId}/restart": {
+      "post": {
+        "operationId": "restartComputer",
+        "summary": "Restart a computer",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "computerId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the computer to restart",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The computer is running again",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the computer",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The state of the computer",
+                      "type": "string",
+                      "enum": [
+                        "stopped",
+                        "running"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "restartComputer",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/{computerId}/fetch": {
+      "get": {
+        "operationId": "fetchComputer",
+        "summary": "Fetch a computer",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "computerId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the computer to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The computer was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Blueprint properties",
+                  "type": "object",
+                  "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance",
+                      "nullable": true
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint",
+                      "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the computer",
+                      "type": "string"
+                    },
+                    "kind": {
+                      "description": "The kind of computer",
+                      "type": "string",
+                      "enum": [
+                        "shell",
+                        "desktop"
+                      ]
+                    },
+                    "status": {
+                      "description": "The last known state of the computer",
+                      "type": "string",
+                      "enum": [
+                        "stopped",
+                        "running"
+                      ]
+                    },
+                    "lastActiveAt": {
+                      "description": "When the computer was last started, stopped or provisioned",
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchComputer",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/{computerId}/exec": {
+      "post": {
+        "operationId": "execComputer",
+        "summary": "Run a command on a computer",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "computerId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the computer",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "description": "The shell command to run",
+                    "type": "string"
+                  },
+                  "timeout": {
+                    "description": "The timeout in milliseconds (max 300000)",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "command"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The command ran",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "exitCode": {
+                      "description": "The exit code of the command",
+                      "type": "integer"
+                    },
+                    "stdout": {
+                      "description": "The standard output of the command",
+                      "type": "string"
+                    },
+                    "stderr": {
+                      "description": "The standard error of the command",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "exitCode",
+                    "stdout",
+                    "stderr"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "execComputer",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/{computerId}/delete": {
+      "post": {
+        "operationId": "deleteComputer",
+        "summary": "Delete a computer",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "computerId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the computer to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The computer was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted computer",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteComputer",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/{computerId}/session/create": {
+      "post": {
+        "operationId": "createComputerSession",
+        "summary": "Create a remote access link for a desktop computer",
+        "description": "Mints a short-lived, signed link that opens the computer's desktop in a browser over web VNC. The link is a credential; share it only with people who should see and control the computer.",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "computerId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the desktop computer",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "durationInSeconds": {
+                    "description": "How long the link stays valid, in seconds (60 to 3600, default 600)",
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The link was created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "description": "The link to the computer's desktop",
+                      "type": "string"
+                    },
+                    "expiresAt": {
+                      "description": "When the link stops working",
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "expiresAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createComputerSession",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/{computerId}/file/write": {
+      "post": {
+        "operationId": "writeComputerFile",
+        "summary": "Write a file to a computer",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "computerId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the computer",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "description": "The absolute path of the file on the computer",
+                    "type": "string"
+                  },
+                  "contents": {
+                    "description": "The text contents to write (max 3 MB)",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "contents"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was written",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "description": "The path of the file",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "writeComputerFile",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/computer/{computerId}/file/read": {
+      "post": {
+        "operationId": "readComputerFile",
+        "summary": "Read a file from a computer",
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "computerId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the computer",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "description": "The absolute path of the file on the computer",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was read",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "description": "The path of the file",
+                      "type": "string"
+                    },
+                    "contents": {
+                      "description": "The contents of the file, as text",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "contents"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "readComputerFile",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/channel/{channelId}/subscribe": {
       "post": {
         "operationId": "subscribeChannelMessages",
@@ -50553,6 +52418,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -50634,6 +52507,10 @@
                             "type": "string",
                             "description": "The ID of the blueprint",
                             "nullable": true
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the bot",
+                            "type": "string"
                           },
                           "visibility": {
                             "type": "string",
@@ -50746,6 +52623,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the bot",
+                              "type": "string"
                             },
                             "visibility": {
                               "type": "string",
@@ -50872,6 +52753,10 @@
                     "type": "string",
                     "description": "The ID of the blueprint",
                     "nullable": true
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the bot"
                   },
                   "visibility": {
                     "type": "string",
@@ -51104,6 +52989,10 @@
                     "description": "The ID of the blueprint",
                     "nullable": true
                   },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the bot"
+                  },
                   "visibility": {
                     "type": "string",
                     "description": "The bot visibility",
@@ -51259,6 +53148,10 @@
                       "type": "string",
                       "description": "The ID of the blueprint",
                       "nullable": true
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the bot",
+                      "type": "string"
                     },
                     "visibility": {
                       "type": "string",
@@ -51958,6 +53851,14 @@
             },
             "style": "deepObject",
             "explode": true
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -52004,6 +53905,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "contactId": {
+                            "description": "The contact associated with the blueprint",
+                            "type": "string"
                           },
                           "visibility": {
                             "type": "string",
@@ -52081,6 +53986,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the blueprint",
+                              "type": "string"
                             },
                             "visibility": {
                               "type": "string",
@@ -52172,6 +54081,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the blueprint"
                   },
                   "visibility": {
                     "type": "string",
@@ -52279,6 +54192,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the blueprint"
                   },
                   "visibility": {
                     "type": "string",
@@ -52400,6 +54317,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "contactId": {
+                      "description": "The contact associated with the blueprint",
+                      "type": "string"
                     },
                     "visibility": {
                       "type": "string",

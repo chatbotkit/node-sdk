@@ -57,7 +57,7 @@
     "lint": "eslint .",
     "postpack": "node ../../scripts/create-standard-exports.js",
     "prepack": "node ../../scripts/create-dist-exports.js",
-    "test": "true"
+    "test": "node --test test/*.test.js"
   },
   "types": "./types/index.d.ts",
   "dependencies": {},

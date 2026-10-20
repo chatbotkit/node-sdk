@@ -79,7 +79,7 @@ export function deleteFile(client: ChatBotKitClient, fileId: string, request?: F
  * @typedef {import('../types/api/v1.js').operations['uploadFile']['requestBody']['content']['application/json']} FileUploadRequestBody
  *
  * @typedef {{
- *   data: string|ArrayBuffer
+ *   data: string|ArrayBuffer|import('../buffer.js').FileReference,
  *   type: string,
  *   name?: string,
  * }} FileUploadRequest
@@ -123,6 +123,7 @@ export type FileListRequest = {
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
+    contactId?: string;
 };
 export type FileListResponse = import("../types/api/v1.js").operations["listFiles"]["responses"]["200"]["content"]["application/json"];
 export type FileListStreamType = import("../types/api/v1.js").operations["listFiles"]["responses"]["200"]["content"]["application/jsonl"];
@@ -141,7 +142,7 @@ export type FileDeleteResponseBody = import("../types/api/v1.js").operations["de
 export type FileDeleteResponse = FileDeleteResponseBody;
 export type FileUploadRequestBody = import("../types/api/v1.js").operations["uploadFile"]["requestBody"]["content"]["application/json"];
 export type FileUploadRequest = {
-    data: string | ArrayBuffer;
+    data: string | ArrayBuffer | import("../buffer.js").FileReference;
     type: string;
     name?: string;
 };

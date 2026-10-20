@@ -176,6 +176,8 @@ export type CbkAbilityName = 'abort'
   | 'space/fetch[contact][by-id]'
   | 'space/list'
   | 'space/list[contact]'
+  | 'space/site/link'
+  | 'space/site/link[by-id]'
   | 'space/skill/create'
   | 'space/skill/create[by-id]'
   | 'space/skill/delete'
@@ -1301,6 +1303,26 @@ export type SpaceFetchContactByIdParameters = {
 export type SpaceListParameters = Record<string, never>
 
 export type SpaceListContactParameters = Record<string, never>
+
+export type SpaceSiteLinkParameters = {
+ /** the site ID or slug (optional when the space has a single site) */
+  siteId?: string
+ /** the folder within the site to unlock, leave empty for the whole site */
+  path?: string
+ /** how long the link stays valid in seconds (60 to 604800, default 3600) */
+  durationInSeconds?: number
+}
+
+export type SpaceSiteLinkByIdParameters = {
+ /** the ID of the space */
+  spaceId: string
+ /** the site ID or slug (optional when the space has a single site) */
+  siteId?: string
+ /** the folder within the site to unlock, leave empty for the whole site */
+  path?: string
+ /** how long the link stays valid in seconds (60 to 604800, default 3600) */
+  durationInSeconds?: number
+}
 
 export type SpaceSkillCreateParameters = {
  /** Lowercase kebab-case slug for the skill, used as the directory name under .skills/ */
@@ -2750,6 +2772,16 @@ export interface CbkAbilityRegistry {
     name: 'List Spaces'
     description: 'List all spaces'
     parameters: SpaceListContactParameters
+  }
+  'space/site/link': {
+    name: 'Create Space Site Link'
+    description: 'Create a temporary link that opens a site published from the space, or one folder of it'
+    parameters: SpaceSiteLinkParameters
+  }
+  'space/site/link[by-id]': {
+    name: 'Create Space Site Link'
+    description: 'Create a temporary link that opens a site published from the space, or one folder of it'
+    parameters: SpaceSiteLinkByIdParameters
   }
   'space/skill/create': {
     name: 'Create Space Skills'

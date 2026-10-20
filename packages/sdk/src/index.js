@@ -2,6 +2,7 @@ import { BlueprintClient } from './blueprint/index.js'
 import { BotClient } from './bot/index.js'
 import { ChannelClient } from './channel/index.js'
 import { ChatBotKitClient } from './client.js'
+import { ComputerClient } from './computer/index.js'
 import { ContactClient } from './contact/index.js'
 import { ConversationClient } from './conversation/index.js'
 import { DatasetClient } from './dataset/index.js'
@@ -12,7 +13,6 @@ import { GraphqlClient } from './graphql/index.js'
 import { IntegrationClient } from './integration/index.js'
 import { MagicClient } from './magic/index.js'
 import { MemoryClient } from './memory/index.js'
-import { UserClient } from './user/index.js'
 import { PlatformClient } from './platform/index.js'
 import { PolicyClient } from './policy/index.js'
 import { PortalClient } from './portal/index.js'
@@ -22,6 +22,7 @@ import { SpaceClient } from './space/index.js'
 import { TaskClient } from './task/index.js'
 import { TeamClient } from './team/index.js'
 import { UsageClient } from './usage/index.js'
+import { UserClient } from './user/index.js'
 
 export { BlueprintClient }
 export { BotClient }
@@ -31,6 +32,7 @@ export { FileClient }
 export { MagicClient }
 export { UserClient }
 export { DatasetClient }
+export { ComputerClient }
 export { DecisionClient }
 export { SkillsetClient }
 export { IntegrationClient }
@@ -45,7 +47,7 @@ export { GraphqlClient }
 export { SpaceClient }
 export { UsageClient }
 
-export { AuthorizationRequiredError } from './client.js'
+export { AuthorizationRequiredError, StreamUnsupportedError } from './client.js'
 
 /**
  * ChatBotKit SDK - Main client class for interacting with the ChatBotKit API
@@ -77,6 +79,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.magic = new MagicClient(options)
     this.user = new UserClient(options)
     this.dataset = new DatasetClient(options)
+    this.computer = new ComputerClient(options)
     this.decision = new DecisionClient(options)
     this.skillset = new SkillsetClient(options)
     this.integration = new IntegrationClient(options)
