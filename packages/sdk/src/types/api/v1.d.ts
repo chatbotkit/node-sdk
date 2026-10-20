@@ -1152,6 +1152,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/space/{spaceId}/site/{siteId}/link/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create a temporary link to a space site
+         * @description Mints a signed link that opens the site, or one folder of it, until the link expires. This is how a private site is opened. The link is a credential; share it only with people who should see the content.
+         */
+        post: operations["createSpaceSiteLink"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/skillset/list": {
         parameters: {
             query?: never;
@@ -5518,6 +5538,230 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/computer/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List computers */
+        get: operations["listComputers"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export computers */
+        get: operations["exportComputers"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create computer */
+        post: operations["createComputer"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/{computerId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update computer */
+        post: operations["updateComputer"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/{computerId}/stop": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Stop a computer */
+        post: operations["stopComputer"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/{computerId}/start": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Start a computer */
+        post: operations["startComputer"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/{computerId}/restart": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Restart a computer */
+        post: operations["restartComputer"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/{computerId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a computer */
+        get: operations["fetchComputer"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/{computerId}/exec": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Run a command on a computer */
+        post: operations["execComputer"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/{computerId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete a computer */
+        post: operations["deleteComputer"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/{computerId}/session/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create a remote access link for a desktop computer
+         * @description Mints a short-lived, signed link that opens the computer's desktop in a browser over web VNC. The link is a credential; share it only with people who should see and control the computer.
+         */
+        post: operations["createComputerSession"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/{computerId}/file/write": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Write a file to a computer */
+        post: operations["writeComputerFile"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/computer/{computerId}/file/read": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Read a file from a computer */
+        post: operations["readComputerFile"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/channel/{channelId}/subscribe": {
         parameters: {
             query?: never;
@@ -9267,6 +9511,13 @@ export interface operations {
                              * @description When a paused run is expected to resume; null while actively running
                              */
                             resumeAt?: string;
+                            /**
+                             * @description Why a failed run ended - the agent reported failure, or the run stopped at its iteration, time or call limit; null otherwise
+                             * @enum {string|null}
+                             */
+                            failureCode?: "agent_failure" | "limit_iterations" | "limit_time" | "limit_calls" | null;
+                            /** @description The human-readable reason a failed run ended; null otherwise */
+                            failureReason?: string | null;
                         }[];
                         /** @description Cursor for fetching the next page */
                         cursor: string;
@@ -9319,6 +9570,13 @@ export interface operations {
                              * @description When a paused run is expected to resume; null while actively running
                              */
                             resumeAt?: string;
+                            /**
+                             * @description Why a failed run ended - the agent reported failure, or the run stopped at its iteration, time or call limit; null otherwise
+                             * @enum {string|null}
+                             */
+                            failureCode?: "agent_failure" | "limit_iterations" | "limit_time" | "limit_calls" | null;
+                            /** @description The human-readable reason a failed run ended; null otherwise */
+                            failureReason?: string | null;
                         };
                     };
                 };
@@ -10057,6 +10315,11 @@ export interface operations {
                             index?: string;
                             /** @description Not found filename */
                             notFound?: string;
+                            /**
+                             * @description Who can open the site - public (anyone) or private (only through a temporary link)
+                             * @enum {string}
+                             */
+                            access?: "public" | "private";
                         }[];
                         /** @description Cursor for fetching the next page */
                         cursor: string;
@@ -10093,6 +10356,11 @@ export interface operations {
                             index?: string;
                             /** @description Not found filename */
                             notFound?: string;
+                            /**
+                             * @description Who can open the site - public (anyone) or private (only through a temporary link)
+                             * @enum {string}
+                             */
+                            access?: "public" | "private";
                         };
                     };
                 };
@@ -10142,6 +10410,12 @@ export interface operations {
                      * @default 404.html
                      */
                     notFound?: string;
+                    /**
+                     * @description Who can open the site - public (anyone) or private (only through a temporary link)
+                     * @default public
+                     * @enum {string}
+                     */
+                    access?: "public" | "private";
                 };
             };
         };
@@ -10198,6 +10472,11 @@ export interface operations {
                     index?: string;
                     /** @description Not found filename */
                     notFound?: string;
+                    /**
+                     * @description Who can open the site - public (anyone) or private (only through a temporary link)
+                     * @enum {string}
+                     */
+                    access?: "public" | "private";
                 };
             };
         };
@@ -10268,6 +10547,11 @@ export interface operations {
                         index?: string;
                         /** @description Not found filename */
                         notFound?: string;
+                        /**
+                         * @description Who can open the site - public (anyone) or private (only through a temporary link)
+                         * @enum {string}
+                         */
+                        access?: "public" | "private";
                     };
                 };
             };
@@ -10305,6 +10589,53 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the deleted site */
                         id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createSpaceSiteLink: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+                siteId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The folder the link unlocks, relative to the site root (e.g. reports/q1). Leave empty to unlock the whole site. */
+                    path?: string;
+                    /** @description How long the link stays valid, in seconds (60 to 604800, default 3600) */
+                    durationInSeconds?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The link was created */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The temporary link to the site */
+                        url: string;
+                        /**
+                         * Format: date-time
+                         * @description When the link stops working
+                         */
+                        expiresAt: string;
                     };
                 };
             };
@@ -10681,6 +11012,8 @@ export interface operations {
                             linkedBotId?: string | null;
                             /** @description The ID of the space associated with the ability */
                             linkedSpaceId?: string | null;
+                            /** @description The ID of the computer the ability runs shell commands on */
+                            linkedComputerId?: string | null;
                             instruction: string;
                             /**
                              * @description The lifecycle state of a resource - toggle it on/off without deleting it
@@ -10725,6 +11058,8 @@ export interface operations {
                             linkedBotId?: string | null;
                             /** @description The ID of the space associated with the ability */
                             linkedSpaceId?: string | null;
+                            /** @description The ID of the computer the ability runs shell commands on */
+                            linkedComputerId?: string | null;
                             instruction: string;
                             /**
                              * @description The lifecycle state of a resource - toggle it on/off without deleting it
@@ -10793,6 +11128,8 @@ export interface operations {
                             linkedBotId?: string | null;
                             /** @description The ID of the space associated with the ability */
                             linkedSpaceId?: string | null;
+                            /** @description The ID of the computer the ability runs shell commands on */
+                            linkedComputerId?: string | null;
                             instruction: string;
                         }[];
                         /** @description Cursor for fetching the next page */
@@ -10832,6 +11169,8 @@ export interface operations {
                             linkedBotId?: string | null;
                             /** @description The ID of the space associated with the ability */
                             linkedSpaceId?: string | null;
+                            /** @description The ID of the computer the ability runs shell commands on */
+                            linkedComputerId?: string | null;
                             instruction: string;
                         };
                     };
@@ -10879,6 +11218,8 @@ export interface operations {
                     linkedBotId?: string | null;
                     /** @description The ID of the space associated with the ability */
                     linkedSpaceId?: string | null;
+                    /** @description The ID of the computer the ability runs shell commands on */
+                    linkedComputerId?: string | null;
                     /** @description The instruction of the ability */
                     instruction?: string;
                     /**
@@ -10944,6 +11285,8 @@ export interface operations {
                     linkedBotId?: string | null;
                     /** @description The ID of the space associated with the ability */
                     linkedSpaceId?: string | null;
+                    /** @description The ID of the computer the ability runs shell commands on */
+                    linkedComputerId?: string | null;
                     /** @description The text to update the ability with */
                     instruction?: string;
                     /**
@@ -11021,6 +11364,8 @@ export interface operations {
                         linkedBotId?: string | null;
                         /** @description The ID of the space associated with the ability */
                         linkedSpaceId?: string | null;
+                        /** @description The ID of the computer the ability runs shell commands on */
+                        linkedComputerId?: string | null;
                         /** @description The instruction of the skillset ability */
                         instruction: string;
                         /**
@@ -13225,6 +13570,7 @@ export interface operations {
                             file?: string;
                             secret?: string;
                             space?: string;
+                            computer?: string;
                             provider?: string;
                             icon: string;
                             tags?: string[];
@@ -13316,6 +13662,8 @@ export interface operations {
                             secret?: string;
                             /** @description The ID of the space associated with the ability */
                             space?: string;
+                            /** @description Set when the ability can run on a linked computer */
+                            computer?: string;
                             /** @description The provider of the ability */
                             provider?: string;
                             icon: string;
@@ -13377,6 +13725,8 @@ export interface operations {
                             secret?: string;
                             /** @description The ID of the space associated with the ability */
                             space?: string;
+                            /** @description Set when the ability can run on a linked computer */
+                            computer?: string;
                             /** @description The provider of the ability */
                             provider?: string;
                             icon: string;
@@ -27763,6 +28113,707 @@ export interface operations {
                             /** @description The moderation flag for this configuration */
                             moderation?: boolean;
                         });
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listComputers: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of computers was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string | null;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string | null;
+                            /**
+                             * @description The kind of computer
+                             * @enum {string}
+                             */
+                            kind?: "shell" | "desktop";
+                            /**
+                             * @description The last known state of the computer
+                             * @enum {string}
+                             */
+                            status?: "stopped" | "running";
+                            /**
+                             * Format: date-time
+                             * @description When the computer was last started, stopped or provisioned
+                             */
+                            lastActiveAt?: string | null;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Blueprint properties */
+                        data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string | null;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string | null;
+                            /**
+                             * @description The kind of computer
+                             * @enum {string}
+                             */
+                            kind?: "shell" | "desktop";
+                            /**
+                             * @description The last known state of the computer
+                             * @enum {string}
+                             */
+                            status?: "stopped" | "running";
+                            /**
+                             * Format: date-time
+                             * @description When the computer was last started, stopped or provisioned
+                             */
+                            lastActiveAt?: string | null;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    exportComputers: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The computers were exported successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items?: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string | null;
+                            /**
+                             * @description The kind of computer
+                             * @enum {string}
+                             */
+                            kind?: "shell" | "desktop";
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Blueprint properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string | null;
+                            /**
+                             * @description The kind of computer
+                             * @enum {string}
+                             */
+                            kind?: "shell" | "desktop";
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createComputer: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string | null;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string | null;
+                    /**
+                     * @description The kind of computer, a headless shell or a desktop with a remote view
+                     * @default shell
+                     * @enum {string}
+                     */
+                    kind?: "shell" | "desktop";
+                };
+            };
+        };
+        responses: {
+            /** @description The computer was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created computer */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    updateComputer: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                computerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string | null;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string | null;
+                    /**
+                     * @description The kind of computer. Accepted only when unchanged
+                     * @enum {string}
+                     */
+                    kind?: "shell" | "desktop";
+                };
+            };
+        };
+        responses: {
+            /** @description The computer was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the updated computer */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    stopComputer: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                computerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The computer is stopped */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the computer */
+                        id: string;
+                        /**
+                         * @description The state of the computer
+                         * @enum {string}
+                         */
+                        status: "stopped" | "running";
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    startComputer: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                computerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The computer is running */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the computer */
+                        id: string;
+                        /**
+                         * @description The state of the computer
+                         * @enum {string}
+                         */
+                        status: "stopped" | "running";
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    restartComputer: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                computerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The computer is running again */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the computer */
+                        id: string;
+                        /**
+                         * @description The state of the computer
+                         * @enum {string}
+                         */
+                        status: "stopped" | "running";
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchComputer: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                computerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The computer was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string | null;
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string | null;
+                        /**
+                         * @description The kind of computer
+                         * @enum {string}
+                         */
+                        kind?: "shell" | "desktop";
+                        /**
+                         * @description The last known state of the computer
+                         * @enum {string}
+                         */
+                        status?: "stopped" | "running";
+                        /**
+                         * Format: date-time
+                         * @description When the computer was last started, stopped or provisioned
+                         */
+                        lastActiveAt?: string | null;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    execComputer: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                computerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The shell command to run */
+                    command: string;
+                    /** @description The timeout in milliseconds (max 300000) */
+                    timeout?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The command ran */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The exit code of the command */
+                        exitCode: number;
+                        /** @description The standard output of the command */
+                        stdout: string;
+                        /** @description The standard error of the command */
+                        stderr: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deleteComputer: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                computerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The computer was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted computer */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createComputerSession: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                computerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description How long the link stays valid, in seconds (60 to 3600, default 600) */
+                    durationInSeconds?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The link was created */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The link to the computer's desktop */
+                        url: string;
+                        /**
+                         * Format: date-time
+                         * @description When the link stops working
+                         */
+                        expiresAt: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    writeComputerFile: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                computerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The absolute path of the file on the computer */
+                    path: string;
+                    /** @description The text contents to write (max 3 MB) */
+                    contents: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The file was written */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The path of the file */
+                        path: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    readComputerFile: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                computerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The absolute path of the file on the computer */
+                    path: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The file was read */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The path of the file */
+                        path: string;
+                        /** @description The contents of the file, as text */
+                        contents: string;
                     };
                 };
             };
