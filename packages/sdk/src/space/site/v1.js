@@ -136,3 +136,32 @@ export async function deleteSpaceSite(client, spaceId, siteId, request) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/api/v1.js').operations['createSpaceSiteLink']['requestBody']['content']['application/json']} SpaceSiteLinkCreateRequestBody
+ *
+ * @typedef {SpaceSiteLinkCreateRequestBody} SpaceSiteLinkCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createSpaceSiteLink']['responses']['200']['content']['application/json']} SpaceSiteLinkCreateResponseBody
+ *
+ * @typedef {SpaceSiteLinkCreateResponseBody} SpaceSiteLinkCreateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} spaceId
+ * @param {string} siteId
+ * @param {SpaceSiteLinkCreateRequest} [request]
+ * @returns {Promise<SpaceSiteLinkCreateResponse>}
+ */
+export async function createSpaceSiteLink(client, spaceId, siteId, request) {
+  const url = `/api/v1/space/${spaceId}/site/${siteId}/link/create`
+
+  /** @type {SpaceSiteLinkCreateResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {SpaceSiteLinkCreateRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}

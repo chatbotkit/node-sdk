@@ -2,6 +2,7 @@ import { BlueprintClient } from './blueprint/index.js'
 import { BotClient } from './bot/index.js'
 import { ChannelClient } from './channel/index.js'
 import { ChatBotKitClient } from './client.js'
+import { ComputerClient } from './computer/index.js'
 import { ContactClient } from './contact/index.js'
 import { ConversationClient } from './conversation/index.js'
 import { DatasetClient } from './dataset/index.js'
@@ -31,6 +32,7 @@ export { FileClient }
 export { MagicClient }
 export { UserClient }
 export { DatasetClient }
+export { ComputerClient }
 export { DecisionClient }
 export { SkillsetClient }
 export { IntegrationClient }
@@ -77,6 +79,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.magic = new MagicClient(options)
     this.user = new UserClient(options)
     this.dataset = new DatasetClient(options)
+    this.computer = new ComputerClient(options)
     this.decision = new DecisionClient(options)
     this.skillset = new SkillsetClient(options)
     this.integration = new IntegrationClient(options)

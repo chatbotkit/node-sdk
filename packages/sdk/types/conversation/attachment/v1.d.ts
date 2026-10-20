@@ -32,11 +32,11 @@ export function listConversationAttachments(client: ChatBotKitClient, conversati
  * }} ConversationAttachmentUploadResponse
  *
  * @param {ChatBotKitClient} client
- * @param {string} attachmentId
+ * @param {string} conversationId
  * @param {ConversationAttachmentUploadRequest} request
  * @returns {Promise<ConversationAttachmentUploadResponse>}
  */
-export function uploadConversationAttachment(client: ChatBotKitClient, attachmentId: string, request: ConversationAttachmentUploadRequest): Promise<ConversationAttachmentUploadResponse>;
+export function uploadConversationAttachment(client: ChatBotKitClient, conversationId: string, request: ConversationAttachmentUploadRequest): Promise<ConversationAttachmentUploadResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type ConversationAttachmentListRequest = {
