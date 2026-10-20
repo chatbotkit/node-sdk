@@ -1,4 +1,4 @@
-import { getBuffer } from '../../buffer.js'
+import { getUploadBody } from '../../buffer.js'
 
 /**
  * @typedef {import('../../client.js').ChatBotKitClient} ChatBotKitClient
@@ -34,7 +34,7 @@ export function listConversationAttachments(client, conversationId, request) {
 
 /**
  * @typedef {{
- *   data: string|ArrayBuffer
+ *   data: string|ArrayBuffer|import('../../buffer.js').FileReference,
  *   type: string,
  *   name?: string,
  * }} ConversationAttachmentUploadRequest
@@ -55,16 +55,16 @@ export async function uploadConversationAttachment(
 ) {
   const url = `/api/v1/conversation/${conversationId}/attachment/upload`
 
-  const buffer = getBuffer(request.data)
+  const upload = await getUploadBody(request.data)
 
   /** @type {import('../../types/api/v1.js').operations['uploadConversationAttachment']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['uploadConversationAttachment']['requestBody']['content']['application/json']} */
     record: {
       file: {
-        size: buffer.byteLength,
+        size: upload.size,
         type: request.type,
-        name: request.name,
+        name: request.name ?? upload.name,
       },
     },
   })
@@ -80,7 +80,7 @@ export async function uploadConversationAttachment(
 
     headers: uploadRequest.headers,
 
-    buffer: buffer,
+    buffer: upload.body,
 
     external: true,
   })

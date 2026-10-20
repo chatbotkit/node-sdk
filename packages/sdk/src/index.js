@@ -13,7 +13,6 @@ import { GraphqlClient } from './graphql/index.js'
 import { IntegrationClient } from './integration/index.js'
 import { MagicClient } from './magic/index.js'
 import { MemoryClient } from './memory/index.js'
-import { UserClient } from './user/index.js'
 import { PlatformClient } from './platform/index.js'
 import { PolicyClient } from './policy/index.js'
 import { PortalClient } from './portal/index.js'
@@ -23,6 +22,7 @@ import { SpaceClient } from './space/index.js'
 import { TaskClient } from './task/index.js'
 import { TeamClient } from './team/index.js'
 import { UsageClient } from './usage/index.js'
+import { UserClient } from './user/index.js'
 
 export { BlueprintClient }
 export { BotClient }
@@ -47,7 +47,7 @@ export { GraphqlClient }
 export { SpaceClient }
 export { UsageClient }
 
-export { AuthorizationRequiredError } from './client.js'
+export { AuthorizationRequiredError, StreamUnsupportedError } from './client.js'
 
 /**
  * ChatBotKit SDK - Main client class for interacting with the ChatBotKit API
