@@ -568,6 +568,121 @@
           }
         }
       },
+      "BotFeatures": {
+        "type": "array",
+        "description": "The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name.",
+        "items": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "memory"
+                  ]
+                },
+                "options": {
+                  "type": "object",
+                  "properties": {
+                    "scope": {
+                      "type": "string",
+                      "enum": [
+                        "user",
+                        "contact",
+                        "bot"
+                      ],
+                      "description": "The memory scope (defaults to contact)"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "time"
+                  ]
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "compact"
+                  ]
+                },
+                "options": {
+                  "type": "object",
+                  "description": "At least one of tokens or messages must be provided",
+                  "properties": {
+                    "tokens": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "description": "Compact once a request uses this many input tokens"
+                    },
+                    "messages": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "description": "Compact once this many messages are waiting"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name",
+                "options"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "web"
+                  ]
+                },
+                "options": {
+                  "type": "object",
+                  "properties": {
+                    "search": {
+                      "type": "boolean",
+                      "description": "Search the web (defaults to true)"
+                    },
+                    "fetch": {
+                      "type": "boolean",
+                      "description": "Fetch web pages (defaults to false)"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
       "BotRefOrConfig": {
         "description": "A bot configuration or reference",
         "oneOf": [
@@ -52653,6 +52768,122 @@
                               "public"
                             ],
                             "$$ref": "#/components/schemas/BotVisibility"
+                          },
+                          "features": {
+                            "type": "array",
+                            "description": "The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name.",
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string",
+                                      "enum": [
+                                        "memory"
+                                      ]
+                                    },
+                                    "options": {
+                                      "type": "object",
+                                      "properties": {
+                                        "scope": {
+                                          "type": "string",
+                                          "enum": [
+                                            "user",
+                                            "contact",
+                                            "bot"
+                                          ],
+                                          "description": "The memory scope (defaults to contact)"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    }
+                                  },
+                                  "required": [
+                                    "name"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string",
+                                      "enum": [
+                                        "time"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "name"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string",
+                                      "enum": [
+                                        "compact"
+                                      ]
+                                    },
+                                    "options": {
+                                      "type": "object",
+                                      "description": "At least one of tokens or messages must be provided",
+                                      "properties": {
+                                        "tokens": {
+                                          "type": "integer",
+                                          "minimum": 1,
+                                          "description": "Compact once a request uses this many input tokens"
+                                        },
+                                        "messages": {
+                                          "type": "integer",
+                                          "minimum": 1,
+                                          "description": "Compact once this many messages are waiting"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    }
+                                  },
+                                  "required": [
+                                    "name",
+                                    "options"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string",
+                                      "enum": [
+                                        "web"
+                                      ]
+                                    },
+                                    "options": {
+                                      "type": "object",
+                                      "properties": {
+                                        "search": {
+                                          "type": "boolean",
+                                          "description": "Search the web (defaults to true)"
+                                        },
+                                        "fetch": {
+                                          "type": "boolean",
+                                          "description": "Fetch web pages (defaults to false)"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    }
+                                  },
+                                  "required": [
+                                    "name"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              ]
+                            },
+                            "$$ref": "#/components/schemas/BotFeatures"
                           }
                         },
                         "required": [
@@ -52769,6 +53000,122 @@
                                 "public"
                               ],
                               "$$ref": "#/components/schemas/BotVisibility"
+                            },
+                            "features": {
+                              "type": "array",
+                              "description": "The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name.",
+                              "items": {
+                                "oneOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "name": {
+                                        "type": "string",
+                                        "enum": [
+                                          "memory"
+                                        ]
+                                      },
+                                      "options": {
+                                        "type": "object",
+                                        "properties": {
+                                          "scope": {
+                                            "type": "string",
+                                            "enum": [
+                                              "user",
+                                              "contact",
+                                              "bot"
+                                            ],
+                                            "description": "The memory scope (defaults to contact)"
+                                          }
+                                        },
+                                        "additionalProperties": false
+                                      }
+                                    },
+                                    "required": [
+                                      "name"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "name": {
+                                        "type": "string",
+                                        "enum": [
+                                          "time"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "name"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "name": {
+                                        "type": "string",
+                                        "enum": [
+                                          "compact"
+                                        ]
+                                      },
+                                      "options": {
+                                        "type": "object",
+                                        "description": "At least one of tokens or messages must be provided",
+                                        "properties": {
+                                          "tokens": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "description": "Compact once a request uses this many input tokens"
+                                          },
+                                          "messages": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "description": "Compact once this many messages are waiting"
+                                          }
+                                        },
+                                        "additionalProperties": false
+                                      }
+                                    },
+                                    "required": [
+                                      "name",
+                                      "options"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "name": {
+                                        "type": "string",
+                                        "enum": [
+                                          "web"
+                                        ]
+                                      },
+                                      "options": {
+                                        "type": "object",
+                                        "properties": {
+                                          "search": {
+                                            "type": "boolean",
+                                            "description": "Search the web (defaults to true)"
+                                          },
+                                          "fetch": {
+                                            "type": "boolean",
+                                            "description": "Fetch web pages (defaults to false)"
+                                          }
+                                        },
+                                        "additionalProperties": false
+                                      }
+                                    },
+                                    "required": [
+                                      "name"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                ]
+                              },
+                              "$$ref": "#/components/schemas/BotFeatures"
                             }
                           },
                           "$$ref": "#/paths/~1bot~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -52899,6 +53246,122 @@
                       "public"
                     ],
                     "$$ref": "#/components/schemas/BotVisibility"
+                  },
+                  "features": {
+                    "type": "array",
+                    "description": "The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name.",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [
+                                "memory"
+                              ]
+                            },
+                            "options": {
+                              "type": "object",
+                              "properties": {
+                                "scope": {
+                                  "type": "string",
+                                  "enum": [
+                                    "user",
+                                    "contact",
+                                    "bot"
+                                  ],
+                                  "description": "The memory scope (defaults to contact)"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [
+                                "time"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [
+                                "compact"
+                              ]
+                            },
+                            "options": {
+                              "type": "object",
+                              "description": "At least one of tokens or messages must be provided",
+                              "properties": {
+                                "tokens": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "description": "Compact once a request uses this many input tokens"
+                                },
+                                "messages": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "description": "Compact once this many messages are waiting"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "options"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [
+                                "web"
+                              ]
+                            },
+                            "options": {
+                              "type": "object",
+                              "properties": {
+                                "search": {
+                                  "type": "boolean",
+                                  "description": "Search the web (defaults to true)"
+                                },
+                                "fetch": {
+                                  "type": "boolean",
+                                  "description": "Fetch web pages (defaults to false)"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "$$ref": "#/components/schemas/BotFeatures"
                   }
                 }
               }
@@ -53134,6 +53597,122 @@
                       "public"
                     ],
                     "$$ref": "#/components/schemas/BotVisibility"
+                  },
+                  "features": {
+                    "type": "array",
+                    "description": "The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name.",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [
+                                "memory"
+                              ]
+                            },
+                            "options": {
+                              "type": "object",
+                              "properties": {
+                                "scope": {
+                                  "type": "string",
+                                  "enum": [
+                                    "user",
+                                    "contact",
+                                    "bot"
+                                  ],
+                                  "description": "The memory scope (defaults to contact)"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [
+                                "time"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [
+                                "compact"
+                              ]
+                            },
+                            "options": {
+                              "type": "object",
+                              "description": "At least one of tokens or messages must be provided",
+                              "properties": {
+                                "tokens": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "description": "Compact once a request uses this many input tokens"
+                                },
+                                "messages": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "description": "Compact once this many messages are waiting"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "options"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [
+                                "web"
+                              ]
+                            },
+                            "options": {
+                              "type": "object",
+                              "properties": {
+                                "search": {
+                                  "type": "boolean",
+                                  "description": "Search the web (defaults to true)"
+                                },
+                                "fetch": {
+                                  "type": "boolean",
+                                  "description": "Fetch web pages (defaults to false)"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "$$ref": "#/components/schemas/BotFeatures"
                   }
                 }
               }
@@ -53294,6 +53873,122 @@
                         "public"
                       ],
                       "$$ref": "#/components/schemas/BotVisibility"
+                    },
+                    "features": {
+                      "type": "array",
+                      "description": "The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name.",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "enum": [
+                                  "memory"
+                                ]
+                              },
+                              "options": {
+                                "type": "object",
+                                "properties": {
+                                  "scope": {
+                                    "type": "string",
+                                    "enum": [
+                                      "user",
+                                      "contact",
+                                      "bot"
+                                    ],
+                                    "description": "The memory scope (defaults to contact)"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "name"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "enum": [
+                                  "time"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "name"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "enum": [
+                                  "compact"
+                                ]
+                              },
+                              "options": {
+                                "type": "object",
+                                "description": "At least one of tokens or messages must be provided",
+                                "properties": {
+                                  "tokens": {
+                                    "type": "integer",
+                                    "minimum": 1,
+                                    "description": "Compact once a request uses this many input tokens"
+                                  },
+                                  "messages": {
+                                    "type": "integer",
+                                    "minimum": 1,
+                                    "description": "Compact once this many messages are waiting"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "options"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "enum": [
+                                  "web"
+                                ]
+                              },
+                              "options": {
+                                "type": "object",
+                                "properties": {
+                                  "search": {
+                                    "type": "boolean",
+                                    "description": "Search the web (defaults to true)"
+                                  },
+                                  "fetch": {
+                                    "type": "boolean",
+                                    "description": "Fetch web pages (defaults to false)"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "name"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "$$ref": "#/components/schemas/BotFeatures"
                     }
                   },
                   "required": [

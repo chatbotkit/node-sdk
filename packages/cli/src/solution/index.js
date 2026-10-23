@@ -159,6 +159,39 @@ export const BotResourceConfigSchema = BasicResourceConfigSchema.extend({
     blueprintId: z.string().optional(),
     contactId: z.string().optional(),
     visibility: z.enum(['private', 'protected', 'public']).optional(),
+    features: z
+      .array(
+        z.discriminatedUnion('name', [
+          z.object({
+            name: z.literal('memory'),
+            options: z
+              .object({
+                scope: z.enum(['user', 'contact', 'bot']).optional(),
+              })
+              .optional(),
+          }),
+          z.object({
+            name: z.literal('time'),
+          }),
+          z.object({
+            name: z.literal('compact'),
+            options: z.object({
+              tokens: z.number().optional(),
+              messages: z.number().optional(),
+            }),
+          }),
+          z.object({
+            name: z.literal('web'),
+            options: z
+              .object({
+                search: z.boolean().optional(),
+                fetch: z.boolean().optional(),
+              })
+              .optional(),
+          }),
+        ])
+      )
+      .optional(),
   }),
 })
 
