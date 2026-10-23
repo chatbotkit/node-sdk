@@ -6341,6 +6341,15 @@
                             "nullable": true,
                             "description": "The IANA timezone identifier used to evaluate the task schedule."
                           },
+                          "state": {
+                            "type": "string",
+                            "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                            "enum": [
+                              "enabled",
+                              "disabled"
+                            ],
+                            "$$ref": "#/components/schemas/ResourceState"
+                          },
                           "sessionDuration": {
                             "description": "The session duration of the task execution (in milliseconds)",
                             "type": "number",
@@ -6471,6 +6480,15 @@
                               "type": "string",
                               "nullable": true,
                               "description": "The IANA timezone identifier used to evaluate the task schedule."
+                            },
+                            "state": {
+                              "type": "string",
+                              "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                              "enum": [
+                                "enabled",
+                                "disabled"
+                              ],
+                              "$$ref": "#/components/schemas/ResourceState"
                             },
                             "sessionDuration": {
                               "description": "The session duration of the task execution (in milliseconds)",
@@ -6675,6 +6693,15 @@
                             "nullable": true,
                             "description": "The IANA timezone identifier used to evaluate the task schedule."
                           },
+                          "state": {
+                            "type": "string",
+                            "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                            "enum": [
+                              "enabled",
+                              "disabled"
+                            ],
+                            "$$ref": "#/components/schemas/ResourceState"
+                          },
                           "sessionDuration": {
                             "description": "The session duration of the task execution (in milliseconds)",
                             "type": "number",
@@ -6766,6 +6793,15 @@
                               "type": "string",
                               "nullable": true,
                               "description": "The IANA timezone identifier used to evaluate the task schedule."
+                            },
+                            "state": {
+                              "type": "string",
+                              "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                              "enum": [
+                                "enabled",
+                                "disabled"
+                              ],
+                              "$$ref": "#/components/schemas/ResourceState"
                             },
                             "sessionDuration": {
                               "description": "The session duration of the task execution (in milliseconds)",
@@ -6906,6 +6942,15 @@
                     "description": "The maximum number of tool calls across the whole task run (0 or null for unbounded)",
                     "type": "number",
                     "nullable": true
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ],
+                    "$$ref": "#/components/schemas/ResourceState"
                   }
                 }
               }
@@ -7043,6 +7088,15 @@
                     "description": "The maximum number of tool calls across the whole task run (0 or null for unbounded)",
                     "type": "number",
                     "nullable": true
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ],
+                    "$$ref": "#/components/schemas/ResourceState"
                   }
                 }
               }
@@ -7248,6 +7302,15 @@
                       "type": "string",
                       "nullable": true,
                       "description": "The IANA timezone identifier used to evaluate the task schedule."
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                      "enum": [
+                        "enabled",
+                        "disabled"
+                      ],
+                      "$$ref": "#/components/schemas/ResourceState"
                     },
                     "sessionDuration": {
                       "description": "The session duration of the task execution (in milliseconds)",
@@ -22106,6 +22169,15 @@
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
                           },
+                          "state": {
+                            "type": "string",
+                            "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                            "enum": [
+                              "enabled",
+                              "disabled"
+                            ],
+                            "$$ref": "#/components/schemas/ResourceState"
+                          },
                           "lastTriggerAt": {
                             "description": "The timestamp (ms) of the last trigger execution",
                             "type": "number",
@@ -22215,6 +22287,15 @@
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
                               "type": "number"
+                            },
+                            "state": {
+                              "type": "string",
+                              "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                              "enum": [
+                                "enabled",
+                                "disabled"
+                              ],
+                              "$$ref": "#/components/schemas/ResourceState"
                             },
                             "lastTriggerAt": {
                               "description": "The timestamp (ms) of the last trigger execution",
@@ -22336,6 +22417,15 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ],
+                    "$$ref": "#/components/schemas/ResourceState"
                   }
                 }
               }
@@ -22463,6 +22553,15 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                    "enum": [
+                      "enabled",
+                      "disabled"
+                    ],
+                    "$$ref": "#/components/schemas/ResourceState"
                   }
                 }
               }
@@ -22760,6 +22859,15 @@
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
                       "type": "number"
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                      "enum": [
+                        "enabled",
+                        "disabled"
+                      ],
+                      "$$ref": "#/components/schemas/ResourceState"
                     },
                     "lastTriggerAt": {
                       "description": "The timestamp (ms) of the last trigger execution",
@@ -48682,6 +48790,15 @@
                             "nullable": true,
                             "description": "The IANA timezone identifier used to evaluate the task schedule."
                           },
+                          "state": {
+                            "type": "string",
+                            "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                            "enum": [
+                              "enabled",
+                              "disabled"
+                            ],
+                            "$$ref": "#/components/schemas/ResourceState"
+                          },
                           "sessionDuration": {
                             "description": "The session duration of the task execution (in milliseconds)",
                             "type": "number",
@@ -48803,6 +48920,15 @@
                               "type": "string",
                               "nullable": true,
                               "description": "The IANA timezone identifier used to evaluate the task schedule."
+                            },
+                            "state": {
+                              "type": "string",
+                              "description": "The lifecycle state of a resource - toggle it on/off without deleting it",
+                              "enum": [
+                                "enabled",
+                                "disabled"
+                              ],
+                              "$$ref": "#/components/schemas/ResourceState"
                             },
                             "sessionDuration": {
                               "description": "The session duration of the task execution (in milliseconds)",

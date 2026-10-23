@@ -8927,6 +8927,11 @@ export interface operations {
                             schedule?: string;
                             /** @description The IANA timezone identifier used to evaluate the task schedule. */
                             timezone?: string | null;
+                            /**
+                             * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                             * @enum {string}
+                             */
+                            state?: "enabled" | "disabled";
                             /** @description The session duration of the task execution (in milliseconds) */
                             sessionDuration?: number | null;
                             /** @description The maximum number of iterations per task execution */
@@ -8985,6 +8990,11 @@ export interface operations {
                             schedule?: string;
                             /** @description The IANA timezone identifier used to evaluate the task schedule. */
                             timezone?: string | null;
+                            /**
+                             * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                             * @enum {string}
+                             */
+                            state?: "enabled" | "disabled";
                             /** @description The session duration of the task execution (in milliseconds) */
                             sessionDuration?: number | null;
                             /** @description The maximum number of iterations per task execution */
@@ -9066,6 +9076,11 @@ export interface operations {
                             schedule?: string;
                             /** @description The IANA timezone identifier used to evaluate the task schedule. */
                             timezone?: string | null;
+                            /**
+                             * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                             * @enum {string}
+                             */
+                            state?: "enabled" | "disabled";
                             /** @description The session duration of the task execution (in milliseconds) */
                             sessionDuration?: number | null;
                             /** @description The maximum number of iterations per task execution */
@@ -9106,6 +9121,11 @@ export interface operations {
                             schedule?: string;
                             /** @description The IANA timezone identifier used to evaluate the task schedule. */
                             timezone?: string | null;
+                            /**
+                             * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                             * @enum {string}
+                             */
+                            state?: "enabled" | "disabled";
                             /** @description The session duration of the task execution (in milliseconds) */
                             sessionDuration?: number | null;
                             /** @description The maximum number of iterations per task execution */
@@ -9167,6 +9187,11 @@ export interface operations {
                     maxTime?: number;
                     /** @description The maximum number of tool calls across the whole task run (0 or null for unbounded) */
                     maxCalls?: number | null;
+                    /**
+                     * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                     * @enum {string}
+                     */
+                    state?: "enabled" | "disabled";
                 };
             };
         };
@@ -9235,6 +9260,11 @@ export interface operations {
                     maxTime?: number;
                     /** @description The maximum number of tool calls across the whole task run (0 or null for unbounded) */
                     maxCalls?: number | null;
+                    /**
+                     * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                     * @enum {string}
+                     */
+                    state?: "enabled" | "disabled";
                 };
             };
         };
@@ -9338,6 +9368,11 @@ export interface operations {
                         schedule?: string;
                         /** @description The IANA timezone identifier used to evaluate the task schedule. */
                         timezone?: string | null;
+                        /**
+                         * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                         * @enum {string}
+                         */
+                        state?: "enabled" | "disabled";
                         /** @description The session duration of the task execution (in milliseconds) */
                         sessionDuration?: number | null;
                         /** @description The maximum number of iterations per task execution */
@@ -15850,6 +15885,11 @@ export interface operations {
                             timezone?: string | null;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /**
+                             * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                             * @enum {string}
+                             */
+                            state?: "enabled" | "disabled";
                             /** @description The timestamp (ms) of the last trigger execution */
                             lastTriggerAt?: number | null;
                             /** @description The timestamp (ms) of the next scheduled trigger execution */
@@ -15896,6 +15936,11 @@ export interface operations {
                             timezone?: string | null;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /**
+                             * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                             * @enum {string}
+                             */
+                            state?: "enabled" | "disabled";
                             /** @description The timestamp (ms) of the last trigger execution */
                             lastTriggerAt?: number | null;
                             /** @description The timestamp (ms) of the next scheduled trigger execution */
@@ -15948,6 +15993,11 @@ export interface operations {
                     timezone?: string | null;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /**
+                     * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                     * @enum {string}
+                     */
+                    state?: "enabled" | "disabled";
                 };
             };
         };
@@ -16010,6 +16060,11 @@ export interface operations {
                     timezone?: string | null;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /**
+                     * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                     * @enum {string}
+                     */
+                    state?: "enabled" | "disabled";
                 };
             };
         };
@@ -16155,6 +16210,11 @@ export interface operations {
                         timezone?: string | null;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
+                        /**
+                         * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                         * @enum {string}
+                         */
+                        state?: "enabled" | "disabled";
                         /** @description The timestamp (ms) of the last trigger execution */
                         lastTriggerAt?: number | null;
                         /** @description The timestamp (ms) of the next scheduled trigger execution */
@@ -27368,6 +27428,11 @@ export interface operations {
                             schedule?: string;
                             /** @description The IANA timezone identifier used to evaluate the task schedule. */
                             timezone?: string | null;
+                            /**
+                             * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                             * @enum {string}
+                             */
+                            state?: "enabled" | "disabled";
                             /** @description The session duration of the task execution (in milliseconds) */
                             sessionDuration?: number | null;
                             /** @description The maximum number of iterations per task execution */
@@ -27422,6 +27487,11 @@ export interface operations {
                             schedule?: string;
                             /** @description The IANA timezone identifier used to evaluate the task schedule. */
                             timezone?: string | null;
+                            /**
+                             * @description The lifecycle state of a resource - toggle it on/off without deleting it
+                             * @enum {string}
+                             */
+                            state?: "enabled" | "disabled";
                             /** @description The session duration of the task execution (in milliseconds) */
                             sessionDuration?: number | null;
                             /** @description The maximum number of iterations per task execution */
