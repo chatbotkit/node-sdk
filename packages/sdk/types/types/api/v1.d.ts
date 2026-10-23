@@ -6424,6 +6424,40 @@ export interface components {
             /** @description The moderation flag for this configuration */
             moderation?: boolean;
         };
+        /** @description The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name. */
+        BotFeatures: ({
+            /** @enum {string} */
+            name: "memory";
+            options?: {
+                /**
+                 * @description The memory scope (defaults to contact)
+                 * @enum {string}
+                 */
+                scope?: "user" | "contact" | "bot";
+            };
+        } | {
+            /** @enum {string} */
+            name: "time";
+        } | {
+            /** @enum {string} */
+            name: "compact";
+            /** @description At least one of tokens or messages must be provided */
+            options: {
+                /** @description Compact once a request uses this many input tokens */
+                tokens?: number;
+                /** @description Compact once this many messages are waiting */
+                messages?: number;
+            };
+        } | {
+            /** @enum {string} */
+            name: "web";
+            options?: {
+                /** @description Search the web (defaults to true) */
+                search?: boolean;
+                /** @description Fetch web pages (defaults to false) */
+                fetch?: boolean;
+            };
+        })[];
         /** @description A bot configuration or reference */
         BotRefOrConfig: {
             /** @description The ID of the bot this configuration is using */
@@ -29109,6 +29143,40 @@ export interface operations {
                              * @enum {string}
                              */
                             visibility?: "private" | "protected" | "public";
+                            /** @description The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name. */
+                            features?: ({
+                                /** @enum {string} */
+                                name: "memory";
+                                options?: {
+                                    /**
+                                     * @description The memory scope (defaults to contact)
+                                     * @enum {string}
+                                     */
+                                    scope?: "user" | "contact" | "bot";
+                                };
+                            } | {
+                                /** @enum {string} */
+                                name: "time";
+                            } | {
+                                /** @enum {string} */
+                                name: "compact";
+                                /** @description At least one of tokens or messages must be provided */
+                                options: {
+                                    /** @description Compact once a request uses this many input tokens */
+                                    tokens?: number;
+                                    /** @description Compact once this many messages are waiting */
+                                    messages?: number;
+                                };
+                            } | {
+                                /** @enum {string} */
+                                name: "web";
+                                options?: {
+                                    /** @description Search the web (defaults to true) */
+                                    search?: boolean;
+                                    /** @description Fetch web pages (defaults to false) */
+                                    fetch?: boolean;
+                                };
+                            })[];
                         }[];
                         /** @description Cursor for fetching the next page */
                         cursor: string;
@@ -29161,6 +29229,40 @@ export interface operations {
                              * @enum {string}
                              */
                             visibility?: "private" | "protected" | "public";
+                            /** @description The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name. */
+                            features?: ({
+                                /** @enum {string} */
+                                name: "memory";
+                                options?: {
+                                    /**
+                                     * @description The memory scope (defaults to contact)
+                                     * @enum {string}
+                                     */
+                                    scope?: "user" | "contact" | "bot";
+                                };
+                            } | {
+                                /** @enum {string} */
+                                name: "time";
+                            } | {
+                                /** @enum {string} */
+                                name: "compact";
+                                /** @description At least one of tokens or messages must be provided */
+                                options: {
+                                    /** @description Compact once a request uses this many input tokens */
+                                    tokens?: number;
+                                    /** @description Compact once this many messages are waiting */
+                                    messages?: number;
+                                };
+                            } | {
+                                /** @enum {string} */
+                                name: "web";
+                                options?: {
+                                    /** @description Search the web (defaults to true) */
+                                    search?: boolean;
+                                    /** @description Fetch web pages (defaults to false) */
+                                    fetch?: boolean;
+                                };
+                            })[];
                         };
                     };
                 };
@@ -29218,6 +29320,40 @@ export interface operations {
                      * @enum {string}
                      */
                     visibility?: "private" | "protected" | "public";
+                    /** @description The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name. */
+                    features?: ({
+                        /** @enum {string} */
+                        name: "memory";
+                        options?: {
+                            /**
+                             * @description The memory scope (defaults to contact)
+                             * @enum {string}
+                             */
+                            scope?: "user" | "contact" | "bot";
+                        };
+                    } | {
+                        /** @enum {string} */
+                        name: "time";
+                    } | {
+                        /** @enum {string} */
+                        name: "compact";
+                        /** @description At least one of tokens or messages must be provided */
+                        options: {
+                            /** @description Compact once a request uses this many input tokens */
+                            tokens?: number;
+                            /** @description Compact once this many messages are waiting */
+                            messages?: number;
+                        };
+                    } | {
+                        /** @enum {string} */
+                        name: "web";
+                        options?: {
+                            /** @description Search the web (defaults to true) */
+                            search?: boolean;
+                            /** @description Fetch web pages (defaults to false) */
+                            fetch?: boolean;
+                        };
+                    })[];
                 };
             };
         };
@@ -29333,6 +29469,40 @@ export interface operations {
                      * @enum {string}
                      */
                     visibility?: "private" | "protected" | "public";
+                    /** @description The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name. */
+                    features?: ({
+                        /** @enum {string} */
+                        name: "memory";
+                        options?: {
+                            /**
+                             * @description The memory scope (defaults to contact)
+                             * @enum {string}
+                             */
+                            scope?: "user" | "contact" | "bot";
+                        };
+                    } | {
+                        /** @enum {string} */
+                        name: "time";
+                    } | {
+                        /** @enum {string} */
+                        name: "compact";
+                        /** @description At least one of tokens or messages must be provided */
+                        options: {
+                            /** @description Compact once a request uses this many input tokens */
+                            tokens?: number;
+                            /** @description Compact once this many messages are waiting */
+                            messages?: number;
+                        };
+                    } | {
+                        /** @enum {string} */
+                        name: "web";
+                        options?: {
+                            /** @description Search the web (defaults to true) */
+                            search?: boolean;
+                            /** @description Fetch web pages (defaults to false) */
+                            fetch?: boolean;
+                        };
+                    })[];
                 };
             };
         };
@@ -29416,6 +29586,40 @@ export interface operations {
                          * @enum {string}
                          */
                         visibility?: "private" | "protected" | "public";
+                        /** @description The features enabled on the bot. Features passed with a request are added on top and replace a bot feature with the same name. */
+                        features?: ({
+                            /** @enum {string} */
+                            name: "memory";
+                            options?: {
+                                /**
+                                 * @description The memory scope (defaults to contact)
+                                 * @enum {string}
+                                 */
+                                scope?: "user" | "contact" | "bot";
+                            };
+                        } | {
+                            /** @enum {string} */
+                            name: "time";
+                        } | {
+                            /** @enum {string} */
+                            name: "compact";
+                            /** @description At least one of tokens or messages must be provided */
+                            options: {
+                                /** @description Compact once a request uses this many input tokens */
+                                tokens?: number;
+                                /** @description Compact once this many messages are waiting */
+                                messages?: number;
+                            };
+                        } | {
+                            /** @enum {string} */
+                            name: "web";
+                            options?: {
+                                /** @description Search the web (defaults to true) */
+                                search?: boolean;
+                                /** @description Fetch web pages (defaults to false) */
+                                fetch?: boolean;
+                            };
+                        })[];
                     };
                 };
             };
