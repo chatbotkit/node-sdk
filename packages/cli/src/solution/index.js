@@ -287,6 +287,7 @@ export const TaskResourceConfigSchema = BasicResourceConfigSchema.extend({
     maxIterations: z.number().optional(),
     maxTime: z.number().optional(),
     maxCalls: z.number().nullable().optional(),
+    state: z.enum(['enabled', 'disabled']).optional(),
   }),
 })
 
@@ -546,6 +547,7 @@ export const TriggerIntegrationResourceConfigSchema =
       meta: z.record(z.unknown()).optional(),
       blueprintId: z.string().optional(),
       botId: z.string().optional(),
+      state: z.enum(['enabled', 'disabled']).optional(),
       authenticate: z.boolean().optional(),
       schedule: z
         .enum([
