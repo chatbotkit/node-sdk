@@ -6437,6 +6437,16 @@ export interface components {
             };
         } | {
             /** @enum {string} */
+            name: "journal";
+            options?: {
+                /**
+                 * @description The journal scope (defaults to contact)
+                 * @enum {string}
+                 */
+                scope?: "user" | "contact" | "bot";
+            };
+        } | {
+            /** @enum {string} */
             name: "time";
         } | {
             /** @enum {string} */
@@ -29156,6 +29166,16 @@ export interface operations {
                                 };
                             } | {
                                 /** @enum {string} */
+                                name: "journal";
+                                options?: {
+                                    /**
+                                     * @description The journal scope (defaults to contact)
+                                     * @enum {string}
+                                     */
+                                    scope?: "user" | "contact" | "bot";
+                                };
+                            } | {
+                                /** @enum {string} */
                                 name: "time";
                             } | {
                                 /** @enum {string} */
@@ -29236,6 +29256,16 @@ export interface operations {
                                 options?: {
                                     /**
                                      * @description The memory scope (defaults to contact)
+                                     * @enum {string}
+                                     */
+                                    scope?: "user" | "contact" | "bot";
+                                };
+                            } | {
+                                /** @enum {string} */
+                                name: "journal";
+                                options?: {
+                                    /**
+                                     * @description The journal scope (defaults to contact)
                                      * @enum {string}
                                      */
                                     scope?: "user" | "contact" | "bot";
@@ -29327,6 +29357,16 @@ export interface operations {
                         options?: {
                             /**
                              * @description The memory scope (defaults to contact)
+                             * @enum {string}
+                             */
+                            scope?: "user" | "contact" | "bot";
+                        };
+                    } | {
+                        /** @enum {string} */
+                        name: "journal";
+                        options?: {
+                            /**
+                             * @description The journal scope (defaults to contact)
                              * @enum {string}
                              */
                             scope?: "user" | "contact" | "bot";
@@ -29482,6 +29522,16 @@ export interface operations {
                         };
                     } | {
                         /** @enum {string} */
+                        name: "journal";
+                        options?: {
+                            /**
+                             * @description The journal scope (defaults to contact)
+                             * @enum {string}
+                             */
+                            scope?: "user" | "contact" | "bot";
+                        };
+                    } | {
+                        /** @enum {string} */
                         name: "time";
                     } | {
                         /** @enum {string} */
@@ -29593,6 +29643,16 @@ export interface operations {
                             options?: {
                                 /**
                                  * @description The memory scope (defaults to contact)
+                                 * @enum {string}
+                                 */
+                                scope?: "user" | "contact" | "bot";
+                            };
+                        } | {
+                            /** @enum {string} */
+                            name: "journal";
+                            options?: {
+                                /**
+                                 * @description The journal scope (defaults to contact)
                                  * @enum {string}
                                  */
                                 scope?: "user" | "contact" | "bot";

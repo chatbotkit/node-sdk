@@ -171,6 +171,14 @@ export const BotResourceConfigSchema = BasicResourceConfigSchema.extend({
               .optional(),
           }),
           z.object({
+            name: z.literal('journal'),
+            options: z
+              .object({
+                scope: z.enum(['user', 'contact', 'bot']).optional(),
+              })
+              .optional(),
+          }),
+          z.object({
             name: z.literal('time'),
           }),
           z.object({

@@ -609,6 +609,36 @@
                 "name": {
                   "type": "string",
                   "enum": [
+                    "journal"
+                  ]
+                },
+                "options": {
+                  "type": "object",
+                  "properties": {
+                    "scope": {
+                      "type": "string",
+                      "enum": [
+                        "user",
+                        "contact",
+                        "bot"
+                      ],
+                      "description": "The journal scope (defaults to contact)"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "enum": [
                     "time"
                   ]
                 }
@@ -52810,6 +52840,36 @@
                                     "name": {
                                       "type": "string",
                                       "enum": [
+                                        "journal"
+                                      ]
+                                    },
+                                    "options": {
+                                      "type": "object",
+                                      "properties": {
+                                        "scope": {
+                                          "type": "string",
+                                          "enum": [
+                                            "user",
+                                            "contact",
+                                            "bot"
+                                          ],
+                                          "description": "The journal scope (defaults to contact)"
+                                        }
+                                      },
+                                      "additionalProperties": false
+                                    }
+                                  },
+                                  "required": [
+                                    "name"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string",
+                                      "enum": [
                                         "time"
                                       ]
                                     }
@@ -53026,6 +53086,36 @@
                                               "bot"
                                             ],
                                             "description": "The memory scope (defaults to contact)"
+                                          }
+                                        },
+                                        "additionalProperties": false
+                                      }
+                                    },
+                                    "required": [
+                                      "name"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "name": {
+                                        "type": "string",
+                                        "enum": [
+                                          "journal"
+                                        ]
+                                      },
+                                      "options": {
+                                        "type": "object",
+                                        "properties": {
+                                          "scope": {
+                                            "type": "string",
+                                            "enum": [
+                                              "user",
+                                              "contact",
+                                              "bot"
+                                            ],
+                                            "description": "The journal scope (defaults to contact)"
                                           }
                                         },
                                         "additionalProperties": false
@@ -53272,6 +53362,36 @@
                                     "bot"
                                   ],
                                   "description": "The memory scope (defaults to contact)"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [
+                                "journal"
+                              ]
+                            },
+                            "options": {
+                              "type": "object",
+                              "properties": {
+                                "scope": {
+                                  "type": "string",
+                                  "enum": [
+                                    "user",
+                                    "contact",
+                                    "bot"
+                                  ],
+                                  "description": "The journal scope (defaults to contact)"
                                 }
                               },
                               "additionalProperties": false
@@ -53639,6 +53759,36 @@
                             "name": {
                               "type": "string",
                               "enum": [
+                                "journal"
+                              ]
+                            },
+                            "options": {
+                              "type": "object",
+                              "properties": {
+                                "scope": {
+                                  "type": "string",
+                                  "enum": [
+                                    "user",
+                                    "contact",
+                                    "bot"
+                                  ],
+                                  "description": "The journal scope (defaults to contact)"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "enum": [
                                 "time"
                               ]
                             }
@@ -53899,6 +54049,36 @@
                                       "bot"
                                     ],
                                     "description": "The memory scope (defaults to contact)"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "name"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "enum": [
+                                  "journal"
+                                ]
+                              },
+                              "options": {
+                                "type": "object",
+                                "properties": {
+                                  "scope": {
+                                    "type": "string",
+                                    "enum": [
+                                      "user",
+                                      "contact",
+                                      "bot"
+                                    ],
+                                    "description": "The journal scope (defaults to contact)"
                                   }
                                 },
                                 "additionalProperties": false
