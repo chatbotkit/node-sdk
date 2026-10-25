@@ -426,7 +426,7 @@ export const SlackIntegrationResourceConfigSchema =
       references: z.boolean().optional(),
       ratings: z.boolean().optional(),
       visibleMessages: z.number().optional(),
-      autoRespond: z.string().optional(),
+      autoRespond: z.string().nullable().optional(),
       allowFrom: z.string().optional(),
     }),
   })
@@ -455,6 +455,7 @@ export const DiscordIntegrationResourceConfigSchema =
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
       stream: z.boolean().optional(),
+      autoRespond: z.string().nullable().optional(),
       allowFrom: z.string().optional(),
     }),
   })
@@ -478,6 +479,7 @@ export const TelegramIntegrationResourceConfigSchema =
       contactCollection: z.boolean().optional(),
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
+      autoRespond: z.string().nullable().optional(),
       allowFrom: z.string().optional(),
     }),
   })
@@ -503,6 +505,7 @@ export const WhatsAppIntegrationResourceConfigSchema =
       contactCollection: z.boolean().optional(),
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
+      autoRespond: z.string().nullable().optional(),
       allowFrom: z.string().optional(),
     }),
   })
@@ -527,6 +530,7 @@ export const MessengerIntegrationResourceConfigSchema =
       contactCollection: z.boolean().optional(),
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
+      autoRespond: z.string().nullable().optional(),
     }),
   })
 
@@ -569,6 +573,7 @@ export const EmailIntegrationResourceConfigSchema =
       contactCollection: z.boolean().optional(),
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
+      autoRespond: z.string().nullable().optional(),
       allowFrom: z.string().optional(),
     }),
   })
@@ -686,6 +691,7 @@ export const TwilioIntegrationResourceConfigSchema =
       voice: z.string().optional(),
       contactCollection: z.boolean().optional(),
       sessionDuration: z.number().optional(),
+      autoRespond: z.string().nullable().optional(),
       allowFrom: z.string().optional(),
     }),
   })
