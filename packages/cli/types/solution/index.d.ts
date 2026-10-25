@@ -321,7 +321,7 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     references?: boolean;
     ratings?: boolean;
     visibleMessages?: number;
-    autoRespond?: string;
+    autoRespond?: string | null;
     allowFrom?: string;
 }>, ResourceConfigSchemaFor<"discordIntegration", {
     name?: string;
@@ -337,6 +337,7 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     handle?: string;
     contactCollection?: boolean;
     sessionDuration?: number;
+    autoRespond?: string | null;
     allowFrom?: string;
 }>, ResourceConfigSchemaFor<"telegramIntegration", {
     name?: string;
@@ -350,6 +351,7 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     contactCollection?: boolean;
     sessionDuration?: number;
     attachments?: boolean;
+    autoRespond?: string | null;
     allowFrom?: string;
 }>, ResourceConfigSchemaFor<"whatsappIntegration", {
     name?: string;
@@ -364,6 +366,7 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     contactCollection?: boolean;
     sessionDuration?: number;
     attachments?: boolean;
+    autoRespond?: string | null;
     allowFrom?: string;
 }>, ResourceConfigSchemaFor<"messengerIntegration", {
     name?: string;
@@ -377,6 +380,7 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     contactCollection?: boolean;
     sessionDuration?: number;
     attachments?: boolean;
+    autoRespond?: string | null;
 }>, ResourceConfigSchemaFor<"notionIntegration", {
     name?: string;
     description?: string;
@@ -399,6 +403,7 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     contactCollection?: boolean;
     sessionDuration?: number;
     attachments?: boolean;
+    autoRespond?: string | null;
     allowFrom?: string;
 }>, ResourceConfigSchemaFor<"triggerIntegration", {
     name?: string;
@@ -583,7 +588,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         references?: boolean;
         ratings?: boolean;
         visibleMessages?: number;
-        autoRespond?: string;
+        autoRespond?: string | null;
         allowFrom?: string;
     }>, ResourceConfigSchemaFor<"discordIntegration", {
         name?: string;
@@ -599,6 +604,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         handle?: string;
         contactCollection?: boolean;
         sessionDuration?: number;
+        autoRespond?: string | null;
         allowFrom?: string;
     }>, ResourceConfigSchemaFor<"telegramIntegration", {
         name?: string;
@@ -612,6 +618,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         contactCollection?: boolean;
         sessionDuration?: number;
         attachments?: boolean;
+        autoRespond?: string | null;
         allowFrom?: string;
     }>, ResourceConfigSchemaFor<"whatsappIntegration", {
         name?: string;
@@ -626,6 +633,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         contactCollection?: boolean;
         sessionDuration?: number;
         attachments?: boolean;
+        autoRespond?: string | null;
         allowFrom?: string;
     }>, ResourceConfigSchemaFor<"messengerIntegration", {
         name?: string;
@@ -639,6 +647,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         contactCollection?: boolean;
         sessionDuration?: number;
         attachments?: boolean;
+        autoRespond?: string | null;
     }>, ResourceConfigSchemaFor<"notionIntegration", {
         name?: string;
         description?: string;
@@ -661,6 +670,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         contactCollection?: boolean;
         sessionDuration?: number;
         attachments?: boolean;
+        autoRespond?: string | null;
         allowFrom?: string;
     }>, ResourceConfigSchemaFor<"triggerIntegration", {
         name?: string;
@@ -899,7 +909,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             references?: boolean | undefined;
             ratings?: boolean | undefined;
             visibleMessages?: number | undefined;
-            autoRespond?: string | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
         };
         slug?: string | undefined;
@@ -917,6 +927,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
             appId?: string | undefined;
             publicKey?: string | undefined;
@@ -938,6 +949,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
         };
         slug?: string | undefined;
@@ -955,6 +967,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             blueprintId?: string | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
             phoneNumberId?: string | undefined;
             accessToken?: string | undefined;
@@ -966,6 +979,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         properties: {
             name?: string | undefined;
             attachments?: boolean | undefined;
+            autoRespond?: string | null | undefined;
             botId?: string | undefined;
             description?: string | undefined;
             meta?: {
@@ -1007,6 +1021,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             blueprintId?: string | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
         };
         slug?: string | undefined;
@@ -1273,7 +1288,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             references?: boolean | undefined;
             ratings?: boolean | undefined;
             visibleMessages?: number | undefined;
-            autoRespond?: string | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
         };
         slug?: string | undefined;
@@ -1291,6 +1306,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
             appId?: string | undefined;
             publicKey?: string | undefined;
@@ -1312,6 +1328,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
         };
         slug?: string | undefined;
@@ -1329,6 +1346,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             blueprintId?: string | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
             phoneNumberId?: string | undefined;
             accessToken?: string | undefined;
@@ -1340,6 +1358,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         properties: {
             name?: string | undefined;
             attachments?: boolean | undefined;
+            autoRespond?: string | null | undefined;
             botId?: string | undefined;
             description?: string | undefined;
             meta?: {
@@ -1381,6 +1400,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             blueprintId?: string | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
         };
         slug?: string | undefined;
@@ -1658,7 +1678,7 @@ export class Resource {
             references?: boolean | undefined;
             ratings?: boolean | undefined;
             visibleMessages?: number | undefined;
-            autoRespond?: string | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
         };
         slug?: string | undefined;
@@ -1676,6 +1696,7 @@ export class Resource {
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
             appId?: string | undefined;
             publicKey?: string | undefined;
@@ -1697,6 +1718,7 @@ export class Resource {
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
         };
         slug?: string | undefined;
@@ -1714,6 +1736,7 @@ export class Resource {
             blueprintId?: string | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
             phoneNumberId?: string | undefined;
             accessToken?: string | undefined;
@@ -1725,6 +1748,7 @@ export class Resource {
         properties: {
             name?: string | undefined;
             attachments?: boolean | undefined;
+            autoRespond?: string | null | undefined;
             botId?: string | undefined;
             description?: string | undefined;
             meta?: {
@@ -1766,6 +1790,7 @@ export class Resource {
             blueprintId?: string | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
             allowFrom?: string | undefined;
         };
         slug?: string | undefined;
@@ -2305,7 +2330,7 @@ export class Solution {
                 references?: boolean | undefined;
                 ratings?: boolean | undefined;
                 visibleMessages?: number | undefined;
-                autoRespond?: string | undefined;
+                autoRespond?: string | null | undefined;
                 allowFrom?: string | undefined;
             };
             slug?: string | undefined;
@@ -2323,6 +2348,7 @@ export class Solution {
                 sessionDuration?: number | undefined;
                 contactCollection?: boolean | undefined;
                 botToken?: string | undefined;
+                autoRespond?: string | null | undefined;
                 allowFrom?: string | undefined;
                 appId?: string | undefined;
                 publicKey?: string | undefined;
@@ -2344,6 +2370,7 @@ export class Solution {
                 sessionDuration?: number | undefined;
                 contactCollection?: boolean | undefined;
                 botToken?: string | undefined;
+                autoRespond?: string | null | undefined;
                 allowFrom?: string | undefined;
             };
             slug?: string | undefined;
@@ -2361,6 +2388,7 @@ export class Solution {
                 blueprintId?: string | undefined;
                 sessionDuration?: number | undefined;
                 contactCollection?: boolean | undefined;
+                autoRespond?: string | null | undefined;
                 allowFrom?: string | undefined;
                 phoneNumberId?: string | undefined;
                 accessToken?: string | undefined;
@@ -2372,6 +2400,7 @@ export class Solution {
             properties: {
                 name?: string | undefined;
                 attachments?: boolean | undefined;
+                autoRespond?: string | null | undefined;
                 botId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
@@ -2413,6 +2442,7 @@ export class Solution {
                 blueprintId?: string | undefined;
                 sessionDuration?: number | undefined;
                 contactCollection?: boolean | undefined;
+                autoRespond?: string | null | undefined;
                 allowFrom?: string | undefined;
             };
             slug?: string | undefined;

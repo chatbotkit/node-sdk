@@ -20646,6 +20646,11 @@
                             "description": "Weather the bot supports attachments",
                             "type": "boolean"
                           },
+                          "autoRespond": {
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                            "type": "string",
+                            "nullable": true
+                          },
                           "allowFrom": {
                             "description": "Newline-or-comma-separated list of allowed senders. Use phone numbers in E.164 format (digits only). Leave empty to block all. Use * to allow everyone.",
                             "type": "string",
@@ -20760,6 +20765,11 @@
                             "attachments": {
                               "description": "Weather the bot supports attachments",
                               "type": "boolean"
+                            },
+                            "autoRespond": {
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                              "type": "string",
+                              "nullable": true
                             },
                             "allowFrom": {
                               "description": "Newline-or-comma-separated list of allowed senders. Use phone numbers in E.164 format (digits only). Leave empty to block all. Use * to allow everyone.",
@@ -20885,6 +20895,11 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all.",
@@ -21026,6 +21041,11 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all.",
@@ -21261,6 +21281,11 @@
                     "attachments": {
                       "description": "Weather the bot supports attachments",
                       "type": "boolean"
+                    },
+                    "autoRespond": {
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                      "type": "string",
+                      "nullable": true
                     },
                     "allowFrom": {
                       "description": "Newline-or-comma-separated list of allowed senders",
@@ -21505,6 +21530,11 @@
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
                           },
+                          "autoRespond": {
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                            "type": "string",
+                            "nullable": true
+                          },
                           "allowFrom": {
                             "description": "Newline-or-comma-separated list of allowed senders",
                             "type": "string"
@@ -21601,6 +21631,11 @@
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
                               "type": "number"
+                            },
+                            "autoRespond": {
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                              "type": "string",
+                              "nullable": true
                             },
                             "allowFrom": {
                               "description": "Newline-or-comma-separated list of allowed senders",
@@ -21716,6 +21751,11 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all.",
@@ -21848,6 +21888,11 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all.",
@@ -22066,6 +22111,11 @@
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
                       "type": "number"
+                    },
+                    "autoRespond": {
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                      "type": "string",
+                      "nullable": true
                     },
                     "allowFrom": {
                       "description": "Newline-or-comma-separated list of allowed senders",
@@ -23258,6 +23308,11 @@
                             "description": "Weather the bot supports attachments",
                             "type": "boolean"
                           },
+                          "autoRespond": {
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                            "type": "string",
+                            "nullable": true
+                          },
                           "allowFrom": {
                             "description": "Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users,",
                             "type": "string"
@@ -23350,6 +23405,11 @@
                             "attachments": {
                               "description": "Weather the bot supports attachments",
                               "type": "boolean"
+                            },
+                            "autoRespond": {
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                              "type": "string",
+                              "nullable": true
                             },
                             "allowFrom": {
                               "description": "Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users,",
@@ -23461,6 +23521,11 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users,",
@@ -23589,6 +23654,11 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users,",
@@ -23803,6 +23873,11 @@
                     "attachments": {
                       "description": "Weather the bot supports attachments",
                       "type": "boolean"
+                    },
+                    "autoRespond": {
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                      "type": "string",
+                      "nullable": true
                     },
                     "allowFrom": {
                       "description": "Newline-or-comma-separated list of allowed senders",
@@ -24799,8 +24874,9 @@
                             "type": "number"
                           },
                           "autoRespond": {
-                            "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
-                            "type": "string"
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                            "type": "string",
+                            "nullable": true
                           },
                           "allowFrom": {
                             "description": "Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or",
@@ -24916,8 +24992,9 @@
                               "type": "number"
                             },
                             "autoRespond": {
-                              "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
-                              "type": "string"
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                              "type": "string",
+                              "nullable": true
                             },
                             "allowFrom": {
                               "description": "Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or",
@@ -25047,8 +25124,9 @@
                     "type": "number"
                   },
                   "autoRespond": {
-                    "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
-                    "type": "string"
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or",
@@ -25195,8 +25273,9 @@
                     "type": "number"
                   },
                   "autoRespond": {
-                    "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
-                    "type": "string"
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or",
@@ -25433,8 +25512,9 @@
                       "type": "number"
                     },
                     "autoRespond": {
-                      "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
-                      "type": "string"
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                      "type": "string",
+                      "nullable": true
                     },
                     "allowFrom": {
                       "description": "Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or",
@@ -28110,6 +28190,11 @@
                             "description": "The chat session duration",
                             "type": "number"
                           },
+                          "autoRespond": {
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                            "type": "string",
+                            "nullable": true
+                          },
                           "allowFrom": {
                             "description": "The allowed senders for this integration",
                             "type": "string"
@@ -28202,6 +28287,11 @@
                             "sessionDuration": {
                               "description": "The chat session duration",
                               "type": "number"
+                            },
+                            "autoRespond": {
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                              "type": "string",
+                              "nullable": true
                             },
                             "allowFrom": {
                               "description": "The allowed senders for this integration",
@@ -28317,6 +28407,11 @@
                   "sessionDuration": {
                     "description": "The chat session duration",
                     "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "The allowed senders for this integration",
@@ -28449,6 +28544,11 @@
                   "sessionDuration": {
                     "description": "The chat session duration",
                     "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "The allowed senders for this integration",
@@ -28663,6 +28763,11 @@
                     "sessionDuration": {
                       "description": "The chat session duration",
                       "type": "number"
+                    },
+                    "autoRespond": {
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                      "type": "string",
+                      "nullable": true
                     },
                     "allowFrom": {
                       "description": "The allowed senders for this integration",
@@ -28915,6 +29020,11 @@
                           "attachments": {
                             "description": "Whether the bot supports attachments",
                             "type": "boolean"
+                          },
+                          "autoRespond": {
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                            "type": "string",
+                            "nullable": true
                           }
                         },
                         "required": [
@@ -29020,6 +29130,11 @@
                             "attachments": {
                               "description": "Whether the bot supports attachments",
                               "type": "boolean"
+                            },
+                            "autoRespond": {
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                              "type": "string",
+                              "nullable": true
                             }
                           },
                           "$$ref": "#/paths/~1integration~1messenger~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -29135,6 +29250,11 @@
                   "attachments": {
                     "description": "Whether the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   }
                 }
               }
@@ -29266,6 +29386,11 @@
                   "attachments": {
                     "description": "Whether the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   }
                 }
               }
@@ -29491,6 +29616,11 @@
                     "attachments": {
                       "description": "Whether the bot supports attachments",
                       "type": "boolean"
+                    },
+                    "autoRespond": {
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                      "type": "string",
+                      "nullable": true
                     }
                   },
                   "required": [
@@ -30373,6 +30503,11 @@
                           "attachments": {
                             "description": "Whether the bot supports attachments",
                             "type": "boolean"
+                          },
+                          "autoRespond": {
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                            "type": "string",
+                            "nullable": true
                           }
                         },
                         "required": [
@@ -30478,6 +30613,11 @@
                             "attachments": {
                               "description": "Whether the bot supports attachments",
                               "type": "boolean"
+                            },
+                            "autoRespond": {
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                              "type": "string",
+                              "nullable": true
                             }
                           },
                           "$$ref": "#/paths/~1integration~1instagram~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -30593,6 +30733,11 @@
                   "attachments": {
                     "description": "Whether the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   }
                 }
               }
@@ -30724,6 +30869,11 @@
                   "attachments": {
                     "description": "Whether the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   }
                 }
               }
@@ -30949,6 +31099,11 @@
                     "attachments": {
                       "description": "Whether the bot supports attachments",
                       "type": "boolean"
+                    },
+                    "autoRespond": {
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                      "type": "string",
+                      "nullable": true
                     }
                   },
                   "required": [
@@ -31193,8 +31348,9 @@
                             "type": "boolean"
                           },
                           "autoRespond": {
-                            "description": "The auto-respond configuration",
-                            "type": "string"
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                            "type": "string",
+                            "nullable": true
                           },
                           "allowFrom": {
                             "description": "The allowed senders for this integration",
@@ -31298,8 +31454,9 @@
                               "type": "boolean"
                             },
                             "autoRespond": {
-                              "description": "The auto-respond configuration",
-                              "type": "string"
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                              "type": "string",
+                              "nullable": true
                             },
                             "allowFrom": {
                               "description": "The allowed senders for this integration",
@@ -31417,8 +31574,9 @@
                     "type": "boolean"
                   },
                   "autoRespond": {
-                    "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to DMs and direct messages only.",
-                    "type": "string"
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Restrict which Google Chat users can interact with this integration. Accepts user resource names (users/USER_ID) or * to allow all. One per line.",
@@ -31553,8 +31711,9 @@
                     "type": "boolean"
                   },
                   "autoRespond": {
-                    "description": "The auto-respond configuration",
-                    "type": "string"
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "The allowed senders for this integration",
@@ -31779,8 +31938,9 @@
                       "type": "boolean"
                     },
                     "autoRespond": {
-                      "description": "The auto-respond configuration",
-                      "type": "string"
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                      "type": "string",
+                      "nullable": true
                     },
                     "allowFrom": {
                       "description": "The allowed senders for this integration",
@@ -32120,6 +32280,11 @@
                     "description": "The session duration for the GitHub integration",
                     "type": "number"
                   },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
+                  },
                   "allowFrom": {
                     "description": "Restricts who can summon the bot. Comma or newline separated list of `@collaborators`, `@login`, `owner/repo`, `owner/*` or `*`. Defaults to `@collaborators`.",
                     "type": "string"
@@ -32421,6 +32586,11 @@
                     "sessionDuration": {
                       "description": "The session duration for the GitHub integration",
                       "type": "number"
+                    },
+                    "autoRespond": {
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                      "type": "string",
+                      "nullable": true
                     },
                     "allowFrom": {
                       "description": "Who may talk to the agent through this integration",
@@ -33696,6 +33866,11 @@
                             "description": "Weather the bot supports attachments",
                             "type": "boolean"
                           },
+                          "autoRespond": {
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                            "type": "string",
+                            "nullable": true
+                          },
                           "allowFrom": {
                             "description": "Newline-separated list of email patterns allowed to send messages to this integration",
                             "type": "string"
@@ -33788,6 +33963,11 @@
                             "attachments": {
                               "description": "Weather the bot supports attachments",
                               "type": "boolean"
+                            },
+                            "autoRespond": {
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                              "type": "string",
+                              "nullable": true
                             },
                             "allowFrom": {
                               "description": "Newline-separated list of email patterns allowed to send messages to this integration",
@@ -33895,6 +34075,11 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Newline-separated list of email patterns allowed to send messages to this integration",
@@ -34019,6 +34204,11 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Newline-separated list of email patterns allowed to send messages to this integration",
@@ -34233,6 +34423,11 @@
                     "attachments": {
                       "description": "Weather the bot supports attachments",
                       "type": "boolean"
+                    },
+                    "autoRespond": {
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                      "type": "string",
+                      "nullable": true
                     },
                     "allowFrom": {
                       "description": "Newline-separated list of email patterns allowed to send messages to this integration",
@@ -34475,6 +34670,11 @@
                             "description": "The chat session duration",
                             "type": "number"
                           },
+                          "autoRespond": {
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                            "type": "string",
+                            "nullable": true
+                          },
                           "allowFrom": {
                             "description": "Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all.",
                             "type": "string"
@@ -34571,6 +34771,11 @@
                             "sessionDuration": {
                               "description": "The chat session duration",
                               "type": "number"
+                            },
+                            "autoRespond": {
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                              "type": "string",
+                              "nullable": true
                             },
                             "allowFrom": {
                               "description": "Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all.",
@@ -34690,6 +34895,11 @@
                   "sessionDuration": {
                     "description": "The chat session duration",
                     "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all.",
@@ -34826,6 +35036,11 @@
                   "sessionDuration": {
                     "description": "The chat session duration",
                     "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                    "type": "string",
+                    "nullable": true
                   },
                   "allowFrom": {
                     "description": "Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all.",
@@ -35044,6 +35259,11 @@
                     "sessionDuration": {
                       "description": "The chat session duration",
                       "type": "number"
+                    },
+                    "autoRespond": {
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages and mentions of the bot always get a reply. Leave empty to reply only when addressed (the bot keeps replying in conversations it is already part of), use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). Stored for consistency with other integrations; this integration does not apply it yet and answers every message it receives as before.",
+                      "type": "string",
+                      "nullable": true
                     },
                     "allowFrom": {
                       "description": "Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all.",
