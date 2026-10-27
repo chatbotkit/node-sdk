@@ -528,6 +528,26 @@
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
     },
+    "./integration/chat": {
+      "types": "./types/integration/chat/index.d.ts",
+      "import": "./src/integration/chat/index.js"
+    },
+    "./integration/chat/index": {
+      "types": "./types/integration/chat/index.d.ts",
+      "import": "./src/integration/chat/index.js"
+    },
+    "./integration/chat/index.js": {
+      "types": "./types/integration/chat/index.d.ts",
+      "import": "./src/integration/chat/index.js"
+    },
+    "./integration/chat/v1": {
+      "types": "./types/integration/chat/v1.d.ts",
+      "import": "./src/integration/chat/v1.js"
+    },
+    "./integration/chat/v1.js": {
+      "types": "./types/integration/chat/v1.d.ts",
+      "import": "./src/integration/chat/v1.js"
+    },
     "./integration/discord": {
       "types": "./types/integration/discord/index.d.ts",
       "import": "./src/integration/discord/index.js"

@@ -1,3 +1,4 @@
+import chat from './chat/index.js'
 import discord from './discord/index.js'
 import email from './email/index.js'
 import extract from './extract/index.js'
@@ -34,6 +35,7 @@ const commands = {
   telegram,
   trigger,
   email,
+  chat,
   sitemap,
   notion,
   support,

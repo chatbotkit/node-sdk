@@ -579,6 +579,30 @@ export const EmailIntegrationResourceConfigSchema =
   })
 
 /**
+ * The schema for a chat integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'chatIntegration', import('@chatbotkit/sdk/integration/chat/v1').ChatIntegrationCreateRequest>}
+ */
+export const ChatIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('chatIntegration'),
+    properties: z.object({
+      alias: z.string().optional(),
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      server: z.string(),
+      handle: z.string(),
+      contactCollection: z.boolean().optional(),
+      sessionDuration: z.number().optional(),
+      autoRespond: z.string().nullable().optional(),
+      allowFrom: z.string().optional(),
+    }),
+  })
+
+/**
  * The schema for a trigger integration resource configuration.
  *
  * @type {ResourceConfigSchemaFor<'triggerIntegration', import('@chatbotkit/sdk/integration/trigger/v1').TriggerIntegrationCreateRequest>}
@@ -717,6 +741,7 @@ export const ResourceConfigSchema = z.union([
   MessengerIntegrationResourceConfigSchema,
   NotionIntegrationResourceConfigSchema,
   EmailIntegrationResourceConfigSchema,
+  ChatIntegrationResourceConfigSchema,
   TriggerIntegrationResourceConfigSchema,
   SupportIntegrationResourceConfigSchema,
   ExtractIntegrationResourceConfigSchema,
@@ -1081,6 +1106,32 @@ export class EmailIntegrationResource extends Resource {
 }
 
 /**
+ * Represents a chat integration resource.
+ */
+export class ChatIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {{
+   *   create: (properties: Record<string,any>) => Promise<{id: string}>,
+   *   update: (id: string, properties: Record<string,any>) => Promise<{id: string}>
+   * }}
+   */
+  get client() {
+    const client = this.baseClient.integration.chat
+
+    return {
+      create: (properties) =>
+        client.create(
+          /** @type {import('@chatbotkit/sdk/integration/chat/v1').ChatIntegrationCreateRequest} */ (
+            properties
+          )
+        ),
+      update: (id, properties) => client.update(id, properties),
+    }
+  }
+}
+
+/**
  * Represents a trigger integration resource.
  */
 export class TriggerIntegrationResource extends Resource {
@@ -1172,7 +1223,7 @@ export class Solution {
   /**
    * Get the resources.
    *
-   * @returns {(BlueprintResource|BotResource|DatasetResource|FileResource|SpaceResource|SecretResource|SkillsetResource|TaskResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource)[]}
+   * @returns {(BlueprintResource|BotResource|DatasetResource|FileResource|SpaceResource|SecretResource|SkillsetResource|TaskResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|ChatIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource)[]}
    */
   get resources() {
     return this.config.resources.map((resource) => {
@@ -1210,6 +1261,8 @@ export class Solution {
         return new NotionIntegrationResource(resource)
       } else if (resource.type === 'emailIntegration') {
         return new EmailIntegrationResource(resource)
+      } else if (resource.type === 'chatIntegration') {
+        return new ChatIntegrationResource(resource)
       } else if (resource.type === 'triggerIntegration') {
         return new TriggerIntegrationResource(resource)
       } else if (resource.type === 'supportIntegration') {
@@ -1518,6 +1571,24 @@ export class Solution {
    */
   get emailIntegration() {
     return getArrayBackedObject(this.emailIntegrations)
+  }
+
+  /**
+   * @returns {ChatIntegrationResource[]}
+   */
+  get chatIntegrations() {
+    return /** @type {ChatIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof ChatIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: ChatIntegrationResource|undefined}}
+   */
+  get chatIntegration() {
+    return getArrayBackedObject(this.chatIntegrations)
   }
 
   /**

@@ -165,6 +165,18 @@
       "types": "./types/command/api/index.d.ts",
       "import": "./src/command/api/index.js"
     },
+    "./command/api/integration/chat": {
+      "types": "./types/command/api/integration/chat/index.d.ts",
+      "import": "./src/command/api/integration/chat/index.js"
+    },
+    "./command/api/integration/chat/index": {
+      "types": "./types/command/api/integration/chat/index.d.ts",
+      "import": "./src/command/api/integration/chat/index.js"
+    },
+    "./command/api/integration/chat/index.js": {
+      "types": "./types/command/api/integration/chat/index.d.ts",
+      "import": "./src/command/api/integration/chat/index.js"
+    },
     "./command/api/integration/discord": {
       "types": "./types/command/api/integration/discord/index.d.ts",
       "import": "./src/command/api/integration/discord/index.js"

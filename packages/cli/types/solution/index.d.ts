@@ -98,6 +98,12 @@ export const DatasetResourceConfigSchema: ResourceConfigSchemaFor<"dataset", imp
  */
 export const FileResourceConfigSchema: ResourceConfigSchemaFor<"file", import("@chatbotkit/sdk/file/v1").FileCreateRequest>;
 /**
+ * The schema for a space resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'space', import('@chatbotkit/sdk/space/v1').SpaceCreateRequest>}
+ */
+export const SpaceResourceConfigSchema: ResourceConfigSchemaFor<"space", import("@chatbotkit/sdk/space/v1").SpaceCreateRequest>;
+/**
  * The schema for a secret resource configuration.
  *
  * @type {ResourceConfigSchemaFor<'secret', import('@chatbotkit/sdk/secret/v1').SecretCreateRequest>}
@@ -109,6 +115,12 @@ export const SecretResourceConfigSchema: ResourceConfigSchemaFor<"secret", impor
  * @type {ResourceConfigSchemaFor<'skillset', import('@chatbotkit/sdk/skillset/v1').SkillsetCreateRequest>}
  */
 export const SkillsetResourceConfigSchema: ResourceConfigSchemaFor<"skillset", import("@chatbotkit/sdk/skillset/v1").SkillsetCreateRequest>;
+/**
+ * The schema for a task resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'task', import('@chatbotkit/sdk/task/v1').TaskCreateRequest>}
+ */
+export const TaskResourceConfigSchema: ResourceConfigSchemaFor<"task", import("@chatbotkit/sdk/task/v1").TaskCreateRequest>;
 /**
  * The schema for a widget integration resource configuration.
  *
@@ -164,6 +176,12 @@ export const NotionIntegrationResourceConfigSchema: ResourceConfigSchemaFor<"not
  */
 export const EmailIntegrationResourceConfigSchema: ResourceConfigSchemaFor<"emailIntegration", import("@chatbotkit/sdk/integration/email/v1").EmailIntegrationCreateRequest>;
 /**
+ * The schema for a chat integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'chatIntegration', import('@chatbotkit/sdk/integration/chat/v1').ChatIntegrationCreateRequest>}
+ */
+export const ChatIntegrationResourceConfigSchema: ResourceConfigSchemaFor<"chatIntegration", import("@chatbotkit/sdk/integration/chat/v1").ChatIntegrationCreateRequest>;
+/**
  * The schema for a trigger integration resource configuration.
  *
  * @type {ResourceConfigSchemaFor<'triggerIntegration', import('@chatbotkit/sdk/integration/trigger/v1').TriggerIntegrationCreateRequest>}
@@ -197,22 +215,23 @@ export const TwilioIntegrationResourceConfigSchema: ResourceConfigSchemaFor<"twi
  * The schema for a resource configuration.
  */
 export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprint", {
-    alias?: string;
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
+    contactId?: string;
     visibility?: "private" | "protected" | "public";
 }>, ResourceConfigSchemaFor<"bot", import("@chatbotkit/sdk/bot/v1").BotCreateRequest>, ResourceConfigSchemaFor<"dataset", {
-    alias?: string;
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
-    store?: string;
+    blueprintId?: string | null;
+    contactId?: string;
     reranker?: string;
     recordMaxTokens?: number;
     searchMinScore?: number;
@@ -223,46 +242,77 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     separators?: string;
     visibility?: "private" | "protected" | "public";
 }>, ResourceConfigSchemaFor<"file", {
-    alias?: string;
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
+    blueprintId?: string | null;
+    contactId?: string;
     visibility?: "private" | "protected" | "public";
-}>, ResourceConfigSchemaFor<"secret", {
-    alias?: string;
+}>, ResourceConfigSchemaFor<"space", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
+    blueprintId?: string | null;
+    contactId?: string;
+}>, ResourceConfigSchemaFor<"secret", {
+    alias?: string | null;
+    name?: string;
+    description?: string;
+    meta?: {
+        [key: string]: unknown;
+    };
+    blueprintId?: string | null;
+    contactId?: string;
     kind?: "shared" | "personal";
-    type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+    type?: "plain" | "basic" | "bearer" | "jwt" | "oauth" | "template" | "reference";
     value?: string;
     config?: {
         [key: string]: unknown;
     };
     visibility?: "private" | "protected" | "public";
 }>, ResourceConfigSchemaFor<"skillset", {
-    alias?: string;
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
+    blueprintId?: string | null;
+    contactId?: string;
     visibility?: "private" | "protected" | "public";
-}>, ResourceConfigSchemaFor<"widgetIntegration", {
+    state?: "enabled" | "disabled";
+}>, ResourceConfigSchemaFor<"task", {
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
+    blueprintId?: string | null;
+    contactId?: string;
     botId?: string;
+    schedule?: string;
+    timezone?: string | null;
+    expiresAt?: number | null;
+    sessionDuration?: number;
+    maxIterations?: number;
+    maxTime?: number;
+    maxCalls?: number | null;
+    state?: "enabled" | "disabled";
+}>, ResourceConfigSchemaFor<"widgetIntegration", {
+    alias?: string | null;
+    name?: string;
+    description?: string;
+    meta?: {
+        [key: string]: unknown;
+    };
+    blueprintId?: string | null;
+    botId?: string | null;
     theme?: string;
     layout?: string;
     title?: string;
@@ -292,12 +342,13 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     voiceOut?: boolean;
     poweredBy?: boolean;
 }>, ResourceConfigSchemaFor<"sitemapIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
+    blueprintId?: string | null;
     datasetId?: string;
     url?: string;
     glob?: string;
@@ -306,13 +357,14 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     syncSchedule?: string;
     expiresIn?: number;
 }>, ResourceConfigSchemaFor<"slackIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
-    botId?: string;
+    blueprintId?: string | null;
+    botId?: string | null;
     signingSecret?: string;
     botToken?: string;
     userToken?: string;
@@ -324,13 +376,14 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     autoRespond?: string | null;
     allowFrom?: string;
 }>, ResourceConfigSchemaFor<"discordIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
-    botId?: string;
+    blueprintId?: string | null;
+    botId?: string | null;
     appId?: string;
     botToken?: string;
     publicKey?: string;
@@ -340,13 +393,14 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     autoRespond?: string | null;
     allowFrom?: string;
 }>, ResourceConfigSchemaFor<"telegramIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
-    botId?: string;
+    blueprintId?: string | null;
+    botId?: string | null;
     botToken?: string;
     contactCollection?: boolean;
     sessionDuration?: number;
@@ -354,84 +408,110 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     autoRespond?: string | null;
     allowFrom?: string;
 }>, ResourceConfigSchemaFor<"whatsappIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
-    botId?: string;
-    phoneNumberId?: string;
-    accessToken?: string;
+    blueprintId?: string | null;
+    botId?: string | null;
+    phoneNumberId?: string | null;
+    accessToken?: string | null;
+    appSecret?: string | null;
     contactCollection?: boolean;
-    sessionDuration?: number;
+    sessionDuration?: number | null;
     attachments?: boolean;
     autoRespond?: string | null;
-    allowFrom?: string;
+    allowFrom?: string | null;
 }>, ResourceConfigSchemaFor<"messengerIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
-    botId?: string;
-    accessToken?: string;
+    blueprintId?: string | null;
+    botId?: string | null;
+    accessToken?: string | null;
+    appSecret?: string | null;
     contactCollection?: boolean;
-    sessionDuration?: number;
+    sessionDuration?: number | null;
     attachments?: boolean;
     autoRespond?: string | null;
 }>, ResourceConfigSchemaFor<"notionIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
+    blueprintId?: string | null;
     datasetId?: string;
     token?: string;
     syncSchedule?: string;
     expiresIn?: number;
 }>, ResourceConfigSchemaFor<"emailIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
-    botId?: string;
+    blueprintId?: string | null;
+    botId?: string | null;
     contactCollection?: boolean;
     sessionDuration?: number;
     attachments?: boolean;
     autoRespond?: string | null;
     allowFrom?: string;
-}>, ResourceConfigSchemaFor<"triggerIntegration", {
+}>, ResourceConfigSchemaFor<"chatIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
-    botId?: string;
+    blueprintId?: string | null;
+    botId?: string | null;
+    server: string;
+    handle: string;
+    contactCollection?: boolean;
+    sessionDuration?: number;
+    autoRespond?: string | null;
+    allowFrom?: string;
+}>, ResourceConfigSchemaFor<"triggerIntegration", {
+    alias?: string | null;
+    name?: string;
+    description?: string;
+    meta?: {
+        [key: string]: unknown;
+    };
+    blueprintId?: string | null;
+    botId?: string | null;
     authenticate?: boolean;
     schedule?: string | null;
+    timezone?: string | null;
     sessionDuration?: number;
+    state?: "enabled" | "disabled";
 }>, ResourceConfigSchemaFor<"supportIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
-    botId?: string;
+    blueprintId?: string | null;
+    botId?: string | null;
     email?: string;
 }>, ResourceConfigSchemaFor<"extractIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
+    blueprintId?: string | null;
     botId?: string;
     schema?: {
         [key: string]: unknown;
@@ -439,24 +519,31 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     request?: string;
     model?: string;
 }>, ResourceConfigSchemaFor<"mcpserverIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
+    blueprintId?: string | null;
     skillsetId?: string;
     oAuthConnectionId?: string;
 }>, ResourceConfigSchemaFor<"twilioIntegration", {
+    alias?: string | null;
     name?: string;
     description?: string;
     meta?: {
         [key: string]: unknown;
     };
-    blueprintId?: string;
-    botId?: string;
+    blueprintId?: string | null;
+    botId?: string | null;
+    accountSid?: string;
+    authToken?: string;
+    voice?: string;
     contactCollection?: boolean;
     sessionDuration?: number;
+    autoRespond?: string | null;
+    allowFrom?: string;
 }>]>;
 /**
  * The schema for a solution configuration.
@@ -464,22 +551,23 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
 export const SolutionConfigSchema: z.ZodObject<{
     version: z.ZodLiteral<1>;
     resources: z.ZodArray<z.ZodUnion<[ResourceConfigSchemaFor<"blueprint", {
-        alias?: string;
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
+        contactId?: string;
         visibility?: "private" | "protected" | "public";
     }>, ResourceConfigSchemaFor<"bot", import("@chatbotkit/sdk/bot/v1").BotCreateRequest>, ResourceConfigSchemaFor<"dataset", {
-        alias?: string;
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
-        store?: string;
+        blueprintId?: string | null;
+        contactId?: string;
         reranker?: string;
         recordMaxTokens?: number;
         searchMinScore?: number;
@@ -490,46 +578,77 @@ export const SolutionConfigSchema: z.ZodObject<{
         separators?: string;
         visibility?: "private" | "protected" | "public";
     }>, ResourceConfigSchemaFor<"file", {
-        alias?: string;
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
+        blueprintId?: string | null;
+        contactId?: string;
         visibility?: "private" | "protected" | "public";
-    }>, ResourceConfigSchemaFor<"secret", {
-        alias?: string;
+    }>, ResourceConfigSchemaFor<"space", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
+        blueprintId?: string | null;
+        contactId?: string;
+    }>, ResourceConfigSchemaFor<"secret", {
+        alias?: string | null;
+        name?: string;
+        description?: string;
+        meta?: {
+            [key: string]: unknown;
+        };
+        blueprintId?: string | null;
+        contactId?: string;
         kind?: "shared" | "personal";
-        type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+        type?: "plain" | "basic" | "bearer" | "jwt" | "oauth" | "template" | "reference";
         value?: string;
         config?: {
             [key: string]: unknown;
         };
         visibility?: "private" | "protected" | "public";
     }>, ResourceConfigSchemaFor<"skillset", {
-        alias?: string;
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
+        blueprintId?: string | null;
+        contactId?: string;
         visibility?: "private" | "protected" | "public";
-    }>, ResourceConfigSchemaFor<"widgetIntegration", {
+        state?: "enabled" | "disabled";
+    }>, ResourceConfigSchemaFor<"task", {
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
+        blueprintId?: string | null;
+        contactId?: string;
         botId?: string;
+        schedule?: string;
+        timezone?: string | null;
+        expiresAt?: number | null;
+        sessionDuration?: number;
+        maxIterations?: number;
+        maxTime?: number;
+        maxCalls?: number | null;
+        state?: "enabled" | "disabled";
+    }>, ResourceConfigSchemaFor<"widgetIntegration", {
+        alias?: string | null;
+        name?: string;
+        description?: string;
+        meta?: {
+            [key: string]: unknown;
+        };
+        blueprintId?: string | null;
+        botId?: string | null;
         theme?: string;
         layout?: string;
         title?: string;
@@ -559,12 +678,13 @@ export const SolutionConfigSchema: z.ZodObject<{
         voiceOut?: boolean;
         poweredBy?: boolean;
     }>, ResourceConfigSchemaFor<"sitemapIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
+        blueprintId?: string | null;
         datasetId?: string;
         url?: string;
         glob?: string;
@@ -573,13 +693,14 @@ export const SolutionConfigSchema: z.ZodObject<{
         syncSchedule?: string;
         expiresIn?: number;
     }>, ResourceConfigSchemaFor<"slackIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
-        botId?: string;
+        blueprintId?: string | null;
+        botId?: string | null;
         signingSecret?: string;
         botToken?: string;
         userToken?: string;
@@ -591,13 +712,14 @@ export const SolutionConfigSchema: z.ZodObject<{
         autoRespond?: string | null;
         allowFrom?: string;
     }>, ResourceConfigSchemaFor<"discordIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
-        botId?: string;
+        blueprintId?: string | null;
+        botId?: string | null;
         appId?: string;
         botToken?: string;
         publicKey?: string;
@@ -607,13 +729,14 @@ export const SolutionConfigSchema: z.ZodObject<{
         autoRespond?: string | null;
         allowFrom?: string;
     }>, ResourceConfigSchemaFor<"telegramIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
-        botId?: string;
+        blueprintId?: string | null;
+        botId?: string | null;
         botToken?: string;
         contactCollection?: boolean;
         sessionDuration?: number;
@@ -621,84 +744,110 @@ export const SolutionConfigSchema: z.ZodObject<{
         autoRespond?: string | null;
         allowFrom?: string;
     }>, ResourceConfigSchemaFor<"whatsappIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
-        botId?: string;
-        phoneNumberId?: string;
-        accessToken?: string;
+        blueprintId?: string | null;
+        botId?: string | null;
+        phoneNumberId?: string | null;
+        accessToken?: string | null;
+        appSecret?: string | null;
         contactCollection?: boolean;
-        sessionDuration?: number;
+        sessionDuration?: number | null;
         attachments?: boolean;
         autoRespond?: string | null;
-        allowFrom?: string;
+        allowFrom?: string | null;
     }>, ResourceConfigSchemaFor<"messengerIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
-        botId?: string;
-        accessToken?: string;
+        blueprintId?: string | null;
+        botId?: string | null;
+        accessToken?: string | null;
+        appSecret?: string | null;
         contactCollection?: boolean;
-        sessionDuration?: number;
+        sessionDuration?: number | null;
         attachments?: boolean;
         autoRespond?: string | null;
     }>, ResourceConfigSchemaFor<"notionIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
+        blueprintId?: string | null;
         datasetId?: string;
         token?: string;
         syncSchedule?: string;
         expiresIn?: number;
     }>, ResourceConfigSchemaFor<"emailIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
-        botId?: string;
+        blueprintId?: string | null;
+        botId?: string | null;
         contactCollection?: boolean;
         sessionDuration?: number;
         attachments?: boolean;
         autoRespond?: string | null;
         allowFrom?: string;
-    }>, ResourceConfigSchemaFor<"triggerIntegration", {
+    }>, ResourceConfigSchemaFor<"chatIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
-        botId?: string;
+        blueprintId?: string | null;
+        botId?: string | null;
+        server: string;
+        handle: string;
+        contactCollection?: boolean;
+        sessionDuration?: number;
+        autoRespond?: string | null;
+        allowFrom?: string;
+    }>, ResourceConfigSchemaFor<"triggerIntegration", {
+        alias?: string | null;
+        name?: string;
+        description?: string;
+        meta?: {
+            [key: string]: unknown;
+        };
+        blueprintId?: string | null;
+        botId?: string | null;
         authenticate?: boolean;
         schedule?: string | null;
+        timezone?: string | null;
         sessionDuration?: number;
+        state?: "enabled" | "disabled";
     }>, ResourceConfigSchemaFor<"supportIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
-        botId?: string;
+        blueprintId?: string | null;
+        botId?: string | null;
         email?: string;
     }>, ResourceConfigSchemaFor<"extractIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
+        blueprintId?: string | null;
         botId?: string;
         schema?: {
             [key: string]: unknown;
@@ -706,36 +855,44 @@ export const SolutionConfigSchema: z.ZodObject<{
         request?: string;
         model?: string;
     }>, ResourceConfigSchemaFor<"mcpserverIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
+        blueprintId?: string | null;
         skillsetId?: string;
         oAuthConnectionId?: string;
     }>, ResourceConfigSchemaFor<"twilioIntegration", {
+        alias?: string | null;
         name?: string;
         description?: string;
         meta?: {
             [key: string]: unknown;
         };
-        blueprintId?: string;
-        botId?: string;
+        blueprintId?: string | null;
+        botId?: string | null;
+        accountSid?: string;
+        authToken?: string;
+        voice?: string;
         contactCollection?: boolean;
         sessionDuration?: number;
+        autoRespond?: string | null;
+        allowFrom?: string;
     }>]>, "many">;
 }, "strip", z.ZodTypeAny, {
     version: 1;
     resources: ({
         type: "blueprint";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
         };
         slug?: string | undefined;
@@ -743,35 +900,61 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "bot";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
-            backstory?: string | undefined;
-            datasetId?: string | undefined;
-            skillsetId?: string | undefined;
-            privacy?: boolean | undefined;
-            moderation?: boolean | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
+            backstory?: string | null | undefined;
+            datasetId?: string | null | undefined;
+            skillsetId?: string | null | undefined;
+            privacy?: boolean | undefined;
+            moderation?: boolean | undefined;
+            blueprintId?: string | null | undefined;
+            features?: ({
+                name: "memory";
+                options?: {
+                    scope?: "user" | "contact" | "bot";
+                };
+            } | {
+                name: "journal";
+                options?: {
+                    scope?: "user" | "contact" | "bot";
+                };
+            } | {
+                name: "time";
+            } | {
+                name: "compact";
+                options: {
+                    tokens?: number;
+                    messages?: number;
+                };
+            } | {
+                name: "web";
+                options?: {
+                    search?: boolean;
+                    fetch?: boolean;
+                };
+            })[] | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "dataset";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
-            store?: string | undefined;
+            blueprintId?: string | null | undefined;
             reranker?: string | undefined;
             recordMaxTokens?: number | undefined;
             searchMinScore?: number | undefined;
@@ -786,14 +969,29 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "file";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+        };
+        slug?: string | undefined;
+        id?: string | undefined;
+    } | {
+        type: "space";
+        properties: {
+            alias?: string | null | undefined;
+            name?: string | undefined;
+            description?: string | undefined;
+            meta?: {
+                [key: string]: unknown;
+            } | undefined;
+            contactId?: string | undefined;
+            blueprintId?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -801,49 +999,73 @@ export const SolutionConfigSchema: z.ZodObject<{
         type: "secret";
         properties: {
             value?: string | undefined;
-            type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference" | undefined;
+            type?: "plain" | "basic" | "bearer" | "jwt" | "oauth" | "template" | "reference" | undefined;
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            kind?: "shared" | "personal" | undefined;
             config?: {
                 [key: string]: unknown;
             } | undefined;
-            kind?: "shared" | "personal" | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "skillset";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            state?: "enabled" | "disabled" | undefined;
+        };
+        slug?: string | undefined;
+        id?: string | undefined;
+    } | {
+        type: "task";
+        properties: {
+            name?: string | undefined;
+            description?: string | undefined;
+            meta?: {
+                [key: string]: unknown;
+            } | undefined;
+            contactId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            state?: "enabled" | "disabled" | undefined;
+            botId?: string | undefined;
+            schedule?: string | undefined;
+            timezone?: string | null | undefined;
+            expiresAt?: number | null | undefined;
+            sessionDuration?: number | undefined;
+            maxIterations?: number | undefined;
+            maxTime?: number | undefined;
+            maxCalls?: number | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "widgetIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
-            tools?: boolean | undefined;
-            stream?: boolean | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | undefined;
             theme?: string | undefined;
             layout?: string | undefined;
             title?: string | undefined;
@@ -851,14 +1073,16 @@ export const SolutionConfigSchema: z.ZodObject<{
             initial?: string | undefined;
             placeholder?: string | undefined;
             origin?: string | undefined;
-            sessionDuration?: number | undefined;
             language?: string | undefined;
             plugins?: string | undefined;
+            stream?: boolean | undefined;
             verbose?: boolean | undefined;
+            tools?: boolean | undefined;
             unfurl?: boolean | undefined;
             math?: boolean | undefined;
             carousel?: boolean | undefined;
             form?: boolean | undefined;
+            attachments?: boolean | undefined;
             autoScroll?: boolean | undefined;
             startFirst?: boolean | undefined;
             contactCollection?: boolean | undefined;
@@ -875,13 +1099,14 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "sitemapIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            datasetId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            datasetId?: string | undefined;
+            blueprintId?: string | null | undefined;
             url?: string | undefined;
             glob?: string | undefined;
             selectors?: string | undefined;
@@ -894,13 +1119,14 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "slackIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             signingSecret?: string | undefined;
@@ -917,13 +1143,14 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "discordIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
@@ -938,15 +1165,16 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "telegramIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
+            attachments?: boolean | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
             autoRespond?: string | null | undefined;
@@ -957,68 +1185,94 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "whatsappIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
-            sessionDuration?: number | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | null | undefined;
+            attachments?: boolean | undefined;
             contactCollection?: boolean | undefined;
             autoRespond?: string | null | undefined;
-            allowFrom?: string | undefined;
-            phoneNumberId?: string | undefined;
-            accessToken?: string | undefined;
+            allowFrom?: string | null | undefined;
+            phoneNumberId?: string | null | undefined;
+            accessToken?: string | null | undefined;
+            appSecret?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "messengerIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            autoRespond?: string | null | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
-            sessionDuration?: number | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | null | undefined;
+            attachments?: boolean | undefined;
             contactCollection?: boolean | undefined;
-            accessToken?: string | undefined;
+            autoRespond?: string | null | undefined;
+            accessToken?: string | null | undefined;
+            appSecret?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "notionIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            datasetId?: string | undefined;
-            token?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            datasetId?: string | undefined;
+            blueprintId?: string | null | undefined;
             syncSchedule?: string | undefined;
             expiresIn?: number | undefined;
+            token?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "emailIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | undefined;
+            attachments?: boolean | undefined;
+            contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
+            allowFrom?: string | undefined;
+        };
+        slug?: string | undefined;
+        id?: string | undefined;
+    } | {
+        type: "chatIntegration";
+        properties: {
+            handle: string;
+            server: string;
+            alias?: string | null | undefined;
+            name?: string | undefined;
+            description?: string | undefined;
+            meta?: {
+                [key: string]: unknown;
+            } | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             autoRespond?: string | null | undefined;
@@ -1029,44 +1283,49 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "triggerIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            state?: "enabled" | "disabled" | undefined;
+            botId?: string | null | undefined;
+            schedule?: string | null | undefined;
+            timezone?: string | null | undefined;
             sessionDuration?: number | undefined;
             authenticate?: boolean | undefined;
-            schedule?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "supportIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
-            email?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            email?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "extractIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
-            model?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            model?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | undefined;
             schema?: {
                 [key: string]: unknown;
             } | undefined;
@@ -1077,13 +1336,14 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "mcpserverIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            skillsetId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            skillsetId?: string | undefined;
+            blueprintId?: string | null | undefined;
             oAuthConnectionId?: string | undefined;
         };
         slug?: string | undefined;
@@ -1091,15 +1351,21 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "twilioIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
+            allowFrom?: string | undefined;
+            accountSid?: string | undefined;
+            authToken?: string | undefined;
+            voice?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1109,12 +1375,13 @@ export const SolutionConfigSchema: z.ZodObject<{
     resources: ({
         type: "blueprint";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
         };
         slug?: string | undefined;
@@ -1122,35 +1389,61 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "bot";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
-            backstory?: string | undefined;
-            datasetId?: string | undefined;
-            skillsetId?: string | undefined;
-            privacy?: boolean | undefined;
-            moderation?: boolean | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
+            backstory?: string | null | undefined;
+            datasetId?: string | null | undefined;
+            skillsetId?: string | null | undefined;
+            privacy?: boolean | undefined;
+            moderation?: boolean | undefined;
+            blueprintId?: string | null | undefined;
+            features?: ({
+                name: "memory";
+                options?: {
+                    scope?: "user" | "contact" | "bot";
+                };
+            } | {
+                name: "journal";
+                options?: {
+                    scope?: "user" | "contact" | "bot";
+                };
+            } | {
+                name: "time";
+            } | {
+                name: "compact";
+                options: {
+                    tokens?: number;
+                    messages?: number;
+                };
+            } | {
+                name: "web";
+                options?: {
+                    search?: boolean;
+                    fetch?: boolean;
+                };
+            })[] | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "dataset";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
-            store?: string | undefined;
+            blueprintId?: string | null | undefined;
             reranker?: string | undefined;
             recordMaxTokens?: number | undefined;
             searchMinScore?: number | undefined;
@@ -1165,14 +1458,29 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "file";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+        };
+        slug?: string | undefined;
+        id?: string | undefined;
+    } | {
+        type: "space";
+        properties: {
+            alias?: string | null | undefined;
+            name?: string | undefined;
+            description?: string | undefined;
+            meta?: {
+                [key: string]: unknown;
+            } | undefined;
+            contactId?: string | undefined;
+            blueprintId?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1180,49 +1488,73 @@ export const SolutionConfigSchema: z.ZodObject<{
         type: "secret";
         properties: {
             value?: string | undefined;
-            type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference" | undefined;
+            type?: "plain" | "basic" | "bearer" | "jwt" | "oauth" | "template" | "reference" | undefined;
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            kind?: "shared" | "personal" | undefined;
             config?: {
                 [key: string]: unknown;
             } | undefined;
-            kind?: "shared" | "personal" | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "skillset";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            state?: "enabled" | "disabled" | undefined;
+        };
+        slug?: string | undefined;
+        id?: string | undefined;
+    } | {
+        type: "task";
+        properties: {
+            name?: string | undefined;
+            description?: string | undefined;
+            meta?: {
+                [key: string]: unknown;
+            } | undefined;
+            contactId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            state?: "enabled" | "disabled" | undefined;
+            botId?: string | undefined;
+            schedule?: string | undefined;
+            timezone?: string | null | undefined;
+            expiresAt?: number | null | undefined;
+            sessionDuration?: number | undefined;
+            maxIterations?: number | undefined;
+            maxTime?: number | undefined;
+            maxCalls?: number | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "widgetIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
-            tools?: boolean | undefined;
-            stream?: boolean | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | undefined;
             theme?: string | undefined;
             layout?: string | undefined;
             title?: string | undefined;
@@ -1230,14 +1562,16 @@ export const SolutionConfigSchema: z.ZodObject<{
             initial?: string | undefined;
             placeholder?: string | undefined;
             origin?: string | undefined;
-            sessionDuration?: number | undefined;
             language?: string | undefined;
             plugins?: string | undefined;
+            stream?: boolean | undefined;
             verbose?: boolean | undefined;
+            tools?: boolean | undefined;
             unfurl?: boolean | undefined;
             math?: boolean | undefined;
             carousel?: boolean | undefined;
             form?: boolean | undefined;
+            attachments?: boolean | undefined;
             autoScroll?: boolean | undefined;
             startFirst?: boolean | undefined;
             contactCollection?: boolean | undefined;
@@ -1254,13 +1588,14 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "sitemapIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            datasetId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            datasetId?: string | undefined;
+            blueprintId?: string | null | undefined;
             url?: string | undefined;
             glob?: string | undefined;
             selectors?: string | undefined;
@@ -1273,13 +1608,14 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "slackIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             signingSecret?: string | undefined;
@@ -1296,13 +1632,14 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "discordIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
@@ -1317,15 +1654,16 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "telegramIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
+            attachments?: boolean | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
             autoRespond?: string | null | undefined;
@@ -1336,68 +1674,94 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "whatsappIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
-            sessionDuration?: number | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | null | undefined;
+            attachments?: boolean | undefined;
             contactCollection?: boolean | undefined;
             autoRespond?: string | null | undefined;
-            allowFrom?: string | undefined;
-            phoneNumberId?: string | undefined;
-            accessToken?: string | undefined;
+            allowFrom?: string | null | undefined;
+            phoneNumberId?: string | null | undefined;
+            accessToken?: string | null | undefined;
+            appSecret?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "messengerIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            autoRespond?: string | null | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
-            sessionDuration?: number | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | null | undefined;
+            attachments?: boolean | undefined;
             contactCollection?: boolean | undefined;
-            accessToken?: string | undefined;
+            autoRespond?: string | null | undefined;
+            accessToken?: string | null | undefined;
+            appSecret?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "notionIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            datasetId?: string | undefined;
-            token?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            datasetId?: string | undefined;
+            blueprintId?: string | null | undefined;
             syncSchedule?: string | undefined;
             expiresIn?: number | undefined;
+            token?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "emailIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | undefined;
+            attachments?: boolean | undefined;
+            contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
+            allowFrom?: string | undefined;
+        };
+        slug?: string | undefined;
+        id?: string | undefined;
+    } | {
+        type: "chatIntegration";
+        properties: {
+            handle: string;
+            server: string;
+            alias?: string | null | undefined;
+            name?: string | undefined;
+            description?: string | undefined;
+            meta?: {
+                [key: string]: unknown;
+            } | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             autoRespond?: string | null | undefined;
@@ -1408,44 +1772,49 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "triggerIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            state?: "enabled" | "disabled" | undefined;
+            botId?: string | null | undefined;
+            schedule?: string | null | undefined;
+            timezone?: string | null | undefined;
             sessionDuration?: number | undefined;
             authenticate?: boolean | undefined;
-            schedule?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "supportIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
-            email?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            email?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "extractIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
-            model?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            model?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | undefined;
             schema?: {
                 [key: string]: unknown;
             } | undefined;
@@ -1456,13 +1825,14 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "mcpserverIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            skillsetId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            skillsetId?: string | undefined;
+            blueprintId?: string | null | undefined;
             oAuthConnectionId?: string | undefined;
         };
         slug?: string | undefined;
@@ -1470,15 +1840,21 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "twilioIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
+            allowFrom?: string | undefined;
+            accountSid?: string | undefined;
+            authToken?: string | undefined;
+            voice?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1499,12 +1875,13 @@ export class Resource {
     config: {
         type: "blueprint";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
         };
         slug?: string | undefined;
@@ -1512,35 +1889,61 @@ export class Resource {
     } | {
         type: "bot";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
-            backstory?: string | undefined;
-            datasetId?: string | undefined;
-            skillsetId?: string | undefined;
-            privacy?: boolean | undefined;
-            moderation?: boolean | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
+            backstory?: string | null | undefined;
+            datasetId?: string | null | undefined;
+            skillsetId?: string | null | undefined;
+            privacy?: boolean | undefined;
+            moderation?: boolean | undefined;
+            blueprintId?: string | null | undefined;
+            features?: ({
+                name: "memory";
+                options?: {
+                    scope?: "user" | "contact" | "bot";
+                };
+            } | {
+                name: "journal";
+                options?: {
+                    scope?: "user" | "contact" | "bot";
+                };
+            } | {
+                name: "time";
+            } | {
+                name: "compact";
+                options: {
+                    tokens?: number;
+                    messages?: number;
+                };
+            } | {
+                name: "web";
+                options?: {
+                    search?: boolean;
+                    fetch?: boolean;
+                };
+            })[] | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "dataset";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
-            store?: string | undefined;
+            blueprintId?: string | null | undefined;
             reranker?: string | undefined;
             recordMaxTokens?: number | undefined;
             searchMinScore?: number | undefined;
@@ -1555,14 +1958,29 @@ export class Resource {
     } | {
         type: "file";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+        };
+        slug?: string | undefined;
+        id?: string | undefined;
+    } | {
+        type: "space";
+        properties: {
+            alias?: string | null | undefined;
+            name?: string | undefined;
+            description?: string | undefined;
+            meta?: {
+                [key: string]: unknown;
+            } | undefined;
+            contactId?: string | undefined;
+            blueprintId?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1570,49 +1988,73 @@ export class Resource {
         type: "secret";
         properties: {
             value?: string | undefined;
-            type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference" | undefined;
+            type?: "plain" | "basic" | "bearer" | "jwt" | "oauth" | "template" | "reference" | undefined;
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            kind?: "shared" | "personal" | undefined;
             config?: {
                 [key: string]: unknown;
             } | undefined;
-            kind?: "shared" | "personal" | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "skillset";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            alias?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
+            contactId?: string | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            state?: "enabled" | "disabled" | undefined;
+        };
+        slug?: string | undefined;
+        id?: string | undefined;
+    } | {
+        type: "task";
+        properties: {
+            name?: string | undefined;
+            description?: string | undefined;
+            meta?: {
+                [key: string]: unknown;
+            } | undefined;
+            contactId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            state?: "enabled" | "disabled" | undefined;
+            botId?: string | undefined;
+            schedule?: string | undefined;
+            timezone?: string | null | undefined;
+            expiresAt?: number | null | undefined;
+            sessionDuration?: number | undefined;
+            maxIterations?: number | undefined;
+            maxTime?: number | undefined;
+            maxCalls?: number | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "widgetIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
-            tools?: boolean | undefined;
-            stream?: boolean | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | undefined;
             theme?: string | undefined;
             layout?: string | undefined;
             title?: string | undefined;
@@ -1620,14 +2062,16 @@ export class Resource {
             initial?: string | undefined;
             placeholder?: string | undefined;
             origin?: string | undefined;
-            sessionDuration?: number | undefined;
             language?: string | undefined;
             plugins?: string | undefined;
+            stream?: boolean | undefined;
             verbose?: boolean | undefined;
+            tools?: boolean | undefined;
             unfurl?: boolean | undefined;
             math?: boolean | undefined;
             carousel?: boolean | undefined;
             form?: boolean | undefined;
+            attachments?: boolean | undefined;
             autoScroll?: boolean | undefined;
             startFirst?: boolean | undefined;
             contactCollection?: boolean | undefined;
@@ -1644,13 +2088,14 @@ export class Resource {
     } | {
         type: "sitemapIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            datasetId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            datasetId?: string | undefined;
+            blueprintId?: string | null | undefined;
             url?: string | undefined;
             glob?: string | undefined;
             selectors?: string | undefined;
@@ -1663,13 +2108,14 @@ export class Resource {
     } | {
         type: "slackIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             signingSecret?: string | undefined;
@@ -1686,13 +2132,14 @@ export class Resource {
     } | {
         type: "discordIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
@@ -1707,15 +2154,16 @@ export class Resource {
     } | {
         type: "telegramIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
+            attachments?: boolean | undefined;
             contactCollection?: boolean | undefined;
             botToken?: string | undefined;
             autoRespond?: string | null | undefined;
@@ -1726,68 +2174,94 @@ export class Resource {
     } | {
         type: "whatsappIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
-            sessionDuration?: number | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | null | undefined;
+            attachments?: boolean | undefined;
             contactCollection?: boolean | undefined;
             autoRespond?: string | null | undefined;
-            allowFrom?: string | undefined;
-            phoneNumberId?: string | undefined;
-            accessToken?: string | undefined;
+            allowFrom?: string | null | undefined;
+            phoneNumberId?: string | null | undefined;
+            accessToken?: string | null | undefined;
+            appSecret?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "messengerIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            autoRespond?: string | null | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
-            sessionDuration?: number | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | null | undefined;
+            attachments?: boolean | undefined;
             contactCollection?: boolean | undefined;
-            accessToken?: string | undefined;
+            autoRespond?: string | null | undefined;
+            accessToken?: string | null | undefined;
+            appSecret?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "notionIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            datasetId?: string | undefined;
-            token?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            datasetId?: string | undefined;
+            blueprintId?: string | null | undefined;
             syncSchedule?: string | undefined;
             expiresIn?: number | undefined;
+            token?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "emailIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            attachments?: boolean | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            sessionDuration?: number | undefined;
+            attachments?: boolean | undefined;
+            contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
+            allowFrom?: string | undefined;
+        };
+        slug?: string | undefined;
+        id?: string | undefined;
+    } | {
+        type: "chatIntegration";
+        properties: {
+            handle: string;
+            server: string;
+            alias?: string | null | undefined;
+            name?: string | undefined;
+            description?: string | undefined;
+            meta?: {
+                [key: string]: unknown;
+            } | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
             autoRespond?: string | null | undefined;
@@ -1798,44 +2272,49 @@ export class Resource {
     } | {
         type: "triggerIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            state?: "enabled" | "disabled" | undefined;
+            botId?: string | null | undefined;
+            schedule?: string | null | undefined;
+            timezone?: string | null | undefined;
             sessionDuration?: number | undefined;
             authenticate?: boolean | undefined;
-            schedule?: string | null | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "supportIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
-            email?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
+            email?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
     } | {
         type: "extractIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
-            model?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            model?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | undefined;
             schema?: {
                 [key: string]: unknown;
             } | undefined;
@@ -1846,13 +2325,14 @@ export class Resource {
     } | {
         type: "mcpserverIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            skillsetId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            skillsetId?: string | undefined;
+            blueprintId?: string | null | undefined;
             oAuthConnectionId?: string | undefined;
         };
         slug?: string | undefined;
@@ -1860,15 +2340,21 @@ export class Resource {
     } | {
         type: "twilioIntegration";
         properties: {
+            alias?: string | null | undefined;
             name?: string | undefined;
-            botId?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
             } | undefined;
-            blueprintId?: string | undefined;
+            blueprintId?: string | null | undefined;
+            botId?: string | null | undefined;
             sessionDuration?: number | undefined;
             contactCollection?: boolean | undefined;
+            autoRespond?: string | null | undefined;
+            allowFrom?: string | undefined;
+            accountSid?: string | undefined;
+            authToken?: string | undefined;
+            voice?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1980,6 +2466,16 @@ export class FileResource extends Resource {
     override get client(): import("@chatbotkit/sdk").FileClient;
 }
 /**
+ * Represents a space resource.
+ */
+export class SpaceResource extends Resource {
+    /**
+     * @override
+     * @returns {import('@chatbotkit/sdk').SpaceClient}
+     */
+    override get client(): import("@chatbotkit/sdk").SpaceClient;
+}
+/**
  * Represents a secret resource.
  */
 export class SecretResource extends Resource {
@@ -1998,6 +2494,16 @@ export class SkillsetResource extends Resource {
      * @returns {import('@chatbotkit/sdk').SkillsetClient}
      */
     override get client(): import("@chatbotkit/sdk").SkillsetClient;
+}
+/**
+ * Represents a task resource.
+ */
+export class TaskResource extends Resource {
+    /**
+     * @override
+     * @returns {import('@chatbotkit/sdk/task').TaskClient}
+     */
+    override get client(): import("@chatbotkit/sdk/task").TaskClient;
 }
 /**
  * Represents a widget integration resource.
@@ -2089,6 +2595,11 @@ export class EmailIntegrationResource extends Resource {
     override get client(): import("@chatbotkit/sdk/integration/email").EmailIntegrationClient;
 }
 /**
+ * Represents a chat integration resource.
+ */
+export class ChatIntegrationResource extends Resource {
+}
+/**
  * Represents a trigger integration resource.
  */
 export class TriggerIntegrationResource extends Resource {
@@ -2151,12 +2662,13 @@ export class Solution {
         resources: ({
             type: "blueprint";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                alias?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
+                contactId?: string | undefined;
                 visibility?: "private" | "protected" | "public" | undefined;
             };
             slug?: string | undefined;
@@ -2164,35 +2676,61 @@ export class Solution {
         } | {
             type: "bot";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
-                backstory?: string | undefined;
-                datasetId?: string | undefined;
-                skillsetId?: string | undefined;
-                privacy?: boolean | undefined;
-                moderation?: boolean | undefined;
-                alias?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
+                contactId?: string | undefined;
                 visibility?: "private" | "protected" | "public" | undefined;
-                blueprintId?: string | undefined;
+                model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
+                backstory?: string | null | undefined;
+                datasetId?: string | null | undefined;
+                skillsetId?: string | null | undefined;
+                privacy?: boolean | undefined;
+                moderation?: boolean | undefined;
+                blueprintId?: string | null | undefined;
+                features?: ({
+                    name: "memory";
+                    options?: {
+                        scope?: "user" | "contact" | "bot";
+                    };
+                } | {
+                    name: "journal";
+                    options?: {
+                        scope?: "user" | "contact" | "bot";
+                    };
+                } | {
+                    name: "time";
+                } | {
+                    name: "compact";
+                    options: {
+                        tokens?: number;
+                        messages?: number;
+                    };
+                } | {
+                    name: "web";
+                    options?: {
+                        search?: boolean;
+                        fetch?: boolean;
+                    };
+                })[] | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
         } | {
             type: "dataset";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                alias?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
+                contactId?: string | undefined;
                 visibility?: "private" | "protected" | "public" | undefined;
-                blueprintId?: string | undefined;
-                store?: string | undefined;
+                blueprintId?: string | null | undefined;
                 reranker?: string | undefined;
                 recordMaxTokens?: number | undefined;
                 searchMinScore?: number | undefined;
@@ -2207,14 +2745,29 @@ export class Solution {
         } | {
             type: "file";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                alias?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
+                contactId?: string | undefined;
                 visibility?: "private" | "protected" | "public" | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+            };
+            slug?: string | undefined;
+            id?: string | undefined;
+        } | {
+            type: "space";
+            properties: {
+                alias?: string | null | undefined;
+                name?: string | undefined;
+                description?: string | undefined;
+                meta?: {
+                    [key: string]: unknown;
+                } | undefined;
+                contactId?: string | undefined;
+                blueprintId?: string | null | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
@@ -2222,49 +2775,73 @@ export class Solution {
             type: "secret";
             properties: {
                 value?: string | undefined;
-                type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference" | undefined;
+                type?: "plain" | "basic" | "bearer" | "jwt" | "oauth" | "template" | "reference" | undefined;
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                alias?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
+                contactId?: string | undefined;
                 visibility?: "private" | "protected" | "public" | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                kind?: "shared" | "personal" | undefined;
                 config?: {
                     [key: string]: unknown;
                 } | undefined;
-                kind?: "shared" | "personal" | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
         } | {
             type: "skillset";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                alias?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
+                contactId?: string | undefined;
                 visibility?: "private" | "protected" | "public" | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                state?: "enabled" | "disabled" | undefined;
+            };
+            slug?: string | undefined;
+            id?: string | undefined;
+        } | {
+            type: "task";
+            properties: {
+                name?: string | undefined;
+                description?: string | undefined;
+                meta?: {
+                    [key: string]: unknown;
+                } | undefined;
+                contactId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                state?: "enabled" | "disabled" | undefined;
+                botId?: string | undefined;
+                schedule?: string | undefined;
+                timezone?: string | null | undefined;
+                expiresAt?: number | null | undefined;
+                sessionDuration?: number | undefined;
+                maxIterations?: number | undefined;
+                maxTime?: number | undefined;
+                maxCalls?: number | null | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
         } | {
             type: "widgetIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                attachments?: boolean | undefined;
-                botId?: string | undefined;
-                tools?: boolean | undefined;
-                stream?: boolean | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | null | undefined;
+                sessionDuration?: number | undefined;
                 theme?: string | undefined;
                 layout?: string | undefined;
                 title?: string | undefined;
@@ -2272,14 +2849,16 @@ export class Solution {
                 initial?: string | undefined;
                 placeholder?: string | undefined;
                 origin?: string | undefined;
-                sessionDuration?: number | undefined;
                 language?: string | undefined;
                 plugins?: string | undefined;
+                stream?: boolean | undefined;
                 verbose?: boolean | undefined;
+                tools?: boolean | undefined;
                 unfurl?: boolean | undefined;
                 math?: boolean | undefined;
                 carousel?: boolean | undefined;
                 form?: boolean | undefined;
+                attachments?: boolean | undefined;
                 autoScroll?: boolean | undefined;
                 startFirst?: boolean | undefined;
                 contactCollection?: boolean | undefined;
@@ -2296,13 +2875,14 @@ export class Solution {
         } | {
             type: "sitemapIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                datasetId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                datasetId?: string | undefined;
+                blueprintId?: string | null | undefined;
                 url?: string | undefined;
                 glob?: string | undefined;
                 selectors?: string | undefined;
@@ -2315,13 +2895,14 @@ export class Solution {
         } | {
             type: "slackIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                botId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | null | undefined;
                 sessionDuration?: number | undefined;
                 contactCollection?: boolean | undefined;
                 signingSecret?: string | undefined;
@@ -2338,13 +2919,14 @@ export class Solution {
         } | {
             type: "discordIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                botId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | null | undefined;
                 sessionDuration?: number | undefined;
                 contactCollection?: boolean | undefined;
                 botToken?: string | undefined;
@@ -2359,15 +2941,16 @@ export class Solution {
         } | {
             type: "telegramIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                attachments?: boolean | undefined;
-                botId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | null | undefined;
                 sessionDuration?: number | undefined;
+                attachments?: boolean | undefined;
                 contactCollection?: boolean | undefined;
                 botToken?: string | undefined;
                 autoRespond?: string | null | undefined;
@@ -2378,68 +2961,94 @@ export class Solution {
         } | {
             type: "whatsappIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                attachments?: boolean | undefined;
-                botId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
-                sessionDuration?: number | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | null | undefined;
+                sessionDuration?: number | null | undefined;
+                attachments?: boolean | undefined;
                 contactCollection?: boolean | undefined;
                 autoRespond?: string | null | undefined;
-                allowFrom?: string | undefined;
-                phoneNumberId?: string | undefined;
-                accessToken?: string | undefined;
+                allowFrom?: string | null | undefined;
+                phoneNumberId?: string | null | undefined;
+                accessToken?: string | null | undefined;
+                appSecret?: string | null | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
         } | {
             type: "messengerIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                attachments?: boolean | undefined;
-                autoRespond?: string | null | undefined;
-                botId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
-                sessionDuration?: number | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | null | undefined;
+                sessionDuration?: number | null | undefined;
+                attachments?: boolean | undefined;
                 contactCollection?: boolean | undefined;
-                accessToken?: string | undefined;
+                autoRespond?: string | null | undefined;
+                accessToken?: string | null | undefined;
+                appSecret?: string | null | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
         } | {
             type: "notionIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                datasetId?: string | undefined;
-                token?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                datasetId?: string | undefined;
+                blueprintId?: string | null | undefined;
                 syncSchedule?: string | undefined;
                 expiresIn?: number | undefined;
+                token?: string | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
         } | {
             type: "emailIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                attachments?: boolean | undefined;
-                botId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | null | undefined;
+                sessionDuration?: number | undefined;
+                attachments?: boolean | undefined;
+                contactCollection?: boolean | undefined;
+                autoRespond?: string | null | undefined;
+                allowFrom?: string | undefined;
+            };
+            slug?: string | undefined;
+            id?: string | undefined;
+        } | {
+            type: "chatIntegration";
+            properties: {
+                handle: string;
+                server: string;
+                alias?: string | null | undefined;
+                name?: string | undefined;
+                description?: string | undefined;
+                meta?: {
+                    [key: string]: unknown;
+                } | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | null | undefined;
                 sessionDuration?: number | undefined;
                 contactCollection?: boolean | undefined;
                 autoRespond?: string | null | undefined;
@@ -2450,44 +3059,49 @@ export class Solution {
         } | {
             type: "triggerIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                botId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                state?: "enabled" | "disabled" | undefined;
+                botId?: string | null | undefined;
+                schedule?: string | null | undefined;
+                timezone?: string | null | undefined;
                 sessionDuration?: number | undefined;
                 authenticate?: boolean | undefined;
-                schedule?: string | null | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
         } | {
             type: "supportIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                botId?: string | undefined;
-                email?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | null | undefined;
+                email?: string | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
         } | {
             type: "extractIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                botId?: string | undefined;
-                model?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                model?: string | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | undefined;
                 schema?: {
                     [key: string]: unknown;
                 } | undefined;
@@ -2498,13 +3112,14 @@ export class Solution {
         } | {
             type: "mcpserverIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                skillsetId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                skillsetId?: string | undefined;
+                blueprintId?: string | null | undefined;
                 oAuthConnectionId?: string | undefined;
             };
             slug?: string | undefined;
@@ -2512,15 +3127,21 @@ export class Solution {
         } | {
             type: "twilioIntegration";
             properties: {
+                alias?: string | null | undefined;
                 name?: string | undefined;
-                botId?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
                 } | undefined;
-                blueprintId?: string | undefined;
+                blueprintId?: string | null | undefined;
+                botId?: string | null | undefined;
                 sessionDuration?: number | undefined;
                 contactCollection?: boolean | undefined;
+                autoRespond?: string | null | undefined;
+                allowFrom?: string | undefined;
+                accountSid?: string | undefined;
+                authToken?: string | undefined;
+                voice?: string | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
@@ -2533,9 +3154,9 @@ export class Solution {
     /**
      * Get the resources.
      *
-     * @returns {(BlueprintResource|BotResource|DatasetResource|FileResource|SecretResource|SkillsetResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource)[]}
+     * @returns {(BlueprintResource|BotResource|DatasetResource|FileResource|SpaceResource|SecretResource|SkillsetResource|TaskResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|ChatIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource)[]}
      */
-    get resources(): (BlueprintResource | BotResource | DatasetResource | FileResource | SecretResource | SkillsetResource | WidgetIntegrationResource | SitemapIntegrationResource | SlackIntegrationResource | DiscordIntegrationResource | TelegramIntegrationResource | WhatsAppIntegrationResource | MessengerIntegrationResource | NotionIntegrationResource | EmailIntegrationResource | TriggerIntegrationResource | SupportIntegrationResource | ExtractIntegrationResource | McpServerIntegrationResource | TwilioIntegrationResource)[];
+    get resources(): (BlueprintResource | BotResource | DatasetResource | FileResource | SpaceResource | SecretResource | SkillsetResource | TaskResource | WidgetIntegrationResource | SitemapIntegrationResource | SlackIntegrationResource | DiscordIntegrationResource | TelegramIntegrationResource | WhatsAppIntegrationResource | MessengerIntegrationResource | NotionIntegrationResource | EmailIntegrationResource | ChatIntegrationResource | TriggerIntegrationResource | SupportIntegrationResource | ExtractIntegrationResource | McpServerIntegrationResource | TwilioIntegrationResource)[];
     /**
      * @returns {BlueprintResource[]}
      */
@@ -2577,6 +3198,16 @@ export class Solution {
         [key: string]: FileResource | undefined;
     };
     /**
+     * @returns {SpaceResource[]}
+     */
+    get spaces(): SpaceResource[];
+    /**
+     * @returns {{[key: string]: SpaceResource|undefined}}
+     */
+    get space(): {
+        [key: string]: SpaceResource | undefined;
+    };
+    /**
      * @returns {SecretResource[]}
      */
     get secrets(): SecretResource[];
@@ -2595,6 +3226,16 @@ export class Solution {
      */
     get skillset(): {
         [key: string]: SkillsetResource | undefined;
+    };
+    /**
+     * @returns {TaskResource[]}
+     */
+    get tasks(): TaskResource[];
+    /**
+     * @returns {{[key: string]: TaskResource|undefined}}
+     */
+    get task(): {
+        [key: string]: TaskResource | undefined;
     };
     /**
      * @returns {WidgetIntegrationResource[]}
@@ -2685,6 +3326,16 @@ export class Solution {
      */
     get emailIntegration(): {
         [key: string]: EmailIntegrationResource | undefined;
+    };
+    /**
+     * @returns {ChatIntegrationResource[]}
+     */
+    get chatIntegrations(): ChatIntegrationResource[];
+    /**
+     * @returns {{[key: string]: ChatIntegrationResource|undefined}}
+     */
+    get chatIntegration(): {
+        [key: string]: ChatIntegrationResource | undefined;
     };
     /**
      * @returns {TriggerIntegrationResource[]}

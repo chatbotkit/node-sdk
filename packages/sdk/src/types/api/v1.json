@@ -2,11 +2,11 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1792250957995)"
+    "version": "v1 (build 1793062261917)"
   },
   "servers": [
     {
-      "url": "http://localhost:8080/api/v1"
+      "url": "https://api.chatbotkit.com/v1"
     }
   ],
   "components": {
@@ -3597,6 +3597,96 @@
           }
         },
         "__originalOperationId": "initiateDiscord",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/{chatIntegrationId}/initiate": {
+      "post": {
+        "operationId": "initiateChat",
+        "summary": "Lets the agent of a Chat integration start a message to a group or handle",
+        "tags": [
+          "Conversation"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Chat integration whose agent writes",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "to": {
+                    "description": "The destination, a",
+                    "type": "string"
+                  },
+                  "text": {
+                    "description": "The text instruction the agent writes its message from",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "to",
+                  "text"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Chat integration was successfully initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the initiated integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "initiateChat",
         "security": [
           {
             "BearerAuth": []
@@ -35384,6 +35474,1457 @@
         ]
       }
     },
+    "/integration/chat/list": {
+      "get": {
+        "operationId": "listChatIntegrations",
+        "summary": "List Chat integrations",
+        "tags": [
+          "Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the items by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Chat integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "description": "Blueprint properties",
+                        "type": "object",
+                        "properties": {
+                          "alias": {
+                            "type": "string",
+                            "description": "The unique alias for the instance",
+                            "nullable": true
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "botId": {
+                            "type": "string",
+                            "description": "The ID of the bot this configuration is using",
+                            "nullable": true
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint",
+                            "nullable": true
+                          },
+                          "server": {
+                            "description": "The virtual server the agent belongs to",
+                            "type": "string"
+                          },
+                          "handle": {
+                            "description": "The agent's handle inside the server",
+                            "type": "string"
+                          },
+                          "contactCollection": {
+                            "description": "Whether to collect contacts",
+                            "type": "boolean"
+                          },
+                          "sessionDuration": {
+                            "description": "The session duration (in milliseconds)",
+                            "type": "number"
+                          },
+                          "autoRespond": {
+                            "description": "When the bot replies to messages that are not addressed to it. Direct messages from people, direct messages another agent initiates and mentions of the bot always get a reply; another agent's reply in a direct chat is decided by this setting. Leave empty to reply only when addressed, use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "allowFrom": {
+                            "description": "Which groups the agent takes part in and who may message it directly, as",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "description": "Blueprint properties",
+                          "type": "object",
+                          "properties": {
+                            "alias": {
+                              "type": "string",
+                              "description": "The unique alias for the instance",
+                              "nullable": true
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "botId": {
+                              "type": "string",
+                              "description": "The ID of the bot this configuration is using",
+                              "nullable": true
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint",
+                              "nullable": true
+                            },
+                            "server": {
+                              "description": "The virtual server the agent belongs to",
+                              "type": "string"
+                            },
+                            "handle": {
+                              "description": "The agent's handle inside the server",
+                              "type": "string"
+                            },
+                            "contactCollection": {
+                              "description": "Whether to collect contacts",
+                              "type": "boolean"
+                            },
+                            "sessionDuration": {
+                              "description": "The session duration (in milliseconds)",
+                              "type": "number"
+                            },
+                            "autoRespond": {
+                              "description": "When the bot replies to messages that are not addressed to it. Direct messages from people, direct messages another agent initiates and mentions of the bot always get a reply; another agent's reply in a direct chat is decided by this setting. Leave empty to reply only when addressed, use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "allowFrom": {
+                              "description": "Which groups the agent takes part in and who may message it directly, as",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1chat~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listChatIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/create": {
+      "post": {
+        "operationId": "createChatIntegration",
+        "summary": "Create Chat integration",
+        "tags": [
+          "Chat Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
+                "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance",
+                    "nullable": true
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint",
+                    "nullable": true
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using",
+                    "nullable": true
+                  },
+                  "server": {
+                    "description": "The virtual server the agent joins. Every Chat integration of the account with the same server forms one server. Lowercase letters, numbers, hyphens and underscores, up to 64 characters",
+                    "type": "string"
+                  },
+                  "handle": {
+                    "description": "The agent's handle inside the server, unique per server. Lowercase letters, numbers, hyphens and underscores, up to 64 characters; a leading @ is removed",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Whether to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages from people, direct messages another agent initiates and mentions of the bot always get a reply; another agent's reply in a direct chat is decided by this setting. Leave empty to reply only when addressed, use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "allowFrom": {
+                    "description": "Which groups the agent takes part in and who may message it directly. Accepts",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "server",
+                  "handle"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Chat integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Chat Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createChatIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/{chatIntegrationId}/update": {
+      "post": {
+        "operationId": "updateChatIntegration",
+        "summary": "Update a Chat integration",
+        "tags": [
+          "Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Chat integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "type": "object",
+                "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance",
+                    "nullable": true
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint",
+                    "nullable": true
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using",
+                    "nullable": true
+                  },
+                  "server": {
+                    "description": "The virtual server the agent joins. Lowercase letters, numbers, hyphens and underscores, up to 64 characters",
+                    "type": "string"
+                  },
+                  "handle": {
+                    "description": "The agent's handle inside the server, unique per server. Lowercase letters, numbers, hyphens and underscores, up to 64 characters; a leading @ is removed",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Whether to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "When the bot replies to messages that are not addressed to it. Direct messages from people, direct messages another agent initiates and mentions of the bot always get a reply; another agent's reply in a direct chat is decided by this setting. Leave empty to reply only when addressed, use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "allowFrom": {
+                    "description": "Which groups the agent takes part in and who may message it directly. Accepts",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Chat integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Chat Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateChatIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/{chatIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupChatIntegration",
+        "summary": "Setup a Chat integration",
+        "tags": [
+          "Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Chat integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Chat integration was successfully setup",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Chat Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "setupChatIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/{chatIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchChatIntegration",
+        "summary": "Fetch a Chat integration",
+        "tags": [
+          "Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Chat integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Chat integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Blueprint properties",
+                  "type": "object",
+                  "properties": {
+                    "alias": {
+                      "type": "string",
+                      "description": "The unique alias for the instance",
+                      "nullable": true
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "botId": {
+                      "type": "string",
+                      "description": "The ID of the bot this configuration is using",
+                      "nullable": true
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint",
+                      "nullable": true
+                    },
+                    "server": {
+                      "description": "The virtual server the agent belongs to",
+                      "type": "string"
+                    },
+                    "handle": {
+                      "description": "The agent's handle inside the server",
+                      "type": "string"
+                    },
+                    "contactCollection": {
+                      "description": "Whether to collect contacts",
+                      "type": "boolean"
+                    },
+                    "sessionDuration": {
+                      "description": "The session duration (in milliseconds)",
+                      "type": "number"
+                    },
+                    "autoRespond": {
+                      "description": "When the bot replies to messages that are not addressed to it. Direct messages from people, direct messages another agent initiates and mentions of the bot always get a reply; another agent's reply in a direct chat is decided by this setting. Leave empty to reply only when addressed, use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same).",
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "allowFrom": {
+                      "description": "Which groups the agent takes part in and who may message it directly, as",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchChatIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/{chatIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteChatIntegration",
+        "summary": "Delete Chat integration",
+        "tags": [
+          "Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Chat integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Chat integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Chat integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteChatIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/{chatIntegrationId}/session/create": {
+      "post": {
+        "operationId": "createChatIntegrationSession",
+        "summary": "Create a Chat session token for one contact",
+        "description": "A trusted backend calls this with the owner's credentials for a person\nit has signed in. The returned token lets that person's browser send\nto the listed destinations and list their recent messages, and\nnothing else.\n",
+        "tags": [
+          "Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Chat integration the person enters the server through",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "contactId": {
+                    "description": "The contact of the person, as a contact ID or alias, or as a contact object with a fingerprint",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "fingerprint": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string"
+                          },
+                          "phone": {
+                            "type": "string"
+                          },
+                          "nick": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "fingerprint"
+                        ]
+                      }
+                    ]
+                  },
+                  "destinations": {
+                    "description": "The",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "durationInSeconds": {
+                    "description": "How long the token is valid, from 60 to 3600 seconds (default 900)",
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "contactId",
+                  "destinations"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The session token was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "description": "The session token",
+                      "type": "string"
+                    },
+                    "expiresAt": {
+                      "description": "The time the token expires, in milliseconds",
+                      "type": "number"
+                    },
+                    "destinations": {
+                      "description": "The destinations the token may send to and list, normalized and without duplicates",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "token",
+                    "expiresAt",
+                    "destinations"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createChatIntegrationSession",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/{chatIntegrationId}/message/send": {
+      "post": {
+        "operationId": "sendChatIntegrationMessage",
+        "summary": "Send a contact's message to a group or handle of a Chat integration's server",
+        "tags": [
+          "Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Chat integration the contact writes through",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "to": {
+                    "description": "The destination, a",
+                    "type": "string"
+                  },
+                  "text": {
+                    "description": "The message text",
+                    "type": "string"
+                  },
+                  "messageId": {
+                    "description": "An optional UUID chosen by the client for this message. A retry with the same ID and the same message is suppressed while its deduplication state is retained. This is bounded retry suppression, not exactly-once delivery - concurrent retries, a retry after that state expires and a retry after it is evicted can be stored and delivered again",
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "contactId": {
+                    "description": "The contact who sends the message, as a contact ID or alias, or as a contact object with a fingerprint. Required with owner authentication; ignored with a Chat session token, which always sends as its own contact",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "fingerprint": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string"
+                          },
+                          "phone": {
+                            "type": "string"
+                          },
+                          "nick": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "fingerprint"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "to",
+                  "text"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The message was accepted and handed to its recipients",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the message",
+                      "type": "string"
+                    },
+                    "recipients": {
+                      "description": "The agents the message was delivered to",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the recipient's Chat integration",
+                            "type": "string"
+                          },
+                          "handle": {
+                            "description": "The recipient's handle",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "handle"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "recipients"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "sendChatIntegrationMessage",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/{chatIntegrationId}/message/list": {
+      "get": {
+        "operationId": "listChatIntegrationMessages",
+        "summary": "List the recent messages of a group or a direct chat",
+        "tags": [
+          "Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Chat integration",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "group",
+            "schema": {
+              "description": "The group to list, with or without the leading",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "handle",
+            "schema": {
+              "description": "The agent of the direct chat to list, with or without the leading @",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "The contact of the direct chat, with the owner's credentials only",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "since",
+            "schema": {
+              "description": "The cursor of the last message already read; only newer messages are returned",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "description": "The most messages to return, from 1 to 50 (default 50)",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The recent messages were retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "description": "The recent public messages after the cursor, oldest first",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "destination": {
+                            "type": "string"
+                          },
+                          "text": {
+                            "type": "string"
+                          },
+                          "author": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "agent",
+                                  "contact"
+                                ]
+                              },
+                              "handle": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "createdAt": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "cursor": {
+                      "description": "The cursor to pass as since in the next poll, null when there are no messages",
+                      "type": "string",
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listChatIntegrationMessages",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/{chatIntegrationId}/member/list": {
+      "get": {
+        "operationId": "listChatIntegrationMembers",
+        "summary": "List the other members of a Chat integration's server",
+        "tags": [
+          "Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Chat integration",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The members of the server were retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the member's Chat integration",
+                            "type": "string"
+                          },
+                          "handle": {
+                            "description": "The member's handle inside the server",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the member's Chat integration",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the member's Chat integration",
+                            "type": "string"
+                          },
+                          "groups": {
+                            "description": "The groups the member names explicitly in its allowFrom list",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "wildcard": {
+                            "description": "Whether the member's allowFrom list contains *, which makes it take part in every group",
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "handle",
+                          "groups",
+                          "wildcard"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listChatIntegrationMembers",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/chat/{chatIntegrationId}/group/list": {
+      "get": {
+        "operationId": "listChatIntegrationGroups",
+        "summary": "List the groups of a Chat integration's server",
+        "tags": [
+          "Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "chatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Chat integration",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The groups of the server were retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "The name of the group, without the leading",
+                            "type": "string"
+                          },
+                          "handles": {
+                            "description": "The handles that take part in the group, either by naming it or through *",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "handles"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listChatIntegrationGroups",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/file/list": {
       "get": {
         "operationId": "listFiles",
@@ -36556,6 +38097,10 @@
                               "description": "Related MCP server integration ID if applicable",
                               "type": "string"
                             },
+                            "chatIntegrationId": {
+                              "description": "Related Chat integration ID if applicable",
+                              "type": "string"
+                            },
                             "webhookId": {
                               "description": "Related webhook ID if applicable",
                               "type": "string"
@@ -36815,6 +38360,10 @@
                             "description": "Related MCP server integration ID if applicable",
                             "type": "string"
                           },
+                          "chatIntegrationId": {
+                            "description": "Related Chat integration ID if applicable",
+                            "type": "string"
+                          },
                           "webhookId": {
                             "description": "Related webhook ID if applicable",
                             "type": "string"
@@ -36996,6 +38545,10 @@
                             },
                             "mcpserverIntegrationId": {
                               "description": "Related MCP server integration ID if applicable",
+                              "type": "string"
+                            },
+                            "chatIntegrationId": {
+                              "description": "Related Chat integration ID if applicable",
                               "type": "string"
                             },
                             "webhookId": {
@@ -37257,6 +38810,10 @@
                             "description": "Related MCP server integration ID if applicable",
                             "type": "string"
                           },
+                          "chatIntegrationId": {
+                            "description": "Related Chat integration ID if applicable",
+                            "type": "string"
+                          },
                           "webhookId": {
                             "description": "Related webhook ID if applicable",
                             "type": "string"
@@ -37438,6 +38995,10 @@
                             },
                             "mcpserverIntegrationId": {
                               "description": "Related MCP server integration ID if applicable",
+                              "type": "string"
+                            },
+                            "chatIntegrationId": {
+                              "description": "Related Chat integration ID if applicable",
                               "type": "string"
                             },
                             "webhookId": {
@@ -39847,6 +41408,10 @@
                               "type": "string",
                               "description": "The ID of the blueprint",
                               "nullable": true
+                            },
+                            "contactId": {
+                              "description": "The contact associated with the file",
+                              "type": "string"
                             },
                             "visibility": {
                               "type": "string",
