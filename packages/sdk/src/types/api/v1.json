@@ -55266,7 +55266,8 @@
                         }
                       ]
                     },
-                    "$$ref": "#/components/schemas/BotFeatures"
+                    "$$ref": "#/components/schemas/BotFeatures",
+                    "nullable": true
                   }
                 }
               }
@@ -55647,7 +55648,8 @@
                         }
                       ]
                     },
-                    "$$ref": "#/components/schemas/BotFeatures"
+                    "$$ref": "#/components/schemas/BotFeatures",
+                    "nullable": true
                   }
                 }
               }
