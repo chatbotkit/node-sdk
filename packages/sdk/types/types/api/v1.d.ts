@@ -30359,7 +30359,7 @@ export interface operations {
                             /** @description Fetch web pages (defaults to false) */
                             fetch?: boolean;
                         };
-                    })[];
+                    })[] | null;
                 };
             };
         };
@@ -30518,7 +30518,7 @@ export interface operations {
                             /** @description Fetch web pages (defaults to false) */
                             fetch?: boolean;
                         };
-                    })[];
+                    })[] | null;
                 };
             };
         };
