@@ -71,6 +71,10 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {GooglechatIntegrationClient} googlechat client
      */
     googlechat: GooglechatIntegrationClient;
+    /**
+     * @type {ChatIntegrationClient} chat client
+     */
+    chat: ChatIntegrationClient;
 }
 export default IntegrationClient;
 import { ChatBotKitClient } from '../client.js';
@@ -92,3 +96,4 @@ import { SkillServerIntegrationClient } from './skillserver/index.js';
 import { TwilioIntegrationClient } from './twilio/index.js';
 import { MicrosoftteamsIntegrationClient } from './microsoftteams/index.js';
 import { GooglechatIntegrationClient } from './googlechat/index.js';
+import { ChatIntegrationClient } from './chat/index.js';

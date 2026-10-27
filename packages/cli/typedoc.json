@@ -16,6 +16,7 @@
     "./src/command/api/dataset/record/index.js",
     "./src/command/api/file/index.js",
     "./src/command/api/index.js",
+    "./src/command/api/integration/chat/index.js",
     "./src/command/api/integration/discord/index.js",
     "./src/command/api/integration/email/index.js",
     "./src/command/api/integration/extract/index.js",

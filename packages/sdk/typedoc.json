@@ -54,6 +54,8 @@
     "./src/graphql/index.js",
     "./src/graphql/v1.js",
     "./src/index.js",
+    "./src/integration/chat/index.js",
+    "./src/integration/chat/v1.js",
     "./src/integration/discord/index.js",
     "./src/integration/discord/v1.js",
     "./src/integration/email/index.js",

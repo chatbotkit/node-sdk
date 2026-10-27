@@ -317,6 +317,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/chat/{chatIntegrationId}/initiate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Lets the agent of a Chat integration start a message to a group or handle */
+        post: operations["initiateChat"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/user/list": {
         parameters: {
             query?: never;
@@ -4098,6 +4115,200 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/chat/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Chat integrations */
+        get: operations["listChatIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/chat/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Chat integration */
+        post: operations["createChatIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/chat/{chatIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Chat integration */
+        post: operations["updateChatIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/chat/{chatIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup a Chat integration */
+        post: operations["setupChatIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/chat/{chatIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a Chat integration */
+        get: operations["fetchChatIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/chat/{chatIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Chat integration */
+        post: operations["deleteChatIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/chat/{chatIntegrationId}/session/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create a Chat session token for one contact
+         * @description A trusted backend calls this with the owner's credentials for a person
+         *     it has signed in. The returned token lets that person's browser send
+         *     to the listed destinations and list their recent messages, and
+         *     nothing else.
+         *
+         */
+        post: operations["createChatIntegrationSession"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/chat/{chatIntegrationId}/message/send": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Send a contact's message to a group or handle of a Chat integration's server */
+        post: operations["sendChatIntegrationMessage"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/chat/{chatIntegrationId}/message/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List the recent messages of a group or a direct chat */
+        get: operations["listChatIntegrationMessages"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/chat/{chatIntegrationId}/member/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List the other members of a Chat integration's server */
+        get: operations["listChatIntegrationMembers"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/chat/{chatIntegrationId}/group/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List the groups of a Chat integration's server */
+        get: operations["listChatIntegrationGroups"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/file/list": {
         parameters: {
             query?: never;
@@ -7720,6 +7931,47 @@ export interface operations {
         };
         responses: {
             /** @description The discord integration was successfully initiated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the initiated integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    initiateChat: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                chatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The destination, a */
+                    to: string;
+                    /** @description The text instruction the agent writes its message from */
+                    text: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Chat integration was successfully initiated */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -21847,6 +22099,624 @@ export interface operations {
             };
         };
     };
+    listChatIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Chat integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The unique alias for the instance */
+                            alias?: string | null;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string | null;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string | null;
+                            /** @description The virtual server the agent belongs to */
+                            server?: string;
+                            /** @description The agent's handle inside the server */
+                            handle?: string;
+                            /** @description Whether to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                            /** @description When the bot replies to messages that are not addressed to it. Direct messages from people, direct messages another agent initiates and mentions of the bot always get a reply; another agent's reply in a direct chat is decided by this setting. Leave empty to reply only when addressed, use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). */
+                            autoRespond?: string | null;
+                            /** @description Which groups the agent takes part in and who may message it directly, as */
+                            allowFrom?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Blueprint properties */
+                        data: {
+                            /** @description The unique alias for the instance */
+                            alias?: string | null;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string | null;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string | null;
+                            /** @description The virtual server the agent belongs to */
+                            server?: string;
+                            /** @description The agent's handle inside the server */
+                            handle?: string;
+                            /** @description Whether to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                            /** @description When the bot replies to messages that are not addressed to it. Direct messages from people, direct messages another agent initiates and mentions of the bot always get a reply; another agent's reply in a direct chat is decided by this setting. Leave empty to reply only when addressed, use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). */
+                            autoRespond?: string | null;
+                            /** @description Which groups the agent takes part in and who may message it directly, as */
+                            allowFrom?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createChatIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string | null;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string | null;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string | null;
+                    /** @description The virtual server the agent joins. Every Chat integration of the account with the same server forms one server. Lowercase letters, numbers, hyphens and underscores, up to 64 characters */
+                    server: string;
+                    /** @description The agent's handle inside the server, unique per server. Lowercase letters, numbers, hyphens and underscores, up to 64 characters; a leading @ is removed */
+                    handle: string;
+                    /** @description Whether to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                    /** @description When the bot replies to messages that are not addressed to it. Direct messages from people, direct messages another agent initiates and mentions of the bot always get a reply; another agent's reply in a direct chat is decided by this setting. Leave empty to reply only when addressed, use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). */
+                    autoRespond?: string | null;
+                    /** @description Which groups the agent takes part in and who may message it directly. Accepts */
+                    allowFrom?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Chat integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Chat Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    updateChatIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                chatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string | null;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string | null;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string | null;
+                    /** @description The virtual server the agent joins. Lowercase letters, numbers, hyphens and underscores, up to 64 characters */
+                    server?: string;
+                    /** @description The agent's handle inside the server, unique per server. Lowercase letters, numbers, hyphens and underscores, up to 64 characters; a leading @ is removed */
+                    handle?: string;
+                    /** @description Whether to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                    /** @description When the bot replies to messages that are not addressed to it. Direct messages from people, direct messages another agent initiates and mentions of the bot always get a reply; another agent's reply in a direct chat is decided by this setting. Leave empty to reply only when addressed, use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). */
+                    autoRespond?: string | null;
+                    /** @description Which groups the agent takes part in and who may message it directly. Accepts */
+                    allowFrom?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Chat integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Chat Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    setupChatIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                chatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Chat integration was successfully setup */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Chat Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchChatIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                chatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Chat integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The unique alias for the instance */
+                        alias?: string | null;
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string | null;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string | null;
+                        /** @description The virtual server the agent belongs to */
+                        server?: string;
+                        /** @description The agent's handle inside the server */
+                        handle?: string;
+                        /** @description Whether to collect contacts */
+                        contactCollection?: boolean;
+                        /** @description The session duration (in milliseconds) */
+                        sessionDuration?: number;
+                        /** @description When the bot replies to messages that are not addressed to it. Direct messages from people, direct messages another agent initiates and mentions of the bot always get a reply; another agent's reply in a direct chat is decided by this setting. Leave empty to reply only when addressed, use '@all' to reply to every message, '@auto' to let the bot decide from its name, description and backstory, or write instructions describing which messages to reply to ('@agent <instructions>' is accepted and treated the same). */
+                        autoRespond?: string | null;
+                        /** @description Which groups the agent takes part in and who may message it directly, as */
+                        allowFrom?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deleteChatIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                chatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Chat integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Chat integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createChatIntegrationSession: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                chatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The contact of the person, as a contact ID or alias, or as a contact object with a fingerprint */
+                    contactId: string | {
+                        fingerprint: string;
+                        name?: string;
+                        description?: string;
+                        email?: string;
+                        phone?: string;
+                        nick?: string;
+                    };
+                    /** @description The */
+                    destinations: string[];
+                    /** @description How long the token is valid, from 60 to 3600 seconds (default 900) */
+                    durationInSeconds?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The session token was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The session token */
+                        token: string;
+                        /** @description The time the token expires, in milliseconds */
+                        expiresAt: number;
+                        /** @description The destinations the token may send to and list, normalized and without duplicates */
+                        destinations: string[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    sendChatIntegrationMessage: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                chatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The destination, a */
+                    to: string;
+                    /** @description The message text */
+                    text: string;
+                    /**
+                     * Format: uuid
+                     * @description An optional UUID chosen by the client for this message. A retry with the same ID and the same message is suppressed while its deduplication state is retained. This is bounded retry suppression, not exactly-once delivery - concurrent retries, a retry after that state expires and a retry after it is evicted can be stored and delivered again
+                     */
+                    messageId?: string;
+                    /** @description The contact who sends the message, as a contact ID or alias, or as a contact object with a fingerprint. Required with owner authentication; ignored with a Chat session token, which always sends as its own contact */
+                    contactId?: string | {
+                        fingerprint: string;
+                        name?: string;
+                        description?: string;
+                        email?: string;
+                        phone?: string;
+                        nick?: string;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description The message was accepted and handed to its recipients */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the message */
+                        id: string;
+                        /** @description The agents the message was delivered to */
+                        recipients: {
+                            /** @description The ID of the recipient's Chat integration */
+                            id: string;
+                            /** @description The recipient's handle */
+                            handle: string;
+                        }[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listChatIntegrationMessages: {
+        parameters: {
+            query?: {
+                group?: string;
+                handle?: string;
+                contactId?: string;
+                since?: string;
+                limit?: number;
+            };
+            header?: never;
+            path: {
+                chatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The recent messages were retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The recent public messages after the cursor, oldest first */
+                        items: {
+                            id?: string;
+                            destination?: string;
+                            text?: string;
+                            author?: {
+                                /** @enum {string} */
+                                type?: "agent" | "contact";
+                                handle?: string;
+                                name?: string;
+                            };
+                            createdAt?: string;
+                        }[];
+                        /** @description The cursor to pass as since in the next poll, null when there are no messages */
+                        cursor: string | null;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listChatIntegrationMembers: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                chatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The members of the server were retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The ID of the member's Chat integration */
+                            id: string;
+                            /** @description The member's handle inside the server */
+                            handle: string;
+                            /** @description The name of the member's Chat integration */
+                            name?: string;
+                            /** @description The description of the member's Chat integration */
+                            description?: string;
+                            /** @description The groups the member names explicitly in its allowFrom list */
+                            groups: string[];
+                            /** @description Whether the member's allowFrom list contains *, which makes it take part in every group */
+                            wildcard: boolean;
+                        }[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listChatIntegrationGroups: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                chatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The groups of the server were retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The name of the group, without the leading */
+                            name: string;
+                            /** @description The handles that take part in the group, either by naming it or through * */
+                            handles: string[];
+                        }[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     listFiles: {
         parameters: {
             query?: {
@@ -22398,6 +23268,8 @@ export interface operations {
                             extractIntegrationId?: string;
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
+                            /** @description Related Chat integration ID if applicable */
+                            chatIntegrationId?: string;
                             /** @description Related webhook ID if applicable */
                             webhookId?: string;
                         };
@@ -22509,6 +23381,8 @@ export interface operations {
                             extractIntegrationId?: string;
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
+                            /** @description Related Chat integration ID if applicable */
+                            chatIntegrationId?: string;
                             /** @description Related webhook ID if applicable */
                             webhookId?: string;
                         }[];
@@ -22595,6 +23469,8 @@ export interface operations {
                             extractIntegrationId?: string;
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
+                            /** @description Related Chat integration ID if applicable */
+                            chatIntegrationId?: string;
                             /** @description Related webhook ID if applicable */
                             webhookId?: string;
                         };
@@ -22706,6 +23582,8 @@ export interface operations {
                             extractIntegrationId?: string;
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
+                            /** @description Related Chat integration ID if applicable */
+                            chatIntegrationId?: string;
                             /** @description Related webhook ID if applicable */
                             webhookId?: string;
                         }[];
@@ -22792,6 +23670,8 @@ export interface operations {
                             extractIntegrationId?: string;
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
+                            /** @description Related Chat integration ID if applicable */
+                            chatIntegrationId?: string;
                             /** @description Related webhook ID if applicable */
                             webhookId?: string;
                         };
@@ -23739,6 +24619,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the blueprint */
                             blueprintId?: string | null;
+                            /** @description The contact associated with the file */
+                            contactId?: string;
                             /**
                              * @description The file visibility
                              * @enum {string}
@@ -28421,7 +29303,7 @@ export interface operations {
                              * @description The last known state of the computer
                              * @enum {string}
                              */
-                            status?: "stopped" | "running";
+                            status?: "stopped" | "running" | "suspended";
                             /**
                              * Format: date-time
                              * @description When the computer was last started, stopped or provisioned
@@ -28468,7 +29350,7 @@ export interface operations {
                              * @description The last known state of the computer
                              * @enum {string}
                              */
-                            status?: "stopped" | "running";
+                            status?: "stopped" | "running" | "suspended";
                             /**
                              * Format: date-time
                              * @description When the computer was last started, stopped or provisioned
@@ -28712,7 +29594,7 @@ export interface operations {
                          * @description The state of the computer
                          * @enum {string}
                          */
-                        status: "stopped" | "running";
+                        status: "stopped" | "running" | "suspended";
                     };
                 };
             };
@@ -28753,7 +29635,7 @@ export interface operations {
                          * @description The state of the computer
                          * @enum {string}
                          */
-                        status: "stopped" | "running";
+                        status: "stopped" | "running" | "suspended";
                     };
                 };
             };
@@ -28794,7 +29676,7 @@ export interface operations {
                          * @description The state of the computer
                          * @enum {string}
                          */
-                        status: "stopped" | "running";
+                        status: "stopped" | "running" | "suspended";
                     };
                 };
             };
@@ -28854,7 +29736,7 @@ export interface operations {
                          * @description The last known state of the computer
                          * @enum {string}
                          */
-                        status?: "stopped" | "running";
+                        status?: "stopped" | "running" | "suspended";
                         /**
                          * Format: date-time
                          * @description When the computer was last started, stopped or provisioned

@@ -31,6 +31,9 @@ export type CbkAbilityName = 'abort'
   | 'bot/call[by-id]'
   | 'bot/call[multi]'
   | 'bot/list'
+  | 'chat/group/list[by-id]'
+  | 'chat/member/list[by-id]'
+  | 'chat/message/initiate[by-id]'
   | 'conversation/fetch[bot][by-id]'
   | 'conversation/fetch[by-id]'
   | 'conversation/fetch[contact][by-id]'
@@ -90,6 +93,15 @@ export type CbkAbilityName = 'abort'
   | 'image/modify[gpt-image-1.5]'
   | 'image/modify[gpt-image-1]'
   | 'image/modify[gpt-image-2]'
+  | 'journal/read'
+  | 'journal/read[bot]'
+  | 'journal/read[contact]'
+  | 'journal/search'
+  | 'journal/search[bot]'
+  | 'journal/search[contact]'
+  | 'journal/write'
+  | 'journal/write[bot]'
+  | 'journal/write[contact]'
   | 'list/pop'
   | 'list/push'
   | 'list/read'
@@ -125,8 +137,10 @@ export type CbkAbilityName = 'abort'
   | 'pack/cbk/space/skills[authoring]'
   | 'pack/cbk/space/storage'
   | 'pack/cbk/space/storage[read-only]'
+  | 'pack/computer'
   | 'pack/file'
   | 'pack/file[by-id]'
+  | 'pack/journal'
   | 'pack/memory'
   | 'pack/rating'
   | 'pack/rating[by-bot-id]'
@@ -424,6 +438,25 @@ export type BotCallMultiParameters = {
 export type BotListParameters = {
  /** optional limit on the number of bots to return */
   take?: number
+}
+
+export type ChatGroupListByIdParameters = {
+ /** The ID of the Chat integration of this agent */
+  chatIntegrationId: string
+}
+
+export type ChatMemberListByIdParameters = {
+ /** The ID of the Chat integration of this agent */
+  chatIntegrationId: string
+}
+
+export type ChatMessageInitiateByIdParameters = {
+ /** The ID of the Chat integration of this agent */
+  chatIntegrationId: string
+ /** 'The destination, a #group or an @handle of the server' */
+  to: string
+ /** The instruction telling the agent what to write in its message */
+  text: string
 }
 
 export type ConversationFetchBotByIdParameters = {
@@ -835,6 +868,87 @@ export type ImageModifyGptImage2Parameters = {
   image_url: string
 }
 
+export type JournalReadParameters = {
+ /** only entries created at or after this ISO 8601 date */
+  since?: string
+ /** only entries created before this ISO 8601 date */
+  until?: string
+ /** only entries from this source */
+  source?: string
+ /** maximum number of entries to return, at most 50 */
+  limit: number
+}
+
+export type JournalReadBotParameters = {
+ /** only entries created at or after this ISO 8601 date */
+  since?: string
+ /** only entries created before this ISO 8601 date */
+  until?: string
+ /** only entries from this source */
+  source?: string
+ /** maximum number of entries to return, at most 50 */
+  limit: number
+}
+
+export type JournalReadContactParameters = {
+ /** only entries created at or after this ISO 8601 date */
+  since?: string
+ /** only entries created before this ISO 8601 date */
+  until?: string
+ /** only entries from this source */
+  source?: string
+ /** maximum number of entries to return, at most 50 */
+  limit: number
+}
+
+export type JournalSearchParameters = {
+ /** the text to search for in entry titles and texts */
+  query: string
+ /** maximum number of entries to return, at most 50 */
+  limit: number
+}
+
+export type JournalSearchBotParameters = {
+ /** the text to search for in entry titles and texts */
+  query: string
+ /** maximum number of entries to return, at most 50 */
+  limit: number
+}
+
+export type JournalSearchContactParameters = {
+ /** the text to search for in entry titles and texts */
+  query: string
+ /** maximum number of entries to return, at most 50 */
+  limit: number
+}
+
+export type JournalWriteParameters = {
+ /** a short title of what happened, at most 200 characters */
+  title: string
+ /** a short outcome or detail, at most 1000 characters */
+  text?: string
+ /** where the entry comes from, e.g. chat, heartbeat or task */
+  source?: string
+}
+
+export type JournalWriteBotParameters = {
+ /** a short title of what happened, at most 200 characters */
+  title: string
+ /** a short outcome or detail, at most 1000 characters */
+  text?: string
+ /** where the entry comes from, e.g. chat, heartbeat or task */
+  source?: string
+}
+
+export type JournalWriteContactParameters = {
+ /** a short title of what happened, at most 200 characters */
+  title: string
+ /** a short outcome or detail, at most 1000 characters */
+  text?: string
+ /** where the entry comes from, e.g. chat, heartbeat or task */
+  source?: string
+}
+
 export type ListPopParameters = {
  /** stable name of the bot-scoped list */
   listName: string
@@ -996,9 +1110,13 @@ export type PackCbkSpaceStorageParameters = Record<string, never>
 
 export type PackCbkSpaceStorageReadOnlyParameters = Record<string, never>
 
+export type PackComputerParameters = Record<string, never>
+
 export type PackFileParameters = Record<string, never>
 
 export type PackFileByIdParameters = Record<string, never>
+
+export type PackJournalParameters = Record<string, never>
 
 export type PackMemoryParameters = Record<string, never>
 
@@ -1606,6 +1724,8 @@ export type TaskCreateParameters = {
   maxTime?: string
  /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
   sessionDuration?: string
+ /** optional - set to true to be notified in this conversation when the task completes or fails, so you can report the outcome; use it for background work the user is waiting on */
+  notify?: boolean
 }
 
 export type TaskCreateByBotIdParameters = {
@@ -1623,6 +1743,8 @@ export type TaskCreateByBotIdParameters = {
   maxTime?: string
  /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
   sessionDuration?: string
+ /** optional - set to true to be notified in this conversation when the task completes or fails, so you can report the outcome; use it for background work the user is waiting on */
+  notify?: boolean
 }
 
 export type TaskCreateContactParameters = {
@@ -1638,6 +1760,8 @@ export type TaskCreateContactParameters = {
   maxTime?: string
  /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
   sessionDuration?: string
+ /** optional - set to true to be notified in this conversation when the task completes or fails, so you can report the outcome; use it for background work the user is waiting on */
+  notify?: boolean
 }
 
 export type TaskCreateContactByBotIdParameters = {
@@ -1655,6 +1779,8 @@ export type TaskCreateContactByBotIdParameters = {
   maxTime?: string
  /** optional session duration controlling conversation reuse across runs, like "1 hour" (or milliseconds); 0 = fresh conversation each run */
   sessionDuration?: string
+ /** optional - set to true to be notified in this conversation when the task completes or fails, so you can report the outcome; use it for background work the user is waiting on */
+  notify?: boolean
 }
 
 export type TaskDeleteParameters = {
@@ -2056,6 +2182,21 @@ export interface CbkAbilityRegistry {
     description: 'List all available bots for the current user account'
     parameters: BotListParameters
   }
+  'chat/group/list[by-id]': {
+    name: 'List Chat Groups'
+    description: 'Lists the groups of the Chat server of this agent and the handles that take part in each one.'
+    parameters: ChatGroupListByIdParameters
+  }
+  'chat/member/list[by-id]': {
+    name: 'List Chat Members'
+    description: 'Lists the other agents in the Chat server of this agent, with the groups each one takes part in.'
+    parameters: ChatMemberListByIdParameters
+  }
+  'chat/message/initiate[by-id]': {
+    name: 'Initiate Chat Message'
+    description: 'Lets this agent start a message to a #group or an @handle of its Chat server, written by the agent from an instruction.'
+    parameters: ChatMessageInitiateByIdParameters
+  }
   'conversation/fetch[bot][by-id]': {
     name: 'Fetch Conversation'
     description: 'Fetch details of a specific conversation'
@@ -2351,6 +2492,51 @@ export interface CbkAbilityRegistry {
     description: 'Create a new image from previous input images using the GPT Image 2 model.'
     parameters: ImageModifyGptImage2Parameters
   }
+  'journal/read': {
+    name: 'Read Journal'
+    description: 'Read the most recent bot journal entries, optionally filtered by date or source'
+    parameters: JournalReadParameters
+  }
+  'journal/read[bot]': {
+    name: 'Read Journal'
+    description: 'Read the most recent bot journal entries, optionally filtered by date or source'
+    parameters: JournalReadBotParameters
+  }
+  'journal/read[contact]': {
+    name: 'Read Journal'
+    description: 'Read the most recent bot journal entries, optionally filtered by date or source'
+    parameters: JournalReadContactParameters
+  }
+  'journal/search': {
+    name: 'Search Journal'
+    description: 'Search the bot journal entries by title and text'
+    parameters: JournalSearchParameters
+  }
+  'journal/search[bot]': {
+    name: 'Search Journal'
+    description: 'Search the bot journal entries by title and text'
+    parameters: JournalSearchBotParameters
+  }
+  'journal/search[contact]': {
+    name: 'Search Journal'
+    description: 'Search the bot journal entries by title and text'
+    parameters: JournalSearchContactParameters
+  }
+  'journal/write': {
+    name: 'Write Journal Entry'
+    description: 'Record what happened in the bot journal'
+    parameters: JournalWriteParameters
+  }
+  'journal/write[bot]': {
+    name: 'Write Journal Entry'
+    description: 'Record what happened in the bot journal'
+    parameters: JournalWriteBotParameters
+  }
+  'journal/write[contact]': {
+    name: 'Write Journal Entry'
+    description: 'Record what happened in the bot journal'
+    parameters: JournalWriteContactParameters
+  }
   'list/pop': {
     name: 'Pop From List'
     description: 'Remove and return an item from the start or end of a bot-scoped temporary Redis list.'
@@ -2526,6 +2712,11 @@ export interface CbkAbilityRegistry {
     description: 'Installs read-only space storage tools into the conversation. You can list, read, search, and link files in the linked space without modification.'
     parameters: PackCbkSpaceStorageReadOnlyParameters
   }
+  'pack/computer': {
+    name: 'Install Computer Tools'
+    description: 'Installs tools into the conversation to work on the linked computer: run commands, read, write and edit files, import URLs and share the desktop.'
+    parameters: PackComputerParameters
+  }
   'pack/file': {
     name: 'Install File Tools'
     description: 'Installs tools to read, write, prepend, append, and replace content in the specified file.'
@@ -2535,6 +2726,11 @@ export interface CbkAbilityRegistry {
     name: 'Install File Tools'
     description: 'Installs file tools into the conversation to read, write, prepend, append, and replace content in files by specifying the file ID.'
     parameters: PackFileByIdParameters
+  }
+  'pack/journal': {
+    name: 'Install Journal Tools'
+    description: 'Installs journal tools into the conversation. You can write, read and search entries in the bot journal, shared across conversations, with the entries of each contact kept separate.'
+    parameters: PackJournalParameters
   }
   'pack/memory': {
     name: 'Install Memory Tools'
